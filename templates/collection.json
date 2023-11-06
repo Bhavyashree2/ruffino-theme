@@ -34,8 +34,6 @@
         "mobile-height": "40vh",
         "background-type": "Image",
         "background-color": "",
-        "background-image-desktop": "shopify:\/\/shop_images\/Ruffino_Bottle_in_the_hand_04_2x_52e1d164-3243-4402-87e0-4443dc72584b.png",
-        "background-image-mobile": "shopify:\/\/shop_images\/Ruffino_Bottle_in_the_hand_04_mobile.png",
         "bg-img-alt-text": "",
         "overlay_desktop": false,
         "overlay_mobile": false,
@@ -72,8 +70,7 @@
         "enable_sorting": false,
         "padding_top": 0,
         "padding_bottom": 36,
-        "featured_product": "greppone-mazzi",
-        "featured_img": "shopify:\/\/shop_images\/Ruffino_Instant-Connection_33.jpg"
+        "featured_product": "greppone-mazzi"
       }
     },
     "ee23be84-b4e3-4293-bb43-919c1f80574b": {
@@ -94,7 +91,6 @@
           "type": "slide",
           "settings": {
             "title": "POGGIO CASCIANO",
-            "img": "shopify:\/\/shop_images\/3_6b64bf42-9183-4f9f-8f1b-475a41a2e4ba.jpg",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus. Pellentesque sed mauris a metus maximus.",
             "btn-txt": "More",
             "url": "#"
@@ -104,7 +100,6 @@
           "type": "slide",
           "settings": {
             "title": "MONTEMASSO",
-            "img": "shopify:\/\/shop_images\/Senza_nome.jpg",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus. Pellentesque sed mauris a metus maximus.",
             "btn-txt": "More",
             "url": "#"
@@ -114,7 +109,6 @@
           "type": "slide",
           "settings": {
             "title": "SANTEDAME",
-            "img": "shopify:\/\/shop_images\/2.jpg",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus. Pellentesque sed mauris a metus maximus.",
             "btn-txt": "More",
             "url": "#"
@@ -124,7 +118,6 @@
           "type": "slide",
           "settings": {
             "title": "GRETOLE",
-            "img": "shopify:\/\/shop_images\/919d578d67ade6fda0d1ae68e1c8cfe7.jpg",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus. Pellentesque sed mauris a metus maximus.",
             "btn-txt": "More",
             "url": "#"
@@ -134,7 +127,6 @@
           "type": "slide",
           "settings": {
             "title": "GREPPONE MAZZI",
-            "img": "shopify:\/\/shop_images\/4.jpg",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus. Pellentesque sed mauris a metus maximus.",
             "btn-txt": "More",
             "url": "#"
@@ -144,7 +136,6 @@
           "type": "slide",
           "settings": {
             "title": "LA SOLATìA",
-            "img": "shopify:\/\/shop_images\/vineyard_a6610b3f-eacf-4806-b658-b81027798985.jpg",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus. Pellentesque sed mauris a metus maximus.",
             "btn-txt": "More",
             "url": "#"
@@ -185,6 +176,67 @@
         "newsletter_button_bg_color": "#4d4c7d",
         "newsletter_button_text_color": "#ffffff"
       }
+    },
+    "75cacda5-bf9c-4ba6-9ba2-e6203c023925": {
+      "type": "awards",
+      "blocks": {
+        "ac4c37fc-8c72-4384-bfd4-16730045b481": {
+          "type": "column",
+          "settings": {
+            "awardyear": "",
+            "noaward": "",
+            "awarddesp": "",
+            "awardname": ""
+          }
+        },
+        "83305c28-006a-4fb8-aa8d-5521ee10c963": {
+          "type": "column",
+          "settings": {
+            "awardyear": "",
+            "noaward": "",
+            "awarddesp": "",
+            "awardname": ""
+          }
+        },
+        "af222721-56a0-4ae6-87e6-76b1173d1378": {
+          "type": "column",
+          "settings": {
+            "awardyear": "",
+            "noaward": "",
+            "awarddesp": "",
+            "awardname": ""
+          }
+        },
+        "11f32642-b1a6-419a-b86c-c16ed5adcaf2": {
+          "type": "column",
+          "settings": {
+            "awardyear": "",
+            "noaward": "",
+            "awarddesp": "",
+            "awardname": ""
+          }
+        },
+        "40cf2fb6-d5c5-4471-a39b-3c8370124832": {
+          "type": "column",
+          "settings": {
+            "awardyear": "",
+            "noaward": "",
+            "awarddesp": "",
+            "awardname": ""
+          }
+        }
+      },
+      "block_order": [
+        "ac4c37fc-8c72-4384-bfd4-16730045b481",
+        "83305c28-006a-4fb8-aa8d-5521ee10c963",
+        "af222721-56a0-4ae6-87e6-76b1173d1378",
+        "11f32642-b1a6-419a-b86c-c16ed5adcaf2",
+        "40cf2fb6-d5c5-4471-a39b-3c8370124832"
+      ],
+      "settings": {
+        "headingcolor": "#FFFFFF",
+        "title": "AWARDS"
+      }
     }
   },
   "order": [
@@ -194,6 +246,7 @@
     "product-grid",
     "ee23be84-b4e3-4293-bb43-919c1f80574b",
     "4be08e52-1732-4089-a1fc-4c1404380938",
-    "2aca5254-be82-4a08-a90f-95835f4631ce"
+    "2aca5254-be82-4a08-a90f-95835f4631ce",
+    "75cacda5-bf9c-4ba6-9ba2-e6203c023925"
   ]
 }

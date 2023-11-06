@@ -1,0 +1,111 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding tw-text-black tw-w-9/12 tw-m-auto mobile:tw-w-[90%] tw-text-justify">
+  <h1 class="tw-text-center tw-mb-[4rem] tw-text-black tw-font-made-saonara tw-tracking-normal tw-font-semibold tw-text-[#231f20] tw-uppercase tw-leading-[55px] tw-text-[55px] mobile:tw-leading-normal mobile:tw-text-[35px] mobile:tw-mb-[2rem]">
+    {{ page.title | escape }}
+  </h1>
+  <div class="tw-text-black tw-font-neutraface-display-light tw-not-italic tw-font-semibold tw-text-[20px] tw-leading-normal tw-tracking-[0.38px]">
+    {{ page.content }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-page.name",
+  "tag": "section",
+  "class": "privacy-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .privacy-section ul {
+    margin-bottom: 1.3em;
+    padding-left: 20px;
+    box-sizing: border-box;
+    display: block;
+    list-style-type: disc;
+}
+.privacy-section ul li {
+    margin-bottom: 8px;
+    list-style-type: disc;
+}
+.privacy-section h2 {
+    font-size: 29px;
+    letter-spacing: 0em;
+    line-height: 37.7px;
+    margin-top: 29px;
+    margin-bottom: 29px;
+    color: black;
+    font-family: 'Neutraface Display Bold';
+}
+span>a {
+  {% comment %} color: #4d4c7d; {% endcomment %}
+}
+.otnotice-content {
+  padding: 0 !important;
+}
+.privacy-section a {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+table:not([class]) {
+  border: 2px;
+}
+@media screen and (max-width: 640px) {
+  .privacy-section h2 {
+    hyphens: auto;
+    font-size: 24px;
+    letter-spacing: 0px;
+  }
+  .otnotice-content .otnotice-sections .otnotice-section-content li {
+    word-break: break-word;
+  }
+}
+</style>
+
+<script>
+  setTimeout(() => {   
+  //for ADA, added attribute over anchor
+    $('.privacy-section a strong').each(function() {
+      if($(this).html() == "click here") {
+        $(this).parent().attr("aria-label" , "click here to know how to manage privacy and storage settings for Flash LSOs");
+       }
+    });
+  //for ADA Removing empty anchor
+    $('.privacy-section a').each(function() {
+      if($(this).html() == "&nbsp;") {
+        $(this).replaceWith(" ")
+       }
+    });
+  }, 3000);
+</script>

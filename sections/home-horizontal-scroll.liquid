@@ -1,0 +1,332 @@
+<style>
+   
+    .home-slider .home-slide  {     
+        padding-left: 12px;
+    }
+
+    .slick-slider.home-slider .slick-slide:first-child {      
+        padding-left: 118px;
+    }
+
+    #home-slider-{{ section.id }} .slick-track.single-page {
+        max-width: 100%;
+        display: flex;
+        justify-content: center;    
+        transform: none !important;
+    }
+    
+    #home-slider-{{ section.id }} .slick-track.single-page .slick-slide:first-child {
+        padding-left: 0;
+    }
+
+    @media(max-width: 767px) {
+
+        .home-slider .home-slide {     
+            padding-left:6px;
+            padding-right:6px;
+        }
+
+        .slick-slider.home-slider .slick-slide:first-child {      
+            padding-left: 0;
+        }
+   
+    } 
+    .horizontal-heading h2.heading-2 {
+        transition-timing-function: cubic-bezier(.66,.39,.21,.67);
+        transition-delay: 500ms;
+    }
+    .horizontal-heading h2.heading-2:hover {
+        transform: translateX(-100%);
+    }
+</style>
+{% if section.settings.title != blank %}
+<div class="horizontal-heading tw-pl-[36px] mobile:tw-mt-16">
+    <div class="tw-relative tw-overflow-hidden">
+        <div class="mobile:tw-relative mobile:tw-overflow-hidden">
+            <h2 id="horizontal-heading-div" class="heading-2 js-show-on-scroll tw-animate-reverse tw-transition-transform tw-duration-[2s] tw-pl-[70px] tw-font-made-saonara tw-tracking-normal tw-leading-[135px] tw-text-[135px] tw-font-normal tw-text-[#231f20] tw-uppercase tw-whitespace-nowrap mobile:tw-leading-[107px] mobile:tw-text-[90px]" data-animate-type aria-hidden="true">{{ section.settings.title }}</h2>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="home-slider tw-flex tw-justify-center tw-relative tw-w-full tw-max-w-[100vw] !tw-overflow-hidden tw-my-12 tw-mt-24 mobile:tw-mt-16 mobile:tw-pl-[18px]" id="home-slider-{{ section.id }}">
+    
+    <div class="mobile-thumb tw-hidden tw-justify-center tw-w-[70px] tw-h-[33px] tw-bg-black/75 tw-absolute tw-rounded-[33px] tw-z-[1] tw-right-[30px] tw-top-1/2 mobile:tw-flex">
+        
+        <?xml version="1.0" encoding="UTF-8"?>
+            <svg enable-background="new 0 0 221 221" version="1.1" viewBox="0 0 221 221" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="tw-scale-[-1] tw-w-[33px] tw-h-[33px]">     
+            <style type="text/css">                                   
+                .st2{fill:none;stroke:white;stroke-width:6;stroke-miterlimit:10;}
+            </style>           
+            <image transform="matrix(3.3321 0 0 3.3321 -66.456 -56.132)" width="117" height="94" display="none" overflow="visible" xlink:href="6959470A.jpg">
+            </image>
+            <line class="st2" x1="70.4" x2="150.6" y1="110.5" y2="110.5"/>
+            <path class="st2" d="m110.8 83.9s21.7 26.6 39.5 26.6"/>
+            <path class="st2" d="m110.2 137.1s22-26.6 40.1-26.6"/>            
+        </svg>
+
+        <?xml version="1.0" encoding="UTF-8"?>
+            <svg enable-background="new 0 0 221 221" version="1.1" viewBox="0 0 221 221" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="tw-w-[33px] tw-h-[33px] tw-ml-[-14px]">
+            <style type="text/css">                                   
+                .st2{fill:none;stroke:white;stroke-width:6;stroke-miterlimit:10;}
+            </style>
+            <image transform="matrix(3.3321 0 0 3.3321 -66.456 -56.132)" width="117" height="94" display="none" overflow="visible" xlink:href="6959470A.jpg">
+            </image>
+            <line class="st2" x1="70.4" x2="150.6" y1="110.5" y2="110.5"/>
+            <path class="st2" d="m110.8 83.9s21.7 26.6 39.5 26.6"/>
+            <path class="st2" d="m110.2 137.1s22-26.6 40.1-26.6"/>            
+            </svg>
+
+    </div>
+    {% for block in section.blocks %}  
+
+        <div class="home-slide tw-pl-[12px]">
+            <h3 class="tw-flex tw-items-end tw-w-[342px] tw-font-made-saonara tw-font-normal tw-text-black tw-text-4xl tw-uppercase tw-mb-3 mobile:tw-w-[300px]"> 
+                {{ block.settings.title }}
+            </h3>
+            <div class="tw-w-[342px] tw-h-[400px] tw-overflow-hidden mobile:tw-w-[300px] mobile:tw-h-[348px]">
+                <a href="{{ block.settings.url }}" aria-label="{{ block.settings.title }} More" class="tw-block tw-w-full tw-h-full focus-visible:tw-p-0.5 focus-visible:tw-border-4  tw-border-black" tabindex="0">
+                    <img src="{{ block.settings.img | img_url: 'x440' }}" alt="{{ block.settings.title }}" class="tw-h-full tw-w-full tw-object-cover hover:tw-h-[110%] hover:tw-w-[110%] tw-transition-all tw-duration-200 tw-ease-in" loading="lazy">
+                </a>
+            </div>
+            <p class="tw-w-[342px] tw-font-neutraface-display-light tw-text-black tw-text-xl tw-mt-7 mobile:tw-w-[300px]">{{ block.settings.text }}</p>
+
+            {% if block.settings.url %}
+
+                <a href="{{ block.settings.url }}" aria-label="{{ block.settings.title }} More"
+                class="more-btn tw-flex tw-justify-between tw-items-center tw-pl-3 tw-font-neutraface-display-bold tw-text-black tw-text-xs tw-uppercase tw-mt-10 tw-mb-[8px] tw-w-[100px] tw-h-[33px] tw-rounded-[33px] hover:tw-bg-black hover:tw-text-white tw-transition-all tw-duration-200 tw-ease-in mobile:tw-mt-7 slide-{{ forloop.index }}   focus-visible:tw-bg-black focus-visible:tw-text-white" tabindex="0">
+                    {{ block.settings.btn-txt }}
+                    <?xml version="1.0" encoding="UTF-8"?>
+                        <svg enable-background="new 0 0 221 221" version="1.1" viewBox="0 0 221 221" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="tw-w-[33px] tw-h-[33px]">
+                        <style type="text/css"> 
+                            .slide-{{ forloop.index }}:hover svg path,
+                            .slide-{{ forloop.index }}:hover svg line,
+                            .slide-{{ forloop.index }}:focus-visible svg path,
+                            .slide-{{ forloop.index }}:focus-visible svg line { stroke: white;}                            
+                            .st0{fill:none;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+                        </style>
+                        <image transform="matrix(3.3321 0 0 3.3321 -66.456 -56.132)" width="117" height="94" display="none" overflow="visible" xlink:href="6959470A.jpg">
+                        </image>
+                        <line class="st0" x1="70.4" x2="150.6" y1="110.5" y2="110.5"/>
+                        <path class="st0" d="m110.8 83.9s21.7 26.6 39.5 26.6"/>
+                        <path class="st0" d="m110.2 137.1s22-26.6 40.1-26.6"/>
+                        <circle class="st0" cx="110.5" cy="110.5" r="107.5"/>
+                        </svg>
+                </a>
+
+            {% endif %}
+
+        </div>
+
+    {% endfor %}   
+
+</div>
+ 
+<div class="progress-{{ section.id }} tw-block tw-relative tw-f-full tw-h-[1px] tw-bg-black tw-mb-7 tw-mt-14 tw-ml-[118px] mobile:tw-ml-[18px] mobile:tw-mt-10">   
+<div class="progress-bar !tw-block tw-absolute tw-transition-all tw-duration-200 tw-ease-in tw-bg-black tw-h-[3px] tw-top-[-1px]" aria-label="progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>    
+</div>  
+
+{% comment %} Hidden but referenced in JS {% endcomment %}
+<div id="progress-{{ section.id }}" class="tw-ml-[118px] mobile:tw-ml-[18px] !tw-hidden">
+</div>
+
+<script>
+
+    $(document).ready(function() {
+
+        var $slider = $('#home-slider-{{ section.id }}');
+        
+         $slider.on('setPosition', function(event, slick, currentSlide){
+            var numItems = $('#progress-{{ section.id }} li[role=presentation]').length;
+            var activeDot = $('#progress-{{ section.id }} li[role=presentation].slick-active').text();
+            var percentBar = (activeDot / numItems) * 100;
+            $('.progress-{{ section.id }} .progress-bar').css('width',percentBar + '%')
+            //alert(activeDot + '/' + numItems + ':' + percentBar);
+        });
+ 
+        $('#home-slider-{{ section.id }}').slick({    
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            dots: true,
+            centerMode: false,
+            variableWidth: true,
+            infinite: false,
+            arrows: false,
+            accessibility: true,        
+            slide: '.home-slide', 
+            appendDots: $('#progress-{{ section.id }}'),   
+            responsive: [                 
+                {
+                    breakpoint: 1800,
+                    settings: {                 
+                        slidesToShow: 4,
+                        slidesToScroll: 1
+                    }       
+                },    
+                {
+                    breakpoint: 1520,
+                    settings: {                 
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }       
+                },     
+                {
+                    breakpoint: 1100,
+                    settings: {                 
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }       
+                },       
+                {
+                    breakpoint: 600,
+                    settings: {                 
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }       
+                }
+            ]         
+        }); 
+
+        $('#home-slider-{{ section.id }}').on('setPosition', function(event, slick, currentSlide){     
+            
+            $('.home-slide').removeAttr('tabindex');
+          
+            var noDots = $("#progress-{{ section.id }} ul.slick-dots li").length           
+            if (noDots <= 1) {
+                $(".progress-{{ section.id }}").hide();    
+                $("#home-slider-{{ section.id }} .slick-track").addClass('single-page');   
+            } else {
+                $(".progress-{{ section.id }}").show();    
+                $("#home-slider-{{ section.id }} .slick-track").removeClass('single-page');  
+            }   
+            
+            $('#home-slider-{{ section.id }} p').each(function() {
+                 maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
+            });
+  
+            $('#home-slider-{{ section.id }} p').each(function() {
+                $(this).height(maxHeight);
+            });     
+        });
+        
+        $(window).on( "resize", function() {
+             $('.home-slide').removeAttr('tabindex');
+            var noDots = $("#progress-{{ section.id }} ul.slick-dots li").length           
+            if (noDots <= 1) { 
+                $(".progress-{{ section.id }}").hide();    
+                $("#home-slider-{{ section.id }} .slick-track").addClass('single-page');   
+            } else {
+                $(".progress-{{ section.id }}").show();    
+                $("#home-slider-{{ section.id }} .slick-track").removeClass('single-page');  
+            }      
+        });
+
+        if ($(window).width() > 1199) {
+
+            $('#home-slider-{{ section.id }}').on('afterChange', function(event, slick, currentSlide) {
+
+                if (slick.currentSlide >= slick.slideCount - slick.options.slidesToShow) {
+
+                    $('.slick-track').animate({
+
+                        left : "150px"
+
+                    }, 300);
+
+                }else{
+
+                    $('.slick-track').animate({
+
+                        left : "0"
+
+                    }, 300);
+
+                }
+
+            })
+
+        }
+
+        var maxHeight = -1;
+
+        $('#home-slider-{{ section.id }} h3').each(function() {
+          maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
+        });
+     
+        $('#home-slider-{{ section.id }} h3').each(function() {
+          $(this).height(maxHeight);
+        });
+
+        var thumbPos = $('#home-slider-{{ section.id }} h3').height() + ($('#home-slider-{{ section.id }} img').height() / 2) - ($('#home-slider-{{ section.id }} .mobile-thumb').height() / 3);
+
+        $('#home-slider-{{ section.id }} .mobile-thumb').css('top',thumbPos)
+
+
+        /* Start of heading animation script */
+        var headingdiv = document.getElementById("horizontal-heading-div");
+        if ($(window).width() <= 767) {
+            headingdiv.dataset.animateType = "tw-animate-stripmarqueemobile";
+        } else {
+            headingdiv.dataset.animateType = "";
+        }
+        /* End of heading animation script */
+
+      });
+
+</script>
+
+{% schema %} 
+{
+   "name":"Home horizontal scroll",
+   "class":"home-horizontal-scroll",
+   "settings":[  
+    {
+        "type" : "text",
+        "id" : "title",
+        "label" : "Title"
+    }      
+   ],  
+   "blocks": [
+        {
+        "name": "Slide",
+        "type": "slide",
+        "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Title"
+        },
+        {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image"
+        },
+        {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text",
+            "default": "Description text"
+        },
+        {
+            "type": "text",
+            "id": "btn-txt",
+            "label": "Button text",
+            "default": "More"
+        },
+        {
+            "type": "url",
+            "id": "url",
+            "label": "Button URL"
+        }
+      ]
+    }  
+ ],
+   "presets":[
+      {
+         "name":"Home horizontal scroll",
+         "category":"Slider"
+      }
+   ]
+} 
+{% endschema %}

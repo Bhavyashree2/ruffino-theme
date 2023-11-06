@@ -1,0 +1,79 @@
+{% comment %} {{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+{{ 'custom-page.css' | asset_url | stylesheet_tag }} {% endcomment %}
+
+{{ 'contact-us.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  #section-{{ section.id }}{
+    background-color: {{ section.settings.background_color }};
+  }
+  #section-{{ section.id }}>p>iframe>#document>html{
+    background-color: {{ section.settings.background_color }} !important;
+  }
+  .section-{{ section.id }}--color {
+    color: {{ section.settings.title_color }} !important;
+    border-color: {{ section.settings.title_color }}  !important;
+  }
+  .section-{{ section.id }}--color>h2,h3,span>a {
+    color: {{ section.settings.title_color }} !important;
+  }
+{% endstyle %}
+
+<div id="section-{{section.id}}" class="tw-w-full tw-mx-auto tw-py-[100px]">
+  <h1 class="tw-text-center tw-mb-[1rem] tw-text-black tw-font-made-saonara tw-tracking-normal tw-font-semibold tw-text-[#231f20] tw-uppercase tw-leading-[55px] tw-text-[55px] mobile:tw-leading-normal mobile:tw-text-[35px] mobile:tw-mb-[2rem]">
+    {{ section.settings.heading | escape }}
+  </h1>
+  <p class="tw-text-black tw-text-center tw-font-neutraface-display-light tw-not-italic tw-font-semibold tw-text-[20px] tw-leading-normal tw-tracking-[0.38px] section-{{ section.id }}--color tw-pb-4 tw-pl-[50px]">Questions or comments? Please complete and submit the form below.</p>
+  <p><iframe width="100%" id="contact" src="{{ section.settings.iframe_url }}" title="Main Content" gesture="media" allow="encrypted-media" allowfullscreen="allowfullscreen" class="resp-iframe tw-w-full tw-h-[950px]"></iframe></p>
+</div>
+
+{% comment %} {% assign iframe_append_css_url =  'contact-us.css' | asset_url %} {% endcomment %}
+
+{% schema %}
+{
+  "name": "Contact Us",
+  "tag": "section",
+  "class": "spaced-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Contact form",
+      "label": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "default": "#4d4c7d",
+      "label": "Text Color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+        "type": "text",
+        "id": "iframe_url",
+        "label": "Iframe URL",
+        "default": "http://www.econsumeraffairs.com/temp/cbrands/beer/contactus.htm?F2=cooperandthief"
+      }
+  ],
+  "presets": [
+    {
+      "name": "Contact Us"
+    }
+  ]
+}
+{% endschema %}
+
+{% comment %} <script>
+
+  
+  var iframe_append_css_url = `{{iframe_append_css_url}}`;
+  var iframe_url = document.getElementById("contact").src;
+  $(document).ready(function(){
+    $(".resp-iframe").attr("src", iframe_url+"&css="+$(location).attr('protocol')+'\/\/'+iframe_append_css_url);
+  });
+</script> {% endcomment %}

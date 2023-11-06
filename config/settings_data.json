@@ -1,0 +1,444 @@
+{
+  "current": {
+    "colors_solid_button_labels": "#ffffff",
+    "colors_accent_1": "#4d4c7d",
+    "gradient_accent_1": "",
+    "colors_accent_2": "#334fb4",
+    "gradient_accent_2": "",
+    "colors_text": "#ffffff",
+    "colors_outline_button_labels": "#4d4c7d",
+    "colors_background_1": "#ffffff",
+    "gradient_background_1": "",
+    "colors_background_2": "#f3f3f3",
+    "gradient_background_2": "",
+    "type_header_font": "lora_n7",
+    "heading_scale": 100,
+    "type_body_font": "lora_n4",
+    "body_scale": 100,
+    "page_width": 1200,
+    "spacing_sections": 0,
+    "spacing_grid_horizontal": 8,
+    "spacing_grid_vertical": 8,
+    "buttons_border_thickness": 1,
+    "buttons_border_opacity": 100,
+    "buttons_radius": 0,
+    "buttons_shadow_opacity": 0,
+    "buttons_shadow_horizontal_offset": 0,
+    "buttons_shadow_vertical_offset": 4,
+    "buttons_shadow_blur": 5,
+    "variant_pills_border_thickness": 1,
+    "variant_pills_border_opacity": 55,
+    "variant_pills_radius": 40,
+    "variant_pills_shadow_opacity": 0,
+    "variant_pills_shadow_horizontal_offset": 0,
+    "variant_pills_shadow_vertical_offset": 4,
+    "variant_pills_shadow_blur": 5,
+    "inputs_border_thickness": 1,
+    "inputs_border_opacity": 55,
+    "inputs_radius": 0,
+    "inputs_shadow_opacity": 0,
+    "inputs_shadow_horizontal_offset": 0,
+    "inputs_shadow_vertical_offset": 0,
+    "inputs_shadow_blur": 5,
+    "card_style": "standard",
+    "card_image_padding": 0,
+    "card_text_alignment": "left",
+    "card_color_scheme": "background-2",
+    "card_border_thickness": 0,
+    "card_border_opacity": 10,
+    "card_corner_radius": 0,
+    "card_shadow_opacity": 0,
+    "card_shadow_horizontal_offset": 0,
+    "card_shadow_vertical_offset": 4,
+    "card_shadow_blur": 5,
+    "text_boxes_border_thickness": 0,
+    "text_boxes_border_opacity": 10,
+    "text_boxes_radius": 0,
+    "text_boxes_shadow_opacity": 0,
+    "text_boxes_shadow_horizontal_offset": 0,
+    "text_boxes_shadow_vertical_offset": 4,
+    "text_boxes_shadow_blur": 5,
+    "media_border_thickness": 1,
+    "media_border_opacity": 5,
+    "media_radius": 0,
+    "media_shadow_opacity": 0,
+    "media_shadow_horizontal_offset": 0,
+    "media_shadow_vertical_offset": 4,
+    "media_shadow_blur": 5,
+    "popup_border_thickness": 1,
+    "popup_border_opacity": 10,
+    "popup_corner_radius": 0,
+    "popup_shadow_opacity": 0,
+    "popup_shadow_horizontal_offset": 0,
+    "popup_shadow_vertical_offset": 4,
+    "popup_shadow_blur": 5,
+    "drawer_border_thickness": 1,
+    "drawer_border_opacity": 10,
+    "drawer_shadow_opacity": 0,
+    "drawer_shadow_horizontal_offset": 0,
+    "drawer_shadow_vertical_offset": 4,
+    "drawer_shadow_blur": 5,
+    "badge_position": "top right",
+    "badge_corner_radius": 40,
+    "sale_badge_color_scheme": "accent-2",
+    "sold_out_badge_color_scheme": "inverse",
+    "accent_icons": "text",
+    "social_twitter_link": "https:\/\/twitter.com\/CopperAndKings",
+    "social_facebook_link": "https:\/\/www.facebook.com\/copperandkings",
+    "social_pinterest_link": "",
+    "social_instagram_link": "http:\/\/instagram.com\/copperandkings\/",
+    "social_tiktok_link": "",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "https:\/\/www.youtube.com\/channel\/UC0-W074KKO5zEW3XPc2m6GQ",
+    "social_vimeo_link": "",
+    "predictive_search_enabled": false,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "currency_code_enabled": true,
+    "social_linkedin_link": "https:\/\/linkedin.com\/ruffino",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "announcement-bar-0": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "text": "Welcome to our store",
+              "color_scheme": "background-1",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "announcement-bar-0"
+        ],
+        "settings": {
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "color_scheme": "background-2",
+          "text-color": "#1e1e1e",
+          "logo": "shopify:\/\/shop_images\/Wordmark_Logo-05.png",
+          "logo_width": 160,
+          "logo_position": "top-left",
+          "menu": "homepage-new-menu",
+          "menu_type_desktop": "dropdown",
+          "show_line_separator": false,
+          "enable_sticky_header": true,
+          "margin_bottom": 0,
+          "sub-menu": "footer-right-new-menu",
+          "socials": false
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "c1e7812a-9b8e-4cfb-baa3-d768321e5233": {
+            "type": "image",
+            "settings": {
+              "image_class": "site_logo",
+              "image": "shopify:\/\/shop_images\/rsz_rsz_footer_logo.png",
+              "image_width": 100,
+              "alignment": ""
+            }
+          },
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "menu_class": "top_menu",
+              "heading": "",
+              "menu": "footer-top-new-menu"
+            }
+          },
+          "546fc514-726a-4fed-843d-a17243ce93ac": {
+            "type": "link_list",
+            "settings": {
+              "menu_class": "center_menu",
+              "heading": "",
+              "menu": "footer-center-new-menu"
+            }
+          },
+          "1613bf88-7d33-4f91-8ea4-aac2be6fdeef": {
+            "type": "link_list",
+            "settings": {
+              "menu_class": "bottom_menu",
+              "heading": "",
+              "menu": "footer-bottom-new-menu"
+            }
+          },
+          "a336598c-56dc-494b-97d8-74645ad5898c": {
+            "type": "link_list",
+            "settings": {
+              "menu_class": "right_menu",
+              "heading": "",
+              "menu": "footer-right-new-menu"
+            }
+          },
+          "f4b02ba3-764b-4176-8967-ab3b14692718": {
+            "type": "image",
+            "settings": {
+              "image_class": "wine-in-moderation-logo",
+              "image": "shopify:\/\/shop_images\/wine-in-moderation-white.svg",
+              "image_width": 100,
+              "alignment": ""
+            }
+          }
+        },
+        "block_order": [
+          "c1e7812a-9b8e-4cfb-baa3-d768321e5233",
+          "footer-0",
+          "546fc514-726a-4fed-843d-a17243ce93ac",
+          "1613bf88-7d33-4f91-8ea4-aac2be6fdeef",
+          "a336598c-56dc-494b-97d8-74645ad5898c",
+          "f4b02ba3-764b-4176-8967-ab3b14692718"
+        ],
+        "settings": {
+          "bg-color": "#1e1e1e",
+          "newsletter_enable": false,
+          "newsletter_heading": "Subscribe to our emails",
+          "show_social": true,
+          "enable_country_selector": false,
+          "enable_language_selector": false,
+          "payment_enable": false,
+          "margin_top": 48,
+          "padding_top": 100,
+          "padding_bottom": 36
+        }
+      },
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "logo_max_width": 100,
+          "color_scheme": "background-1"
+        }
+      },
+      "main-password-footer": {
+        "type": "main-password-footer",
+        "settings": {
+          "color_scheme": "background-1"
+        }
+      },
+      "age-gate": {
+        "type": "age-gate",
+        "settings": {
+          "default_theme_color": "#fdc338",
+          "logo_type": "image",
+          "logo": "shopify:\/\/shop_images\/Ruffino_Logo-03_1.png",
+          "svg_logo": "",
+          "txt_id": "#ffffff",
+          "background_type": "image",
+          "background_color": "#ffffff",
+          "background_url": "",
+          "video_gif_url": "",
+          "background_image": "shopify:\/\/shop_images\/edit_2606_15sec_PosterImage.png",
+          "background_image_blur": true,
+          "intro_text": "YOU MUST BE OF LEGAL DRINKING AGE IN YOUR COUNTRY TO ENTER RUFFINO SITES.",
+          "cta_text": "",
+          "legal": "We support the Century Council’s fight against underage drinking and drunk driving. To learn more, visit their website. <a href=\"https:\/\/www.centurycouncil.org\" class=\"tw-font-neutraface-display-bold tw-text-white\/100\">www.centurycouncil.org<\/a>",
+          "button_color": "rgba(0,0,0,0)",
+          "button_text_color": "#ffffff",
+          "border_color": "#ffffff",
+          "activate_audio_module": "yes",
+          "audio_text": "Want to pass us the aux? Click here to enable audio.",
+          "video_icon_type": "svg_image",
+          "video_sound_play_svg": "<svg aria-label=\"Play Video Sound\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" height=\"24\" viewbox=\"0 0 24 24\" width=\"24\">\n<path d=\"M0 0h24v24H0z\" fill=\"none\"><\/path>\n<path fill=\"#002452\" d=\"M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z\"><\/path>\n<\/svg>",
+          "video_sound_mute_svg": "<svg aria-label=\"Mute Video Sound\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" height=\"24\" viewbox=\"0 0 24 24\" width=\"24\">\n  <path d=\"M0 0h24v24H0z\" fill=\"none\"><\/path>\n  <path fill=\"#002452\" d=\"M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z\"><\/path>\n  <\/svg>",
+          "redirect_url": "",
+          "age_limit": 21
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "newsletter_enable": true,
+          "klaviyo_newsletter_enable": false,
+          "check_background_image": false,
+          "iframe_url_en": "https:\/\/ruffino.vinora.it\/en\/subscribe-newsletter\/",
+          "iframe_url_de": "https:\/\/wineclub.ruffino.it\/it\/subscribe-newsletter\/",
+          "iframe_url_it": "https:\/\/ruffino.vinora.it\/it\/subscribe-newsletter\/",
+          "klaviyo_list_id": "RvEbDF",
+          "newsletter_heading": "Email Sign Up",
+          "newsletter_subheading": "Get news and marketing",
+          "newsletter_consent_text": "I have read and agree to Next Door Cocktails’s <a href=\".\/pages\/privacy\">privacy policy<\/a> and <a href=\".\/pages\/terms\">terms and conditions<\/a> and consent to Next Door Cocktails’s use of my personal information for marketing and analytics purposes, including receiving marketing and promotional communications.",
+          "newsletter_button_text": "Subscribe",
+          "newsletter_bg_color": "#ffffff",
+          "newsletter_heading_color": "#000000",
+          "newsletter_color_input": "#000000",
+          "newsletter_color_terms": "#000000",
+          "newsletter_button_bg_color": "",
+          "newsletter_button_text_color": "#000000"
+        }
+      },
+      "fixed-header": {
+        "type": "fixed-header",
+        "settings": {
+          "color_scheme": "background-1",
+          "text-color": "#000000",
+          "logo": "shopify:\/\/shop_images\/Wordmark_Logo-05.png",
+          "logo_width": 160,
+          "logo_position": "top-left",
+          "menu": "homepage-new-menu",
+          "menu_type_desktop": "dropdown",
+          "show_line_separator": true,
+          "enable_sticky_header": true,
+          "margin_bottom": 0,
+          "sub-menu": "footer-right-new-menu",
+          "socials": false
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
+  "presets": {
+    "Default": {
+      "colors_solid_button_labels": "#ffffff",
+      "colors_accent_1": "#121212",
+      "gradient_accent_1": "",
+      "colors_accent_2": "#334fb4",
+      "gradient_accent_2": "",
+      "colors_text": "#121212",
+      "colors_outline_button_labels": "#121212",
+      "colors_background_1": "#ffffff",
+      "gradient_background_1": "",
+      "colors_background_2": "#f3f3f3",
+      "gradient_background_2": "",
+      "type_header_font": "assistant_n4",
+      "heading_scale": 100,
+      "type_body_font": "assistant_n4",
+      "body_scale": 100,
+      "page_width": 1200,
+      "spacing_sections": 0,
+      "spacing_grid_horizontal": 8,
+      "spacing_grid_vertical": 8,
+      "buttons_border_thickness": 1,
+      "buttons_border_opacity": 100,
+      "buttons_radius": 0,
+      "buttons_shadow_opacity": 0,
+      "buttons_shadow_horizontal_offset": 0,
+      "buttons_shadow_vertical_offset": 4,
+      "buttons_shadow_blur": 5,
+      "variant_pills_border_thickness": 1,
+      "variant_pills_border_opacity": 55,
+      "variant_pills_radius": 40,
+      "variant_pills_shadow_opacity": 0,
+      "variant_pills_shadow_horizontal_offset": 0,
+      "variant_pills_shadow_vertical_offset": 4,
+      "variant_pills_shadow_blur": 5,
+      "inputs_border_thickness": 1,
+      "inputs_border_opacity": 55,
+      "inputs_radius": 0,
+      "inputs_shadow_opacity": 0,
+      "inputs_shadow_horizontal_offset": 0,
+      "inputs_shadow_vertical_offset": 4,
+      "inputs_shadow_blur": 5,
+      "card_style": "standard",
+      "card_image_padding": 0,
+      "card_text_alignment": "left",
+      "card_color_scheme": "background-2",
+      "card_border_thickness": 0,
+      "card_border_opacity": 10,
+      "card_corner_radius": 0,
+      "card_shadow_opacity": 0,
+      "card_shadow_horizontal_offset": 0,
+      "card_shadow_vertical_offset": 4,
+      "card_shadow_blur": 5,
+      "text_boxes_border_thickness": 0,
+      "text_boxes_border_opacity": 10,
+      "text_boxes_radius": 0,
+      "text_boxes_shadow_opacity": 0,
+      "text_boxes_shadow_horizontal_offset": 0,
+      "text_boxes_shadow_vertical_offset": 4,
+      "text_boxes_shadow_blur": 5,
+      "media_border_thickness": 1,
+      "media_border_opacity": 5,
+      "media_radius": 0,
+      "media_shadow_opacity": 0,
+      "media_shadow_horizontal_offset": 0,
+      "media_shadow_vertical_offset": 4,
+      "media_shadow_blur": 5,
+      "popup_border_thickness": 1,
+      "popup_border_opacity": 10,
+      "popup_corner_radius": 0,
+      "popup_shadow_opacity": 0,
+      "popup_shadow_horizontal_offset": 0,
+      "popup_shadow_vertical_offset": 4,
+      "popup_shadow_blur": 5,
+      "drawer_border_thickness": 1,
+      "drawer_border_opacity": 10,
+      "drawer_shadow_opacity": 0,
+      "drawer_shadow_horizontal_offset": 0,
+      "drawer_shadow_vertical_offset": 4,
+      "drawer_shadow_blur": 5,
+      "badge_position": "bottom left",
+      "badge_corner_radius": 40,
+      "sale_badge_color_scheme": "accent-2",
+      "sold_out_badge_color_scheme": "inverse",
+      "accent_icons": "text",
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tiktok_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "predictive_search_enabled": true,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": false,
+      "currency_code_enabled": true,
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "announcement-bar-0": {
+              "type": "announcement",
+              "settings": {
+                "text": "Welcome to our store",
+                "color_scheme": "background-1",
+                "link": ""
+              }
+            }
+          },
+          "block_order": [
+            "announcement-bar-0"
+          ],
+          "settings": {
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "color_scheme": "background-1",
+            "text-color": "#ab3838",
+            "logo_width": 90,
+            "logo_position": "middle-left",
+            "menu": "main-menu",
+            "show_line_separator": true,
+            "enable_sticky_header": true,
+            "margin_bottom": 0
+          }
+        },
+        "main-password-header": {
+          "type": "main-password-header",
+          "settings": {
+            "logo_max_width": 100,
+            "color_scheme": "background-1"
+          }
+        },
+        "main-password-footer": {
+          "type": "main-password-footer",
+          "settings": {
+            "color_scheme": "background-1"
+          }
+        }
+      }
+    }
+  }
+}

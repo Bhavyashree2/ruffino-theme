@@ -1,0 +1,267 @@
+<style>
+
+    @media (min-width: 768px) {
+    
+        .half-hide:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.3) 50%, rgba(161,156,160,0) 100%);
+            display: block;
+            position: absolute;
+        }
+    }
+
+    .half-hide.loop-10:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.3) 50%, rgba(161,156,160,0) 100%);
+        display: block;
+        position: absolute;
+    }
+
+    .full-hide {
+        height: 1px;
+        opacity: 0;
+    }
+   
+</style>
+
+<div class="product-grid tw-flex tw-flex-wrap tw-justify-start tw-w-full tw-max-w-[1440px] tw-mx-auto tw-my-[100px] mobile:tw-px-6 mobile:tw-my-[60px] max1440:tw-px-10">  
+
+    {% assign paginateCounter = 0 %}
+
+    {% for block in section.blocks %}
+
+        {% if block.type == 'product' %} 
+         
+            {% assign paginateCounter = paginateCounter | plus: 1 %}
+
+            {% if paginateCounter > 6 and paginateCounter < 9 %}
+                {% assign hideStatus = "half-hide" %}
+            {% elsif paginateCounter > 9 %}
+                {% assign hideStatus = "full-hide" %}
+            {% endif %}
+       
+        {% assign product = all_products[block.settings.product] %}
+
+            <div class="product-item js-show-on-scroll-for-border tw-relative tw-basis-1/3 tw-max-w-[33.33333%] mobile:tw-basis-full mobile:tw-max-w-full content-{{ paginateCounter }} loop-{{ forloop.index}} {{ hideStatus }}">
+
+                <a href="{{ product.url }}" aria-label="{{ product.title }}" class="tw-block tw-py-7 tw-px-4 tw-group focus-visible:tw-bg-eerieblack hover:tw-bg-eerieblack tw-transition-all tw-duration-200 tw-ease-in mobile:tw-py-10">
+
+                    <h3 class="tw-font-neutraface-display-bold tw-text-black tw-text-sm tw-uppercase tw-w-full tw-text-center group-focus-visible:tw-text-white group-hover:tw-text-white tw-transition-all tw-duration-200 tw-ease-in">{{ product.title }}</h3>
+                    
+                    <h4 class="tw-font-neutraface-display-light tw-text-black tw-text-sm tw-uppercase tw-w-full tw-text-center group-focus-visible:tw-text-white group-hover:tw-text-white tw-transition-all tw-duration-200 tw-ease-in">{{ product.type}}</h4>
+
+                    <img src="{{ product.featured_image | img_url: 'x450' }}" alt="{{ product.title }}" class="tw-mx-auto" loading=lazy>
+
+                    <p class="tw-font-neutraface-display-light tw-text-black tw-text-xl tw-w-full tw-text-center tw-leading-[22px] group-focus-visible:tw-text-white group-hover:tw-text-white tw-transition-all tw-duration-200 tw-ease-in">{{ block.settings.text }}</p> 
+
+                </a>
+
+            </div>
+
+            <div class="tw-block tw-w-full tw-basis-full min768:tw-hidden content-{{ paginateCounter }} loop-{{ forloop.index}} {{ hideStatus }}">
+                <div data-animate-type="tw-animate-line_animation" class="js-show-on-scroll !tw-block tw-border-b tw-border-black tw-m-auto"></div>
+            </div>
+
+        {% elsif block.type == 'image' %}      
+     
+            {% assign paginateCounter = paginateCounter | plus: 2 %}
+
+            <div class="js-show-on-scroll-for-border !tw-block tw-relative tw-basis-2/3 tw-bg-cover tw-bg-center mobile:tw-basis-full mobile:tw-border-b mobile:tw-border-black mobile:!tw-hidden content-{{ paginateCounter }} loop-{{ forloop.index}} {{ hideStatus }}" style="background-image:url({{ block.settings.image | img_url: 'x590' }})"></div>
+
+            <img src="{{ block.settings.image | img_url: '767x' }}" class="js-show-on-scroll-for-border tw-block tw-relative   min768:tw-hidden mobile:tw-py-3 content-{{ paginateCounter }} loop-{{ forloop.index}} {{ hideStatus }}" loading="lazy">
+
+            <div class="tw-block tw-w-full tw-basis-full min768:tw-hidden">
+                <div data-animate-type="tw-animate-line_animation" class="js-show-on-scroll !tw-block tw-border-b tw-border-black tw-m-auto"></div>
+            </div>
+
+        {% elsif block.type == 'separator' %}   
+
+            <div class=" !tw-block tw-w-full tw-my-3.5 tw-basis-full mobile:!tw-hidden">
+                <div data-animate-type="tw-animate-line_animation" class="js-show-on-scroll !tw-block tw-border-b tw-border-black tw-m-auto"></div>
+            </div>
+
+        {% endif %}
+
+    {% endfor %}
+
+</div>
+
+<script>
+      
+      $(document).ready(function() {     
+        
+        /* ====================================================
+        * jQuery is in viewport.
+        *
+        * https://github.com/frontid/jQueryIsInViewport
+        * Marcelo Iván Tosco (capynet)
+        * Inspired on https://stackoverflow.com/a/40658647/1413049
+        * ==================================================== */
+        !function ($) {
+            'use strict';
+        
+            const IsInViewport = function (el, cb, offset) {
+            this.$el = $(el);
+            this.cb = cb;
+            this.offset = offset;
+            this.previousIsInState = false;
+        
+            // Make the first check
+            this.check();
+        
+            // Start watching.
+            this.watch();
+        
+            return this;
+            };
+        
+            IsInViewport.prototype = {
+        
+            /**
+            * Checks if the element is in.
+            *
+            * @returns {boolean}
+            */
+            isIn: function () {
+                const _self = this;
+                const $win = $(window);
+                const elementTop = _self.$el.offset().top - _self.offset;
+                const elementBottom = elementTop + _self.$el.outerHeight();
+                const viewportTop = $win.scrollTop();
+                const viewportBottom = viewportTop + $win.height();
+                return elementBottom > viewportTop && elementTop < viewportBottom;
+            },
+        
+            /**
+            * Launch a callback indicating when the element is in and when is out.
+            */
+            watch: function () {
+                const self = this;
+                $(window).on('resize scroll', self.check.bind(self));
+            },
+        
+            /**
+            * Checks if the element is on in the viewport.
+            */
+            check: function () {
+                const self = this;
+        
+                if (self.isIn() && self.previousIsInState === false) {
+                self.cb.call(self.$el, 'entered');
+                self.previousIsInState = true;
+                }
+        
+                if (self.previousIsInState === true && !self.isIn()) {
+                self.cb.call(self.$el, 'leaved');
+                self.previousIsInState = false;
+                }
+            }
+            };
+        
+            // jQuery plugin.
+            //-----------------------------------------------------------
+            $.fn.isInViewport = function (cb, offset) {
+            offset || (offset = 0);
+            return this.each(function () {
+                const $element = $(this);
+                const data = $element.data('isInViewport');
+        
+                if (!data) {
+                $element.data('isInViewport', (new IsInViewport(this, cb, offset)));
+                }
+            })
+            }
+        
+        }(window.jQuery);
+
+        const offset = 0;
+
+        {% for block in section.blocks %}
+            {% unless forloop.index <= 5 %}
+
+                $('.loop-{{ forloop.index }}').isInViewport(function (status) {
+                    if (status === 'entered') {
+                        console.log('{{ forloop.index }} is in view');
+                        setTimeout(function() {
+                            $('.loop-{{ forloop.index }}').removeClass('half-hide');
+                            $('.loop-{{ forloop.index }}').removeClass('full-hide');
+                        }, 1000);     
+                    }
+                
+                }, offset)
+
+            {% endunless %}
+        {% endfor %}
+      
+          
+      });
+
+
+</script>
+
+{% schema %} 
+{
+   "name":"Product listing grid",
+   "class":"Product listing grid",
+   "settings":[        
+   ],  
+   "blocks": [
+        {
+        "name": "Product",
+        "type": "product",
+        "settings": [
+            {
+                "type": "product",
+                "id": "product",
+                "label": "Product"
+            },      
+            {
+                "type": "textarea",
+                "id": "text",
+                "label": "Text",
+                "default": "Description text"
+            }      
+        ]
+    },  
+    {
+        "name": "Image",
+        "type": "image",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },      
+            {
+                "type": "text",
+                "id": "alt-text",
+                "label": "Alt text",
+                "default": "Image alt text"
+            }      
+        ]
+    },
+    {
+        "name": "Separator",
+        "type": "separator",
+        "settings": [
+            {   
+                "type": "text",
+                "id": "alt-text",
+                "label": "Alt text",
+                "default": "Image alt text"                   
+            }
+        ]
+    }
+ ],
+   "presets":[
+      {
+         "name":"Product listing grid",
+         "category":"Product"
+      }
+   ]
+} 
+{% endschema %}

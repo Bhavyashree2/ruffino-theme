@@ -1,0 +1,373 @@
+<div class="tw-w-full tw-max-w-nmw tw-my-0 tw-mx-auto mobile:tw-max-w-nlmw" role="application">
+    {% assign formId = 'RegisterForm' %}
+    <div contenteditable="false">
+        <h3 class="tw-text-white tw-relative tw-text-4xl tw-not-italic tw-text-center tw-mb-20 tw-leading-snug tw-tracking-normal tw-uppercase tw-top-12">{{var_newsletter_heading}}</h3>
+        <span class="tw-hidden">{{var_newsletter_subheading}}</span>
+    </div>
+
+    <form id="{{ formId }}" action="" method="post" class="mobile:tw-px-5 mobile:tw-py-5">
+        <div class="myvalidation" role="alert" aria-atomic="true"></div>
+        <div class="form-wrapper">
+            <input type="hidden" name="g" value={{ klaviyo_list_id }}>
+            <input type="hidden" name="$source" value="Shopify Footer">
+            <input type="hidden" name="$fields" value="$source,birthdate,$zip,$consent">
+            <div class="tw-flex tw-uppercase tw-justify-evenly mobile:tw-inline-block mobile:tw-content-center mobile:tw-w-full">
+                <div class="tw-ml-24 tw-mr-14 tw-h-20 tw-w-96 tw-mt-5 tw-mb-16  tw-relative tw-max-w-ntbw mobile:tw-max-w-maxW mobile:tw-mt-0 mobile:tw-ml-0 mobile:tw-mr-0 mobile:tw-mb-20 mobile:tw-max-w-full">
+                    <label for="{{ formId }}-email" class="tw-text-white tw-max-w-nlmw tw-text-lg tw-font-normal tw-uppercase tw-flex tw-mb-5 tw-tracking-normal mobile:tw-text-left">Email address*</label>
+                    <input type="email" name="email" id="{{ formId }}-email" autocorrect="off" autocapitalize="off" autocomplete="off" aria-required="true" class="tw-text-sm tw-min-w-full tw-max-w-full tw-pl-3 tw-text-orange-100 tw-min-h-ntbh tw-tracking-wide tw-bg-none tw-border-solid tw-border-4 tw-border-black" />
+                </div>
+                    <div class="tw-ml-4 tw-mr-14 tw-h-20 tw-w-96 tw-mt-5 tw-mb-16  tw-relative tw-max-w-ntbw mobile:tw-max-w-maxW mobile:tw-mt-0 mobile:tw-ml-0 mobile:tw-mr-0 mobile:tw-mb-20 mobile:tw-max-w-full">
+                        <label for="{{ formId }}-birthdate" class="tw-text-white tw-max-w-nlmw tw-text-lg tw-font-normal tw-uppercase tw-flex tw-mb-5 tw-tracking-normal mobile:tw-text-left">Date of birth*</label>
+                        <input type="text" name="birthdate" class="tw-text-sm tw-min-w-full tw-max-w-full tw-pl-3 tw-text-orange-100 tw-min-h-ntbh tw-tracking-wide tw-bg-none tw-border-solid tw-border-4 tw-border-black" id="{{ formId }}-birthdate"  placeholder="MM/DD/YYYY" autocomplete="off" onkeyup="
+              var v = this.value;
+              if (v.match(/^\d{2}$/) !== null) {
+                this.value = v + '/';
+              } else if (v.match(/^\d{2}\/\d{2}$/) !== null) {
+                this.value = v + '/';
+            }" maxlength="10" aria-required="true" onkeypress="return isNumber(event)" />
+                        {% render 'icon-calendar' %}
+                    </div>
+                    <div class="tw-ml-4 tw-mr-14 tw-h-20 tw-w-96 tw-mt-5 tw-mb-16 tw-relative tw-max-w-ntbw mobile:tw-max-w-maxW mobile:tw-mt-0 mobile:tw-ml-0 mobile:tw-mr-0 mobile:tw-mb-20 mobile:tw-max-w-full">
+                        <label for="{{ formId }}-zip" class="tw-text-white tw-max-w-nlmw tw-text-lg tw-font-normal tw-uppercase tw-flex tw-mb-5 tw-tracking-normal mobile:tw-text-left">Zip code*</label>
+                        <input type="text" name="$zip" id="{{ formId }}-zip" class="tw-text-sm tw-min-w-full tw-max-w-full tw-pl-3 tw-text-orange-100 tw-min-h-ntbh tw-tracking-wide tw-bg-none tw-border-solid tw-border-4 tw-border-black" placeholder="" autocomplete="new-password" aria-required="true" />
+                    </div>
+            </div>
+            <div class="tw-inline-block tw-mt-8 tw-mb-0 tw-mr-14 tw-ml-24 tw-text-center tw-leading-3 tw-relative mobile:tw-leading-4 mobile:tw-mx-0 mobile:tw-my-0">
+                <input role="checkbox" aria-required="true" aria-checked="false" tabindex="0" onclick="changeCheckbox(event)" onkeydown="changeCheckbox(event)" aria-describedby="newsletter_content" type="checkbox" id="{{ formId }}-consent" name="$consent" value="accepted"
+                    role="Terms and Conditions" autocomplete="off" class="tw-absolute !tw-w-5 tw-h-5 tw-border-solid tw-border-4 tw-border-black" />
+                <label for="{{ formId }}-consent" class="consent-text tw-text-white tw-text-xs tw-font-light tw-relative tw-pl-8 tw-uppercase tw-leading-none tw-tracking-normal" id="newsletter_content">
+                    {{ newsletter_consent_text }} 
+                </label>
+            </div>
+            <div class="tw-relative tw-text-center btn-div">
+                <input type="submit" value="{{ newsletter_button_text }}" aria-label="Subscribe to newsletter" class=" tw-mb-3 btn tw-text-white tw-uppercase tw-text-lg tw-cursor-pointer tw-min-w-154 tw-min-h-75 tw-tracking-normal tw-border-solid tw-border-4 tw-border-white tw-px-8 tw-pt-5 tw-pb-4 tw-mx-16 tw-mt-11 tw-mb-38 " />
+            </div>
+        </div>
+        <input id="currentPath" type="hidden" value="{{shop.secure_url}}" />
+        <label aria-atomic="true" class="success-message"></label>
+        <label aria-atomic="true" class="error-message"></label>
+    </form>
+</div> 
+<script src="{{'jquery-validation.js' | asset_url}}"></script>
+<script>
+        var email_err_required = "Please provide your Email Address";
+        var email_err_valid = "Your email address must be in the format of name@domain.com";
+        var dob_err_required = "Please provide your Date Of Birth";
+        var dob_err_valid_minAge = "You must be 21 years or older to sign up.";
+        var dob_err_valid_maxAge = "Please enter a valid year.";
+        var dob_err_valid_dateFormat = "Please enter a valid date in MM|DD|YYYY format";
+        var zip_err_required = "Please provide your Zip Code";
+        var zip_err_valid = "Please provide a valid zipcode.";
+        var consent_err_required = "Please check the consent box before submitting";
+        var submit_success_msg = "Thank You for Subscribing!";
+        var submit_failure_msg = "There was an error. Please try again later.";
+
+    $(document).on("change", "#RegisterForm-email", function(e) {
+        $("#RegisterForm .error-message").stop(true, true).fadeOut();
+        $("#RegisterForm .success-message").stop(true, true).fadeOut();
+    });
+
+
+    $("#RegisterForm").submit(function(e) {
+            e.preventDefault();
+            $(".myvalidation").html("");
+            $(".full-input").removeClass("error");
+            $("#RegisterForm .error-message").html('').show();
+            $("#RegisterForm .success-message").html('').show();
+        })
+        .validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true,
+                    emailValidate: true,
+                },
+                birthdate: {
+                    required: true,
+                    dateFormat: true,
+                    minAge: 21,
+                    maxAge: 1910,
+                },
+                $zip: {
+                    required: true,
+                    zipcode: true,
+                },
+                $consent: "required"
+            },
+            messages: {
+                email: {
+                    required: email_err_required,
+                    email: email_err_valid
+                },
+                birthdate: {
+                    required: dob_err_required,
+                },
+                $zip: {
+                    required: zip_err_required,
+                },
+                $consent: consent_err_required
+            },
+            focusInvalid : false,
+            highlight: function (element, errorClass, validClass) {
+                $(element).parent().addClass("error");
+                $(element).addClass("inputerror");
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).parent().removeClass("error");
+                $(element).removeClass("inputerror");
+            },
+            errorPlacement: function(error, element) {
+                $("#" + element.attr("id")).parent().addClass("error");
+                error.insertAfter(element);
+            },
+            invalidHandler: function(form, validator) {
+                var errors = validator.numberOfInvalids();
+                setTimeout(() => {
+                    $(".full-input .height-field").attr("tabindex", "0");
+                    $('#RegisterForm-email').attr("aria-invalid","true");
+                    $('#RegisterForm-birthdate').attr("aria-invalid","true");
+                    $('#RegisterForm-zip').attr("aria-invalid","true");
+                    $('#RegisterForm-consent').attr("aria-invalid","true");
+                    $('#RegisterForm-email').attr("aria-live","assertive");
+                    $('#RegisterForm-birthdate').attr("aria-live","assertive");
+                    $('#RegisterForm-zip').attr("aria-live","assertive");
+                    $('#RegisterForm-consent').attr("aria-live","assertive");
+                }, 100);
+                if (errors) {
+                    validator.errorList[0].element.focus();
+                }
+            },
+            submitHandler: function(form) {
+                $('#RegisterForm .btn').attr("disabled", 'disabled');
+                $.ajax({
+                    type: 'post',
+                    url: 'https://manage.kmail-lists.com/ajax/subscriptions/subscribe',
+                    data: $(form).serialize(),
+                    success: function(response) {
+                        if (response.errors.length == 0) {
+                            if (window.matchMedia('(max-width: 768px)').matches) {
+                                $('#RegisterForm label.error').css("padding-bottom", "6px");
+                                $('.myvalidation').css("margin-bottom", "0px");
+                            }
+                            $("#RegisterForm .success-message").html(submit_success_msg);
+                            $("#RegisterForm").trigger("reset");
+                            $('#RegisterForm-consent').attr('checked', false);
+                            //$("#RegisterForm input").blur(); 
+                            $("#RegisterForm-email").focus();
+                            $("#RegisterForm .success-message").fadeOut(8000);
+                        } else {
+                            $("#RegisterForm .error-message").html(
+                                "There was an error. Please try again later."
+                            );
+                            $("#RegisterForm .error-message").fadeOut(8000);
+                        }
+                        setTimeout(() => {
+                            $('#RegisterForm .btn').removeAttr('disabled');
+                        }, 5000);
+                    },
+                    error: function(e) {
+                        console.log(e);
+                    }
+                });
+                /* createCustomer(data).catch((error) => {
+                  error.message; // 'An error has occurred: 404'
+                }); */
+                return false;
+            },
+        });
+
+    $.validator.addMethod(
+        "minAge",
+        function(value, element, min) {
+            var date = value.split("/");
+            var m = parseInt(date[0], 10),
+                d = parseInt(date[1], 10),
+                y = parseInt(date[2], 10);
+            var today = new Date();
+            var birthDate = new Date(y, m - 1, d);
+
+            var age = today.getFullYear() - birthDate.getFullYear();
+
+            if (age > min + 1) {
+                return true;
+            }
+
+            var m = today.getMonth() - birthDate.getMonth();
+
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            return age >= min;
+        },
+        dob_err_valid_minAge
+    );
+
+    $.validator.addMethod(
+        "maxAge",
+        function(value, element, max) {
+            var date = value.split("/");
+            var m = parseInt(date[0], 10),
+                d = parseInt(date[1], 10),
+                y = parseInt(date[2], 10);
+
+            return y >= max;
+        },
+        dob_err_valid_maxAge
+    );
+
+    $.validator.addMethod(
+        "dateFormat",
+        function(value, element) {
+            var date = value.split("/");
+            var month = date[0];
+            var day = date[1];
+            var year = date[2];
+            console.log(year % 4);
+            console.log(parseInt(day));
+            console.log(parseInt(month));
+            var calendarMonth31Days = [4, 6, 9, 11];
+            var curMon = month + 1;
+            console.log(calendarMonth31Days.includes(parseInt(month)));
+            if (parseInt(day) == 31 && calendarMonth31Days.includes(parseInt(month))) {
+                return false;
+            }
+            if (day == '00' || month == '00') {
+                return false;
+            }
+            if (day > 31) {
+                return false;
+            }
+            if (month == 2) {
+                if (day > 29) {
+                    return false;
+                }
+                if (day < 29 && year % 4 == 0) {
+                    return false;
+                }
+                if (day == 29 && year % 4 != 0) {
+                    return false;
+                }
+            }
+            if (month > 12) {
+                return false;
+            }
+            return /^\d{1,2}\/\d{1,2}\/\d{4}$/.test(value);
+        },
+        dob_err_valid_dateFormat
+    );
+
+    $.validator.addMethod("emailValidate", function(value, element) {
+        return this.optional(element) || /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i.test(value);
+    }, email_err_valid);
+
+    $.validator.addMethod("zipcode", function(value, element) {
+        if (parseInt(value) == 0) {
+            return false;
+        }
+        return this.optional(element) || /^\d{5}(?:-\d{4})?$/.test(value);
+    }, zip_err_valid);
+
+    $(".full-input input").focus(function() {
+        $(this).closest('.full-input').addClass('active');
+    });
+
+    $(".full-input input").blur(function() {
+        if ($.trim($(this).val()) == '') {
+            $(this).closest('.full-input').removeClass('active');
+        }
+    });
+
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+    
+    function changeCheckbox(keyCode) {
+        var element = document.getElementById("RegisterForm-consent");
+        if (event.target.tagName.toLowerCase() === 'a') {
+        if ((event.type == 'keydown' && event.which == 32) || (event.type == 'keydown' && event.which == 13) || event.type == 'click') {
+            window.open(event.target.href, '_blank');
+        }
+        }
+        if ((event.type == 'keydown' && event.which == 32) || (event.type == 'keydown' && event.which == 13) || event.type == 'click') {
+        let item = $('.checkBxDiv #RegisterForm-consent');
+        let parentItem = $('.checkBxDiv');
+        if (item.attr('aria-checked') == 'true') {
+            item.attr('aria-checked', "false");
+            item.attr('checked', false);
+            item.removeAttr('checked');
+            element.classList.add("hideappearanceclass");
+            element.classList.remove("appearanceclass");
+            //parentItem.attr('aria-checked', "false");
+            if (parentItem.find("label.error").length > 0) {
+                parentItem.find("label.error").show();
+                if (!parentItem.hasClass('error'))
+                parentItem.addClass('error');
+            }
+        } else {
+            item.attr('aria-checked', "true");
+            item.attr('checked', true);
+            element.classList.add("appearanceclass");
+            element.classList.remove("hideappearanceclass");
+            // parentItem.attr('aria-checked', "true");
+            if (parentItem.find("label.error").length > 0) {
+                parentItem.find("label.error").hide();
+                parentItem.removeClass('error');
+            }
+        }
+        if (event.type != 'click') {
+            event.stopPropagation();
+            event.preventDefault();
+        }
+        }
+      }
+</script>
+<style>
+    /* {% if var_check_background_image == true %}
+        .custom-newsletter {
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: auto;
+            transform: translateZ(0);
+            background-image: url({{ var_newsletter_background_image | img_url:'master' }});
+            position: relative;
+        }
+        {% else %}
+        .custom-newsletter {
+            background-color: {{ var_newsletter_bg_color }}
+        }
+    {% endif %}
+    .newsletterHeading {
+        color: {{ var_newsletter_heading_color }};
+    }
+    .form-wrapper-filed .full-input label {
+        color: {{ var_newsletter_color_input }};
+    }
+    .checkBxDiv input[type=checkbox] {
+        border: {{ var_newsletter_color_terms }} 3px solid;
+    }
+    .checkBxDiv label {
+        color: {{ var_newsletter_color_terms }};
+    }
+    .checkBxDiv label a {
+        color: {{ var_newsletter_color_terms }};
+    }
+    .footer-newsletter .form-wrapper .btn-div .btn {
+        background-color: {{ var_newsletter_button_bg_color }};
+        color: {{ var_newsletter_button_text_color }};
+    }
+    @media screen and (max-width: 767px) {
+        .footer-newsletter .form-wrapper {
+            text-align: center;
+        }
+    } */
+    .consent-text a{
+        text-decoration: underline;
+    }
+</style>

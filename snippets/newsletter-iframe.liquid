@@ -1,0 +1,15 @@
+{% assign lang = localization.language.iso_code %}
+{% if lang == 'de' %}
+<iframe src="{{ var_iframe_de }}" aria-label="Newsletter" class="newsletter_iframe" ></iframe>
+{% elsif lang == 'it' %}
+    <iframe src="{{ var_iframe_it }}" aria-label="Newsletter" class="newsletter_iframe" ></iframe>
+{% else %}
+<iframe src="{{ var_iframe_en }}" aria-label="Newsletter" class="newsletter_iframe" ></iframe>
+{% endif %}
+
+<style>
+    .newsletter_iframe{width: 100%; height: 605px;}
+    @media (max-width: 991px) { 
+        .newsletter_iframe{width: 100%; height: 527px;}
+    }
+</style>

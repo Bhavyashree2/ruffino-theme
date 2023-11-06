@@ -1,0 +1,199 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "color_scheme": "background-1"
+      }
+    },
+    "1418d6c6-486e-4500-9851-b5816a2f9f6e": {
+      "type": "Banner",
+      "custom_css": [
+        ".wines-banner img {object-fit: contain; object-position: center;}",
+        "@media (max-width: 767px) {.wines-banner img {object-position: bottom; }}"
+      ],
+      "settings": {
+        "custom-class": "wines-banner",
+        "heading-type": "H1",
+        "heading": "Wines",
+        "heading-shadow": false,
+        "heading-color": "#ffffff",
+        "description": "",
+        "description-color": "#000000",
+        "button-label": "",
+        "button-link": "",
+        "button-color": "#ffffff",
+        "button-bg-color": "",
+        "button-border-color": "#ffffff",
+        "content-position": "Center",
+        "content-scale": 30,
+        "desktop-height": "85vh",
+        "mobile-height": "40vh",
+        "background-type": "Image",
+        "background-color": "",
+        "background-image-desktop": "shopify:\/\/shop_images\/Ruffino_Bottle_in_the_hand_04_2x_52e1d164-3243-4402-87e0-4443dc72584b.png",
+        "background-image-mobile": "shopify:\/\/shop_images\/Ruffino_Bottle_in_the_hand_04_mobile.png",
+        "bg-img-alt-text": "",
+        "overlay_desktop": false,
+        "overlay_mobile": false,
+        "overlay_color": "#000000",
+        "desktop-background-url": "",
+        "mobile-background-url": "",
+        "video-banner-description": ""
+      }
+    },
+    "c1bed7bc-e3ce-4ce9-bd72-339c892888a7": {
+      "type": "heading-with-rightside-text",
+      "settings": {
+        "custom-class": "wines-banner-heading",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "headingcolor": "#000000",
+        "heading-1": "OUR MASTERY IN WINEMAKING",
+        "heading-2": "IS SHOWCASED THROUGH",
+        "heading-3": "THE UNIQUE CHARACTERISTICS",
+        "heading-4": "OF EACH ONE OF OUR WINES",
+        "mobile-heading": "OUR MASTERY IN WINEMAKING IS SHOWCASED THROUGH THE UNIQUE CHARACTERISTICS OF EACH ONE OF OUR WINES",
+        "heading_size": "h1",
+        "descriptioncolor": "#000000",
+        "description": "",
+        "content-position": "Right"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "enable_filtering": true,
+        "filter_type": "drawer",
+        "filter-btn": "Filter by",
+        "enable_sorting": false,
+        "padding_top": 0,
+        "padding_bottom": 36,
+        "featured_product": "greppone-mazzi",
+        "featured_img": "shopify:\/\/shop_images\/Ruffino_Instant-Connection_33.jpg"
+      }
+    },
+    "ee23be84-b4e3-4293-bb43-919c1f80574b": {
+      "type": "heading-section",
+      "settings": {
+        "custom_class": "",
+        "heading_line_1": "OUR ESTATES",
+        "heading_line_2": "",
+        "animated": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "4be08e52-1732-4089-a1fc-4c1404380938": {
+      "type": "home-horizontal-scroll",
+      "blocks": {
+        "1411f423-a35e-421c-b04a-47e54a6c99ce": {
+          "type": "slide",
+          "settings": {
+            "title": "POGGIO CASCIANO",
+            "img": "shopify:\/\/shop_images\/3_6b64bf42-9183-4f9f-8f1b-475a41a2e4ba.jpg",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus. Pellentesque sed mauris a metus maximus.",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        },
+        "be7ed4da-dfe6-481f-8cdd-50d56e336cb2": {
+          "type": "slide",
+          "settings": {
+            "title": "MONTEMASSO",
+            "img": "shopify:\/\/shop_images\/Senza_nome.jpg",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus. Pellentesque sed mauris a metus maximus.",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        },
+        "56148778-f1ee-4ebd-a8ac-0d1103438fe4": {
+          "type": "slide",
+          "settings": {
+            "title": "SANTEDAME",
+            "img": "shopify:\/\/shop_images\/2.jpg",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus. Pellentesque sed mauris a metus maximus.",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        },
+        "07eafddc-cf37-41ff-ab2b-9c43d863a44a": {
+          "type": "slide",
+          "settings": {
+            "title": "GRETOLE",
+            "img": "shopify:\/\/shop_images\/919d578d67ade6fda0d1ae68e1c8cfe7.jpg",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus. Pellentesque sed mauris a metus maximus.",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        },
+        "0874792b-28d0-4ecc-bbd7-5f50c9cf73c9": {
+          "type": "slide",
+          "settings": {
+            "title": "GREPPONE MAZZI",
+            "img": "shopify:\/\/shop_images\/4.jpg",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus. Pellentesque sed mauris a metus maximus.",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        },
+        "581dcbbc-2237-4f89-b8fb-4954b82f786b": {
+          "type": "slide",
+          "settings": {
+            "title": "LA SOLATìA",
+            "img": "shopify:\/\/shop_images\/vineyard_a6610b3f-eacf-4806-b658-b81027798985.jpg",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus. Pellentesque sed mauris a metus maximus.",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "1411f423-a35e-421c-b04a-47e54a6c99ce",
+        "be7ed4da-dfe6-481f-8cdd-50d56e336cb2",
+        "56148778-f1ee-4ebd-a8ac-0d1103438fe4",
+        "07eafddc-cf37-41ff-ab2b-9c43d863a44a",
+        "0874792b-28d0-4ecc-bbd7-5f50c9cf73c9",
+        "581dcbbc-2237-4f89-b8fb-4954b82f786b"
+      ],
+      "settings": {
+        "title": ""
+      }
+    },
+    "2aca5254-be82-4a08-a90f-95835f4631ce": {
+      "type": "newsletter",
+      "disabled": true,
+      "settings": {
+        "newsletter_enable": true,
+        "klaviyo_newsletter_enable": false,
+        "check_background_image": false,
+        "iframe_url_en": "https:\/\/wineclub.ruffino.it\/en\/subscribe-newsletter\/",
+        "iframe_url_de": "https:\/\/wineclub.ruffino.it\/it\/subscribe-newsletter\/",
+        "iframe_url_it": "https:\/\/wineclub.ruffino.it\/it\/subscribe-newsletter\/",
+        "klaviyo_list_id": "RvEbDF",
+        "newsletter_heading": "Email Sign Up",
+        "newsletter_subheading": "Get news and marketing",
+        "newsletter_consent_text": "I have read and agree to Next Door Cocktails’s <a href=\".\/pages\/privacy\">privacy policy<\/a> and <a href=\".\/pages\/terms\">terms and conditions<\/a> and consent to Next Door Cocktails’s use of my personal information for marketing and analytics purposes, including receiving marketing and promotional communications.",
+        "newsletter_button_text": "Subscribe",
+        "newsletter_bg_color": "#d6e4e5",
+        "newsletter_heading_color": "#4d4c7d",
+        "newsletter_color_input": "#4d4c7d",
+        "newsletter_color_terms": "#4d4c7d",
+        "newsletter_button_bg_color": "#4d4c7d",
+        "newsletter_button_text_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "1418d6c6-486e-4500-9851-b5816a2f9f6e",
+    "c1bed7bc-e3ce-4ce9-bd72-339c892888a7",
+    "product-grid",
+    "ee23be84-b4e3-4293-bb43-919c1f80574b",
+    "4be08e52-1732-4089-a1fc-4c1404380938",
+    "2aca5254-be82-4a08-a90f-95835f4631ce"
+  ]
+}

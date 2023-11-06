@@ -1,0 +1,198 @@
+{% style %}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}
+      px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}
+      px;
+    }
+  
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}
+        px;
+        padding-bottom: {{ section.settings.padding_bottom }}
+        px;
+      }
+      .section-{{ section.id }}-btn-paddingtop {
+        padding-top: {{ section.settings.btn_padding_top }}
+        px;
+      }
+    }
+    #section-{{ section.id}}{
+      {% if section.settings.background_image != blank %}
+        background-image: url('{{ section.settings.background_image | image_url }}');
+      {% endif %}
+      background-color: {{ section.settings.background_color }}
+      ;
+      background-size: cover;
+      background-position: center;
+    }
+    #section-{{ section.id}}.section-btn {
+      background-color: {{ section.settings.button_color }}
+      ;
+      border-color: {{ section.settings.button_text_color }}
+      ;
+      color: {{ section.settings.button_text_color }}
+      ;
+      transition: 0.1s background-color linear, 0.1s color linear;
+    }
+    #section-{{ section.id}}.section-btn:hover {
+      background-color: {{ section.settings.button_hover_bg_color }}
+      ;
+      color: {{ section.settings.button_hover_text_color }}
+      ;
+    }
+    #section-{{ section.id}}.msgColor {
+      color: {{ section.settings.message_color }}
+      ;
+    }
+    #section-{{ section.id}}.headingColor {
+      color: {{ section.settings.title_color }}
+      ;
+    }
+    #section-{{ section.id}}.headingColor-link {
+      border-bottom-color: {{ section.settings.title_color }}
+      70;
+    }
+    .img_div_cal .cocktail-img {
+      max-width: initial;
+      width: initial;
+      transform: scale(1);
+    }
+    .img_div .cocktail-img {
+      max-width: 100%;
+      width: 100%;
+    }
+  
+    @media screen and (min-width:768px) and (max-width:1023px) {
+      .img_grid_recipe:last-child:nth-child(2n - 1) {
+        grid-column: span 2;
+        width: 60%;
+        margin: 0 auto;
+      }
+      .page-width {
+        padding: 0 50px;
+      }
+    }
+  
+    @media screen and (min-width: 1024px) and (max-width: 1199px) {
+      .page-width {
+        padding: 0 50px;
+      }
+    }
+  
+    @media screen and (min-width: 1024px) {
+      .img_grid_recipe:last-child:nth-child(3n - 2) {
+        grid-column: span 3;
+        width: 33.33%;
+        margin: 0 auto;
+      }
+      .img_grid_recipe:last-child:nth-child(3n - 1) {
+        grid-column: span 2;
+        width: 35.33%;
+        margin: 0 auto;
+      }
+    }
+  {% endstyle %}
+  <section id="section-{{ section.id}}" class="main-blog page-width section-{{ section.id }}-padding !tw-max-w-[1400px] !tw-mb-[80px] !tw-mt-[70px] mobile:!tw-my-[40px] ipadPro:tw-px-[40px]">
+    <div class="layout">
+      <h1 class="section-{{ section.id }}--color tw-my-10 tw-text-[24px] !tw-tracking-[0.2em] !tw-leading-[63px] tw-font-bold tw-text-center !tw-text-[#967840] mobile:tw-text-[22px]">
+        {% if section.settings.heading != blank %}
+          {{ section.settings.heading }}
+        {% endif %}
+      </h1>
+      <div class="tw-w-full tw-mx-auto">
+        <div class="tw-w-full tw-grid tw-gap-[60px] mobile:tw-grid-cols-1 ipad:tw-grid-cols-2 lg:tw-grid-cols-3 mobile:tw-gap-0 ipad:tw-gap-[30px] ipadPro:tw-gap-[30px]">
+          {% if section.blocks.size > 1 %}
+            {% for block in section.blocks %}
+              <div class="img_grid_recipe section_content tw-w-full two-img-in-row img_div mobile:tw-clear-none mobile:tw-mb-[40px]">
+                <div class="margin-wrapper tw-relative tw-block focus-visible:tw-outline-0 focus-visible:tw-border-2 mobile:tw-p-0">
+                  <img
+                    src='{{ block.settings.crew_profile_img | img_url:"master" }}'
+                    loading="lazy"
+                    class="tw-border-0 tw-relative tw-left-0 tw-w-full {% if forloop.index < 3%}scale-img {% endif %}cocktail-img tw-h-[368px] tw-object-cover ipad:tw-h-full ipadPro:tw-h-[295px]"
+                    alt="{% if block.settings.image.alt != '' %}{{ block.image.alt }}{% else %}{{img_alt}}{% endif %}" />
+                  <h3 class="!tw-text-[#967840] tw-leading-[27px] section-{{ section.id }}--color tw-tracking-widest tw-text-left tw-text-[20px] tw-pt-[20px] tw-mx-[8px]">{{ block.settings.crew_name }}</h3>
+                  <p class="!tw-text-[#0b1649] tw-leading-[27px] section-{{ section.id }}--color tw-tracking-normal tw-text-left tw-text-[15px] tw-mx-[8px] mobile:tw-mb-[15px]">{{ block.settings.crew_designation }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  {% schema %}
+    {
+      "name": "Our Crew Listing",
+      "tag": "section",
+      "class": "recipe-listing-container",
+      "blocks": [
+        {
+          "type": "crew_details",
+          "name": "Crew Details",
+          "settings": [
+            {
+              "type": "text",
+              "id": "crew_name",
+              "label": "Crew Details - Name"
+            }, {
+              "type": "text",
+              "id": "crew_designation",
+              "label": "Crew Details - Designation"
+            }, {
+              "type": "image_picker",
+              "id": "crew_profile_img",
+              "label": "Crew Details - Profile Image"
+            }
+          ]
+        }
+      ],
+      "settings": [
+        {
+          "type": "text",
+          "id": "custom_class",
+          "label": "Custom Class"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "color",
+          "id": "text-color",
+          "default": "#ab3838",
+          "label": "Text color"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.all.padding.section_padding_heading"
+        }, {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_top",
+          "default": 36
+        }, {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_bottom",
+          "default": 36
+        }
+      ],
+      "presets": [
+        {
+          "name": "Our Crew Listing"
+        }
+      ]
+    }
+  {% endschema %}

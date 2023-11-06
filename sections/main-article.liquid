@@ -1,0 +1,194 @@
+{% style %}
+.section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    .section-{{ section.id }}-btn-paddingtop{
+      padding-top: {{ section.settings.btn_padding_top }}px;
+    }
+  }
+{% endstyle %}
+<article class="{{section.settings.custom_class}} section-{{ section.id }}-padding">
+    <div class="main-content ipadPro:tw-pb-[17px] ipad:tw-pb-[17px] ">
+        {%- for block in section.blocks -%}
+        {%- case block.type -%}
+
+        {%- when 'title'-%}
+          <div class="article-heading tw-mb-8 tw-text-center tw-bg-[#4d4c7d] page-width ">
+            <h1 class="tw-font-heading tw-my-10 tw-text-[60px] tw-text-white tw-tracking-normal tw-leading-[90px]" >{{ article.title | escape }} </h1>
+          </div> 
+        {%- when 'content'-%}
+          <div class="article page-width tw-mt-[100px] ">
+            <div class="tw-w-full">
+                <div class="tw-w-full tw-flex tw-flex-wrap" >
+                  <div class="tw-w-1/2 tw-px-5 mobile:tw-w-full mobile:tw-px-0 mobile:tw-py-5">
+                    <img src="{{ article.image | img_url:'master' }}" />  
+                  </div>       
+                  <div class="article-content tw-w-1/2 mobile:tw-w-full tw-text-[18px] tw-tracking-normal tw-leading-[31.5px]">
+                          {{ article.content }}  
+                  </div>
+                </div>
+              </div> 
+            </div>
+          </div>
+            {% comment %} {%- when 'share' -%}
+            <div class="page-width">
+            {% render 'social-share' %}
+          </div> {% endcomment %}
+            {%- endcase -%}
+            {%- endfor -%}
+        
+    </div>
+    {%- if section.settings.blog_show_previous_and_next_buttons -%}
+    <ul class="page-width tw-flex {% unless blog.next_article %}tw-justify-end{% else %}tw-justify-between{% endunless %}">
+      {% if blog.next_article %}
+      <li class="prev-post tw-mt-[40px] tw-bg-[#4d4c7d] tw-text-white tw-p-[10px]">
+        <a href="{{ blog.next_article.url }}" class="hover:tw-underline focus:tw-underline tw-text-[18px]">{% if section.settings.blog_show_previous_and_next_post_name %}{{blog.next_article.title}}{% else %}{{section.settings.prev_button_text}}{% endif %} ←</a>
+      </li>
+      {% endif %}
+      {% if blog.previous_article %}
+      <li class="next-post tw-mt-[40px] tw-bg-[#4d4c7d] tw-text-white tw-p-[10px]">
+        <a href="{{ blog.previous_article.url }}" class="hover:tw-underline focus:tw-underline tw-text-[18px]">→ {% if section.settings.blog_show_previous_and_next_post_name %}{{ blog.previous_article.title }}{% else %}{{section.settings.next_button_text}}{% endif %}
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+    {% endif %}
+</article>
+
+<!-- <script>
+    $("img").attr("data-pin-no-hover", true);
+    $(".article-image img").removeAttr('data-pin-no-hover');
+    $(".article-content img").removeAttr('data-pin-no-hover');
+
+    
+</script> -->
+
+<!-- <script async defer data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script> -->
+{% schema %} 
+{
+  "name": "Recipes Detail",
+  "tag": "section",
+  "class": "recipe-detail-container",
+  "settings": [
+        {
+            "type": "text",
+            "id": "custom_class",
+            "label": "Custom Class"
+        },
+        {
+            "type": "header",
+            "content": "t:sections.all.padding.section_padding_heading"
+          },
+          {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "t:sections.all.padding.padding_top",
+            "default": 36
+          },
+          {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "t:sections.all.padding.padding_bottom",
+            "default": 36
+          },
+          {
+            "type":"checkbox",
+            "id":"blog_show_previous_and_next_buttons",
+            "default":true,
+            "label":"Show next/ previous buttons"
+          },
+          {
+            "type":"checkbox",
+            "id":"blog_show_previous_and_next_post_name",
+            "default":true,
+            "label":"Show next/ previous Post Name"
+          },
+          {
+            "type":"text",
+            "id":"next_button_text",
+            "label":"Next Button Text"
+          },
+          {
+            "type":"text",
+            "id":"prev_button_text",
+            "label":"Prev Button Text"
+          }
+    ],
+    "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "featured_image",
+      "name": "t:sections.main-article.blocks.featured_image.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "image_height",
+          "options": [
+            {
+              "value": "adapt",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__1.label"
+            },
+            {
+              "value": "small",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__2.label"
+            },
+            {
+              "value": "medium",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__3.label"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__4.label"
+            }
+          ],
+          "default": "adapt",
+          "label": "t:sections.main-article.blocks.featured_image.settings.image_height.label",
+          "info": "t:sections.main-article.blocks.featured_image.settings.image_height.info"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "t:sections.main-article.blocks.title.name",
+      "limit": 1
+    },
+    {
+      "type": "content",
+      "name": "t:sections.main-article.blocks.content.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "right_featured_image",
+          "default": false,
+          "label": "Featured image On Right",
+          "info":"Check if want featured image on right of content"
+        }
+      ]
+    },
+    {
+      "type": "share",
+      "name": "t:sections.main-article.blocks.share.name",
+      "limit": 2
+    }
+  ]
+}
+{% endschema %}

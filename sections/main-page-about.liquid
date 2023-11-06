@@ -1,0 +1,104 @@
+{% style %}
+  #section-{{ section.id }}{
+    background-color: {{ section.settings.background_color }};
+  }
+  .section-{{ section.id }}--color {
+    color: {{ section.settings.title_color }};
+  }
+  .description > p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+{% endstyle %}
+<section id="section-{{ section.id }}" class="{{ section.settings.custom_class }} tw-text-[#ffffff] Index-page Index-page--has-image tw-z-10 tw-block tw-overflow-hidden tw-relative">
+  <div class="Index-page-content tw-pt-[100px] tw-pb-[60px] max1024:tw-px-[64px] max960:tw-px-[48px] max768:tw-px-[36px] mobile:tw-px-[20px] mobile:tw-py-[60px]">
+    <div class="layout">
+      <div class="row -tw-ml-[17px] -tw-mr-[17px] before:tw-content-[''] before:tw-table after:tw-content-[''] after:tw-table after:tw-clear-both tw-w-auto mobile:tw-flex-col">
+        <div class="col tw-w-8/12 tw-mx-auto mobile:tw-px-[17px] mobile:!tw-w-full max900:tw-w-5/6 ">
+          <div class="block tw-block tw-py-0 min640:tw-px-[17px] tw-h-auto tw-relative {% if section.settings.custom_class == 'nelsonbros' %} tw-pb-[17px] {% endif %}">
+            <div class="block-content tw-block">
+              <h1 class="section-{{ section.id }}--color tw-mt-[0] tw-mb-[20px] tw-font-bold tw-text-[60px] tw-not-italic  tw-leading-[90px] mobile:tw-leading-[51px] tw-tracking-[0] mobile:tw-text-[34px] mobile:tw-text-center">
+                {{ section.settings.container_title }}
+              </h1>
+            </div>
+            <div class="description block-content section-{{ section.id }}--color tw-font-normal tw-text-[18px] tw-leading-[31.5px] tw-not-italic tw-normal-case tw-tracking-[0] mobile:tw-text-[16px] mobile:tw-leading-[28px]">
+              {{ page.content }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "About Us",
+    "tag": "section",
+    "class": "privacy-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "custom_class",
+        "label": "Custom Class"
+      }, {
+        "type": "text",
+        "id": "container_title",
+        "label": "Title"
+      }, {
+        "type": "color",
+        "id": "title_color",
+        "default": "#4D4C7D",
+        "label": "Text Color"
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#ffffff"
+      }
+    ],
+    "presets": [
+      {
+        "name": "About Us"
+      }
+    ]
+  }
+{% endschema %}
+<style>
+  .privacy-section ul {
+    margin-bottom: 1.3em;
+    padding-left: 20px;
+    box-sizing: border-box;
+    display: block;
+    list-style-type: disc;
+}
+.privacy-section ul li {
+    margin-bottom: 8px;
+    list-style-type: disc;
+}
+.privacy-section h2 {
+    font-weight: 600;
+    font-style: normal;
+    font-size: 29px;
+    letter-spacing: 0em;
+    line-height: 37.7px;
+    color: #290000;
+    margin-top: 29px;
+    margin-bottom: 29px;
+}
+.otnotice-content {
+  padding: 0 !important;
+}
+.privacy-section a {
+  text-decoration: underline;
+}
+@media screen and (max-width: 640px) {
+  .privacy-section h2 {
+    hyphens: auto;
+    font-size: 24px;
+    letter-spacing: 0px;
+  }
+  .otnotice-content .otnotice-sections .otnotice-section-content li {
+    word-break: break-word;
+  }
+}
+</style>

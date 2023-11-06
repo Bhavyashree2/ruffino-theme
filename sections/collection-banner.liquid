@@ -1,0 +1,222 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .banner {
+    height: {{ section.settings.desktop-height }}}
+  .banner-button {
+    color: {{ section.settings.button-color }};
+    border-color: {{ section.settings.button-color }};
+    background-color: {{ section.settings.button-bg-color }};
+  }
+  .banner__box > h2,
+  h1 {
+    color: {{ section.settings.heading-color }}}
+  .banner__box .banner__text {
+    color: {{ section.settings.description-color}}}
+  @media screen and (max-width: 767px) {
+    .banner {
+      height: {{ section.settings.mobile-height }}}
+  }
+{% endstyle %}
+
+<div id="Banner-{{ section.id }}" class="banner tw-relative ipadPro:tw-h-auto ipad:tw-h-auto tw-overflow-hidden after:tw-content-[''] after:tw-top-0 after:tw-absolute after:tw-bg-black after:tw-w-full after:tw-h-full after:tw-opacity-40">
+
+  {% if section.settings.background-type == 'Image' %}
+
+    {%- if collection.image -%}
+      <div class="banner__media  tw-absolute tw-left-0 tw-top-0 tw-h-full tw-w-full after:tw-absolute after:tw-content-[''] after:tw-top-0 after:tw-bg-black after:tw-opacity-0 after:tw-z-[9] after:tw-w-full after:tw-h-full min750:tw-h-full  media{% if section.settings.image == blank %} placeholder{% endif %}">
+        <img class=" tw-block tw-max-w-full tw-absolute tw-top-0 tw-left-0 tw-h-full tw-w-full tw-object-cover tw-object-center" src="{{ collection.image | image_url: width: 1500 }}" loading="lazy" alt="{{ section.settings.bg-img-alt-text | escape }}" width="{{ collection.image.width }}" height="{{ collection.image.width | divided_by: collection.image.aspect_ratio }}"/>
+      </div>
+    {% endif %}
+
+  {% elsif section.settings.background-type == 'Video' %}
+    {%- if section.settings.background-url != blank -%}
+      <div class="main tw-relative tw-overflow-hidden">
+        <section class="section-intro">
+          <div class="section__body">
+            <video id="video-section" loading="lazy" class="mobile:tw-max-w-none tw-w-full mobile:tw-h-[360px] mobile:tw-w-auto " autoplay playsinline loop muted src="{{ section.settings.background-url }}" preload="none" type="video/mp4"></video>
+          </div>
+        </section>
+      </div>
+    {%- endif -%}
+
+  {% elsif section.settings.background-type == 'Color' %}
+    {%style%}
+      .banner {
+        background-color: {{ section.settings.background-color}};
+      }
+    {%endstyle%}
+  {%endif%}
+
+
+
+  <div class="banner__content tw-absolute tw-bottom-[5%]  tw-p-0  tw-w-full tw-items-center  tw-z-10 min750:tw-items-center min750:tw-justify-center min750:tw-p-20 mobile:tw-h-[75%] mobile:tw-my-auto">
+    <div class="banner__box  {% if section.settings.content-position == 'Center' %} tw-text-center {% elsif section.settings.content-position == 'Left' %} tw-text-left {% elsif section.settings.content-position == 'Right' %} tw-text-right {% endif %} min750:tw-bg-transparent  min750:tw-max-w-['89rem'] tw-relative tw-h-fit tw-items-center tw-break-words mobile:tw-w-11/12 mobile:tw-mx-auto mobile:tw-my-0">
+
+
+      {% if section.settings.heading-type == "H1"%}
+        <h1 class="banner__heading tw-text-white  tw-mb-0 tw-font-[600] tw-text-[52px] mobile:tw-text-[42px]">
+          <span class="tw-text-white">{{ collection.title | escape }}</span>
+        </h1>
+      {% else %}
+        <h2 class="banner__heading  tw-text-white tw-mb-0 tw-font-[600] tw-text-[52px] mobile:tw-text-[42px]">
+          <span class="tw-text-white">{{ collection.title | escape }}</span>
+        </h2>
+      {% endif %}
+
+
+      {% if collection.description != blank %}
+        <div class="banner__text tw-mt-4 tw-text-[18px] min750:tw-mt-8 ">
+          <span class=" tw-text-white ">{{ collection.description | escape }}</span>
+        </div>
+      {% endif %}
+
+      {% if section.settings.button-label != blank %}
+        <div class=" tw-inline-flex tw-flex-wrap tw-gap-4 tw-max-w-['45rem'] tw-break-words tw-mt-12 tw-text-[21px] ">
+          <a role="link" aria-disabled="true" href="{{ section.settings.button-link }}" class="banner-button tw-uppercase tw-border-4 tw-cursor-pointer tw-border-solid tw-text-lg tw-tracking-widest  tw-px-7 tw-py-5 button--primary hover:tw-bg-opacity-80 hover:tw-underline">{{ section.settings.button-label | escape }}</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collection Image Banner",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "id": "custom-class",
+        "type": "text",
+        "label": "Custom Class"
+      },
+      {
+        "type": "select",
+        "id": "heading-type",
+        "options": [
+          {
+            "value": "H1",
+            "label": "H1"
+          }, {
+            "value": "H2",
+            "label": "H2"
+          }
+        ],
+        "default": "H2",
+        "label": "Heading Type"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "color",
+        "id": "heading-color",
+        "label": "Heading Color",
+        "default": "#000000"
+      }, {
+        "type": "textarea",
+        "id": "description",
+        "label": "Desription"
+      }, {
+        "type": "color",
+        "id": "description-color",
+        "label": "Description Color",
+        "default": "#000000"
+      }, {
+        "type": "text",
+        "id": "button-label",
+        "label": "Button label"
+      }, {
+        "type": "url",
+        "id": "button-link",
+        "label": "Button URL"
+      }, {
+        "type": "color",
+        "id": "button-color",
+        "label": "Button Color",
+        "default": "#000000"
+      }, {
+        "type": "color",
+        "id": "button-bg-color",
+        "label": "Button Background Color"
+      }, {
+        "type": "select",
+        "id": "content-position",
+        "options": [
+          {
+            "value": "Left",
+            "label": "Left"
+          }, {
+            "value": "Center",
+            "label": "Center"
+          }, {
+            "value": "Right",
+            "label": "Right"
+          }
+        ],
+        "default": "Left",
+        "label": "Content Alignment"
+      }, {
+        "type": "text",
+        "id": "desktop-height",
+        "label": "Desktop Height",
+        "default": "640px"
+      }, {
+        "type": "text",
+        "id": "mobile-height",
+        "label": "Mobile Height",
+        "default": "360px"
+      }, {
+        "type": "select",
+        "id": "background-type",
+        "options": [
+          {
+            "value": "Color",
+            "label": "Color"
+          }, {
+            "value": "Image",
+            "label": "Image"
+          }, {
+            "value": "Video",
+            "label": "Video"
+          }
+        ],
+        "default": "Image",
+        "label": "Background Type",
+        "info": "Select the type of hero banner you want"
+      }, {
+        "type": "color",
+        "id": "background-color",
+        "label": "Background Color"
+      }, {
+        "type": "image_picker",
+        "id": "background-image",
+        "label": "Background Image"
+      }, {
+        "type": "text",
+        "id": "bg-img-alt-text",
+        "label": "Background Image alt Text"
+      }, {
+        "type": "url",
+        "id": "background-url",
+        "label": "Backgroung Video URL"
+      }, {
+        "type": "image_picker",
+        "id": "video-image",
+        "label": "video placeholder image"
+      }, {
+        "type": "text",
+        "id": "video-banner-description",
+        "label": "Video Banner Description"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection Image Banner"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,141 @@
+<!-- {{ 'component-email-signup.css' | asset_url | stylesheet_tag }} -->
+
+<div class="tw-bg-gray-800">
+  {%- if section.settings.newsletter_enable -%}
+    {% render 'email-signup-newsletter', 
+      klaviyo_list_id: section.settings.klaviyo_list_id,
+      var_newsletter_heading: section.settings.newsletter_heading,
+      var_newsletter_subheading:section.settings.newsletter_subheading,
+      newsletter_consent_text: section.settings.newsletter_consent_text,
+      newsletter_button_text: section.settings.newsletter_button_text,
+      var_newsletter_bg_color: section.settings.newsletter_bg_color,
+      var_newsletter_heading_color: section.settings.newsletter_heading_color,
+      var_newsletter_color_input: section.settings.newsletter_color_input,
+      var_newsletter_color_terms: section.settings.newsletter_color_terms,
+      var_newsletter_button_bg_color: section.settings.newsletter_button_bg_color,
+      var_newsletter_button_text_color: section.settings.newsletter_button_text_color,
+      var_check_background_image: section.settings.check_background_image,
+      var_newsletter_background_image: section.settings.newsletter_background_image,
+      var_newsletter_background_image_mobile: section.settings.newsletter_background_image_mobile
+    %}
+  {%- endif -%}
+</div>
+<script>
+  $.browser.chrome = $.browser.webkit && !!window.chrome;
+        $.browser.safari = $.browser.webkit && !window.chrome;
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            $('body').addClass('mobile');
+        }
+        if ($.browser.chrome) {
+            $('body').addClass('chrome');
+        }
+        if ($.browser.safari) {
+            $('body').addClass('safari');
+        }
+</script>
+{% schema %}
+    {
+        "name": "Email signup",
+        "tag": "section",
+        "class":"custom-newsletter",
+        "settings":[
+          {
+            "type": "header",
+            "content": "t:sections.footer.settings.header__1.content",
+            "info": "t:sections.footer.settings.header__1.info"
+          },
+          {
+            "type": "checkbox",
+            "id": "newsletter_enable",
+            "default": true,
+            "label": "t:sections.footer.settings.newsletter_enable.label"
+          },
+          {
+            "type":"checkbox",
+            "id":"check_background_image",
+            "label":"Display background image",
+            "default":false
+         },
+         {
+            "type":"image_picker",
+            "id":"newsletter_background_image",
+            "label":"Background Image"
+         },
+         {
+            "type":"image_picker",
+            "id":"newsletter_background_image_mobile",
+            "label":"Mobile Background Image"
+         },
+          {
+            "type": "text",
+            "id": "klaviyo_list_id",
+            "default": "RvEbDF",
+            "label": "Klaviyo List ID"
+          },
+          {
+            "type": "text",
+            "id": "newsletter_heading",
+            "default": "Email Sign Up",
+            "label": "t:sections.footer.settings.newsletter_heading.label"
+          },
+          {
+            "type": "text",
+            "id": "newsletter_subheading",
+            "default": "Get news and marketing",
+            "label": "t:sections.footer.settings.newsletter_heading.label"
+          },
+          {
+            "type": "textarea",
+            "id": "newsletter_consent_text",
+            "label": "Newsletter Consent Text",
+            "default": "I have read and agree to Next Door Cocktails’s <a href='./pages/privacy'>privacy policy</a> and <a href='./pages/terms'>terms and conditions</a> and consent to Next Door Cocktails’s use of my personal information for marketing and analytics purposes, including receiving marketing and promotional communications."
+          },
+          {
+            "type": "text",
+            "id": "newsletter_button_text",
+            "default": "Subscribe",
+            "label": "Button Text"
+          },
+          {
+            "type": "color",
+            "id": "newsletter_bg_color",
+            "default": "#333333",
+            "label": "Background Color"
+          },
+          {
+            "type": "color",
+            "id": "newsletter_heading_color",
+            "default": "#ffffff",
+            "label": "Heading color"
+          },
+          {
+            "type": "color",
+            "id": "newsletter_color_input",
+            "default": "#ffffff",
+            "label": "Input color"
+          },
+          {
+            "type": "color",
+            "id": "newsletter_color_terms",
+            "default": "#ffffff",
+            "label": "Terms Copy color"
+          },
+          {
+            "type": "color",
+            "id": "newsletter_button_bg_color",
+            "label": "Button background color"
+          },
+          {
+            "type": "color",
+            "id": "newsletter_button_text_color",
+            "default": "#ffffff",
+            "label": "Button text color"
+          }
+        ],
+      "presets": [
+        {
+          "name": "Email signup"
+        }
+      ]
+    }
+{% endschema %}

@@ -1,0 +1,140 @@
+{%- style -%}
+#section-{{ section.id }}{
+  background-color: {{ section.settings.backgroundcolor }};
+}
+  .section-{{ section.id }}--headingcolor1 {
+    color: {{ section.settings.headingcolor }};
+  }
+
+  .section-{{ section.id }}--description1 {
+    color: {{ section.settings.descriptioncolor }};
+  }
+  @media screen and (min-width: 768px) {
+    .reach-on-heading-2:lang(de){
+        width: 340px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .section-{{ section.id }}--description1 p:first-child {
+        width: 80%;
+    }
+  }
+  .cantina-circle-white{margin-top:35px; width:140px; padding-left:10px;}
+  .animator-border{display: none !important;}
+  .reachus-main-section{padding-bottom:0 !important;}
+  .book-now-section-heading{max-width: 450px; width: auto !important; padding-bottom: 30px;}
+{%- endstyle -%}
+
+
+
+<div id="section-{{ section.id }}" class="">
+    <div class="js-show-on-scroll tw-m-auto tw-my-[60px] tw-border-b tw-border-solid tw-border-black !tw-block" data-animate-type="tw-animate-line_animation" ></div>
+    <div class="min1366:tw-w-[90%] min1600:tw-w-[85%] min1920:tw-w-[75%] tw-mx-auto md:tw-grid md:tw-grid-cols-2 md:tw-grid-flow-row tw-px-5 md:tw-px-20 lg:tw-px-20">
+    <div class="reach-on-heading-2 book-now-section-heading tw-w-[273px]">
+      {% if section.settings.heading-1 != blank %}
+        <h2 class="section-{{ section.id }}--headingcolor1 tw-font-made-saonara tw-text-[55px] tw-tracking-normal !tw-font-normal mobile:tw-text-[45px] min1600:tw-text-[50px]">
+          {{ section.settings.heading-1 }}
+        </h2>
+      {% endif %}
+    </div>
+    <div class="tw-w-full mobile:tw-w-[330px] mobile:tw-ml-0 min1280:tw-pl-[60px]">
+      {% if section.settings.heading-2 != blank %}
+        <div class="section-{{ section.id }}--headingcolor1 tw-w-[248px] tw-font-neutraface-display-bold tw-text-[14px] tw-tracking-[0.28px] tw-leading-[28px] !tw-font-normal">
+          {{ section.settings.heading-2 }}
+        </div>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <div class="section-{{ section.id }}--description1  tw-text-[20px] tw-tracking-[0.4px] tw-font-neutraface-display-light tw-leading-[28px] mobile:tw-w-[300px] min1920:tw-text-[24px] min1920:tw-leading-[32px]">{{ section.settings.description }}</div>
+      {% endif %}
+      <a
+       href="#"
+        class="cantina-circle-white section-button tw-pl-3 tw-flex tw-justify-between tw-items-center tw-font-neutraface-display-bold tw-text-white tw-text-xs tw-uppercase tw-w-[100px] tw-h-[33px] tw-rounded-[33px] hover:!tw-bg-white hover:!tw-text-black tw-transition-all tw-duration-200 tw-ease-in max991:tw-mt-10 focus-visible:!tw-bg-white focus-visible:!tw-text-black tw-w-auto mobile:tw-pl-0 min1920:tw-text-[14px] min1920:tw-leading-[20px]"
+      >
+        {{ section.settings.btn-txt }} &nbsp; &nbsp; {% render 'cantina-icon-circle-white' %}
+      </a>
+    </div>
+  </div>
+  <div class="js-show-on-scroll tw-m-auto tw-my-[60px] tw-border-t tw-border-solid tw-border-black !tw-block" data-animate-type="tw-animate-line_animation" ></div>
+</div>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+  var mapButton = document.getElementById("map-button-{{ section.id }}");
+  mapButton.addEventListener("click", function(event) {
+    event.preventDefault(); 
+    var fullText = "{{ section.settings.map-address}}";
+    var googleMapsUrl = "https://www.google.com/maps/search/?q=" + encodeURIComponent(fullText);
+    window.open(googleMapsUrl, "_blank");
+
+  });
+
+});
+
+</script>
+
+{% schema %}
+
+  {
+    "name": "Book Now Section",
+    "class": "section",
+    "settings": [
+        {
+            "type": "color",
+            "id": "backgroundcolor",
+            "label": "Background color",
+            "default": "#000"
+    
+          },
+      {
+        "type": "color",
+        "id": "headingcolor",
+        "label": "heading color",
+        "default": "#000"
+
+      },
+      {
+        "type": "text",
+        "id": "heading-1",
+        "default": "HOW TO REACH US",
+        "label": "Heading 1"
+      },
+      {
+        "type": "text",
+        "id": "heading-2",
+        "default": "TENUTA RUFFINO POGGIO CASCIANO",
+        "label": "Heading Line 2"
+      },
+      {
+        "type": "color",
+        "id": "descriptioncolor",
+        "label": "description color",
+        "default": "#4d3c7d"
+      }, {
+        "type": "richtext",
+        "id": "description",
+        "default": "<p>Via Poggio al Mandorlo. 150011 Bagno a. Ripoli [FI] +390556499750 | hospitality@ruffino.it</p>",
+        "label": "Content"
+      }, {
+        "type": "text",
+        "id": "btn-txt",
+        "label": "Button text",
+        "default": "Maps"
+      }, {
+        "type": "textarea",
+        "id": "map-address",
+        "label": "Map Address"
+      }
+    ],
+
+    "presets": [
+
+      {
+        "name": "Book Now Section"
+      }
+
+    ]
+
+  }
+{% endschema %}

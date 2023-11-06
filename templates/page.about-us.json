@@ -1,0 +1,143 @@
+{
+  "sections": {
+    "fa62e5ec-8c53-4098-b26e-e1602baf13e4": {
+      "type": "Banner",
+      "custom_css": [
+        ".banner__heading {text-shadow: 1px 1px 2px #000000;}"
+      ],
+      "settings": {
+        "custom-class": "",
+        "heading-type": "H1",
+        "heading": "ABOUT US",
+        "heading-shadow": false,
+        "heading-color": "#ffffff",
+        "description": "",
+        "description-color": "#ffffff",
+        "button-label": "",
+        "button-link": "#",
+        "button-color": "#ffffff",
+        "button-bg-color": "",
+        "button-border-color": "#ffffff",
+        "content-position": "Center",
+        "content-scale": 25,
+        "desktop-height": "85vh",
+        "mobile-height": "360px",
+        "background-type": "Image",
+        "background-color": "",
+        "background-image-desktop": "shopify:\/\/shop_images\/818655dae9bf69af9ab0635bed5a9f3b.png",
+        "background-image-mobile": "shopify:\/\/shop_images\/818655dae9bf69af9ab0635bed5a9f3b_400d6787-8c57-4471-ac5f-4365e7abef36.png",
+        "bg-img-alt-text": "",
+        "overlay_desktop": false,
+        "overlay_mobile": false,
+        "overlay_color": "#000000",
+        "desktop-background-url": "",
+        "mobile-background-url": "",
+        "video-banner-description": ""
+      }
+    },
+    "bd9dcfe7-d219-4c60-8454-592505f80fc8": {
+      "type": "heading-with-rightside-text",
+      "settings": {
+        "custom-class": "estates",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "headingcolor": "#000000",
+        "heading-1": "MASTERY SINCE 1877",
+        "heading-2": "RUFFINO HAS PURSUED EXCELLENCE WITH",
+        "heading-3": "UNWAVERING COMMITMENT FOR THE PAST 140 YEARS.",
+        "heading-4": "",
+        "mobile-heading": "MASTERY SINCE 1877 RUFFINO HAS PURSUED EXCELLENCE WITH UNWAVERING COMMITMENT FOR THE PAST 140 YEARS.",
+        "heading_size": "h1",
+        "descriptioncolor": "#000000",
+        "description": "<p>Visionary cousins Ilario and Leopoldo <strong>Ruffino <\/strong>defied convention, propelling their dream from the strategic<br\/> position of Pontassieve, amidst Chianti's finest vineyards.<\/p><p>Our legacy thrives on mindful, sustainable practices that set the standard. Grounded in history, our gaze is fixed firmly on the present and future. Tradition and innovation converge in every bottle, embodying heritage and foresight.<\/p><p><strong>Ruffino <\/strong>is more than a name – it's a testament to enduring brilliance. Each sip captures timeless craftsmanship and the promise of what lies ahead.<\/p>",
+        "content-position": "Right"
+      }
+    },
+    "9cb1436f-261a-40aa-9c54-c1d0eb6d395d": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16074092806294__9cb1436f-261a-40aa-9c54-c1d0eb6d395d-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "TRADITIONS REINVENTED",
+            "heading_size": "h2"
+          }
+        },
+        "template--16074092806294__9cb1436f-261a-40aa-9c54-c1d0eb6d395d-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Much like the visionary pursuits of Ilario and Leopoldo <strong>Ruffino <\/strong>in 1877, the heart of Ruffino today beats with a resolute dedication to innovation and refinement. This commitment is aimed at crafting exceptional wines that encapsulate the zenith of Chianti Classico's character and the quintessence of Tuscany's foremost winemaking regions. Our ethos and wines serve as testaments to meticulous quality showcased by sustainable techniques and practices, celebrating the very essence of <strong>Ruffino<\/strong>'s enduring legacy.<\/p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "template--16074092806294__9cb1436f-261a-40aa-9c54-c1d0eb6d395d-heading-1",
+        "template--16074092806294__9cb1436f-261a-40aa-9c54-c1d0eb6d395d-text-1"
+      ],
+      "settings": {
+        "class_name": "",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "headingcolor": "#000000",
+        "descriptioncolor": "#000000",
+        "button_color": "#ffffff",
+        "button_text_color": "#000000",
+        "border_color": "#ffffff",
+        "image": "shopify:\/\/shop_images\/Ruffino_Extra_Macchina_02.png",
+        "mobile_image": "shopify:\/\/shop_images\/Ruffino_Extra_Macchina_02.png",
+        "margin-options": "center",
+        "height": "adapt",
+        "layout": "text_first",
+        "desktop_content_alignment": "left",
+        "desktop_content_bg": "Color",
+        "content-bg-color": "#ffffff",
+        "color_on_top_of_bg_image": false,
+        "max-width": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_left": 24,
+        "padding_right": 24
+      }
+    },
+    "36f975f9-516a-42dd-9cda-2f8ceb1e12c8": {
+      "type": "banner-parallax",
+      "settings": {
+        "custom-class": "",
+        "heading-type": "H2",
+        "heading": "OUR COMMITMENT",
+        "heading-shadow": false,
+        "heading-color": "#ffffff",
+        "description": "Our unwavering dedication to sustainability encompasses the establishment of a production system that continually rejuvenates operations while safeguarding resources. This ethos of endurance and revitalization inspires all participants, including our valued partners, to champion a sustainable and cyclical economic model. At Ruffino, we are deeply involved in initiatives that transcend traditional business boundaries, with a focus on environmental stewardship, responsible consumption, community engagement, and the empowerment of women.",
+        "description-color": "#ffffff",
+        "button-label": "MORE",
+        "button_link": "shopify:\/\/pages\/sustainability",
+        "button-color": "#ffffff",
+        "button-bg-color": "",
+        "button-border-color": "#ffffff",
+        "content-position": "Center",
+        "content-scale": 0,
+        "desktop-height": "600px",
+        "mobile-height": "680px",
+        "background-type": "Image",
+        "background-color": "",
+        "background-image-desktop": "shopify:\/\/shop_images\/7486b7817ff0057e09737bcd11e591fd_2x_1d00b436-006f-4fcd-99a6-7bd4ee0eb428.png",
+        "background-image-mobile": "shopify:\/\/shop_images\/7486b7817ff0057e09737bcd11e591fd_2x_1d00b436-006f-4fcd-99a6-7bd4ee0eb428.png",
+        "bg-img-alt-text": "",
+        "overlay_desktop": true,
+        "overlay_mobile": true,
+        "overlay_color": "#000000",
+        "desktop-background-url": "",
+        "mobile-background-url": "",
+        "video-banner-description": ""
+      }
+    }
+  },
+  "order": [
+    "fa62e5ec-8c53-4098-b26e-e1602baf13e4",
+    "bd9dcfe7-d219-4c60-8454-592505f80fc8",
+    "9cb1436f-261a-40aa-9c54-c1d0eb6d395d",
+    "36f975f9-516a-42dd-9cda-2f8ceb1e12c8"
+  ]
+}

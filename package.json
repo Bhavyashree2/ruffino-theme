@@ -1,0 +1,25 @@
+{
+  "name": "ruffino-wines",
+  "scripts": {
+      "start": "concurrently \"gulp\" --raw \"shopify theme dev --store=%npm_config_shop%\"",
+      "minify": "gulp",
+      "build": "npx tailwindcss build -i tailwind-assets/application-tailwind.css -o src/assets/css/application-tailwind.css && npm run start && npx tailwindcss -i tailwind-assets/application-tailwind.css -o src/assets/css/application-tailwind.css --watch"
+  },
+  "devDependencies": {
+      "autoprefixer": "^10.4.15",
+      "chokidar": "^3.5.3",
+      "concurrently": "^8.2.1",
+      "gulp": "^4.0.2",
+      "gulp-clean-css": "^4.3.0",
+      "gulp-cli": "^2.3.0",
+      "gulp-uglify": "^3.0.2",
+      "tailwindcss": "^3.3.3"
+  },
+  "dependencies": {
+      "gsap": "^3.9.1",
+      "tw-elements": "^1.0.0-rc.1"
+  },
+  "overrides": {
+      "glob-parent": "6.0.2"
+  }
+}

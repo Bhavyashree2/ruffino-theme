@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "main": {
+      "type": "recipe-article",
+      "blocks": {
+        "b98e7d3d-5f95-4bbb-8582-aa2fffab187e": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "b051db93-079c-430f-b194-6542abced423": {
+          "type": "content",
+          "settings": {
+            "right_featured_image": true
+          }
+        },
+        "3ea9f89c-4eee-4065-be21-b2dba4434461": {
+          "type": "share",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "b98e7d3d-5f95-4bbb-8582-aa2fffab187e",
+        "b051db93-079c-430f-b194-6542abced423",
+        "3ea9f89c-4eee-4065-be21-b2dba4434461"
+      ],
+      "settings": {
+        "custom_class": "",
+        "padding_top": 0,
+        "padding_bottom": 36,
+        "blog_show_previous_and_next_buttons": true,
+        "blog_show_previous_and_next_post_name": false,
+        "next_button_text": "",
+        "prev_button_text": ""
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

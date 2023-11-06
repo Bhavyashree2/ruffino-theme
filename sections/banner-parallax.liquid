@@ -1,0 +1,439 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+    #shopify-section-{{ section.id }} .banner {
+      height: {{ section.settings.desktop-height }};
+    }
+    #shopify-section-{{ section.id }} .banner__content {
+      bottom: unset;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .section-{{ section.id }}--banner-button {
+      color: {{ section.settings.button-color }};
+      border-color: {{ section.settings.button-border-color }};
+      background-color: {{ section.settings.button-bg-color }};
+    }
+    .section-{{ section.id }} .banner__box>h2,.section-{{ section.id }} .banner__box h1 {
+       color: {{ section.settings.heading-color }};
+       {% if section.settings.heading-shadow %} text-shadow: 1px 1px 1px #000 {% endif %}
+    }
+    #shopify-section-{{ section.id }} .banner__box .banner__text {
+      color: {{ section.settings.description-color}};
+    }
+    #Banner-{{ section.id }}{
+      background-image: url({{ section.settings.background-image-desktop | image_url: width: 3000 }});
+      background-repeat: repeat;
+      background-attachment: fixed;
+      background-position:50%;
+    }
+    #shopify-section-{{ section.id }} .desktop_overlay::after,
+    #Banner-{{ section.id }} ::after{
+      background-color: {{section.settings.overlay_color }};
+      opacity: 0.5;
+    }
+    #shopify-section-{{ section.id }} .playPauseBtn {
+      position: absolute;
+      width: 33px;
+      height: 33px;
+      right: 1%;
+      bottom: 1%;
+      z-index: 9999;
+  }
+  #shopify-section-{{ section.id }} .playPauseBtn img {
+      height: 30px;
+      width: 30px;
+  }
+  #shopify-section-{{ section.id }} a#playBtn:focus,
+  #shopify-section-{{ section.id }} a#pauseBtn:focus {
+      outline: 2px solid #fbf6e6;
+      border: 2px solid #000;
+      outline-offset: unset;
+  }
+  #shopify-section-{{ section.id }} .section-button:hover svg path,
+  #shopify-section-{{ section.id }} .section-button:hover svg line,
+  #shopify-section-{{ section.id }} .section-button:focus-visible svg path,
+  #shopify-section-{{ section.id }} .section-button:focus-visible svg line {
+    stroke: #000000;
+  }
+   @media screen and (min-width: 768px) and (max-width: 1024px) {
+      #shopify-section-{{ section.id }} .banner {
+        height: 65vh;
+      }
+    }
+   @media screen and (min-width: 1024px) and (max-width: 1199px) {
+      #shopify-section-{{ section.id }} .banner {
+        height: 40vh;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      #shopify-section-{{ section.id }} .banner {
+        height: {{ section.settings.mobile-height }}
+      }
+      /* #shopify-section-{{ section.id }} .banner__content {
+        bottom: 0;
+        top: 0;
+      } */
+    }
+
+    /*
+    *
+     writing css with device screens as design need to match
+    and creating conflict with tailwind css
+    *
+    */
+    @media screen and (device-width: 1024px) and (device-height: 768px) {
+      #shopify-section-{{ section.id }} .wines-banner {
+        height: 90vh !important;
+      }
+    }
+    @media screen and (device-width: 1366px) and (device-height: 1024px) {
+      #shopify-section-{{ section.id }} .wines-banner {
+        height: 75vh !important;
+      }
+    }
+{% endstyle %}
+
+<div
+  id="Banner-{{ section.id }}"
+  class="{% if section.settings.custom-class != blank %}{{ section.settings.custom-class }} {% endif %} banner tw-relative tw-overflow-hidden  min1600:!tw-h-[550px] minmax768:!tw-h-[60vh] mobileLandscape:!tw-h-[100vh] ipadPro:!tw-h-[40vh] desktop_overlay after:tw-absolute after:tw-content-[''] after:tw-top-0 after:tw-z-[9] after:tw-w-full after:tw-h-full"
+>
+  <div class="tw-absolute tw-text-center tw-top-1/2 tw-left-1/2 tw-transform -tw-translate-x-1/2 -tw-translate-y-1/2">
+    {% if section.settings.ruffino_logo != blank %}
+      <img
+        src="{{ section.settings.ruffino_logo | image_url: width: 300 }}"
+        alt="{{ section.settings.ruffino_logo.alt | escape }}"
+        loading="lazy"
+        width="{{ section.settings.ruffino_logo.width }}"
+        height="{{ section.settings.ruffino_logo.height }}"
+        class="tw-m-auto tw-w-[300px] ipadPro:tw-w-[200px] ipad:tw-w-[200px]"
+      >
+    {% endif %}
+  </div>
+
+  <div class="banner__content tw-absolute tw-p-0  {% if section.settings.content-position == 'Left' %} tw-w-1/2 {% else %} tw-w-full {% endif %} mobile:tw-w-full tw-items-center  tw-z-10 min750:tw-items-center min750:tw-justify-center min750:tw-p-20 mobile:tw-my-auto">
+    <div class="banner__box  {% if section.settings.content-position == 'Center' %} tw-text-center {% elsif section.settings.content-position == 'Left' %} tw-text-left {% elsif section.settings.content-position == 'Right' %} tw-text-right {% endif %} min750:tw-bg-transparent  min750:tw-max-w-['89rem'] tw-relative tw-h-fit tw-items-center tw-break-words mobile:tw-w-11/12 mobile:tw-mx-auto mobile:tw-my-0">
+      {% if section.settings.heading != blank %}
+        {% if section.settings['heading-type'] == 'H1' %}
+          <h1 class="banner__heading tw-mb-0 tw-font-made-saonara tw-tracking-normal tw-leading-[50px] tw-text-[135px] tw-font-normal tw-text-[#ffffff] tw-uppercase ipad:tw-text-[100px] ipadPro:tw-text-[100px] {% if section.settings.custom-class == "experience" %} mobile:tw-text-[56px] {% else %} mobile:tw-text-[60px] {% endif %}">
+            <span>{{ section.settings.heading | escape }}</span>
+          </h1>
+        {% else %}
+          <h2 class="banner__heading tw-mb-0 tw-font-made-saonara tw-tracking-normal tw-leading-[65px] tw-text-[55px] tw-font-normal tw-text-[#ffffff] tw-uppercase mobile:tw-text-[40px]">
+            <span>{{ section.settings.heading | escape }}</span>
+          </h2>
+        {% endif %}
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class="banner__text tw-font-neutraface-display-light tw-w-[70%] tw-mx-auto tw-mt-4 tw-text-[20px] tw-text-[#ffffff] tw-tracking-[0.4px] tw-leading-[28px] min750:tw-mt-8 mobile:tw-text-[16px] mobile:tw-leading-[24px] mobile:tw-w-full">
+          <span>{{ section.settings.description | escape }}</span>
+        </div>
+      {% endif %}
+
+      {% if section.settings['button-label'] != blank %}
+        <div class=" tw-inline-flex tw-flex-wrap tw-gap-4 tw-break-words tw-mt-12 mobile:tw-text-center mobile:tw-mt-3">
+          <a
+            {% if section.settings.button_link == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ section.settings.button_link }}"
+            {% endif %}
+            aria-label="{{ section.settings.heading | escape }}  {{- section.settings['button-label'] | escape -}}"
+            class="section-{{ section.id }}--banner-button section-button tw-pl-3 tw-flex tw-justify-between tw-items-center tw-font-neutraface-display-bold tw-text-black tw-text-xs tw-uppercase tw-w-[100px] tw-h-[33px] tw-rounded-[33px] hover:!tw-bg-white hover:!tw-text-black tw-transition-all tw-duration-200 tw-ease-in max991:tw-mt-10 focus-visible:!tw-bg-white focus-visible:!tw-text-black tw-w-auto mobile:tw-pl-0 min1920:tw-text-[14px] min1920:tw-leading-[20px]"
+          >
+            {{- section.settings['button-label'] | escape -}}
+            &nbsp; &nbsp; {% render 'icon-circle-with-arrow-white' %}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Banner Parallax",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "id": "custom-class",
+      "type": "text",
+      "label": "Custom Class"
+    },
+    {
+      "type": "select",
+      "id": "heading-type",
+      "options": [
+        {
+          "value": "H1",
+          "label": "H1"
+        },
+        {
+          "value": "H2",
+          "label": "H2"
+        }
+      ],
+      "default": "H2",
+      "label": "Heading Type"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading-shadow",
+      "label": "Heading Dropshadow for ADA",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "heading-color",
+      "label": "Heading Color",
+      "default": "#000000"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Desription"
+    },
+    {
+      "type": "color",
+      "id": "description-color",
+      "label": "Description Color",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "button-label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button URL"
+    },
+    {
+      "type": "color",
+      "id": "button-color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button-bg-color",
+      "label": "Button Background Color"
+    },
+    {
+      "type": "color",
+      "id": "button-border-color",
+      "label": "Button Border Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "ruffino_logo",
+      "label": "Logo Image On Banner"
+    },
+    {
+      "type": "select",
+      "id": "content-position",
+      "options": [
+        {
+          "value": "Left",
+          "label": "Left"
+        },
+        {
+          "value": "Center",
+          "label": "Center"
+        },
+        {
+          "value": "Right",
+          "label": "Right"
+        }
+      ],
+      "default": "Left",
+      "label": "Content Alignment"
+    },
+    {
+      "type": "range",
+      "id": "content-scale",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Content bottom scale",
+      "default": 5
+    },
+    {
+      "type": "text",
+      "id": "desktop-height",
+      "label": "Desktop Height",
+      "default": "640px"
+    },
+    {
+      "type": "text",
+      "id": "mobile-height",
+      "label": "Mobile Height",
+      "default": "360px"
+    },
+    {
+      "type": "select",
+      "id": "background-type",
+      "options": [
+        {
+          "value": "Color",
+          "label": "Color"
+        },
+        {
+          "value": "Image",
+          "label": "Image"
+        },
+        {
+          "value": "Video",
+          "label": "Video"
+        }
+      ],
+      "default": "Image",
+      "label": "Background Type",
+      "info": "Select the type of hero banner you want"
+    },
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "Background Color"
+    },
+    {
+      "type": "image_picker",
+      "id": "background-image-desktop",
+      "label": "Background Image For Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "background-image-mobile",
+      "label": "Background Image For Mobile"
+    },
+    {
+      "type": "text",
+      "id": "bg-img-alt-text",
+      "label": "Background Image alt Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "overlay_desktop",
+      "default": false,
+      "label": "Want color overlay on desktop?"
+    },
+    {
+      "type": "checkbox",
+      "id": "overlay_mobile",
+      "default": false,
+      "label": "Want color overlay on mobile?"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "url",
+      "id": "desktop-background-url",
+      "label": "Background Video URL For Desktop"
+    },
+    {
+      "type": "url",
+      "id": "mobile-background-url",
+      "label": "Backgroung Video URL For Mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_image",
+      "label": "video placeholder image"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_mobile_image",
+      "label": "video placeholder image for mobile"
+    },
+    {
+      "type": "text",
+      "id": "video-banner-description",
+      "label": "Video Banner Description"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner Parallax"
+    }
+  ]
+}
+{% endschema %}
+<script>
+  $(document).ready(function () {
+    var isPlaying = true;
+    $('.playPauseBtn').keydown(function (event) {
+      if (event.key === ' ' || event.key === 'Enter' || event.key === 'Spacebar') {
+        event.preventDefault();
+        toggleButton(event.target);
+      }
+    });
+    function toggleButton(element) {
+      var videoAction = document.getElementById('video-section');
+      var mobileVideoAction = document.getElementById('video-section-mobile');
+      if (isPlaying) {
+        videoAction.pause();
+        mobileVideoAction.pause();
+        isPlaying = false;
+        $('.pauseAction').css('display', 'none');
+        $('.pauseBtn').css('display', 'none');
+        $('.playBtn').css('display', 'block');
+        $('.playAction').css('display', 'block');
+        $('.playPauseBtn').focus();
+      } else {
+        videoAction.play();
+        mobileVideoAction.play();
+        isPlaying = true;
+        $('.playAction').css('display', 'none');
+        $('.playBtn').css('display', 'none');
+        $('.pauseAction').css('display', 'block');
+        $('.pauseBtn').css('display', 'block');
+        $('.playPauseBtn').focus();
+      }
+    }
+    var videoAction = document.getElementById('video-section');
+    var mobileVideoAction = document.getElementById('video-section-mobile');
+    $('.pauseBtn').click(function (e) {
+      e.preventDefault();
+      videoAction.pause();
+      mobileVideoAction.pause();
+      $('.pauseAction').css('display', 'none');
+      $('.pauseBtn').css('display', 'none');
+      $('.playBtn').css('display', 'block');
+      $('.playAction').css('display', 'block');
+    });
+    $('.playBtn').click(function (e) {
+      e.preventDefault();
+      videoAction.play();
+      mobileVideoAction.play();
+      $('.playAction').css('display', 'none');
+      $('.playBtn').css('display', 'none');
+      $('.pauseAction').css('display', 'block');
+      $('.pauseBtn').css('display', 'block');
+    });
+  });
+
+  $(document).ready(function () {
+    if ($(window).width() > 787) {
+      $(window).scroll(function () {
+        var scrollTop = $(this).scrollTop();
+        $('.desktop_overlay').css('background-position', '50% ' + -(scrollTop / 6) + 'px');
+      });
+    }
+  });
+</script>

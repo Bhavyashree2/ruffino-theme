@@ -1,0 +1,448 @@
+{% assign themeSetting = section.settings %}
+{% assign themeColor = themeSetting.default_theme_color %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;800&display=swap" rel="stylesheet">
+
+{% style %}
+  .section-{{ section.id }}--color {
+    color: {{ section.settings.txt_id }};
+    border-color: {{ section.settings.txt_id }};
+    /* border-color: #ffce68; */
+  }
+  .section-{{ section.id }}--color>a {
+    color: {{ section.settings.txt_id }};
+  }
+  .section-{{ section.id }}--color::placeholder {
+    color: {{ section.settings.txt_id }};
+    opacity: 1;
+  }
+  .section-{{ section.id }}--btn {
+    color: {{ section.settings.button_text_color }};
+    background-color: {{ section.settings.button_color }};
+    border-color: {{ section.settings.border_color }};
+  }
+    #age-check-prompt{
+    background: #1D1D1D;
+  }
+  
+  #hero-vid-gate {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .hero_img_blur {
+    filter: blur(5px);
+  }
+  .legal-text a:hover, .legal-text a:focus {
+    text-decoration: underline;
+  }
+  .yes-btn:hover, .no-btn:hover{
+    /* outline: 0.2rem solid rgba(var(--color-foreground),.5);
+    outline-offset: 0.3rem;
+    box-shadow: 0 0 0 0.3rem rgb(var(--color-background)),0 0 0.5rem 0.4rem rgba(var(--color-foreground),.3); */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    color: #000000;
+  }
+
+{% endstyle %}
+<div
+  id="age-gate"
+  class="age-gate tw-w-full tw-h-screen tw-fixed tw-left-0 tw-top-0 tw-z-50 tw-bg-darkgrey tw-overflow-y-scroll min750:tw-overflow-hidden tw-hidden max991:tw-overflow-y-scroll max991:tw-bg-ageGate max991:tw-bg-no-repeat max991:tw-bg-cover "
+  aria-modal="true"
+  data-component="ageGate"
+  role="form"
+  aria-labelledby="Age Verification"
+  aria-describedby="Verify your age in order to access the site."
+>
+  {% assign backgroundType = section.settings.background_type %}
+  <div
+    id="hero-vid-gate"
+    class="{% if backgroundType == 'image' %}tw-bg-ageGate {% endif %} hero hero--age-gate hero__vid-wrap hero__vid-wrap--gate {% if section.settings.background_image_blur and backgroundType == 'image' %}hero_img_blur{% endif %} tw-relative tw-max-w-full tw-h-full tw-mx-auto tw-my-0"
+    data-component="theme_vid"
+  >
+  </div>
+    <div id="age-check-prompt" class="age-gate__content tw-absolute tw-inset-1/2 tw-transform -tw-translate-x-1/2 -tw-translate-y-1/2 tw-opacity-100 tw-bg-[#1D1D1D] tw-z-2] tw-w-1/2 tw-h-fit tw-p-8 tw-text-center ipad:tw-w-[80%] mobile:tw-w-[90%] mobile:tw-px-0 ">
+      <div class="age-gate__logo-intro-wrap tw-block">
+        <div class="age-gate__logo tw-w-full tw-text-center" id="age-gate__logo">
+          {{ logoType }}
+          {% assign logoType = section.settings.logo_type %}
+          {% assign imageSvgLogo = section.settings.svg_logo %}
+          {% assign imageLogo = section.settings.logo %}
+          {% if imageLogo != blank and logoType == 'image' %}
+            <img
+              src="{{ imageLogo.src | img_url: 'large' }}"
+              alt="{{ section.settings.logo.alt }}"
+              class="tw-w-40 tw-my-0 tw-mx-auto mobile:tw-w-[200px] mobileLandscape:!tw-w-[10rem]"
+            >
+          {% elsif imageSvgLogo != blank and logoType == 'svg_image' %}
+            {{ imageSvgLogo }}
+          {% else %}
+          {{ 'image' | placeholder_svg_tag: 'style-placeholder tw-max-h-[400px] tw-mx-auto tw-my-0' }}
+          {% endif %}
+        </div>
+      </div>
+      <div class="age-gate__form-button-wrap tw-text-center tw-block tw-my-0 tw-mx-auto tw--mt-8 tw-w-full  ipad:tw-w-11/12" id="age-gate__form">
+        <form name="age-consent-form">
+          <p class="tw-text-white tw-text-white/100 tw-font-made-saonara tw-tracking-normal tw-leading-normal tw-text-[20px] tw-not-italic tw-font-normal tw-w-[80%] tw-my-[50px] tw-mx-auto tw-mt-11 tw-mb-[15px] max991:tw-w-[90%] mobile:tw-text-[16px]" id="ageGateIntro">
+            {{ section.settings.intro_text }}
+          </p>
+          <p id="age-gate-prompt-min-age" aria-labelledby="ARE YOU OF LEGAL DRINKING AGE?" class="tw-font-neutraface-display-bold tw-text-white tw-text-[16px] tw-tracking-[0.32px] tw-leading-normal tw-mb-[2rem] mobile:tw-text-[14px]">ARE YOU OF LEGAL DRINKING AGE?</p>
+          <button onclick="handleYesClick();" aria-describedby="age-gate-prompt-min-age" class="yes-btn tw-font-neutraface-display-bold tw-text-white tw-text-[14px] tw-tracking-[0.28px] tw-leading-normal tw-uppercase tw-rounded-full tw-border tw-border-white tw-border-solid tw-p-5">Yes</button>
+          <button onclick="handleNoClick();" aria-describedby="age-gate-prompt-min-age" class="no-btn tw-font-neutraface-display-bold tw-text-white tw-text-[14px] tw-tracking-[0.28px] tw-leading-normal tw-uppercase tw-rounded-full tw-border tw-border-white tw-border-solid tw-p-5 tw-ml-4">No</button>
+        </form>
+      </div>
+      <div class="tw-text-center tw-m-auto tw-mt-4 tw-w-[80%]">
+        <p class="legal-text tw-text-[16px] tw-font-neutraface-display-light tw-not-italic tw-text-white/60 tw-leading-normal tw-tracking-[0.38px] tw-text-center  min1920:tw-text-[18px]">
+          {{ section.settings.legal }}
+        </p>
+      </div>
+    </div>
+  </div>
+  
+
+<style>
+  :root {
+      --ageGate-background-image :  url({{ section.settings.background_image | img_url: 'master' }});
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Age Gate",
+  "settings": [
+    {
+      "type": "color",
+      "id": "default_theme_color",
+      "label": "Agegate Theme Color",
+      "default": "#fdc338"
+    },
+    {
+      "type": "radio",
+      "id": "logo_type",
+      "options": [
+        { "value": "image", "label": "Image" },
+        { "value": "svg_image", "label": "Svg Image" }
+      ],
+      "label": "Logo Type",
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image (Max Width : 220px, Max Height : 75px)"
+    },
+    {
+      "type": "textarea",
+      "id": "svg_logo",
+      "label": "Svg Logo"
+    },
+    {
+      "type": "color",
+      "id": "txt_id",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "radio",
+      "id": "background_type",
+      "options": [
+        { "value": "color", "label": "Color" },
+        { "value": "image", "label": "Image" },
+        { "value": "video", "label": "Video" }
+      ],
+      "label": "Background Type",
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#6c757d"
+    },
+    {
+      "type": "url",
+      "id": "background_url",
+      "label": "Video Url ( Desktop Only )"
+    },
+    {
+      "type": "url",
+      "id": "video_gif_url",
+      "label": "Video GIF ( Mobile Only )"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mobile",
+      "label": "Background image Mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "background_image_blur",
+      "label": "Background Image Blur Effect",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "intro_text",
+      "label": "Top Heading Text",
+      "default": "<h1>You must be of legal drinking age in your country to enter this site</h1>"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "Enter SVEDKA Vodka"
+    },
+    {
+      "type": "text",
+      "id": "legal",
+      "label": "Legal",
+      "default": "<p>Crown imports supports the century councils fight against drinking and drunk driving. To learn more, visit their website at: <a href=\"http:\/\/www.centurycouncil.org \" title=\"http:\/\/www.centurycouncil.org \" target=\"_blank\">www.centurycouncil.org <\/a><\/p><p>Relax responsibly®. Imported by ©2021 Crown Imports, Chicago, IL <\/p><p>Our <a title=\"https:\/\/www.cbrands.com\/privacy-policy\" href=\"https:\/\/www.cbrands.com\/privacy-policy\" target=\"_blank\">Privacy Policy<\/a> and <a title=\"https:\/\/www.cbrands.com\/terms\" href=\"https:\/\/www.cbrands.com\/terms\" target=\"_blank\">Terms &amp; Conditions<\/a> have changed. By using this website, you agree to the Privacy Policy &amp; Terms and Conditions of use.<\/p>"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Color",
+      "default": "#4d4c7d"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Button Border Color",
+      "default": "#4d4c7d"
+    },
+    {
+      "type": "radio",
+      "id": "activate_audio_module",
+      "options": [
+        { "value": "yes", "label": "Yes" },
+        { "value": "no", "label": "No" }
+      ],
+      "label": "Show Audio Control",
+      "default": "yes"
+    },
+    {
+      "type": "text",
+      "id": "audio_text",
+      "label": "Audio Text",
+      "default": "Want to pass us the aux? Click here to enable audio."
+    },
+    {
+      "type": "radio",
+      "id": "video_icon_type",
+      "options": [
+        { "value": "image", "label": "Image" },
+        { "value": "svg_image", "label": "Svg Image" }
+      ],
+      "label": "Video Sound Icon Type",
+      "default": "svg_image"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_sound_play",
+      "label": "Play Video Sound Icon "
+    },
+    {
+      "type": "image_picker",
+      "id": "video_sound_mute",
+      "label": "Muted Video Sound Icon "
+    },
+    {
+      "type": "textarea",
+      "id": "video_sound_play_svg",
+      "label": "Play Video Sound Svg Icon",
+      "default": "<svg aria-label=\"Play Video Sound\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" height=\"24\" viewbox=\"0 0 24 24\" width=\"24\">\n<path d=\"M0 0h24v24H0z\" fill=\"none\"><\/path>\n<path fill=\"#002452\" d=\"M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z\"><\/path>\n<\/svg>"
+    },
+    {
+      "type": "textarea",
+      "id": "video_sound_mute_svg",
+      "label": "Muted Video Sound Svg Icon",
+      "default": "<svg aria-label=\"Mute Video Sound\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" height=\"24\" viewbox=\"0 0 24 24\" width=\"24\">\n  <path d=\"M0 0h24v24H0z\" fill=\"none\"><\/path>\n  <path fill=\"#002452\" d=\"M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z\"><\/path>\n  <\/svg>"
+    },
+    {
+      "type": "url",
+      "id": "redirect_url",
+      "label": "Redirect Url"
+    },
+    {
+      "id": "age_limit",
+      "type": "number",
+      "label": "Age Limit",
+      "default": 21
+    }
+  ]
+}
+{% endschema %}
+<script>
+  function handleYesClick() {
+      setAgeConsent();
+  }
+  
+  function handleNoClick() {
+      if ("{{ section.settings.redirect_url }}") {
+          setTimeout(function() {
+              window.location.href = "{{ section.settings.redirect_url }}"
+          }, 1e3)
+      }
+      else {
+          setTimeout(function() {
+              window.location.href = "https:\/\/www.responsibility.org\/"
+          }, 1e3)
+      }
+  }
+  
+
+const getCookieValue = (name) => (
+  document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
+)
+
+function showAgeConsentForm() {
+    const isOfAge = getCookieValue('validAge');
+    if (!isOfAge) {
+        const ageElement = document.getElementById('age-gate');
+        if (ageElement) {
+            ageElement.classList.add('tw-block');
+            ageElement.classList.remove('tw-hidden');
+          	document.body.classList.add("tw-overflow-hidden");
+            $('.skip-to-content-link.button.visually-hidden').attr('tabindex','-1');
+            $('.skip-to-content-link.button.visually-hidden').attr('aria-hidden','true');
+            $('#shopify-section-footer').css("display", "none");
+            $('#MainContent').css('display', 'none');
+            $('#shopify-section-announcement-bar').css("display","none");
+            $('#shopify-section-header').css("display", "none");
+            $('#shopify-section-header').hide();
+
+        }
+    }
+}
+showAgeConsentForm();
+function setAgeConsent() {
+    const days = 15; //number of days until they must go through the age checker again.
+    const date = new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    const expires = "; expires="+date.toGMTString();
+    document.cookie = 'validAge=true;'+expires+"; path=/";
+    const ageElement = document.getElementById('age-gate');
+    if (ageElement) {
+        $('#shopify-section-header').css("display", "block");
+        $('#shopify-section-header').show();
+        $('#shopify-section-announcement-bar').css("display","block");
+        $('#shopify-section-footer').css("display", "block");
+        $('#MainContent').css('display', 'block');
+        $('.skip-to-content-link.button.visually-hidden').removeAttr('tabindex');
+        $('.skip-to-content-link.button.visually-hidden').removeAttr('aria-hidden');
+        document.body.classList.remove("tw-overflow-hidden");
+        ageElement.classList.add('tw-hidden');
+        ageElement.classList.remove('tw-block');
+       
+        window.location.reload(); 
+        
+        
+        
+    }
+}
+  
+  
+ 
+  window.onkeydown = function(event){  
+        if(event.keyCode === 32) {
+            $('#age-gate__form .btn.btn--hero btn--hero-inline').click();
+            //event.preventDefault();            
+        }
+    };
+
+    {% comment %} var KEYCODE_TAB = 9;
+    const bmonth = document.querySelector('#bmonth');
+    bmonth.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab' || e.keyCode === KEYCODE_TAB) {
+            if ( e.shiftKey ) {
+                e.preventDefault();
+                bmonth.focus();
+            }
+        }
+    }); {% endcomment %}
+
+    $('[tabindex]').focus(function() {
+        $(this).css('outline', '1.5px solid rgb(255,255,255,1) !important');
+        $(this).css('outline-offset', '2px !important');
+    });
+
+    $('[tabindex]').focusout(function() {
+        $(this).css('outline', 'none !important');
+    });
+
+    /* Handling Age Gate Modal Accessibility Control*/
+    const focusableElements = 'button, [href], svg, input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    const modal = document.querySelector('#age-gate');
+
+    const firstFocusableElement = modal.querySelectorAll(focusableElements)[0];
+    const secondFocusableElement = modal.querySelectorAll(focusableElements)[1];
+    const focusableContent = modal.querySelectorAll(focusableElements);
+    const lastFocusableElement = focusableContent[focusableContent.length - 1];
+
+    document.addEventListener('keydown', function(e) {
+        let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+
+        if (!isTabPressed) {
+            return;
+        }
+
+        if (e.shiftKey) {
+            if (document.activeElement === firstFocusableElement) {
+                lastFocusableElement.focus();
+                e.preventDefault();
+            }
+            if (document.activeElement.id === "bmonth" ) {
+                $('#age-gate__logo').focus();
+            }
+        } else {
+            if (document.activeElement === lastFocusableElement) {
+                firstFocusableElement.focus();
+                e.preventDefault();
+            }
+        }
+    });
+
+    /* Setting done for 200% or 400% zoom */
+    window.addEventListener("resize", getSizes, false);
+    function getSizes() {
+        let zoom = ((window.outerWidth - 10) / window.innerWidth) * 100;
+        if (zoom >= 190) {
+            $('#age-gate').addClass('zoom-age-gate');
+            $('#age-gate').css('overflow-y', 'scroll');
+            $('#age-gate').css('overflow-x', 'hidden');
+            $('#hero-vid-gate').css('display', 'none');
+            $('#age-gate__form fieldset').attr('style', 'width: 82% !important');
+            $('.age-gate__form').css('width', '100%');
+            $('.age-gate__form').css('margin-left', '0px');
+            $('.age-gate__input-wrap:after').attr('style', 'bottom: 28%');
+            if (zoom >= 290) {
+                $('#age-gate__form input').addClass('zoom-400p');
+            }
+        }
+        else if (zoom < 190) {
+            $('#age-gate').removeClass('zoom-age-gate');
+            $('#hero-vid-gate').css('display', 'block');
+            $('.age-gate__input-wrap:after').attr('style', 'bottom: 33%');
+            $('#age-gate__form input').removeClass('zoom-400p');
+        }
+    }
+    getSizes();
+
+</script>
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

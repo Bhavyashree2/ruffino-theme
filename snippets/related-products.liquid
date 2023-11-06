@@ -1,0 +1,52 @@
+{% comment %} <div class="tw-relative mobile:!tw-pt-[5rem] mobile:!tw-pb-0 tw-overflow-hidden">
+    <div class="mobile:tw-relative mobile:tw-overflow-hidden">
+        <h2 class="heading-2 js-show-on-scroll tw-animate-reverse tw-font-made-saonara tw-tracking-normal tw-leading-[135px] tw-text-[135px] tw-font-normal tw-text-[#231f20] tw-uppercase tw-whitespace-nowrap mobile:tw-leading-[107px] mobile:tw-text-[90px]" data-animate-type="tw-animate-stripmarquee" aria-hidden="true">{{ section.settings.title }}</h2>
+    </div>
+</div>
+<div class="tw-overflow-hidden">
+<ul class="tw-flex tw-justify-items-center tw-overflow-x-auto">
+{% for collection in product.collections limit: 1 %}
+    {% for product in collection.products limit: 4 %} 
+    <li class="tw-w-[342px]">
+        <h2 class="tw-font-neutraface-display-bold tw-font-normal tw-text-center tw-text-black tw-text-[14px] tw-uppercase"> 
+            {{ product.title }}
+        </h2>
+        <h2 class="tw-font-neutraface-display-bold tw-font-normal tw-text-center tw-text-black tw-text-[14px] tw-uppercase"> 
+        {{ product.type }}
+        </h2>
+        <div class="">
+            <a href="{{ product.url }}" aria-label="{{ product.title }}" class="focus-visible:tw-p-0.5 focus-visible:tw-border-4  tw-border-black" tabindex="0">
+                <img src="{{ product.featured_image | img_url: 'x440' }}" alt="{{ product.title }}" loading="lazy">
+            </a>
+        </div>
+        <p class="tw-w-[342px] tw-font-neutraface-display-light tw-text-center tw-text-black tw-text-xl tw-mt-7 mobile:tw-w-[300px]">{{ product.metafields.custom.description }}</p>
+    </li>
+    {% endfor %}
+{% endfor %}
+</ul>
+</div>
+
+{% schema %}
+{
+  "name": "Related Products",
+  "class": "related-products",
+  "settings": [
+        {
+            "type" : "text",
+            "id" : "custom_class",
+            "label" : "Custom Class"
+        },
+        {
+            "type" : "text",
+            "id" : "title",
+            "label" : "Title",
+            "default": "Taste More"
+        }
+    ],
+    "presets": [
+        {
+        "name": "Related Products"
+        }
+    ]
+}
+{% endschema %} {% endcomment %}

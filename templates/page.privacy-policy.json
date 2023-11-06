@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "privacy-policy",
+      "settings": {
+        "custom_class": "",
+        "container_title": "privacy policy",
+        "title_color": "#4d4c7d",
+        "background_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

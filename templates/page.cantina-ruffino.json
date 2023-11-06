@@ -1,0 +1,559 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "3b4decbd-6878-4da9-af78-20658a01d4c6": {
+      "type": "Banner",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "custom-class": "cantina",
+        "heading-type": "H1",
+        "heading": "",
+        "heading-shadow": true,
+        "heading-color": "#000000",
+        "description": "",
+        "description-color": "#000000",
+        "button-label": "",
+        "button-link": "",
+        "button-color": "#ffffff",
+        "button-bg-color": "",
+        "button-border-color": "#ffffff",
+        "ruffino_logo": "shopify:\/\/shop_images\/cantina-ruffino.png",
+        "content-position": "Center",
+        "content-scale": 25,
+        "desktop-height": "100vh",
+        "mobile-height": "700px",
+        "background-type": "Image",
+        "background-color": "",
+        "background-image-desktop": "shopify:\/\/shop_images\/Optimized-cantina.jpg",
+        "background-image-mobile": "shopify:\/\/shop_images\/cantina_mobile.png",
+        "bg-img-alt-text": "",
+        "overlay_desktop": false,
+        "overlay_mobile": false,
+        "overlay_color": "#000000",
+        "desktop-background-url": "",
+        "mobile-background-url": "",
+        "video-banner-description": ""
+      }
+    },
+    "e74bbd31-224f-4e5d-81ba-617670286477": {
+      "type": "heading-with-rightside-text2",
+      "settings": {
+        "custom-class": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "headingcolor": "#000000",
+        "heading-1": "Ruffino offers a multitude of",
+        "heading-2": "exquisite opportunities to immerse",
+        "heading-3": "yourself in our refined wine experiences.",
+        "heading-4": "",
+        "mobile-heading": "Ruffino  offers a multitude of exquisite opportunities to immerse yourself in our  refined wine experiences.",
+        "heading_size": "h1",
+        "descriptioncolor": "#4d3c7d",
+        "description": "",
+        "description2": "<p>Upon arrival, you'll be enveloped in the essence of Ruffino, a fusion of art, history, and the authentic aromas and flavors of Tuscany. Our dedicated brand ambassadors will expertly guide you through Tenuta Ruffino Poggio Casciano and the magnificent universe of winemaking.<br\/>Each tour culminates in a delightful Ruffino wine tasting, expertly paired with regional delicacies.<br\/>Tours and tastings are available throughout the week, by appointment, offering a journey through our historic cellars and a tasting selection spanning the breadth of Ruffino wines.<br\/>Guided tours are available in Italian and English, with the option for French upon request.<\/p>",
+        "content-position": "Right"
+      }
+    },
+    "0322e14e-fb13-4dc0-8504-467052083217": {
+      "type": "image-with-text-popup",
+      "blocks": {
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083217-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "RUFFINO’S STYLE",
+            "heading_width": "300px",
+            "heading_size": "h2"
+          }
+        },
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083217-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A captivating exploration of Ruffino's artistry, featuring a guided tour of Tenuta Ruffino Poggio Casciano and its storied cellars. <br\/>The tour concludes with a tasting of three flagship wines, expertly paired with thoughtful selections from our Chef.<br\/><br\/><strong>Price:<\/strong> 40€<br\/><br\/><strong>Duration:<\/strong> 1 hour and 30 minutes<br\/><\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083217-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "BOOK NOW",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083217-heading-1",
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083217-text-1",
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083217-button-1"
+      ],
+      "custom_css": [
+        ".experience-img-w-text h2 {max-width: 500px;}",
+        "@media (max-width: 767px) {.experience-img-w-text h2 {max-width: 350px; }}"
+      ],
+      "settings": {
+        "class_name": "cantina-img-w-text-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "headingcolor": "#000000",
+        "descriptioncolor": "#000000",
+        "button_color": "#ffffff",
+        "button_text_color": "#000000",
+        "border_color": "#000000",
+        "image": "shopify:\/\/shop_images\/d7aea58bdfa73d6b57deb03b1ef924cf.png",
+        "mobile_image": "shopify:\/\/shop_images\/d7aea58bdfa73d6b57deb03b1ef924cf.png",
+        "margin-options": "center",
+        "height": "adapt",
+        "layout": "image_first",
+        "desktop_content_alignment": "left",
+        "desktop_content_bg": "Color",
+        "content-bg-color": "#ffffff",
+        "color_on_top_of_bg_image": false,
+        "max-width": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_left": 24,
+        "padding_right": 24
+      }
+    },
+    "0322e14e-fb13-4dc0-8504-467052083218": {
+      "type": "image-with-text-popup",
+      "blocks": {
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083218-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "TRADITION REINVENTED",
+            "heading_width": "400px",
+            "heading_size": "h2"
+          }
+        },
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083218-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A historical voyage through Ruffino's enduring legacy, reimagining tradition with Sangiovese to refined Tuscan blends. <br\/>This immersive tour offers vineyard and cellar visits, culminating in a tasting experience that compares four wines, juxtaposing prestigious limited-edition DOCGs with IGTs. Each wine is thoughtfully paired with Tuscan delights.<br\/><br\/><strong>Price:<\/strong> 60€<br\/><br\/><strong>Duration:<\/strong> 2 hours<br\/><\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083218-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "BOOK NOW",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083218-heading-1",
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083218-text-1",
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083218-button-1"
+      ],
+      "custom_css": [
+        ".experience-img-w-text h2 {max-width: 500px;}",
+        "@media (max-width: 767px) {.experience-img-w-text h2 {max-width: 350px; }}"
+      ],
+      "settings": {
+        "class_name": "cantina-img-w-text-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "headingcolor": "#000000",
+        "descriptioncolor": "#000000",
+        "button_color": "#ffffff",
+        "button_text_color": "#000000",
+        "border_color": "#000000",
+        "image": "shopify:\/\/shop_images\/504099fa91dda27347338d6a6f8dbe8f.png",
+        "mobile_image": "shopify:\/\/shop_images\/504099fa91dda27347338d6a6f8dbe8f.png",
+        "margin-options": "center",
+        "height": "adapt",
+        "layout": "text_first",
+        "desktop_content_alignment": "left",
+        "desktop_content_bg": "Color",
+        "content-bg-color": "#ffffff",
+        "color_on_top_of_bg_image": false,
+        "max-width": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_left": 24,
+        "padding_right": 24
+      }
+    },
+    "0322e14e-fb13-4dc0-8504-467052083219": {
+      "type": "image-with-text-popup",
+      "blocks": {
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083219-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "MASTERY SINCE 1877",
+            "heading_width": "300px",
+            "heading_size": "h2"
+          }
+        },
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083219-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A comprehensive journey into Ruffino's artistic winemaking, from vineyard stewardship to the final elixir. This tour encompasses visits to the vineyard and cellar, offering the unique opportunity to sample aging wines directly from the barrels. <br\/>The culmination of this experience features a tasting of six flagship wines, each thoughtfully paired with a Chef-curated selection.<br\/><br\/><strong>Price:<\/strong> 110€<br\/><br\/><strong>Duration:<\/strong> 2 hours and 15 minutes<br\/><\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083219-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "BOOK NOW",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083219-heading-1",
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083219-text-1",
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083219-button-1"
+      ],
+      "custom_css": [
+        ".experience-img-w-text h2 {max-width: 500px;}",
+        "@media (max-width: 767px) {.experience-img-w-text h2 {max-width: 350px; }}"
+      ],
+      "settings": {
+        "class_name": "cantina-img-w-text-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "headingcolor": "#000000",
+        "descriptioncolor": "#000000",
+        "button_color": "#ffffff",
+        "button_text_color": "#000000",
+        "border_color": "#000000",
+        "image": "shopify:\/\/shop_images\/245575644b34a4e5c8b7fb34a0e43725_2x_e7f9179b-554d-4896-acc6-38feb96cba00.png",
+        "mobile_image": "shopify:\/\/shop_images\/245575644b34a4e5c8b7fb34a0e43725_2x_e7f9179b-554d-4896-acc6-38feb96cba00.png",
+        "margin-options": "center",
+        "height": "adapt",
+        "layout": "image_first",
+        "desktop_content_alignment": "left",
+        "desktop_content_bg": "Color",
+        "content-bg-color": "#ffffff",
+        "color_on_top_of_bg_image": false,
+        "max-width": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_left": 24,
+        "padding_right": 24
+      }
+    },
+    "0322e14e-fb13-4dc0-8504-467052083229": {
+      "type": "image-with-text-popup",
+      "blocks": {
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083229-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "CREATIVE BRAVURA",
+            "heading_width": "300px",
+            "heading_size": "h2"
+          }
+        },
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083229-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>An artful synthesis of winemaking allure and inventive gastronomy.<br\/>Our tour features visits to the vineyard and our cellar. The tasting unfolds in two acts: four exquisite Ruffino wines expertly paired with delicacies from our chef, culminating in a tasting menu with wine pairings at Tre Rane, our esteemed restaurant.<br\/><br\/><strong>Price:<\/strong> 150€<br\/><br\/><strong>Duration:<\/strong> 3 hours<br\/><\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083229-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "CHECK AVAILABILITY",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083229-heading-1",
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083229-text-1",
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083229-button-1"
+      ],
+      "custom_css": [
+        ".experience-img-w-text h2 {max-width: 500px;}",
+        "@media (max-width: 767px) {.experience-img-w-text h2 {max-width: 350px; }}"
+      ],
+      "settings": {
+        "class_name": "cantina-img-w-text-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "headingcolor": "#000000",
+        "descriptioncolor": "#000000",
+        "button_color": "#ffffff",
+        "button_text_color": "#000000",
+        "border_color": "#000000",
+        "image": "shopify:\/\/shop_images\/cad899ce13fd35ae6bab769623f28da8.png",
+        "mobile_image": "shopify:\/\/shop_images\/cad899ce13fd35ae6bab769623f28da8.png",
+        "margin-options": "center",
+        "height": "adapt",
+        "layout": "text_first",
+        "desktop_content_alignment": "left",
+        "desktop_content_bg": "Color",
+        "content-bg-color": "#ffffff",
+        "color_on_top_of_bg_image": false,
+        "max-width": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_left": 24,
+        "padding_right": 24
+      }
+    },
+    "0322e14e-fb13-4dc0-8504-467052083239": {
+      "type": "image-with-text-popup",
+      "blocks": {
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083239-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "TAILORED EXPERIENCES AWAIT",
+            "heading_width": "",
+            "heading_size": "h2"
+          }
+        },
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083239-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Please contact us at hospitality@ruffino.it, and allow us the pleasure of crafting an indelible Ruffino experience designed exclusively for you. <br\/>Our offerings encompass:<br\/>A vertical tasting which delves into the captivating history of Ruffino's iconic wines, including Riserva Ducale Oro Chianti Classico Gran Selezione DOCG, Greppone Mazzi - Brunello di Montalcino DOCG, and Modus IGT Toscana. Select past vintages, starting from 1977, directly from our enchanting Bottiglieria cellar at Tenuta Ruffino Poggio Casciano.<br\/>A cooking class with our accomplished chefs at Castello Ruffino at the Montemasso estate, for an immersive cooking class.<br\/>A masterclass to elevate your wine knowledge. Explore topics like organic winemaking, sustainability, and wine marketing, tailored for both wine professionals and enthusiasts.<br\/><br\/><strong>Price:<\/strong> Upon Request<br\/><\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083239-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "CHECK AVAILABILITY",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083239-heading-1",
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083239-text-1",
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083239-button-1"
+      ],
+      "custom_css": [
+        ".experience-img-w-text h2 {max-width: 500px;}",
+        "@media (max-width: 767px) {.experience-img-w-text h2 {max-width: 350px; }}"
+      ],
+      "settings": {
+        "class_name": "cantina-img-w-text-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "headingcolor": "#000000",
+        "descriptioncolor": "#000000",
+        "button_color": "#ffffff",
+        "button_text_color": "#000000",
+        "border_color": "#000000",
+        "image": "shopify:\/\/shop_images\/a51e6031c2798e5edc3f10e9fb8f7a5c.png",
+        "mobile_image": "shopify:\/\/shop_images\/a51e6031c2798e5edc3f10e9fb8f7a5c.png",
+        "margin-options": "center",
+        "height": "adapt",
+        "layout": "image_first",
+        "desktop_content_alignment": "left",
+        "desktop_content_bg": "Color",
+        "content-bg-color": "#ffffff",
+        "color_on_top_of_bg_image": false,
+        "max-width": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_left": 24,
+        "padding_right": 24
+      }
+    },
+    "0322e14e-fb13-4dc0-8504-467052083249": {
+      "type": "image-with-text-popup",
+      "blocks": {
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083249-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "COOKING CLASSES",
+            "heading_width": "300px",
+            "heading_size": "h2"
+          }
+        },
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083249-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Please contact us at <a href=\"mailto:hospitality@ruffino.it\" title=\"mailto:hospitality@ruffino.it\">hospitality@ruffino.it<\/a>, and allow us to organize captivating cooking classes with our skilled chefs amidst the idyllic backdrop of Castello Ruffino at the Montemasso estate. These courses are tailored for culinary aficionados and anyone eager to unlock the secrets of traditional Tuscan recipes, from fresh pasta to unsalted bread. <br\/>Under the expert guidance of our chefs, you'll prepare a full menu complemented by Ruffino wines. <br\/>As an added treat, the class includes an opportunity to explore the historic cellars at the nearby Tenuta Ruffino Poggio Casciano.<br\/><br\/><strong>Price:<\/strong> Upon Request<br\/><\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083249-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "CHECK AVAILABILITY",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083249-heading-1",
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083249-text-1",
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083249-button-1"
+      ],
+      "custom_css": [
+        ".experience-img-w-text h2 {max-width: 500px;}",
+        "@media (max-width: 767px) {.experience-img-w-text h2 {max-width: 350px; }}"
+      ],
+      "settings": {
+        "class_name": "cantina-img-w-text-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "headingcolor": "#000000",
+        "descriptioncolor": "#000000",
+        "button_color": "#ffffff",
+        "button_text_color": "#000000",
+        "border_color": "#000000",
+        "image": "shopify:\/\/shop_images\/4cf9664bb4c778a896b03ab2ceae616f.png",
+        "mobile_image": "shopify:\/\/shop_images\/4cf9664bb4c778a896b03ab2ceae616f.png",
+        "margin-options": "center",
+        "height": "adapt",
+        "layout": "text_first",
+        "desktop_content_alignment": "left",
+        "desktop_content_bg": "Color",
+        "content-bg-color": "#ffffff",
+        "color_on_top_of_bg_image": false,
+        "max-width": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_left": 24,
+        "padding_right": 24
+      }
+    },
+    "f4b4e959-1774-4837-9237-fc51b76bc273": {
+      "type": "rich-to-us-text-section",
+      "settings": {
+        "headingcolor": "#000000",
+        "heading-1": "HOW TO REACH US",
+        "heading-2": "TENUTA RUFFINO POGGIO CASCIANO",
+        "descriptioncolor": "#000000",
+        "description": "<p>Via Poggio al Mandorlo, 1 50011 Bagno a Ripoli [FI]<\/p><p>+39 055 64 99 750 | hospitality@ruffino.it<\/p>",
+        "btn-txt": "Maps",
+        "map-address": "",
+        "map-url": "https:\/\/www.google.com\/maps\/place\/Ruffino+Poggio+Casciano\/@43.6949406,11.3262693,15z\/data=!4m9!3m8!1s0x132a52aa87ffd1db:0xbbfd41ef356e6648!5m2!4m1!1i2!8m2!3d43.6949406!4d11.3262693!16s%2Fg%2F1tf59_hk?entry=ttu"
+      }
+    },
+    "f4b4e959-1774-4837-9237-fc51b76bc299": {
+      "type": "cantina-book-now-section",
+      "settings": {
+        "backgroundcolor": "#000000",
+        "headingcolor": "#ffffff",
+        "heading-1": "DO YOU WANT TO BOOK NOW?",
+        "heading-2": "",
+        "descriptioncolor": "#ffffff",
+        "description": "<p>Click here, choose the date and you will receive immediate confirmation of your booking<\/p>",
+        "btn-txt": "BOOK NOW",
+        "map-address": ""
+      }
+    },
+    "c2c279ab-ac4a-4339-84b0-5a6d6f0d5cb4": {
+      "type": "heading-section",
+      "custom_css": [
+        ".cantina-anmated-heading h2.animatedheading {font-size: 135px;}",
+        "@media only screen and (max-width: 767px) {.cantina-anmated-heading h2.animatedheading {font-size: 90px; }}"
+      ],
+      "settings": {
+        "custom_class": "cantina-anmated-heading",
+        "heading_line_1": "YOU MAY ALSO LIKE",
+        "heading_line_2": "",
+        "animated": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "b502c0ad-902c-459e-9ba8-8658d45ca871": {
+      "type": "home-horizontal-scroll",
+      "blocks": {
+        "e634f971-1fee-4858-b861-b4f9c716bbdf": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "title": "CANTINA RUFFINO",
+            "img": "shopify:\/\/shop_images\/AA.jpg",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus. Pellentesque sed mauris a metus maximus.",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        },
+        "af892e06-562d-4a0d-a63e-67e803af2fb5": {
+          "type": "slide",
+          "settings": {
+            "title": "ENOTECA RUFFINO",
+            "img": "shopify:\/\/shop_images\/DSC02345-Edit.jpg",
+            "text": "sip, savor, and surround yourself with Tuscan splendor",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        },
+        "7ebab408-ac70-4204-9b75-e0a374a2bcf7": {
+          "type": "slide",
+          "settings": {
+            "title": "TRE RANE",
+            "img": "shopify:\/\/shop_images\/DSC02838.jpg",
+            "text": "where Tuscan fine dining becomes an art form",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        },
+        "8df3afe2-c606-4612-b6d7-b3e403a5dd66": {
+          "type": "slide",
+          "settings": {
+            "title": "CASA RUFFINO",
+            "img": "shopify:\/\/shop_images\/a8ff7b6a18ac8742c893d2b7a7d73549.jpg",
+            "text": "a sophisticated villa amidst the vines",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        },
+        "b8916854-bfa9-49a6-b2ac-7c8a61ea56a1": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "title": "EVENTS",
+            "img": "shopify:\/\/shop_images\/DSC02672-Edit.jpg",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus. Pellentesque sed mauris a metus maximus.",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "e634f971-1fee-4858-b861-b4f9c716bbdf",
+        "af892e06-562d-4a0d-a63e-67e803af2fb5",
+        "7ebab408-ac70-4204-9b75-e0a374a2bcf7",
+        "8df3afe2-c606-4612-b6d7-b3e403a5dd66",
+        "b8916854-bfa9-49a6-b2ac-7c8a61ea56a1"
+      ],
+      "custom_css": [
+        "h3 {font-size: 35px;}"
+      ],
+      "settings": {
+        "title": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "3b4decbd-6878-4da9-af78-20658a01d4c6",
+    "e74bbd31-224f-4e5d-81ba-617670286477",
+    "0322e14e-fb13-4dc0-8504-467052083217",
+    "0322e14e-fb13-4dc0-8504-467052083218",
+    "0322e14e-fb13-4dc0-8504-467052083219",
+    "0322e14e-fb13-4dc0-8504-467052083229",
+    "0322e14e-fb13-4dc0-8504-467052083239",
+    "0322e14e-fb13-4dc0-8504-467052083249",
+    "f4b4e959-1774-4837-9237-fc51b76bc273",
+    "f4b4e959-1774-4837-9237-fc51b76bc299",
+    "c2c279ab-ac4a-4339-84b0-5a6d6f0d5cb4",
+    "b502c0ad-902c-459e-9ba8-8658d45ca871"
+  ]
+}

@@ -1,0 +1,148 @@
+<div class="btn">
+    <button class="open-btn">Click Me</button>
+  </div>
+<div class="popup {{ section.settings.custom_class }}">
+    <div class="popup-overlay"></div>
+    <div class="main-popup">
+      <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <iframe class="booking-iframe-popup" src="https://my.book-dnatasting.it/poggiocasciano/my/sitoweb/booking-engine/booking.php?id=84&lang=en&lightversion=1" allowfullscreen="" title="Experience Ruffino" width="100%"></iframe>
+      </div>
+    </div>
+  </div>
+  {% schema %}
+  {
+    "name": "Popup Section",
+    "class": "section iframe-popup",
+    "settings": [
+        {
+            "type": "text",
+            "id": "custom_class",
+            "label": "Custom Class"
+    
+          }
+    ],
+
+    "presets": [
+
+      {
+        "name": "Popup Section"
+      }
+
+    ]
+
+  }
+{% endschema %}
+<style>
+    .open-btn{background: #000;}
+    .booking-iframe-popup{
+        height: 100%;
+        margin-top: 50px;
+        border: none;
+    }
+    .popup {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        /* background-color: aqua; */
+    }
+    .popup-content{
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+    .popup-overlay {
+        background-color: rgba(0, 0, 0, 0.575);
+        height: 100vh;
+        width: 100%;
+        position: absolute;
+    }
+    .main-popup {
+        position: absolute;
+        right: 0;
+        height: 100vh;
+        width: 80%;
+        z-index: 1;
+        background: #fff;
+        padding: 30px 20px;
+        line-height: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+    }
+    .close-btn {
+        border: 1px solid;
+        border-radius: 50%;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 50px;
+        cursor: pointer;
+        transition: .5s ease all;
+        height: 50px;
+        width: 50px;
+        color: #da1e30;
+        padding: 16px 10px;
+    }
+    .close-btn:hover {
+        background: white;
+    }
+    .popup-content p {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+    @keyframes slide-in {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    @keyframes slide-out {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(100%);
+        }
+    }
+    @media screen and (max-width: 767px) {
+        .main-popup { width: 100%; }
+    }
+</style>
+
+
+<script>
+    const open_btn = document.querySelector('.open-btn');
+    const close_btn = document.querySelector('.close-btn');
+    const popup = document.querySelector('.popup');
+    const main_popup = document.querySelector('.main-popup');
+    
+    open_btn.addEventListener('click', () => {
+        popup.style.display = 'flex';
+        main_popup.style.cssText = 'animation:slide-in .5s ease; animation-fill-mode: forwards;';
+    });
+    
+    close_btn.addEventListener('click', () => {
+        main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 500);
+    });
+    
+    window.addEventListener('click', (e) => {
+        if (e.target == document.querySelector('.popup-overlay')) {
+            main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 500);
+        }
+    });
+    
+    </script>

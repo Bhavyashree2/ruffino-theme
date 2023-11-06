@@ -1,0 +1,151 @@
+{
+  "sections": {
+    "main": {
+      "type": "faq-page",
+      "blocks": {
+        "65075dc6-3a8f-4823-a91a-0b38d4a4d3c7": {
+          "type": "Question",
+          "settings": {
+            "question": "WHAT IS INCLUDED IN THE \"TASTING EXPERIENCE\"?",
+            "answer": "<p>The Tasting Experience at Nelson's Green Brier Distillery in Nashville, Tennessee takes you through the past, present and future of this storied distillery. The interactive and guided demonstration will cover our history and production process and will be accompanied by four other seasonal offerings.<\/p>"
+          }
+        },
+        "50f58cb9-0a76-4f2b-9d2b-fd3652be08f7": {
+          "type": "Question",
+          "settings": {
+            "question": "ARE YOU CURRENTLY OFFERING TOURS OF YOUR PRODUCTION FACILITY?",
+            "answer": "<p>Tours of our production facility are currently offered on Saturdays and Sundays only. However, you will learn all about our production process in our Tasting Experience.<\/p>"
+          }
+        },
+        "9c271683-4940-4310-a387-0317d40060d5": {
+          "type": "Question",
+          "settings": {
+            "question": "HOW LONG DO THE TASTINGS LAST?",
+            "answer": "<p>Typically between 40-45 minutes.<\/p>"
+          }
+        },
+        "f93c0d0e-6529-4725-892f-78e2b5ee443d": {
+          "type": "Question",
+          "settings": {
+            "question": "HOW MUCH DOES THE TASTING EXPERIENCE COST?",
+            "answer": "<p>Our Tasting Experience (Monday-Friday) is $15 per person. Our Distillery Tour (Saturday & Sunday) is $20 per person.<\/p>"
+          }
+        },
+        "341f75e0-7fa1-4bf3-9afd-c6b7ce7c2e2b": {
+          "type": "Question",
+          "settings": {
+            "question": "WHAT IS YOUR CANCELLATION POLICY?",
+            "answer": "<p>Customers will receive a full refund with 24 hours notice of cancellation. Customers will also receive a full refund in case of operator cancellation due to weather or other unforeseen circumstances. Contact us by phone to cancel or inquire about a cancellation. No-shows will be charged the full price.<\/p>"
+          }
+        },
+        "e2716de5-bfc4-49c8-b43c-aa6fbf874e4a": {
+          "type": "Question",
+          "settings": {
+            "question": "HOW MANY PEOPLE CAN JOIN MY TASTING GROUP?",
+            "answer": "<p>At this time, we have a strict maximum of 15 people allowed on each Tasting Experience.<\/p>"
+          }
+        },
+        "afe6e31e-360a-4edd-8ee0-e716cd0eeead": {
+          "type": "Question",
+          "settings": {
+            "question": "HOW DO I BOOK A \"PRIVATE TASTING EXPERIENCE\"?",
+            "answer": "<p>Please inquire for availability for a private tasting by calling 615-913-8800.<\/p>"
+          }
+        },
+        "1e95dc56-4f03-4d2f-9b4b-7375209783d6": {
+          "type": "Question",
+          "settings": {
+            "question": "MY CHILD IS UNDERAGE, CAN WE STILL DO THE TASTING?",
+            "answer": "<p>Yes! We allow all ages in the distillery. We have plenty of seating and your child can sit at a nearby table while waiting for you to enjoy your experience.<\/p>"
+          }
+        },
+        "6107adcd-04b1-4bb6-8b62-b957df6ac8f1": {
+          "type": "Question",
+          "settings": {
+            "question": "DO YOU OFFER A MILITARY DISCOUNT?",
+            "answer": "<p>Yes, with a valid military ID we offer 25% off the price of your Distillery Tasting Experience. If you made a reservation online and show us your ID upon arrival, we can refund you the difference at that time. NOTE: We also extend this discount to first responders with proof of service.<\/p>"
+          }
+        },
+        "af12b63d-3ac3-4470-b853-e632da32da11": {
+          "type": "Question",
+          "settings": {
+            "question": "DO I NEED AN ID TO BE ABLE TO PARTICIPATE IN THE TASTING?",
+            "answer": "<p>Yes, Tennessee law requires that we perform universal I.D. checks across the board, no matter how old you are. In order to drink on the tasting you must have a valid, unexpired driver’s license, passport, or alternative, government issued, valid photo ID.<\/p>"
+          }
+        },
+        "be83d138-4fdb-4219-ac31-7f3b335cb83a": {
+          "type": "Question",
+          "settings": {
+            "question": "IS THERE ANYWHERE TO PARK NEAR THE DISTILLERY?",
+            "answer": "<p>Yes, there is plenty of street parking all around the building as well as a paved parking lot directly across the street from Nelson’s Green Brier Distillery. Just keep an eye out for “No Parking” signs along the street where the buses stop!<\/p>"
+          }
+        },
+        "6286274f-e994-467c-860b-6958a43b9b5a": {
+          "type": "Question",
+          "settings": {
+            "question": "CAN I PURCHASE PRODUCT FROM YOU DIRECTLY ONLINE\/CAN YOU SHIP WHISKEY DIRECTLY TO ME?",
+            "answer": "<p>No, under our current laws we are not permitted to ship to your doorstep. Your state may allow direct shipment from a licensed online retailer but in order to purchase directly from us, you will need to visit the distillery in person. To see a list of our current distribution network and online distributing partners, visit our page <a href=\"\/products\/nelson-s-green-brier-tennessee-whiskey\" title=\"\/products\/nelson-s-green-brier-tennessee-whiskey\">here<\/a>.<\/p>"
+          }
+        },
+        "b8de8f2f-588c-49f3-8782-be3e8d470b71": {
+          "type": "Question",
+          "settings": {
+            "question": "WHERE CAN I FIND YOUR PRODUCTS?",
+            "answer": "<p>We sell bottles at the gift shop at our distillery in Nashville, Tennessee. We also distribute nationwide. To see a list of our current distribution network and online distributing partners, visit our page <a href=\"\/products\/nelson-s-green-brier-tennessee-whiskey\" title=\"\/products\/nelson-s-green-brier-tennessee-whiskey\">here<\/a>.<\/p>"
+          }
+        },
+        "2f5d7672-2c84-4c4f-b802-0d8b903bf5a0": {
+          "type": "Question",
+          "settings": {
+            "question": "I’M INTERESTED IN HOSTING AN EVENT IN THE OAK ROOM, HOW DO I GET MORE INFORMATION ABOUT THAT?",
+            "answer": "<p>To inquire about hosting events with Nelson’s Green Brier Distillery, <a href=\"mailto:events@greenbrierdistillery.com.\">send us an email<\/a>.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "65075dc6-3a8f-4823-a91a-0b38d4a4d3c7",
+        "50f58cb9-0a76-4f2b-9d2b-fd3652be08f7",
+        "9c271683-4940-4310-a387-0317d40060d5",
+        "f93c0d0e-6529-4725-892f-78e2b5ee443d",
+        "341f75e0-7fa1-4bf3-9afd-c6b7ce7c2e2b",
+        "e2716de5-bfc4-49c8-b43c-aa6fbf874e4a",
+        "afe6e31e-360a-4edd-8ee0-e716cd0eeead",
+        "1e95dc56-4f03-4d2f-9b4b-7375209783d6",
+        "6107adcd-04b1-4bb6-8b62-b957df6ac8f1",
+        "af12b63d-3ac3-4470-b853-e632da32da11",
+        "be83d138-4fdb-4219-ac31-7f3b335cb83a",
+        "6286274f-e994-467c-860b-6958a43b9b5a",
+        "b8de8f2f-588c-49f3-8782-be3e8d470b71",
+        "2f5d7672-2c84-4c4f-b802-0d8b903bf5a0"
+      ],
+      "settings": {
+        "custom_class": "",
+        "container_title": "Frequently Asked Questions",
+        "title_color": "#4d4c7d",
+        "background_color": "#ffffff"
+      }
+    },
+    "66e52c66-77ff-48d5-98a1-90eb7d57adfe": {
+      "type": "newsletter",
+      "settings": {
+        "newsletter_enable": true,
+        "check_background_image": true,
+        "klaviyo_list_id": "RvEbDF",
+        "newsletter_heading": "Email Sign Up",
+        "newsletter_subheading": "Get news and marketing",
+        "newsletter_consent_text": "I HAVE READ AND AGREE TO NELSON'S GREEN BRIER <a href=\"\/pages\/privacy-policy\" class=\"tw-text-white tw-font-bold focus:tw-underline hover:tw-underline\">PRIVACY POLICY<\/a> AND <a href=\"\/pages\/terms-and-conditions\" class=\"tw-text-white tw-font-bold focus:tw-underline hover:tw-underline\">TERMS AND CONDITIONS<\/a> AND CONSENT TO NELSON'S GREEN BRIER USE OF MY PERSONAL INFORMATION FOR MARKETING AND ANALYTICS PURPOSES, INCLUDING RECEIVING MARKETING AND PROMOTIONAL COMMUNICATIONS.",
+        "newsletter_button_text": "Subscribe",
+        "newsletter_bg_color": "#333333",
+        "newsletter_heading_color": "#eae4d6",
+        "newsletter_color_input": "#eae4d6",
+        "newsletter_color_terms": "#eae4d6",
+        "newsletter_button_bg_color": "",
+        "newsletter_button_text_color": "#eae4d6"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "66e52c66-77ff-48d5-98a1-90eb7d57adfe"
+  ]
+}

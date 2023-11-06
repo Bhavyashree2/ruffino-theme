@@ -1,0 +1,84 @@
+{
+  "sections": {
+    "our-crew-listing": {
+      "type": "our-crew-listing",
+      "blocks": {
+        "a4696368-cb85-4665-a6da-76131fae4877": {
+          "type": "crew_details",
+          "settings": {
+            "crew_name": "JILL BURNS",
+            "crew_designation": "Co-founder & Fred’s granddaughter",
+            "crew_profile_img": "shopify:\/\/shop_images\/JILL_BURNS_HEADSHOT-RESIZED_700x_0badc7d8-2aac-4515-85fd-02c7d560e318.jpg"
+          }
+        },
+        "0356720d-c3b6-4c9e-83be-c5d8c6b634ea": {
+          "type": "crew_details",
+          "settings": {
+            "crew_name": "KELLY GASINK",
+            "crew_designation": "Co-founder & Fred’s granddaughter",
+            "crew_profile_img": "shopify:\/\/shop_images\/KELLY_GASINK_RESIZED.webp"
+          }
+        },
+        "f5040708-4534-4b38-8e7c-ca8138d5cf0d": {
+          "type": "crew_details",
+          "settings": {
+            "crew_name": "KATY CANTY",
+            "crew_designation": "Marketing Manager",
+            "crew_profile_img": "shopify:\/\/shop_images\/Kate-Canty-Photo-e1539817335727.webp"
+          }
+        },
+        "ac0a5661-b2ca-427c-97ea-617f5d5763a7": {
+          "type": "crew_details",
+          "settings": {
+            "crew_name": "JOHN CALLIHAN",
+            "crew_designation": "Vice President Sales",
+            "crew_profile_img": "shopify:\/\/shop_images\/JOHN_CALLIHAN.webp"
+          }
+        },
+        "bd90ccf4-a12b-485b-b15a-ac281afe0c18": {
+          "type": "crew_details",
+          "settings": {
+            "crew_name": "JEFF BARR",
+            "crew_designation": "Region Manager, Great Lakes",
+            "crew_profile_img": "shopify:\/\/shop_images\/JEFF_BARR.webp"
+          }
+        },
+        "fd2a74ae-e376-4f08-be2d-e172f45fd52e": {
+          "type": "crew_details",
+          "settings": {
+            "crew_name": "GREG ILEWSKI",
+            "crew_designation": "Missouri Broker, Greater Integration",
+            "crew_profile_img": "shopify:\/\/shop_images\/Greg_ILEWSKI.webp"
+          }
+        },
+        "0799217a-0c3c-477c-86fc-5e95fac0a8a8": {
+          "type": "crew_details",
+          "settings": {
+            "crew_name": "AMANDA VALDEZ",
+            "crew_designation": "Senior Manager, Sales and Marketing",
+            "crew_profile_img": "shopify:\/\/shop_images\/Amanda-Valdez.webp"
+          }
+        }
+      },
+      "block_order": [
+        "a4696368-cb85-4665-a6da-76131fae4877",
+        "0356720d-c3b6-4c9e-83be-c5d8c6b634ea",
+        "f5040708-4534-4b38-8e7c-ca8138d5cf0d",
+        "ac0a5661-b2ca-427c-97ea-617f5d5763a7",
+        "bd90ccf4-a12b-485b-b15a-ac281afe0c18",
+        "fd2a74ae-e376-4f08-be2d-e172f45fd52e",
+        "0799217a-0c3c-477c-86fc-5e95fac0a8a8"
+      ],
+      "settings": {
+        "custom_class": "",
+        "heading": "OUR CREW",
+        "text-color": "#ab3838",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "our-crew-listing"
+  ]
+}

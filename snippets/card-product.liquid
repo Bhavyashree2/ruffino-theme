@@ -1,0 +1,23 @@
+
+ <div class="product-item js-show-on-scroll-for-border tw-relative tw-basis-1/3 tw-max-w-[33.33333%] mobile:tw-basis-full mobile:tw-max-w-full content-{{ paginateCounter }} loop-{{ forloop }} {{ hideStatus }}"> 
+
+          <a href="{{ card_product.url }}" aria-label="{{ card_product.title }}" class="tw-block tw-py-7 tw-px-4 tw-group focus-visible:tw-bg-eerieblack hover:tw-bg-eerieblack tw-transition-all tw-duration-200 tw-ease-in mobile:tw-py-10">
+
+              <h3 class="tw-font-neutraface-display-bold tw-text-black tw-text-sm tw-uppercase tw-w-full tw-text-center group-focus-visible:tw-text-white group-hover:tw-text-white tw-transition-all tw-duration-200 tw-ease-in">{{ card_product.title }}</h3>
+              
+              <h4 class="tw-font-neutraface-display-light tw-text-black tw-text-sm tw-uppercase tw-w-full tw-text-center group-focus-visible:tw-text-white group-hover:tw-text-white tw-transition-all tw-duration-200 tw-ease-in">{{ card_product.type }}</h4>
+
+              <img src="{{ card_product.featured_image | img_url: 'x450' }}" alt="{{ card_product.title }}" class="tw-mx-auto" loading=lazy>
+
+              <p class="tw-font-neutraface-display-light tw-text-black tw-text-xl tw-w-full tw-text-center tw-leading-[22px] group-focus-visible:tw-text-white group-hover:tw-text-white tw-transition-all tw-duration-200 tw-ease-in">{{ card_product.metafields.custom.abstract_data }}</p> 
+
+          </a>   
+</div>
+
+<div class="tw-block tw-w-full tw-basis-full min768:tw-hidden content-{{ paginateCounter }} loop-{{ forloop }} {{ hideStatus }} border-line">
+    <div data-animate-type="tw-animate-line_animation" class="js-show-on-scroll !tw-block tw-border-b tw-border-black tw-m-auto"></div>
+</div>
+
+
+    
+  

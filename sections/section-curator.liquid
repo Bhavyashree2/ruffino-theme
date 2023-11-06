@@ -1,0 +1,348 @@
+<section class="curator-section tw-p-['{{section.settings.section_bottom_padding}}'rem] tw-relative ">
+  <!-- Main Container -->
+ <div class="tw-relative tw-mx-auto tw-mt-0 tw-min-h-[600px] ipad:tw-min-h-[500px]
+  ipadPro:tw-min-h-[500px] mobile:tw-h-auto mobile:tw-pt-0 ipad:tw-py-10 {% if section.settings.display_background_image %}hero-banner-main-container-image{% else %} hero-banner-main-container {% endif %}">
+    <div class="tw-block tw-mb-4">
+    <!-- Right sub container -->
+        {% if section.settings.banner_image != blank %}
+            <div class="tw-px-4 max749:tw-w-full md:tw-w-1/2 lg:tw-w-1/2 tw-z-[9] tw-relative min1280:tw-w-[52%]">
+                <img data-src="{{ section.settings.banner_image | img_url:'master' }}"
+                    class="lazyload tw-relative tw-right-0 tw-w-1/2 xs:tw-w-full md:tw-w-1/2 lg:tw-w-1/2 {% if section.settings.hide_curator_bottle_image_mobile %}max767:tw-h-0 {% endif %}tw-h-full tw-object-contain tw-z-1 min1024:tw-mt-[-5%] lazy-background"
+                    height="" width="" loading="lazy" alt="{{ section.settings.banner_image_alt_text }}">
+            </div>
+        {% endif %}
+        <!-- Left sub container -->
+        <div class="tw-mx-auto tw-w-full tw-text-center">
+            {% if section.settings.fresca_img %}
+                <div>
+                    <img data-src="{{ section.settings.fresca_img | img_url:'master' }}"
+                    class="lazyload tw-mx-auto tw-mb-8 extraSmall:tw-mb-0 tw-w-auto tw-max-w-[70%] min1700:tw-max-w-none extraSmall:tw-max-w-[90%] lazy-background"
+                    height="" width="" loading="lazy" alt="{{ section.settings.fresca_img_alt_text }}">
+                </div>
+            {% endif %}
+
+            {% if section.settings.heading_text != blank %}
+                <h2 class="tw-text-[42px] tw-font-bold tw-tracking-normal tw-top-12 mobile:tw-text-[42px] tw-leading-[63px] tw-mb-12 tw-relative tw-text-center tw-not-italic">
+                    {{ section.settings.heading_text }}
+                </h2>
+            {% endif %}
+
+            {% if section.settings.subheading_text != blank %}
+                <h3 class="!tw-text-[24px] tw-tracking-normal tw-leading-[36px] mobile:!tw-text-[34px] mobile:!tw-leading-[51px]">
+                    {{ section.settings.subheading_text }}
+                </h3>
+            {% endif %}
+        </div>
+    </div>
+    <!-- curator section -->
+    <div class="tw-flex tw-mb-0">
+        <div class="lazyload tw-w-full ribbon social-media-container
+        tw-m-auto tw0-container tw-mt-8 lazy-background">
+            <div tabindex="-1" class="curator-feed" id='curator-feed-{{ section.settings.feed_name | downcase | split: " " | join: "-" }}-layout'></div>
+        </div>    
+    </div>
+</div>
+</section>
+
+<script>
+    const feedId = '{{ section.settings.feed_id }}';
+    let i, e, d = document, s = "script";
+  
+    i = d.createElement("script");
+    i.async = 1;
+    i.src = `https://cdn.curator.io/published/${feedId}.js`;
+    e = d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+    $(window).keyup(function(e) {
+  var pressedKey = (e.keyCode ? e.keyCode : e.which);
+  if (pressedKey == 9 && $('.crt-widget-grid .crt-grid-col3 .crt-grid-post').is(':focus')) {
+    $('.crt-widget-grid .crt-grid-col3 .crt-grid-post').each(function() {
+      $(this).removeClass('focus-enabled');
+    });
+    $('.crt-widget-grid .crt-grid-col3 .crt-grid-post:focus').addClass('focus-enabled');
+  } else if (pressedKey == 16 && pressedKey == 9 && $('.crt-widget-grid .crt-grid-col3 .crt-grid-post').is(':focus')) {
+    var pressedKey = (e.keyCode ? e.keyCode : e.which);
+    if (pressedKey == 9 && $('.crt-widget-grid .crt-grid-col3 .crt-grid-post').is(':focus')) {
+      $('.crt-widget-grid .crt-grid-col3 .crt-grid-post').each(function() {
+        $(this).removeClass('focus-enabled');
+      });
+      $('.crt-widget-grid .crt-grid-col3 .crt-grid-post:focus').addClass('focus-enabled');
+    }
+  }
+});
+  </script>
+  
+  <style>
+    .crt-widget-grid.crt-grid-col5 .crt-grid-post {
+        width: 30%;
+        margin: 1.5%;
+    }
+    .social-media-container {
+      padding-bottom: {{ section.settings.section_bottom_padding | append: 'rem' }};
+    }    
+  </style>
+
+{% schema %}
+ {
+ "name": "Section Curator",
+ "tag": "section",
+ "class": "curator-banner-section",
+ "settings": [
+     {
+         "type": "range",
+         "id": "section_top_padding",
+         "min": 0,
+         "max": 100,
+         "step": 1,
+         "unit": "rem",
+         "label": "Section Top Padding",
+         "default": 0
+     },
+     {
+         "type": "range",
+         "id": "section_bottom_padding",
+         "min": 0,
+         "max": 100,
+         "step": 1,
+         "unit": "rem",
+         "label": "Section Bottom Padding For Mobile",
+         "default": 20
+     },
+     {
+         "type": "range",
+         "id": "section_top_padding_mobile",
+         "min": 0,
+         "max": 100,
+         "step": 1,
+         "unit": "rem",
+         "label": "Section Top Padding For Mobile",
+         "default": 0
+     },
+     {
+         "type": "range",
+         "id": "section_bottom_padding_mobile",
+         "min": 0,
+         "max": 100,
+         "step": 1,
+         "unit": "rem",
+         "label": "Section Bottom Padding",
+         "default": 10
+     },
+     {
+         "type": "checkbox",
+         "id": "display_background_image",
+         "default": true,
+         "label": "Display Background Image"
+     },
+     {
+         "type": "image_picker",
+         "id" : "background_image",
+         "label" : "Background Image"
+     },
+     {
+         "type": "color",
+         "id" : "background_color",
+         "label" : "Background Color",
+         "default": "#F9DADA"
+     },
+     {
+         "type": "text",
+         "id" : "fresca_img_alt_text",
+         "label" : "Alt text for fresca highlighter image"
+     },
+     {
+         "type": "image_picker",
+         "id" : "banner_image",
+         "label" : "Banner Image",
+         "info" : "Insert image to show on banner"
+     },
+     {
+         "type": "text",
+         "id" : "banner_image_alt_text",
+         "label" : "Alt text for secondary image"
+     },
+     {
+         "type": "text",
+         "id" : "heading_text",
+         "label" : "Heading",
+         "default" : "#GETINTHEMIX"
+     },
+     {
+         "type": "text",
+         "id" : "subheading_text",
+         "label" : "Sub Heading",
+         "default" : "Follow us on social @FrescaMixed"
+     },
+     {
+      "type": "text",
+      "id": "feed_name",
+      "label": "Feed Name",
+      "default" : "Instagram feed"
+    },
+    {
+      "type": "text",
+      "id": "feed_id",
+      "label": "Feed ID",
+      "default" : "46ef110d-8730-4c3c-ac4d-e33d09127e56"
+    },
+    {
+         "type": "checkbox",
+         "id": "hide_curator_bottle_image_mobile",
+         "label": "Hide Bottle Image on Mobile"
+    }
+ ],
+ "presets": [
+     {
+         "name": "Section Curator"
+     }
+ ]
+ }
+{% endschema %}
+
+<style>
+ .curator-section {
+     padding-bottom: {{ section.settings.section_bottom_padding }}rem;
+ }
+ #shopify-section-{{ section.id }} .hero-banner-main-container {
+     background-color: {{ section.settings.background_color }};
+ }
+ #shopify-section-{{ section.id }} .hero-banner-main-container-image {
+     background-image: url({{ section.settings.background_image | img_url: 'master' }});
+ }
+ .crt-widget .crt-load-more {
+    color: white;
+    border-color:#4d4c7d;
+    background-color: #4d4c7d;
+    font-family: inherit;
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: 0;
+    padding: 0.5rem 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.crt-widget .crt-load-more:hover,.crt-widget .crt-load-more:focus{
+    text-decoration: underline;
+}
+.crt-widget .crt-grid-post .crt-post-text ,.crt-popup-wrapper div{
+    font-size: 14px;
+    font-family:'Source Sans Pro', sans-serif;
+    color: #213e51;
+}
+.crt-widget-grid.crt-grid-col1 .crt-grid-post {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #213e51;
+}
+.crt-popup-wrapper .crt-popup .crt-popup-read-more a.crt-button {
+    border-radius: 6px;
+    background-color: #213e51;
+    display: inline-block;
+    padding: 10px 15px;
+    color: white;
+    font-family: 'Worker Regular';
+    letter-spacing: normal;
+}
+.crt-widget .crt-date {
+    color: #213e51;
+    font-family:'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    letter-spacing: normal;
+}
+.crt-widget .crt-grid-post .crt-post-hover a,.crt-widget .crt-post-date .crt-post-date-link{
+    color: #213e51;
+    font-family:'Source Sans Pro', sans-serif;
+    opacity: 1;
+}
+.crt-grid-post-tokyo .crt-post-header .crt-post-share svg{
+    color: #213e51;
+}
+.crt-popup-wrapper .crt-popup .crt-date{
+    font-family:'Source Sans Pro', sans-serif;
+}
+.crt-grid-post-tokyo .crt-post-header .crt-social-icon svg{
+    margin: 0 auto;
+}
+/* .crt-widget-grid .crt-grid-col3 .crt-grid-post ,.crt-widget .crt-grid-post{
+    padding: 10px !important;
+} */
+.crt-widget-grid .crt-grid-col3 .crt-grid-post:focus{
+    border: 2px solid;
+}
+.crt-widget-grid .crt-grid-col3 .crt-grid-post:focus .crt-post-hover,.focus-enabled .crt-post-hover{
+    opacity: 1;
+    visibility: visible;
+}
+.crt-widget :focus {
+    outline: 0.2rem solid rgba(var(--color-foreground),.5);
+    outline-offset: 0.3rem;
+    box-shadow: 0 0 0 0.3rem rgb(var(--color-background)),0 0 0.5rem 0.4rem rgba(var(--color-foreground),.3);
+}
+.crt-widget :focus ,.crt-feed-window:focus{
+    outline-color: none !important;
+}
+span.hidden-for-aria-label {
+    display: none;
+}
+.crt-feed-window :focus-visible {
+    outline:unset !important;
+    outline-offset: 0.3rem;
+    box-shadow: none !important;
+} 
+.crt-post-c > * :focus-visible {
+    outline-color: black !important;
+    outline: 0.2rem solid black !important;
+} 
+ @media (max-width: 991px) {
+     .curator-section {
+         padding-bottom: {{ section.settings.section_bottom_padding_mobile }}rem;
+     }
+ }
+ @media(max-width:390px){
+    .crt-widget .crt-load-more{
+    font-size: 1rem;
+    line-height: 1.5rem;
+    }
+ }
+ /* .crt-load-more:focus, .crt-load-more:active {
+    border: 2px solid #000;
+    outline: 2px solid #fff;
+}
+.crt-grid-post:focus, .crt-grid-post:active {
+    border: 2px solid #000;
+    outline: 2px solid #fff;
+}
+.curator-feed:focus, .curator-feed:active {
+    border: 0;
+    outline: 0;
+}
+.crt-post-text {
+  font-size: 12px !important;
+  font-family: century-gothic, sans-serif !important;
+}
+span.crt-date {
+  font-family: CoreCircus, Arial, sans-serif;
+}
+.crt-popup .crt-close.crt-icon-cancel,.crt-previous.crt-icon-left-open,.crt-next.crt-icon-right-open {
+  display:block !important;
+}
+  .crt-grid-post .crt-social-icon{
+    z-index: 2 !important;
+}
+.ribbon {
+    text-align: center;
+  }
+  @media screen and (max-width:780px) and (min-width:650px){
+    .ribbon {
+      padding-top: 57px !important;
+      margin-top: 36px !important;
+    }
+  }
+  @media screen and (max-width:600px) {
+    .ribbon {
+      padding-top: 92px;
+    }
+  }
+  h2 {
+  margin: 0;
+} */
+</style>

@@ -1,0 +1,106 @@
+{% style %}
+  #section-{{ section.id }}{
+    background-color: {{ section.settings.background_color }};
+  }
+  .section-{{ section.id }}--color {
+    color: {{ section.settings.title_color }};
+  }
+  .section-{{ section.id }}--color>h2,h3,span>a {
+    color: {{ section.settings.title_color }} !important;
+  }
+{% endstyle %}
+<section id="section-{{ section.id }}" class="{{ section.settings.custom_class }} Index-page Index-page--has-image tw-z-10 tw-block tw-overflow-hidden tw-relative">
+  <div class="Index-page-content tw-py-[80px] max1024:tw-px-[64px] max960:tw-px-[48px] max768:tw-px-[36px] max640:tw-px-[20px] max640:tw-py-[60px]">
+    <div class="layout">
+      <div class="row -tw-ml-[17px] -tw-mr-[17px] before:tw-content-[''] before:tw-table after:tw-content-[''] after:tw-table after:tw-clear-both tw-w-auto max640:tw-flex-col">
+        <div class="col tw-w-8/12 tw-mx-auto max640:tw-px-[17px] max640:!tw-w-full max900:tw-w-5/6 ">
+          <div class="block tw-block tw-py-0 min640:tw-px-[17px] tw-h-auto tw-relative max640:tw-pt-[17px] {% if section.settings.custom_class == 'nelsonbros' %} tw-pb-[17px] {% endif %}">
+            <div class="block-content tw-block">
+              <h1 class="section-{{ section.id }}--color tw-my-[45px] tw-text-[60px] tw-not-italic tw-uppercase tw-leading-[90px] max640:tw-leading-[32px] tw-tracking-normal max640:tw-text-[32px]">
+                {{ section.settings.container_title }}
+              </h1>
+            </div>
+            <div class="description block-content section-{{ section.id }}--color tw-font-normal tw-text-[18px] tw-leading-[27px] tw-not-italic tw-normal-case tw-tracking-normal">
+              {{ page.content }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Privacy Policy",
+    "tag": "section",
+    "class": "privacy-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "custom_class",
+        "label": "Custom Class"
+      }, {
+        "type": "text",
+        "id": "container_title",
+        "label": "Title"
+      }, {
+        "type": "color",
+        "id": "title_color",
+        "default": "#4d4c7d",
+        "label": "Text Color"
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#ffffff"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Privacy Policy"
+      }
+    ]
+  }
+{% endschema %}
+<style>
+  .privacy-section ul {
+    margin-bottom: 1.3em;
+    padding-left: 20px;
+    box-sizing: border-box;
+    display: block;
+    list-style-type: disc;
+}
+.privacy-section ul li {
+    margin-bottom: 8px;
+    list-style-type: disc;
+}
+.privacy-section h2 {
+  font-family: inherit;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 29px;
+    letter-spacing: 0em;
+    line-height: 37.7px;
+    margin-top: 29px;
+    margin-bottom: 29px;
+}
+span>a {
+  {% comment %} color: #4d4c7d; {% endcomment %}
+}
+.otnotice-content {
+  padding: 0 !important;
+}
+.privacy-section a {
+  text-decoration: underline;
+}
+@media screen and (max-width: 640px) {
+  .privacy-section h2 {
+    hyphens: auto;
+    font-size: 24px;
+    letter-spacing: 0px;
+  }
+  .otnotice-content .otnotice-sections .otnotice-section-content li {
+    word-break: break-word;
+  }
+}
+</style>

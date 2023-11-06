@@ -1,0 +1,256 @@
+
+<style>
+    #image-progress-{{ section.id }} .slick-dots {
+        display: flex;
+        justify-content: space-around;
+        align-items: stretch;
+        position: relative;
+        height: 3px;        
+        margin-top: 50px;
+        margin-bottom: 28px;
+    }
+
+    #image-progress-{{ section.id }} .slick-dots:before {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: black;
+        position: absolute;
+        top: 1px;
+        content: '';
+    }
+
+    #image-progress-{{ section.id }} .slick-dots li {
+        flex: 1;
+    }
+
+    #image-progress-{{ section.id }} .slick-dots li button {
+        width: 100%;
+        text-indent:-100000px;
+    }
+
+    #image-progress-{{ section.id }} .slick-dots li.slick-active {
+        background-color: black;
+    }
+    .product-data-div{
+        text-align: center;
+        text-align: -webkit-center;
+    }
+    .image-home-slider {
+        max-width: 100vw;
+        width: 100%;
+        overflow: hidden !important;
+        justify-content: center;
+    }
+    #image-home-slider-{{ section.id }} .slick-track.single-page {
+        max-width: 100%;
+        justify-content: center;
+        transform: none !important;
+        display: flex;
+    }
+    @media screen and (min-width: 1920px) {
+        #image-home-slider-{{ section.id }} .slick-track {
+            max-width: 100%;
+            justify-content: center;
+            transform: none !important;
+            display: flex;
+        }
+    }
+    h2.heading-2 {
+        transition-timing-function: cubic-bezier(.66,.39,.21,.67);
+        transition-delay: 500ms;
+    }
+    h2.heading-2:hover {
+        transform: translateX(-100%);
+    }
+    @media screen and (max-width:767px) {
+        #image-progress-{{ section.id }} {       
+            padding-top: 0px;
+        }
+        #image-progress-{{ section.id }} .slick-dots {       
+            margin-top: 35px;
+        }
+    }
+    
+</style>
+<div class="waiting tw-py-[100px] mobile:tw-py-[50px]">
+    <div class="tw-relative tw-pb-[100px] mobile:tw-pb-[70px] tw-overflow-hidden">
+        <div class="mobile:tw-relative mobile:tw-overflow-hidden">
+            <h2 id="test-div" class="heading-2 js-show-on-scroll tw-animate-reverse tw-transition-transform tw-duration-[2s] tw-pl-[70px] tw-font-made-saonara tw-tracking-normal tw-leading-[135px] tw-text-[135px] tw-font-normal tw-text-[#231f20] tw-uppercase tw-whitespace-nowrap mobile:tw-leading-[107px] mobile:tw-text-[90px]" data-animate-type aria-hidden="true">{{ section.settings.title }}</h2>
+        </div>
+    </div>
+    <div class="image-home-slider tw-flex tw-relative tw-pl-[125px] min1500:tw-pl-[5rem] min1920:tw-pl-[135px] mobile:tw-pl-[35px]" id="image-home-slider-{{ section.id }}">
+       {% assign currrent_product = product.id %}
+        {% for collection in product.collections limit: 1 %}
+            {% for product in collection.products limit: 4 %}
+                {% if product.id != currrent_product %}
+                    <div class="image-home-slide grid-image-mobile-animation-col tw-relative">
+                        <div class="product-data-div tw-w-[342px] min1920:tw-w-[385px] tw-mr-[15px] min1500:tw-mr-[15px] min1920:tw-mr-[25px]">
+                            <a href="{{ product.url }}" aria-label="{{ product.title }}" class="tw-block tw-py-7 tw-px-4 tw-group focus-visible:tw-bg-eerieblack hover:tw-bg-eerieblack tw-transition-all tw-duration-200 tw-ease-in mobile:tw-py-10">
+                                <h2 class="tw-font-neutraface-display-bold tw-font-normal tw-text-center tw-text-black tw-text-[14px] tw-tracking-[0.28px] tw-uppercase group-focus-visible:tw-text-white group-hover:tw-text-white"> 
+                                    {{ product.title }}
+                                </h2>
+                                <h2 class="tw-font-neutraface-display-light tw-font-normal tw-text-center tw-text-black tw-text-[14px] tw-tracking-[0.28px] tw-uppercase group-focus-visible:tw-text-white group-hover:tw-text-white"> 
+                                {{ product.type }}
+                                </h2>
+                                <div class="">
+                                    <img src="{{ product.featured_image | img_url: 'x440' }}" alt="{{ product.title }}" loading="lazy">
+                                </div>
+                                <p class="tw-w-full tw-font-neutraface-display-light tw-text-center tw-text-black tw-text-[20px] tw-leading-[22px] tw-tracking-[0.4px] tw-mt-7 mobile:tw-w-[300px] group-focus-visible:tw-text-white group-hover:tw-text-white">{{ product.metafields.custom.abstract_data }}</p>
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+    <div id="image-progress-{{ section.id }}" class="tw-pt-[30px] tw-ml-[118px] mobile:tw-ml-[18px]">
+    </div>
+</div>
+<div class="min768:!tw-hidden js-show-on-scroll tw-m-auto tw-border tw-border-b tw-border-solid tw-border-black !tw-block tw-mb-[2rem]" data-animate-type="tw-animate-line_animation"></div>
+{% comment %} <div class="tw-overflow-hidden">
+<ul class="tw-flex tw-justify-items-center tw-overflow-x-auto">
+{% for collection in product.collections limit: 1 %}
+    {% for product in collection.products limit: 4 %} 
+    <li class="tw-w-[342px]">
+        <h2 class="tw-font-neutraface-display-bold tw-font-normal tw-text-center tw-text-black tw-text-[14px] tw-uppercase"> 
+            {{ product.title }}
+        </h2>
+        <h2 class="tw-font-neutraface-display-bold tw-font-normal tw-text-center tw-text-black tw-text-[14px] tw-uppercase"> 
+        {{ product.type }}
+        </h2>
+        <div class="">
+            <a href="{{ product.url }}" aria-label="{{ product.title }}" class="focus-visible:tw-p-0.5 focus-visible:tw-border-4  tw-border-black" tabindex="0">
+                <img src="{{ product.featured_image | img_url: 'x440' }}" alt="{{ product.title }}" loading="lazy">
+            </a>
+        </div>
+        <p class="tw-w-[342px] tw-font-neutraface-display-light tw-text-center tw-text-black tw-text-xl tw-mt-7 mobile:tw-w-[300px]">{{ product.metafields.custom.description }}</p>
+    </li>
+    {% endfor %}
+{% endfor %}
+</ul>
+</div> {% endcomment %}
+
+<script>
+  
+    $(document).ready(function() {
+  
+      $('#image-home-slider-{{ section.id }}').slick({    
+          infinite: false,
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          dots: true,
+          centerMode: false,
+          variableWidth: true,
+          arrows: false,
+          accessibility: true,        
+          slide: '.image-home-slide', 
+          appendDots: $('#image-progress-{{ section.id }}'),   
+          responsive: [                 
+              {
+                  breakpoint: 1800,
+                  settings: {                 
+                      slidesToShow: 4,
+                      slidesToScroll: 1
+                  }       
+              },    
+              {
+                  breakpoint: 1520,
+                  settings: {                 
+                      slidesToShow: 3,
+                      slidesToScroll: 1
+                  }       
+              },     
+              {
+                  breakpoint: 1100,
+                  settings: {                 
+                      slidesToShow: 2,
+                      slidesToScroll: 1
+                  }       
+              },       
+              {
+                  breakpoint: 600,
+                  settings: {                 
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                  }       
+              }
+          ]         
+      }); 
+  
+      
+      $('#image-home-slider-{{ section.id }}').on('setPosition', function(event, slick, currentSlide){     
+          
+          $('.image-home-slide').removeAttr('tabindex');
+          var noDots = $("#image-progress-{{ section.id }} ul.slick-dots li").length           
+          if (noDots == 1) {
+              $("#image-progress-{{ section.id }}").hide();    
+              $("#image-home-slider-{{ section.id }} .slick-track").addClass('single-page');   
+          } else {
+              $("#image-progress-{{ section.id }}").show();    
+              $("#image-home-slider-{{ section.id }} .slick-track").removeClass('single-page');  
+          }        
+      });
+      
+      $(window).on( "resize", function() {
+          $('.image-home-slide').removeAttr('tabindex');
+          var noDots = $("#image-progress-{{ section.id }} ul.slick-dots li").length           
+          if (noDots == 1) {
+              $("#image-progress-{{ section.id }}").hide();    
+              $("#image-home-slider-{{ section.id }} .slick-track").addClass('single-page');   
+          } else {
+              $("#image-progress-{{ section.id }}").show();    
+              $("#image-home-slider-{{ section.id }} .slick-track").removeClass('single-page');  
+          }      
+      });
+  
+      var maxHeight = -1;
+  
+      $('#image-home-slider-{{ section.id }} h3').each(function() {
+        maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
+      });
+   
+      $('#image-home-slider-{{ section.id }} h3').each(function() {
+        $(this).height(maxHeight);
+      });
+  
+      var thumbPos = $('#image-home-slider-{{ section.id }} h3').height() + ($('#image-home-slider-{{ section.id }} img').height() / 2) - ($('#image-home-slider-{{ section.id }} .image-mobile-thumb').height() / 3);
+  
+      $('#image-home-slider-{{ section.id }} .image-mobile-thumb').css('top',thumbPos)
+  
+    });
+  
+
+  var headingdiv = document.getElementById("test-div");
+  
+  if ($(window).width() <= 767) {
+    headingdiv.dataset.animateType = "tw-animate-stripmarqueemobile";
+  } else {
+    headingdiv.dataset.animateType = "";
+    }
+  </script>
+
+{% schema %}
+{
+  "name": "Related Products",
+  "class": "related-products",
+  "settings": [
+        {
+            "type" : "text",
+            "id" : "custom_class",
+            "label" : "Custom Class"
+        },
+        {
+            "type" : "text",
+            "id" : "title",
+            "label" : "Title",
+            "default": "Taste More"
+        }
+    ],
+    "presets": [
+        {
+        "name": "Related Products"
+        }
+    ]
+}
+{% endschema %}

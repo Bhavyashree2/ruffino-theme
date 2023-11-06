@@ -1,0 +1,350 @@
+<style>
+
+  
+
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.margin_top }}px;
+      margin-bottom: {{ section.settings.margin_bottom }}px;
+      display: none;
+    }
+  
+    @media screen and (max-width: 767px) { 
+        #shopify-section-{{ section.id }} {
+        display: block;
+        } 
+        .grid-image-parent-mobile .grid-image-mobile-animation-col:not(:last-child):before {
+        position:absolute;
+            content: "";
+            height: 0;
+            width: 0;
+            display: block;
+            opacity: 0;
+            border-left: solid 1px black;
+            left:100%;
+            right:0;
+            top: 50%;
+            width:0;
+            bottom: 0;
+        
+        }
+    
+        .grid-image-parent-mobile .grid-image-mobile-animation-col:not(:last-child):after {
+            position:absolute;
+            content: "";
+            height: 0;
+            width: 0;
+            display: block;
+            opacity: 0;
+            border-left: solid 1px black;
+            left:100%;
+            right:0;
+            top: 50%;
+            width:0;
+            bottom: 0;
+        }
+
+        .grid-image-parent-mobile .image-home-slider .grid-image-mobile-animation-col {
+            padding-left: 5px;
+            padding-right: 6px;
+            min-height: 450px;
+            height: auto;
+        }
+
+        .grid-image-parent-mobile .image-home-slider .grid-image-mobile-animation-col:first-child {
+            padding-left: 20px;
+        }
+
+        .grid-image-parent-mobile.animated .grid-mobile-animation:before, .grid-image-parent-mobile.animated .grid-mobile-animation:after, .grid-image-parent-mobile.animated .grid-image-mobile-animation-col:after, .grid-image-bottom.animated:before, .grid-image-bottom.animated:after {
+        opacity: 1;
+        -webkit-animation: open 2s;
+        /* Chrome, Safari, Opera */
+        animation: open 2s;
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+        animation-direction: normal;
+        }
+
+        .grid-image-parent-mobile.animated .grid-image-mobile-animation-col:before {
+        opacity: 1;
+        -webkit-animation: open 2s;
+        /* Chrome, Safari, Opera */
+        animation: open 2s;
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+        animation-direction: normal;
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+        }
+        #image-progress-{{ section.id }} .slick-dots {
+            display: flex;
+            justify-content: space-around;
+            align-items: stretch;
+            position: relative;
+            height: 3px;        
+            margin-top: 50px;
+            margin-bottom: 28px;
+        }
+    
+        #image-progress-{{ section.id }} .slick-dots:before {
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: black;
+            position: absolute;
+            top: 1px;
+            content: '';
+        }
+    
+        #image-progress-{{ section.id }} .slick-dots li {
+            flex: 1;
+        }
+    
+        #image-progress-{{ section.id }} .slick-dots li button {
+            width: 100%;
+            text-indent:-100000px;
+        }
+    
+        #image-progress-{{ section.id }} .slick-dots li.slick-active {
+            background-color: black;
+        }
+    }
+  </style>
+  
+  <div class="grid-image-parent-mobile waitingg tw-relative tw-hidden mobile:tw-block">
+    <div class="grid-mobile-animation">
+      <div class="image-home-slider tw-flex tw-relative tw-w-full tw-mt-24" id="image-home-slider-{{ section.id }}">
+          
+        <div class="image-mobile-thumb tw-hidden tw-justify-center tw-w-[70px] tw-h-[33px] tw-bg-black/75 tw-absolute tw-rounded-[33px] tw-z-[1] tw-right-[30px] tw-top-1/2 mobile:tw-flex">
+            
+            <?xml version="1.0" encoding="UTF-8"?>
+                <svg enable-background="new 0 0 221 221" version="1.1" viewBox="0 0 221 221" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="tw-scale-[-1] tw-w-[33px] tw-h-[33px]">     
+                <style type="text/css">                                   
+                    .st2{fill:none;stroke:white;stroke-width:6;stroke-miterlimit:10;}
+                </style>           
+                <image transform="matrix(3.3321 0 0 3.3321 -66.456 -56.132)" width="117" height="94" display="none" overflow="visible" xlink:href="6959470A.jpg">
+                </image>
+                <line class="st2" x1="70.4" x2="150.6" y1="110.5" y2="110.5"/>
+                <path class="st2" d="m110.8 83.9s21.7 26.6 39.5 26.6"/>
+                <path class="st2" d="m110.2 137.1s22-26.6 40.1-26.6"/>            
+            </svg>
+  
+            <?xml version="1.0" encoding="UTF-8"?>
+                <svg enable-background="new 0 0 221 221" version="1.1" viewBox="0 0 221 221" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="tw-w-[33px] tw-h-[33px] tw-ml-[-14px]">
+                <style type="text/css">                                   
+                    .st2{fill:none;stroke:white;stroke-width:6;stroke-miterlimit:10;}
+                </style>
+                <image transform="matrix(3.3321 0 0 3.3321 -66.456 -56.132)" width="117" height="94" display="none" overflow="visible" xlink:href="6959470A.jpg">
+                </image>
+                <line class="st2" x1="70.4" x2="150.6" y1="110.5" y2="110.5"/>
+                <path class="st2" d="m110.8 83.9s21.7 26.6 39.5 26.6"/>
+                <path class="st2" d="m110.2 137.1s22-26.6 40.1-26.6"/>            
+                </svg>
+  
+        </div>
+  
+          {% for article in section.settings.blog.articles %}
+            {% if article.image != blank %}
+          <div class="image-home-slide grid-image-mobile-animation-col tw-relative">
+            {% if article.image != blank %}
+                <div class="tw-w-[320px] tw-h-[257px] tw-overflow-hidden">
+                  <a href="{{ article.url }}" aria-label="{% if article.image.alt != '' %}{{ article.image.alt }}{% else %}{{img_alt}}{% endif %} More" class="tw-block tw-w-full tw-h-full focus-visible:tw-p-0.5 focus-visible:tw-border-4  tw-border-black" tabindex="0">
+                    <img src="{{ article.image | img_url:"master" }}" alt="{% if article.image.alt != '' %}{{ article.image.alt }}{% else %}{{img_alt}}{% endif %}" class="tw-w-full tw-h-full tw-object-cover hover:!tw-h-[110%] hover:!tw-w-[110%] tw-transition-all tw-duration-200 tw-ease-in" loading="lazy">
+                  </a>
+                </div>
+            {% endif %}
+            <p class="home-grid-date tw-text-left tw-w-[342px] tw-font-neutraface-display-light tw-text-black tw-text-xl tw-mt-7 mobile:tw-w-[300px]">{{ article.published_at | date: "%m %d %Y" }}</p>
+            <h3 class="tw-flex tw-mt-3 tw-items-end tw-w-[342px] tw-font-made-saonara tw-font-normal tw-text-black tw-text-4xl tw-uppercase tw-mb-3 mobile:tw-w-[300px]"> 
+              {{ article.title }}
+            </h3>
+            <p class="tw-w-[342px] tw-font-neutraface-display-light tw-text-black tw-text-xl tw-mt-7 mobile:tw-w-[300px]">{{ article.excerpt }}</p>
+          
+            {% if article.url %}
+  
+                <a href="{{ article.url }}" aria-label="{{ article.title }} More"
+                class="more-btn tw-flex tw-justify-between tw-items-center tw-pl-3 tw-font-neutraface-display-bold tw-text-black tw-text-xs tw-uppercase tw-mt-10 tw-w-[100px] tw-h-[33px] tw-rounded-[33px] hover:tw-bg-black hover:tw-text-white tw-transition-all tw-duration-200 tw-ease-in mobile:tw-mt-7 slide-{{ forloop.index }}   focus-visible:tw-bg-black focus-visible:tw-text-white" tabindex="0">
+                    {{ section.settings.btn-txt }}
+                     <?xml version="1.0" encoding="UTF-8"?>
+                        <svg enable-background="new 0 0 221 221" version="1.1" viewBox="0 0 221 221" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="tw-w-[33px] tw-h-[33px]">
+                        <style type="text/css"> 
+                            .slide-{{ forloop.index }}:hover svg path,
+                            .slide-{{ forloop.index }}:hover svg line,
+                            .slide-{{ forloop.index }}:focus-visible svg path,
+                            .slide-{{ forloop.index }}:focus-visible svg line { stroke: white;}                            
+                            .image-home-slide.grid-image-mobile-animation-col .st0{fill:none;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+                        </style>
+                        <image transform="matrix(3.3321 0 0 3.3321 -66.456 -56.132)" width="117" height="94" display="none" overflow="visible" xlink:href="6959470A.jpg">
+                        </image>
+                        <line class="st0" x1="70.4" x2="150.6" y1="110.5" y2="110.5"/>
+                        <path class="st0" d="m110.8 83.9s21.7 26.6 39.5 26.6"/>
+                        <path class="st0" d="m110.2 137.1s22-26.6 40.1-26.6"/>
+                        <circle class="st0" cx="110.5" cy="110.5" r="107.5"/>
+                        </svg> 
+                </a>
+  
+            {% endif %}
+          </div>
+        {% endif %}
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% comment %} <div class="grid-image-bottom waitingg tw-relative">&nbsp;</div> {% endcomment %}
+  <div id="image-progress-{{ section.id }}" class="tw-ml-[118px] mobile:tw-ml-[18px]">
+  </div>
+  <script>
+  
+    $(document).ready(function() {
+  
+      $('#image-home-slider-{{ section.id }}').slick({    
+          infinite: false,
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          dots: true,
+          centerMode: true,
+          variableWidth: true,
+          arrows: false,
+          accessibility: true,        
+          slide: '.image-home-slide', 
+          appendDots: $('#image-progress-{{ section.id }}'),   
+          responsive: [                 
+              {
+                  breakpoint: 1800,
+                  settings: {                 
+                      slidesToShow: 4,
+                      slidesToScroll: 1
+                  }       
+              },    
+              {
+                  breakpoint: 1520,
+                  settings: {                 
+                      slidesToShow: 3,
+                      slidesToScroll: 1
+                  }       
+              },     
+              {
+                  breakpoint: 830,
+                  settings: {                 
+                      slidesToShow: 2,
+                      slidesToScroll: 1
+                  }       
+              },       
+              {
+                  breakpoint: 600,
+                  settings: {                 
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                  }       
+              }
+          ]         
+      }); 
+  
+      $('#image-home-slider-{{ section.id }}').on('setPosition', function(event, slick, currentSlide){     
+          
+          $('.image-home-slide').removeAttr('tabindex');
+          var noDots = $("#image-progress-{{ section.id }} ul.slick-dots li").length           
+          if (noDots == 1) {
+              $("#image-progress-{{ section.id }}").hide();    
+              $("#image-home-slider-{{ section.id }} .slick-track").addClass('single-page');   
+          } else {
+              $("#image-progress-{{ section.id }}").show();    
+              $("#image-home-slider-{{ section.id }} .slick-track").removeClass('single-page');  
+          }        
+      });
+      
+      $(window).on( "resize", function() {
+          $('.image-home-slide').removeAttr('tabindex');
+          var noDots = $("#image-progress-{{ section.id }} ul.slick-dots li").length           
+          if (noDots == 1) {
+              $("#image-progress-{{ section.id }}").hide();    
+              $("#image-home-slider-{{ section.id }} .slick-track").addClass('single-page');   
+          } else {
+              $("#image-progress-{{ section.id }}").show();    
+              $("#image-home-slider-{{ section.id }} .slick-track").removeClass('single-page');  
+          }      
+      });
+  
+      var maxHeight = -1;
+  
+      $('#image-home-slider-{{ section.id }} h3').each(function() {
+        maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
+      });
+   
+      $('#image-home-slider-{{ section.id }} h3').each(function() {
+        $(this).height(maxHeight);
+      });
+  
+      var thumbPos = $('#image-home-slider-{{ section.id }} h3').height() + ($('#image-home-slider-{{ section.id }} img').height() / 2) - ($('#image-home-slider-{{ section.id }} .image-mobile-thumb').height() / 3);
+  
+      $('#image-home-slider-{{ section.id }} .image-mobile-thumb').css('top',thumbPos)
+  
+    });
+  
+  //Used for adding and removing animation based on scroll
+  const callbackGrid1 = function(entries1) {
+    entries1.forEach((entry1) => {
+      console.log(entry1);
+      const animationTypeAnimate1 = "animated";
+      const animationTypeWait1 = "waitingg";
+      if (entry1.isIntersecting) {
+        entry1.target.classList.remove(animationTypeWait1);
+        entry1.target.classList.add(animationTypeAnimate1);
+      } else {
+        entry1.target.classList.remove(animationTypeAnimate1);
+        entry1.target.classList.add(animationTypeWait1);
+      }
+    });
+  };
+  
+  const observerGrid1 = new IntersectionObserver(callbackGrid1);
+  
+  const targetsGrid1 = document.querySelectorAll(".waiting");
+  targetsGrid1.forEach(function(target1) {
+    observerGrid1.observe(target1);
+  }); 
+  </script>
+  
+  {% schema %}
+  {
+    "name": "Grid Image Mobile List",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "range",
+        "id": "margin_top",
+        "min": 0,
+        "max": 200,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.footer.settings.margin_top.label",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom",
+        "min": 0,
+        "max": 200,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.header.settings.margin_bottom.label",
+        "default": 36
+      },
+      {
+        "type": "text",
+        "id": "btn-txt",
+        "label": "Button text",
+        "default": "More"
+      },
+      {
+        "type": "blog",
+        "id": "blog",
+        "label": "Select Blog"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Grid Image Mobile List"
+      }
+    ]
+  }
+  {% endschema %}

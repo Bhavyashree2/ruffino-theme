@@ -1,0 +1,308 @@
+<style>
+
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+
+  .home-grid-container{
+      width: 50%;
+      display:grid;
+      grid-template-columns: 100% 100%;
+      grid-row: 100% 100%;
+      grid-row-gap: 20px;
+      .box{
+          padding:60px 20px 50px 20px;
+          color:#231f20;
+          display:grid;
+          align-items:center;
+          justify-content:center;
+          font-size:40px;
+          font-family:sans-serif;
+          position: relative;
+      }
+    
+  }
+    
+    
+  .grid-parent.animated .grid-animation:before, .grid-parent.animated .grid-animation:after, .grid-parent.animated .grid-animation-col:after, .grid-bottom.animated:before, .grid-bottom.animated:after {
+    opacity: 1;
+    -webkit-animation: open 1.5s;
+    /* Chrome, Safari, Opera */
+    animation: open 1.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+    animation-direction: normal;
+  }
+  
+  .grid-animation:before {
+    position:absolute;
+    content: "";
+    height: 0;
+    width: 0;
+    display: block;
+    opacity: 0;
+    border-top: solid 1px black;
+    left: 50%
+  }
+  
+  .grid-animation:after {
+    position:absolute;
+    content: "";
+    height: 0;
+    width: 0;
+    display: block;
+    opacity: 0;
+    border-top: solid 1px black;
+    right: 50%;
+    top: 0;
+  }
+
+  .grid-bottom:before {
+    position:absolute;
+    content: "";
+    height: 0;
+    width: 0;
+    display: block;
+    opacity: 0;
+    border-top: solid 1px black;
+    left: 50%
+  }
+  
+  .grid-bottom:after {
+    position:absolute;
+    content: "";
+    height: 0;
+    width: 0;
+    display: block;
+    opacity: 0;
+    border-top: solid 1px black;
+    right: 50%;
+    top: 0;
+  }
+
+    
+      
+  @keyframes open {
+    0% {
+      width: 0;
+      height: 0;
+    }
+    50% {
+      width: 10%;
+      height: 10%;
+    }
+    100% {
+      width: 50%;
+      height: 50%;
+    }
+  }
+
+ .home-grid-more-btn svg {
+    padding-left: 10px;
+  }
+  @media screen and (min-width: 768px) {
+    .grid-parent.animated .grid-animation-col:before {
+      opacity: 1;
+      -webkit-animation: open 1.5s;
+      /* Chrome, Safari, Opera */
+      animation: open 1.5s;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+      animation-direction: normal;
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%);
+    }
+
+    .grid-animation-col:nth-child(odd):before {
+      position:absolute;
+        content: "";
+        height: 0;
+        width: 0;
+        display: block;
+        opacity: 0;
+        border-left: solid 1px black;
+        left:100%;
+        right:0;
+        top: 50%;
+        width:0;
+        bottom: 0;
+      
+      }
+
+    .grid-animation-col:nth-child(odd):after {
+        position:absolute;
+        content: "";
+        height: 0;
+        width: 0;
+        display: block;
+        opacity: 0;
+        border-left: solid 1px black;
+        left:100%;
+        right:0;
+        top: 50%;
+        width:0;
+        bottom: 0;
+      }
+
+      .grid-animation-col{
+        transition: 1s;
+      }
+
+      .grid-animation-col:hover {
+        background-color:black;
+        z-index: 11;
+        
+      }
+
+      .grid-animation-col:hover p, .grid-animation-col:hover h3 {
+        color:white;
+      }
+      .grid-animation-col:hover .hover-arrow {
+        display: block;
+      }
+
+      .grid-animation-col:hover a.section-button.home-grid-more-btn, .grid-animation-col:hover a.section-button.home-grid-more-btn svg path, .grid-animation-col:hover a.section-button.home-grid-more-btn svg line {
+        color: white;
+        stroke: white;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    #shopify-section-{{ section.id }} {
+      display: none;
+    }
+  }
+</style>
+
+
+{% for article in section.settings.blog.articles %}
+  {% assign value = forloop.index | modulo : 2 %}
+      {% if value == 0 %}
+        <div class="box grid-animation-col">
+            {% if article.image != blank %}
+              <div class="tw-w-[460px] tw-h-[257px] ipad:tw-w-[300px] ipad:tw-h-[240px] tw-overflow-hidden">
+                <a href="{{ article.url }}" aria-label="{% if article.image.alt != '' %}{{ article.image.alt }}{% else %}{{img_alt}}{% endif %} More" class="tw-block tw-w-full tw-h-full focus-visible:tw-p-0.5 focus-visible:tw-border-4  tw-border-black" tabindex="0">
+                  <img src="{{ article.image | img_url:"master" }}" alt="{% if article.image.alt != '' %}{{ article.image.alt }}{% else %}{{img_alt}}{% endif %}" class="tw-w-full tw-h-full tw-object-cover hover:!tw-h-[110%] hover:!tw-w-[110%] tw-transition-all tw-duration-200 tw-ease-in" loading="lazy">
+                </a>
+              </div>
+          {% endif %}
+          <p class="home-grid-date tw-text-left tw-w-[342px] tw-font-neutraface-display-light tw-text-black tw-text-xl tw-mt-7 mobile:tw-w-[300px]">{{ article.published_at | date: "%m %d %Y" }}</p>
+          <h3 class="tw-w-[342px] tw-text-[#231f20] tw-font-made-saonara tw-uppercase tw-font-normal tw-text-[35px] tw-leading-[42px] mobile:tw-text-[30px] mobile:tw-leading-[35px] mobile:tw-w-[300px] tw-mt-3">{{ article.title }}</h3>
+          {% if article.image == blank %}
+          <svg enable-background="new 0 0 221 221" version="1.1" viewBox="0 0 221 221" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="hover-arrow tw-hidden tw-relative tw-left-full -tw-mt-[100px] tw-w-[33px] tw-h-[33px]">
+            <style type="text/css">     
+                .grid-animation-col:hover svg path,
+                .grid-animation-col:hover svg line,
+                .grid-animation-col:focus-visible svg path,
+                .grid-animation-col:focus-visible svg line { stroke: white;}                       
+                .st01{fill:none;stroke:#ffffff;stroke-width:6;stroke-miterlimit:10;}
+            </style>
+            <image transform="matrix(3.3321 0 0 3.3321 -66.456 -56.132)" width="117" height="94" display="none" overflow="visible" xlink:href="6959470A.jpg">
+            </image>
+            <line class="st01" x1="70.4" x2="150.6" y1="110.5" y2="110.5"/>
+            <path class="st01" d="m110.8 83.9s21.7 26.6 39.5 26.6"/>
+            <path class="st01" d="m110.2 137.1s22-26.6 40.1-26.6"/>
+            <circle class="st01" cx="110.5" cy="110.5" r="107.5"/>
+            </svg>
+          {% endif %}
+          <p class="tw-text-left tw-w-[342px] tw-font-neutraface-display-light tw-text-black tw-text-xl tw-mt-7 mobile:tw-w-[300px]">{{ article.excerpt }}</p>
+
+          {% if article.image != blank %}
+            <a href="{{ article.url }}" role="button" aria-label="OUR ESTATES More" class="section-button home-grid-more-btn tw-flex tw-flex-start tw-items-center tw-font-neutraface-display-bold tw-text-black tw-text-xs tw-uppercase tw-mt-10 tw-mb-[8px] tw-w-[100px] tw-h-[33px] tw-rounded-[33px] hover:tw-bg-black hover:tw-text-white tw-transition-all tw-duration-200 tw-ease-in mobile:tw-mt-7 slide-1   focus-visible:tw-bg-black focus-visible:tw-text-white" tabindex="0">
+              More
+            {%- render 'icon-circle-with-arrow' -%}
+          </a>
+        {% endif %}
+        </div>
+        </div>
+      </div>
+    </div>
+      {% else %}
+      <div class="grid-parent waiting tw-relative tw-block mobile:tw-hidden">
+      <div class="grid-animation">
+        <div class="home-grid-container">
+          <div class="box grid-animation-col">
+            {% if article.image != blank %}
+              <div class="tw-w-[460px] tw-h-[257px] ipad:tw-w-[300px] ipad:tw-h-[240px] tw-overflow-hidden">
+                <a href="/" aria-label="{% if article.image.alt != '' %}{{ article.image.alt }}{% else %}{{img_alt}}{% endif %} More" class="tw-block tw-w-full tw-h-full focus-visible:tw-p-0.5 focus-visible:tw-border-4  tw-border-black" tabindex="0">
+                  <img src="{{ article.image | img_url:"master" }}" alt="{% if article.image.alt != '' %}{{ article.image.alt }}{% else %}{{img_alt}}{% endif %}" class="tw-w-full tw-h-full tw-object-cover hover:!tw-h-[110%] hover:!tw-w-[110%] tw-transition-all tw-duration-200 tw-ease-in" loading="lazy">
+                </a>
+              </div>
+          {% endif %}
+            <p class="home-grid-date tw-text-left tw-w-[342px] tw-font-neutraface-display-light tw-text-black tw-text-xl tw-mt-7 mobile:tw-w-[300px]">{{ article.published_at | date: "%m %d %Y" }}</p>
+            <h3 class="tw-w-[342px] tw-font-made-saonara tw-uppercase tw-font-normal tw-text-[35px] tw-leading-[42px] mobile:tw-text-[30px] mobile:tw-leading-[35px] mobile:tw-w-[300px] tw-text-[#231f20] tw-mt-3">{{ article.title }}</h3>
+            {% if article.image == blank %}
+              <svg enable-background="new 0 0 221 221" version="1.1" viewBox="0 0 221 221" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="hover-arrow tw-hidden tw-relative tw-left-full -tw-mt-[100px] tw-w-[33px] tw-h-[33px]">
+                <style type="text/css">     
+                    .grid-animation-col:hover svg path,
+                    .grid-animation-col:hover svg line,
+                    .grid-animation-col:focus-visible svg path,
+                    .grid-animation-col:focus-visible svg line { stroke: white;}                       
+                    .st01{fill:none;stroke:#ffffff;stroke-width:6;stroke-miterlimit:10;}
+                </style>
+                <image transform="matrix(3.3321 0 0 3.3321 -66.456 -56.132)" width="117" height="94" display="none" overflow="visible" xlink:href="6959470A.jpg">
+                </image>
+                <line class="st01" x1="70.4" x2="150.6" y1="110.5" y2="110.5"/>
+                <path class="st01" d="m110.8 83.9s21.7 26.6 39.5 26.6"/>
+                <path class="st01" d="m110.2 137.1s22-26.6 40.1-26.6"/>
+                <circle class="st01" cx="110.5" cy="110.5" r="107.5"/>
+                </svg>
+              {% endif %}
+            <p class="tw-text-left tw-w-[342px] tw-font-neutraface-display-light tw-text-black tw-text-xl tw-mt-7 mobile:tw-w-[300px]">{{ article.excerpt }}</p>
+            {% if article.image != blank %}
+              <a href="{{ article.url }}" role="button" aria-label="OUR ESTATES More" class="section-button home-grid-more-btn tw-flex tw-flex-start tw-items-center tw-font-neutraface-display-bold tw-text-black tw-text-xs tw-uppercase tw-mt-10 tw-mb-[8px] tw-w-[100px] tw-h-[33px] tw-rounded-[33px] hover:tw-bg-black hover:tw-text-white tw-transition-all tw-duration-200 tw-ease-in mobile:tw-mt-7 slide-1   focus-visible:tw-bg-black focus-visible:tw-text-white" tabindex="0">
+                More
+              {%- render 'icon-circle-with-arrow' -%}
+            </a>
+          {% endif %}
+          </div>
+      {% endif %}
+{% endfor %}
+<div class="grid-bottom waiting tw-relative">&nbsp;</div>
+
+{% schema %}
+{
+  "name": "Grid Blog List",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.footer.settings.margin_top.label",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.header.settings.margin_bottom.label",
+      "default": 36
+    },
+    {
+      "type": "text",
+      "id": "btn-txt",
+      "label": "Button text",
+      "default": "More"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Select Blog"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grid Blog List"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,192 @@
+{%- style -%}
+  .section-{{ section.id }}--headingcolor1 {
+    color: {{ section.settings.headingcolor }}
+    ;
+  }
+  .section-{{ section.id }}--description1 {
+    color: {{ section.settings.descriptioncolor }}
+  }
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  /* @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  } */
+  @media screen and (min-width: 750px) {
+  .description1 .content{padding-right: 3rem; padding-left:6rem;}
+  }
+{%- endstyle -%}
+
+<div id="section-{{ section.id }}" class="tw-px-5 tw-py-10  md:tw-px-20 lg:tw-px-20 {% if section.settings.custom-class == "wines-banner-heading" %} tw-pt-0 tw-pb-0 mobile:tw-pt-10 {% endif %} {% if section.settings.custom-class == "heading-poggio" %} tw-pt-0 tw-pb-16 mobile:tw-pt-4 mobile:tw-pb-8 minmax768:tw-pt-10 ipadPro:tw-pt-10 {% endif %}">
+  <div class="tw-w-full {% if section.settings.custom-class == "wines-banner-heading" %} tw-mt-5 tw-mb-0 {% else %} tw-my-5 {% endif %} min1366:tw-w-[90%] min1600:tw-w-[85%] min1920:tw-w-[75%] tw-mx-auto ">
+
+    <div class="{% if section.settings.custom-class == "wines-banner-heading" %} tw-pb-0 {% else %} tw-pb-[50px] {% endif %} min990:tw-max-w-[76%] mobile:tw-pb-[35px] tw-w-full {% if section.settings.custom-class == "wines-banner-heading" %} mobile:tw-w-[90%] mobile:!tw-pb-0 {% elsif section.settings.custom-class == "estates" %} mobile:tw-w-9/12 {% endif %} {% if section.settings.custom-class == "heading-poggio" %} mobile:!tw-pb-[20px] mobile:tw-w-11/12 {% endif %}">
+      {% if section.settings.heading-1 != blank %}<h2>{% endif %}
+        {% if section.settings.heading-1 != blank %}
+          <span class="section-{{ section.id }}--headingcolor1 !{{ section.settings.heading_size }} tw-block max749:tw-hidden tw-font-made-saonara tw-uppercase tw-text-[45px] tw-leading-[50px] tw-tracking-normal !tw-font-normal ipad:tw-text-[35px] min1600:tw-text-[50px] min1600:tw-leading-[55px] min1920:tw-text-[55px] min1920:tw-leading-[60px]">
+            {{ section.settings.heading-1 }}
+          </span>
+        {% endif %}
+        {% if section.settings.heading-2 != blank %}
+          <span class="section-{{ section.id }}--headingcolor1 !{{ section.settings.heading_size }} tw-block  max749:tw-hidden tw-font-made-saonara tw-uppercase tw-text-[45px] tw-leading-[50px] tw-tracking-normal !tw-font-normal ipad:tw-text-[35px] min1600:tw-text-[50px] min1600:tw-leading-[55px] min1920:tw-text-[55px] min1920:tw-leading-[60px]">
+            {{ section.settings.heading-2 }}
+          </span>
+        {% endif %}
+        {% if section.settings.heading-3 != blank %}
+          <span class="section-{{ section.id }}--headingcolor1 !{{ section.settings.heading_size }} tw-block  max749:tw-hidden tw-font-made-saonara tw-uppercase tw-text-[45px] tw-leading-[50px] tw-tracking-normal !tw-font-normal ipad:tw-text-[35px] min1600:tw-text-[50px] min1600:tw-leading-[55px] min1920:tw-text-[55px] min1920:tw-leading-[60px]">
+            {{ section.settings.heading-3 }}
+          </span>
+        {% endif %}
+        {% if section.settings.heading-4 != blank %}
+          <span class="section-{{ section.id }}--headingcolor1 !{{ section.settings.heading_size }} tw-block max749:tw-hidden tw-font-made-saonara tw-uppercase tw-text-[45px] tw-leading-[50px] tw-tracking-normal !tw-font-normal ipad:tw-text-[35px] min1600:tw-text-[50px] min1600:tw-leading-[55px] min1920:tw-text-[55px] min1920:tw-leading-[60px]">
+            {{ section.settings.heading-4 }}
+          </span>
+        {% endif %}
+      {% if section.settings.heading-1 != blank %}</h2>{% endif%}
+      {% if section.settings.mobile-heading != blank %}
+        <h2 class="section-{{ section.id }}--headingcolor1 !{{ section.settings.heading_size }} min750:tw-hidden tw-font-made-saonara tw-uppercase tw-text-[35px] tw-leading-[40px] tw-tracking-normal !tw-font-normal">
+          {{ section.settings.mobile-heading }}
+        </h2>
+      {% endif %}
+    </div>
+    <div class="tw-flex tw-flex-wrap">
+    {% if section.settings.description != blank %}
+    <div class="description1 tw-pb-2 {% if section.settings.custom-class == 'heading-poggio' %} tw-w-[60%] mobile:!tw-pb-2 {% else %} tw-w-1/2 {% endif %} {% if section.settings.content-position == 'Right' %} tw-ml-auto {% else %} tw-mr-auto {% endif %} mobile:tw-w-[327px] mobile:tw-ml-0">      
+        <div class="content section-{{ section.id }}--description1 tw-text-left tw-text-[20px] {% if section.settings.content-position == 'Right' %} lg:tw-pr-12 {% endif %} lg:tw-pl-24 {% if section.settings.custom-class == 'heading-poggio' %} lg:!tw-pr-20 {% endif %} tw-tracking-[0.4px] tw-font-neutraface-display-light tw-leading-[28px] min1920:tw-text-[24px] min1920:tw-leading-[32px]">{{ section.settings.description }}</div>     
+    </div>
+    {% endif %}
+    {% if section.settings.description2 != blank %}
+        <div class="description2 tw-pb-2 {% if section.settings.custom-class == 'heading-poggio' %} tw-w-[60%] mobile:!tw-pb-2 {% else %} tw-w-1/2 {% endif %} {% if section.settings.content-position == 'Right' %} tw-ml-auto {% else %} tw-mr-auto {% endif %} mobile:tw-w-[327px] mobile:tw-ml-0">      
+            <div class="section-{{ section.id }}--description1 tw-text-left tw-text-[20px] {% if section.settings.content-position == 'Right' %} lg:tw-pr-36 {% endif %} {% if section.settings.custom-class == 'heading-poggio' %} lg:!tw-pr-20 {% endif %} tw-tracking-[0.4px] tw-font-neutraface-display-light tw-leading-[28px] min1920:tw-text-[24px] min1920:tw-leading-[32px]">{{ section.settings.description2 }}</div>     
+        </div>
+        {% endif %}
+</div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Heading With Description2",
+    "class": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "custom-class",
+        "label": "Custom class name"
+      },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "t:sections.all.padding.padding_top",
+            "default": 0
+          },
+          {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "t:sections.all.padding.padding_bottom",
+            "default": 0
+          },
+      {
+        "type": "color",
+        "id": "headingcolor",
+        "label": "heading color",
+        "default": "#000"
+      },
+      {
+        "type": "text",
+        "id": "heading-1",
+        "default": "A SPOT IN ALL THE RIGHT PLACES.",
+        "label": "Heading Line 1"
+      },
+      {
+        "type": "text",
+        "id": "heading-2",
+        "default": "SIX ESTATES IN THE MOST ICONIC",
+        "label": "Heading Line 2"
+      },
+      {
+        "type": "text",
+        "id": "heading-3",
+        "default": "WINE REGIONS OF TUSCANY.",
+        "label": "Heading Line 3"
+      },
+      {
+        "type": "text",
+        "id": "heading-4",
+        "label": "Heading Line 4"
+      },
+      {
+        "type": "text",
+        "id": "mobile-heading",
+        "default": "A SPOT IN ALL THE RIGHT PLACES. SIX ESTATES IN THE MOST ICONIC WINE REGIONS OF TUSCANY.",
+        "label": "Mobile Heading"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h2",
+            "label": "Small"
+          }, {
+            "value": "h1",
+            "label": "Medium"
+          }, {
+            "value": "h0",
+            "label": "Large"
+          }
+        ],
+        "default": "h1",
+        "label": "Medium"
+      },
+      {
+        "type": "color",
+        "id": "descriptioncolor",
+        "label": "description color",
+        "default": "#4d3c7d"
+      }, {
+        "type": "richtext",
+        "id": "description",
+        "default": "<p>Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p>",
+        "label": "Content"
+      },{
+        "type": "richtext",
+        "id": "description2",
+        "default": "<p>Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p>",
+        "label": "Content"
+      }, {
+        "type": "select",
+        "id": "content-position",
+        "options": [
+          {
+            "value": "Left",
+            "label": "Left"
+          }, {
+            "value": "Right",
+            "label": "Right"
+          }
+        ],
+        "default": "Right",
+        "label": "Content Alignment"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Heading with Description2"
+      }
+    ]
+  }
+{% endschema %}

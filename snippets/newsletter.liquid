@@ -1,0 +1,450 @@
+<div class="footer-newsletter tw-max-w-newsletterMW tw-my-0 tw-mx-auto tw-w-full" role="application">
+  {% assign formId = 'RegisterForm' %}
+  <div class="newsletterHead" contenteditable="false">
+    <h3 class="newsletterHeading headingcolor tw-text-center tw-pl-3 mobile:tw-pl-0 tw-pb-[1rem] tw-pt-0 tw-font-made-saonara tw-tracking-normal tw-leading-[65px] tw-text-[55px] tw-font-normal max991:tw-text-[41px] max991:tw-leading-[46px] min1920:tw-text-[80px] min1920:tw-leading-[90px]">
+      {{var_newsletter_heading}}
+    </h3>
+    <span class="newslettersubHeading tw-font-neutraface-display-light tw-text-[20px] tw-text-black">{{var_newsletter_subheading}}
+    </span>
+  </div>
+
+  <form id="{{ formId }}" action="" method="post">
+    <div class="myvalidation" role="alert" aria-atomic="true"></div>
+    <div class="form-wrapper">
+      <input type="hidden" name="g" value={{ klaviyo_list_id }}>
+      <input type="hidden" name="$source" value="Shopify Footer">
+      <input type="hidden" name="$fields" value="$source,birthdate,$zip,$consent">
+      <div class="form-wrapper-filed forn-newsletter-section tw-inline-block tw-flex-wrap tw-justify-evenly tw-py-0 md:tw-px-8 lg:tw-px-0 mobile:tw-py-0 mobile:tw-pr-8 mobile:tw-w-full">
+        <div class="full-input email-div tw-h-20 tw-mt-5 tw-mb-10 mobile:tw-min-w-full mobile:tw-max-w-full tw-relative mobile:tw-w-full tw-pl-4 tw-pr-4">
+          <label for="{{ formId }}-email" class="tw-hidden tw-text-[18px] tw-leading-[27px] tw-tracking-normal tw-font-bold tw-flex tw-mb-4">Email address*</label>
+          <input type="email" name="email" id="{{ formId }}-email" autocorrect="off" autocapitalize="off" autocomplete="off" aria-required="true" placeholder="Email" class="tw-font-neutraface-display-light height-field mewsletter-form-email adjust-width-email tw-pl-3 tw-bg-transparent tw-w-full tw-border-solid focus:tw-border-none tw-text-[18px] pl-3 mobile:tw-min-w-full mobile:tw-max-w-full tw-h-16 mobile:tw-h-20 mobile:tw-w-64"/>
+        </div>
+        {% comment %}
+        <div class="full-input dob-div tw-h-20 tw-mt-5 tw-mb-20 mobile:tw-min-w-full mobile:tw-max-w-full tw-relative md:tw-w-1/3 lg:tw-w-1/3 mobile:tw-w-full tw-pl-8">
+          <label for="{{ formId }}-birthdate" class="tw-text-[18px] tw-leading-[27px] tw-tracking-normal tw-font-bold tw-flex tw-mb-4">Date of birth*</label>
+          <input type="text" name="birthdate" class="height-field adjust-width tw-bg-transparent tw-w-full tw-border-solid tw-border-4  focus:tw-border-none tw-text-[18px] tw-pl-3 mobile:tw-min-w-full mobile:tw-max-w-full tw-h-16 mobile:tw-h-20 mobile:tw-w-64" id="{{ formId }}-birthdate" placeholder="MM/DD/YYYY" autocomplete="off" onkeyup="var v = this.value;
+          if (v.match(/^\d{2}$/) !== null) {
+            this.value = v + '/';
+          } else if (v.match(/^\d{2}\/\d{2}$/) !== null) {
+            this.value = v + '/'; }" maxlength="10" aria-required="true" onkeypress="return isNumber(event)"/>
+          {% render 'icon-calendar',
+              var_newsletter_color_input: var_newsletter_color_input %}
+        </div>
+        <div class="full-input zip-div tw-h-20 tw-mt-5 tw-mb-20 mobile:tw-min-w-full mobile:tw-max-w-full tw-relative md:tw-w-1/3 lg:tw-w-1/3 mobile:tw-w-full tw-pl-8">
+          <label for="{{ formId }}-zip" class="tw-text-[18px] tw-leading-[27px] tw-tracking-normal tw-font-bold tw-flex tw-mb-4">Zip code*</label>
+          <input type="text" name="$zip" id="{{ formId }}-zip" class="height-field adjust-width  tw-bg-transparent tw-w-full tw-border-solid tw-border-4  focus:tw-border-none tw-text-[18px] tw-pl-3 mobile:tw-min-w-full mobile:tw-max-w-full tw-h-16 mobile:tw-h-20 mobile:tw-w-64" placeholder="" autocomplete="new-password" aria-required="true"/>
+        </div>
+      </div>
+    {% endcomment %}
+      <div class="checkBxDiv tw-tracking-normal tw-leading-none tw-flex tw-text-center md:tw-ml-8 mobile:tw-ml-0 tw-mb-0 tw-relative mobile:tw-px-8 mobile:tw-w-full mobile:tw-text-justify">
+        <input role="checkbox" aria-required="true" aria-checked="false" tabindex="0" onclick="changeCheckbox(event)" onkeydown="changeCheckbox(event)" aria-describedby="newsletter_content" type="checkbox" id="{{ formId }}-consent" name="$consent" value="accepted" role="Terms and Conditions" autocomplete="off" class="tw-text-[#EAE4D6] tw-form-checkbox tw-mr-0 !tw-w-5 tw-appearance-none tw-bg-transparent tw-rounded-none tw-border-solid tw-border-2 tw-border-[#fbf6e6] tw-place-content-center tw-h-5 tw-m-0 tw-relative tw-text-current checked:tw-bg-checkbox-arrow focus:tw-outline-none"/>
+        <label for="{{ formId }}-consent" class="consent-text tw-leading-[21px] tw-tracking-normal tw-font-neutraface-display-light tw-text-[14px] tw--ml-6 tw-pl-8" id="newsletter_content">
+          {{ newsletter_consent_text }}
+        </label>
+      </div>
+      <div class="submitbtndiv tw-mt-8 tw-mb-10 btn-div tw-relative tw-text-center">
+        <button type="submit" value="Subscribe" aria-label="Subscribe to newsletter" class="newsletter-submit-button section-button tw-pl-3 tw-flex tw-justify-between tw-items-center tw-font-neutraface-display-bold tw-text-black tw-text-xs tw-uppercase tw-w-[100px] tw-h-[33px] tw-rounded-[33px] hover:!tw-bg-black hover:!tw-text-white tw-transition-all tw-duration-200 tw-ease-in max991:tw-mt-10 focus-visible:!tw-bg-black focus-visible:!tw-text-white tw-w-auto mobile:tw-pl-0 min1920:tw-text-[14px] min1920:tw-leading-[20px]">Submit<svg enable-background="new 0 0 221 221" version="1.1" viewBox="0 0 221 221" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="tw-w-[33px] tw-h-[33px]" style="
+          margin-left: 20px;
+      ">
+          <style type="text/css">     
+              .section-button:hover svg path,
+              .section-button:hover svg line,
+              .section-button:focus-visible svg path,
+              .section-button:focus-visible svg line { stroke: white;}                       
+              .st0{fill:none;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+          </style>
+          <image transform="matrix(3.3321 0 0 3.3321 -66.456 -56.132)" width="117" height="94" display="none" overflow="visible" xlink:href="6959470A.jpg">
+          </image>
+          <line class="st0" x1="70.4" x2="150.6" y1="110.5" y2="110.5"></line>
+          <path class="st0" d="m110.8 83.9s21.7 26.6 39.5 26.6"></path>
+          <path class="st0" d="m110.2 137.1s22-26.6 40.1-26.6"></path>
+          <circle class="st0" cx="110.5" cy="110.5" r="107.5"></circle>
+          </svg></button>
+      </div>
+    </div>
+    <input id="currentPath" type="hidden" value="{{shop.secure_url}}"/>
+    <div class="error-success-message tw-text-center">
+        <label aria-atomic="true" class="success-message tw-font-bold tw-pb-12"></label>
+        <label aria-atomic="true" class="error-message tw-font-bold tw-pb-12"></label>
+    </div>
+  </form>
+</div>
+<script src="{{'jquery-validation.js' | asset_url}}"></script>
+<script>
+  var email_err_required = "Please provide your Email Address";
+  var email_err_valid = "Your email address must be in the format of name@domain.com";
+  var dob_err_required = "Please provide your Date Of Birth";
+  var dob_err_valid_minAge = "You must be 21 years or older to sign up.";
+  var dob_err_valid_maxAge = "Please enter a valid year.";
+  var dob_err_valid_dateFormat = "Please enter a valid date in MM|DD|YYYY format";
+  var zip_err_required = "Please provide your Zip Code";
+  var zip_err_valid = "Please provide a valid zipcode.";
+  var consent_err_required = "Please check the consent box before submitting";
+  var submit_success_msg = "Thank You for Subscribing!";
+  var submit_failure_msg = "There was an error. Please try again later.";
+
+  $(document).on("change", "#RegisterForm-email", function(e) {
+    $("#RegisterForm .error-message").stop(true, true).fadeOut();
+    $("#RegisterForm .success-message").stop(true, true).fadeOut();
+  });
+
+
+  $("#RegisterForm").submit(function(e) {
+    e.preventDefault();
+    $(".myvalidation").html("");
+    $(".full-input").removeClass("error");
+    $("#RegisterForm .error-message").html('').show();
+    $("#RegisterForm .success-message").html('').show();
+  }).validate({
+    rules: {
+      email: {
+        required: true,
+        email: true,
+        emailValidate: true
+      },
+      birthdate: {
+        required: true,
+        dateFormat: true,
+        minAge: 21,
+        maxAge: 1910
+      },
+      $zip: {
+        required: true,
+        zipcode: true
+      },
+      $consent: "required"
+    },
+    messages: {
+      email: {
+        required: email_err_required,
+        email: email_err_valid
+      },
+      birthdate: {
+        required: dob_err_required
+      },
+      $zip: {
+        required: zip_err_required
+      },
+      $consent: consent_err_required
+    },
+    focusInvalid: false,
+    highlight: function(element, errorClass, validClass) {
+      $(element).parent().addClass("error");
+      $(element).addClass("inputerror");
+      $('.error').addClass('tw-text-white tw-font-normal tw-text-xs tw-relative tw-top-4');
+      setTimeout(function(){
+       $('.dob-div .error').addClass('!tw-absolute tw-block tw-top-28 mobile:tw-top-32');
+                        $('.checkBxDiv .error').addClass('!tw-absolute tw-top-14 mobile:tw-top-[15rem] screen428:!tw-top-20 screen667:!tw-top-16 screen736:!tw-top-12');
+                    }, 10);
+    },
+
+// tw-text-white tw-font-helveticCon tw-font-light tw-text-xstw-text-white tw-font-helveticCon tw-font-light tw-text-xs
+    unhighlight: function(element, errorClass, validClass) {
+      $(element).parent().removeClass("error");
+      $(element).removeClass("inputerror");
+    },
+    errorPlacement: function(error, element) {
+      $("#" + element.attr("id")).parent().addClass("error");
+      error.insertAfter(element);
+    },
+    invalidHandler: function(form, validator) {
+      var errors = validator.numberOfInvalids();
+      setTimeout(() => {
+        $(".full-input .height-field").attr("tabindex", "0");
+        $('#RegisterForm-email').attr("aria-invalid", "true");
+        $('#RegisterForm-birthdate').attr("aria-invalid", "true");
+        $('#RegisterForm-zip').attr("aria-invalid", "true");
+        $('#RegisterForm-consent').attr("aria-invalid", "true");
+        $('#RegisterForm-email').attr("aria-live", "assertive");
+        $('#RegisterForm-birthdate').attr("aria-live", "assertive");
+        $('#RegisterForm-zip').attr("aria-live", "assertive");
+        $('#RegisterForm-consent').attr("aria-live", "assertive");
+      }, 100);
+      if (errors) {
+        validator.errorList[0].element.focus();
+      }
+    },
+    submitHandler: function(form) {
+      $('#RegisterForm .btn').attr("disabled", 'disabled');
+      $.ajax({
+        type: 'post',
+        url: 'https://manage.kmail-lists.com/ajax/subscriptions/subscribe',
+        data: $(form).serialize(),
+        success: function(response) {
+          if (response.errors.length == 0) {
+            if (window.matchMedia('(max-width: 768px)').matches) {
+              $('#RegisterForm label.error').css("padding-bottom", "6px");
+              $('.myvalidation').css("margin-bottom", "0px");
+            }
+            $('.error-success-message').addClass("tw-pb-[50px] -tw-mt-[25px]");
+            $("#RegisterForm .success-message").html(submit_success_msg);
+            $("#RegisterForm").trigger("reset");
+            $('#RegisterForm-consent').attr('checked', false);
+
+// $("#RegisterForm input").blur(); 
+            $("#RegisterForm-email").focus();
+            $("#RegisterForm .success-message").fadeOut(8000);
+          } else {
+              $('.error-success-message').addClass("tw-pb-[50px] -tw-mt-[25px]");
+            $("#RegisterForm .error-message").html("There was an error. Please try again later.");
+            $("#RegisterForm .error-message").fadeOut(8000);
+          }
+          setTimeout(() => {
+            $('#RegisterForm .btn').removeAttr('disabled');
+          }, 5000);
+        },
+        error: function(e) {
+          console.log(e);
+        }
+      });
+
+/* createCustomer(data).catch((error) => {
+                  error.message; // 'An error has occurred: 404'
+                }); */
+      return false;
+    }
+  });
+
+  $.validator.addMethod("minAge", function(value, element, min) {
+    var date = value.split("/");
+    var m = parseInt(date[0], 10),
+      d = parseInt(date[1], 10),
+      y = parseInt(date[2], 10);
+    var today = new Date();
+    var birthDate = new Date(y, m - 1, d);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    if (age > min + 1) {
+      return true;
+    }
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age >= min;
+  }, dob_err_valid_minAge);
+
+  $.validator.addMethod("maxAge", function(value, element, max) {
+    var date = value.split("/");
+    var m = parseInt(date[0], 10),
+      d = parseInt(date[1], 10),
+      y = parseInt(date[2], 10);
+
+    return y >= max;
+  }, dob_err_valid_maxAge);
+
+  $.validator.addMethod("dateFormat", function(value, element) {
+    var date = value.split("/");
+    var month = date[0];
+    var day = date[1];
+    var year = date[2];
+    console.log(year % 4);
+    console.log(parseInt(day));
+    console.log(parseInt(month));
+    var calendarMonth31Days = [4, 6, 9, 11];
+    var curMon = month + 1;
+    console.log(calendarMonth31Days.includes(parseInt(month)));
+    if (parseInt(day) == 31 && calendarMonth31Days.includes(parseInt(month))) {
+      return false;
+    }
+    if (day == '00' || month == '00') {
+      return false;
+    }
+    if (day > 31) {
+      return false;
+    }
+    if (month == 2) {
+      if (day > 29) {
+        return false;
+      }
+      if (day < 29 && year % 4 == 0) {
+        return false;
+      }
+      if (day == 29 && year % 4 != 0) {
+        return false;
+      }
+    }
+    if (month > 12) {
+      return false;
+    }
+    return /^\d{1,2}\/\d{1,2}\/\d{4}$/.test(value);
+  }, dob_err_valid_dateFormat);
+
+  $.validator.addMethod("emailValidate", function(value, element) {
+    return this.optional(element) || /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i.test(value);
+  }, email_err_valid);
+
+  $.validator.addMethod("zipcode", function(value, element) {
+    if (parseInt(value) == 0) {
+      return false;
+    }
+    return this.optional(element) || /^\d{5}(?:-\d{4})?$/.test(value);
+  }, zip_err_valid);
+
+  $(".full-input input").focus(function() {
+    $(this).closest('.full-input').addClass('active');
+  });
+
+  $(".full-input input").blur(function() {
+    if ($.trim($(this).val()) == '') {
+      $(this).closest('.full-input').removeClass('active');
+    }
+  });
+
+  function isNumber(evt) {
+    evt = (evt)
+      ? evt
+      : window.event;
+    var charCode = (evt.which)
+      ? evt.which
+      : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+  }
+
+  function changeCheckbox(keyCode) {
+    var element = document.getElementById("RegisterForm-consent");
+    if (event.target.tagName.toLowerCase() === 'a') {
+      if ((event.type == 'keydown' && event.which == 32) || (event.type == 'keydown' && event.which == 13) || event.type == 'click') {
+        window.open(event.target.href, '_blank');
+      }
+    }
+    if ((event.type == 'keydown' && event.which == 32) || (event.type == 'keydown' && event.which == 13) || event.type == 'click') {
+      let item = $('.checkBxDiv #RegisterForm-consent');
+      let parentItem = $('.checkBxDiv');
+      if (item.attr('aria-checked') == 'true') {
+        item.attr('aria-checked', "false");
+        item.attr('checked', false);
+        item.removeAttr('checked');
+        element.classList.add("hideappearanceclass");
+        element.classList.remove("appearanceclass");
+
+// parentItem.attr('aria-checked', "false");
+        if (parentItem.find("label.error").length > 0) {
+          parentItem.find("label.error").show();
+          if (! parentItem.hasClass('error')) 
+            parentItem.addClass('error');
+        }
+      } else {
+        item.attr('aria-checked', "true");
+        item.attr('checked', true);
+        element.classList.add("appearanceclass");
+        element.classList.remove("hideappearanceclass");
+
+// parentItem.attr('aria-checked', "true");
+        if (parentItem.find("label.error").length > 0) {
+          parentItem.find("label.error").hide();
+          parentItem.removeClass('error');
+        }
+      }
+      if (event.type != 'click') {
+        event.stopPropagation();
+        event.preventDefault();
+      }
+    }
+  }
+</script>
+<style>
+  input#RegisterForm-birthdate::placeholder {
+      color: {{ var_newsletter_color_input }};
+      border-color: {{ var_newsletter_color_input }};
+    }
+  .newsletterHeading {
+    color: {{ var_newsletter_heading_color }};
+  }
+  .form-wrapper-filed .full-input input {
+      color: {{ var_newsletter_color_input }};
+      border-color: {{ var_newsletter_color_input }};
+  }
+  .form-wrapper-filed .full-input label {
+    color: {{ var_newsletter_color_input }};
+  }
+  .checkBxDiv input[type=checkbox] {
+    border: {{ var_newsletter_color_terms }} 3px solid;
+  }
+  .checkBxDiv label,
+  .success-message,
+  .error-message {
+    color: {{ var_newsletter_color_terms }};
+  }
+  .footer-newsletter .form-wrapper .btn-div .btn {
+    background-color: {{ var_newsletter_button_bg_color }};
+    color: {{ var_newsletter_button_text_color }};
+    border-color: {{ var_newsletter_button_bg_color }};
+  }
+  .footer-newsletter .form-wrapper .btn-div .btn:focus {  
+    outline: 4px solid #fff!important;
+    border: 2px solid #000 !important;
+}
+</style>
+{% style %}
+:root {
+  --newsletter-background-image: url('{{ section.settings.newsletter_background_image | img_url:'master' }}');
+  --checked-arrow-image: url('{{ 'arrow-svg.svg' | asset_url }}');
+}
+.checkBxDiv input[type=checkbox]:focus-visible, .footer-newsletter .form-wrapper .btn-div .btn:focus-visible, .form-wrapper-filed .full-input input:focus-visible {
+    outline: 4px solid #000!important;
+}
+.checkBxDiv input[aria-checked="true"] {
+  background: --checked-arrow-image;
+}
+{% endstyle %}
+<style>
+  .newsletter-submit-button{margin:0 auto;}
+  .mewsletter-form-email{border-bottom-width: 1px;}
+  .forn-newsletter-section, .newslettersubHeading{max-width: 600px; width:100%; margin:0 auto; display: block; text-align: center; }
+  #RegisterForm{text-align: center;}
+  #shopify-section-newsletter{
+    argin-bottom: 40px;
+   /* border-top: 2px solid #000; */
+    padding-top: 70px;
+  }
+    .removeChecked::before {
+        content: none;
+    }
+    input[type=checkbox] {
+        -webkit-appearance:none;
+        appearance:none;
+        color: currentColor;
+        border-radius: 0;
+        transform: translateY(-0.075em);
+        display: inline-grid;
+        place-content: center;
+        position: relative;
+    }
+    input[type="checkbox"]::before {
+        content: "";
+        width: 0.65em;
+        height: 0.65em;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1em 1em var(--form-control-color);
+        transform-origin: bottom left;
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        background-color: white;
+    }
+    [aria-checked="true"]::before {
+        transform: scale(1) !important;
+    }
+    [aria-checked="false"]::before {
+    }
+    input[type="checkbox"]:checked::before {
+        transform: scale(0) !important;
+        background-color: #fbf6e6 !important;
+    }
+   
+    @media screen and (forced-colors: active) {
+        .checkBxDiv input[type=checkbox]:checked {
+            mix-blend-mode: difference !important;
+            /* background-color: black !important; */
+        }
+       input[type="checkbox"]:checked::before {
+            transform: scale(0) !important;
+            background-color: #fbf6e6 !important;
+        }
+        [aria-checked="true"]::before {
+            filter: invert(1);
+        }
+   }
+</style>

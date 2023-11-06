@@ -1,0 +1,122 @@
+
+{% style %}
+#section-{{ section.id }}{
+    {% if section.settings.background_image != blank %}
+    background-image:url('{{ section.settings.background_image | image_url }}');
+    {% endif %}
+    background-color:{{ section.settings.background_color }};
+}
+#section-{{ section.id}} .headingColor{
+    color:{{ section.settings.title_color }};
+}
+#section-{{ section.id}} .headingColor-link{
+    border-bottom-color:{{ section.settings.title_color }}70;
+}
+#section-{{ section.id }} .img-separator {
+  height: {{ section.settings.img-desktop-height }}
+}
+@media screen and (max-width: 767px) {
+  #section-{{ section.id }} .img-separator {
+    height: {{ section.settings.img-mobile-height }}
+  }
+}
+{% endstyle %}
+<section id="section-{{ section.id}}" class="{{ section.settings.custom_class}} Index-page Index-page--has-image tw-py-[80px] mobile:tw-px-[20px] mobile:tw-pb-[20px] tw-bg-black tw-z-10 tw-text-white tw-block tw-overflow-hidden tw-relative {% if section.settings.background_type == 'Image' %} tw-bg-cover after:tw-absolute after:tw-content[''] after:tw-top-0 after:tw-left-0 after:tw-w-full after:tw-h-full after:tw-bg-imageoverlay after:-tw-z-10 {% endif%} ">
+  <div class="layout">
+    <div class="row -tw-ml-[17px] -tw-mr-[17px] before:tw-content-[''] before:tw-table after:tw-content-[''] after:tw-table after:tw-clear-both tw-w-auto mobile:tw-flex-col">
+      <div class="col tw-w-5/6 tw-mx-auto mobile:tw-p-[17px] mobile:!tw-w-full">
+        <div class="tw-px-[17px] tw-py-0 tw-clear-none tw-text-center mobile:tw-px-0">
+            {% if section.settings.container_title != blank %}
+                <h1 class="headingColor tw-font-bigshoulders tw-font-bold tw-mb-[46.9px] tw-text-[70px] tw-not-italic tw-uppercase tw-leading-[70px] tw-tracking-[2.8px] mobile:tw-text-[32px] mobile:tw-leading-[32px] mobile:tw-mb-[21.44px] mobile:tw-tracking-[.01828571px]">
+                        {{ section.settings.container_title }}
+                </h1>
+            {% endif %}
+            {% if section.settings.separator-img != blank %}
+                <img src="{{ section.settings.separator-img | img_url: 'original' }}" alt="{{ section.settings.separator-img-alt-text }}" class="img-separator tw-w-auto tw-mx-auto" />
+              {% endif %}
+        </div>
+      </div>
+        
+      </div>
+    </div>
+  </div>
+  </section>
+  {% schema %}
+{
+  "name": "Image Separator",
+  "tag": "section",
+  "class": "image-separator",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class"
+    },
+    {
+        "type": "select",
+        "id": "background_type",
+        "options": [
+          {
+            "value": "Color",
+            "label": "Color"
+          }, {
+            "value": "Image",
+            "label": "Image"
+          }
+        ],
+        "default": "Color",
+        "label": "Background Type",
+        "info": "Select what type of background you want"
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#eae4d6"
+      }, {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
+      },
+    {
+      "type": "text",
+      "id": "container_title",
+      "label": "Title"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "default": "#3c4428",
+      "label": "Title Color"
+    },
+    {
+        "type": "image_picker",
+        "id": "separator-img",
+        "label": "Separator Image"
+    },
+    {
+        "type": "text",
+        "id": "separator-img-alt-text",
+        "label": "Separator Image Alt text"
+      },
+      {
+        "type": "text",
+        "id": "img-desktop-height",
+        "label": "Image Desktop Height",
+        "default": "auto",
+        "info": "You can mention the height in px, ex. 400px"
+      },
+      {
+        "type": "text",
+        "id": "img-mobile-height",
+        "label": "Mobile Height",
+        "default": "auto"
+      }
+    
+  ],
+  "presets": [
+    {
+      "name": "Image Separator"
+    }
+  ]
+}
+{% endschema %}

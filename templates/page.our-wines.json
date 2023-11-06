@@ -1,0 +1,143 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "4d49a585-aac7-405a-aa31-c7dea51fbe81": {
+      "type": "Banner",
+      "custom_css": [
+        ".wines-banner img {object-fit: contain; object-position: center;}",
+        "@media (max-width: 767px) {.wines-banner img {object-position: bottom; }}"
+      ],
+      "settings": {
+        "custom-class": "wines-banner",
+        "heading-type": "H1",
+        "heading": "Wines",
+        "heading-color": "#ffffff",
+        "description": "",
+        "description-color": "#000000",
+        "button-label": "",
+        "button-link": "",
+        "button-color": "#ffffff",
+        "button-bg-color": "",
+        "button-border-color": "#ffffff",
+        "content-position": "Center",
+        "content-scale": 30,
+        "desktop-height": "85vh",
+        "mobile-height": "40vh",
+        "background-type": "Image",
+        "background-color": "",
+        "background-image-desktop": "shopify:\/\/shop_images\/Ruffino_Bottle_in_the_hand_04_2x_52e1d164-3243-4402-87e0-4443dc72584b.png",
+        "background-image-mobile": "shopify:\/\/shop_images\/Ruffino_Bottle_in_the_hand_04_mobile.png",
+        "bg-img-alt-text": "",
+        "overlay_desktop": false,
+        "overlay_mobile": false,
+        "overlay_color": "#000000",
+        "background-url": "",
+        "video-banner-description": ""
+      }
+    },
+    "74e76dbd-1e57-4531-ae7f-53cfe2ead91e": {
+      "type": "heading-with-rightside-text",
+      "settings": {
+        "custom-class": "wines-banner-heading",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "headingcolor": "#000000",
+        "heading-1": "OUR MASTERY IN WINEMAKING",
+        "heading-2": "IS SHOWCASED THROUGH",
+        "heading-3": "THE UNIQUE CHARACTERISTICS",
+        "heading-4": "OF EACH ONE OF OUR WINES.",
+        "mobile-heading": "OUR MASTERY IN WINEMAKING IS SHOWCASED THROUGH THE UNIQUE CHARACTERISTICS OF EACH ONE OF OUR WINES.",
+        "heading_size": "h1",
+        "descriptioncolor": "#000000",
+        "description": "",
+        "content-position": "Right"
+      }
+    },
+    "25811936-ea2b-44d8-a9ca-2ac9deac0339": {
+      "type": "Banner",
+      "disabled": true,
+      "settings": {
+        "custom-class": "",
+        "heading-type": "H2",
+        "heading": "Wines",
+        "heading-color": "#000000",
+        "description": "",
+        "description-color": "#000000",
+        "button-label": "",
+        "button-link": "",
+        "button-color": "#ffffff",
+        "button-bg-color": "",
+        "button-border-color": "#ffffff",
+        "content-position": "Left",
+        "content-scale": 5,
+        "desktop-height": "640px",
+        "mobile-height": "360px",
+        "background-type": "Image",
+        "background-color": "",
+        "bg-img-alt-text": "",
+        "overlay_desktop": false,
+        "overlay_mobile": false,
+        "overlay_color": "#000000",
+        "background-url": "",
+        "video-banner-description": ""
+      }
+    },
+    "df9d9db0-bef8-48cc-97a9-c6f0903ad96f": {
+      "type": "collection-list",
+      "blocks": {
+        "template--16093674733718__df9d9db0-bef8-48cc-97a9-c6f0903ad96f-featured_collection-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "template--16093674733718__df9d9db0-bef8-48cc-97a9-c6f0903ad96f-featured_collection-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "template--16093674733718__df9d9db0-bef8-48cc-97a9-c6f0903ad96f-featured_collection-3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16093674733718__df9d9db0-bef8-48cc-97a9-c6f0903ad96f-featured_collection-1",
+        "template--16093674733718__df9d9db0-bef8-48cc-97a9-c6f0903ad96f-featured_collection-2",
+        "template--16093674733718__df9d9db0-bef8-48cc-97a9-c6f0903ad96f-featured_collection-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Collections",
+        "title_color": "#ab3838",
+        "title-alignment": "Center",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "4d49a585-aac7-405a-aa31-c7dea51fbe81",
+    "74e76dbd-1e57-4531-ae7f-53cfe2ead91e",
+    "25811936-ea2b-44d8-a9ca-2ac9deac0339",
+    "df9d9db0-bef8-48cc-97a9-c6f0903ad96f"
+  ]
+}

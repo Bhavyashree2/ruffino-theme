@@ -1,0 +1,149 @@
+{% style %}
+  #section-{{ section.id }}{
+    background-color: {{ section.settings.background_color }};
+  }
+  .section-{{ section.id }}--color {
+    color: {{ section.settings.title_color }} !important;
+    border-color: {{ section.settings.title_color }}  !important;
+  }
+  .section-{{ section.id }}--color>h2,h3,span>a {
+    color: {{ section.settings.title_color }} !important;
+  }
+{% endstyle %}
+<section id="section-{{ section.id }}" class="Index-page Index-page--has-image tw-z-10 tw-block tw-overflow-hidden tw-relative sm:tw-pt-[100px] ">
+  <div class="Index-page-content tw-py-[80px] max1024:tw-px-[64px] max960:tw-px-[48px] max768:tw-px-[36px] max640:tw-px-[20px] max640:tw-py-[60px]">
+    <div class="layout">
+      <div class="row -tw-ml-[17px] -tw-mr-[17px] before:tw-content-[''] before:tw-table after:tw-content-[''] after:tw-table after:tw-clear-both tw-w-auto max640:tw-flex-col">
+        <div class="col tw-w-4/6 tw-mx-auto max640:!tw-w-full max900:tw-w-5/6 ">
+            {% comment %} Title Section {% endcomment %}
+          <div class="block tw-block tw-p-[17px] min640:tw-pt-0 tw-h-auto tw-relative">
+            <div class="block-content tw-block">
+              <h1 class="section-{{ section.id }}--color tw-font-bold tw-uppercase tw-text-[60px] tw-not-italic tw-leading-[90px] max640:tw-leading-[32px] tw-tracking-[0] max640:tw-text-[32px] max640:tw-tracking-[.01828571px]">
+                {{ section.settings.container_title }}
+              </h1>
+            </div>
+          </div>
+          {% comment %} Spacebox Section {% endcomment %}
+          <div class="tw-p-[17px]">
+            <div class="space-block tw-h-[34px]">
+              &nbsp;
+            </div>
+          </div>
+          {% comment %} Questions and Answers Section {% endcomment %}
+          <div class="qa-wrapper tw-p-[17px] tw-border-solid tw-border-b section-{{ section.id }}--color tw-cursor-pointer">
+            <div class="sqs-block-content tw-relative">
+                {% assign question_block = section.blocks | where: 'type', 'Question' %}
+                {% for block in question_block %}
+                <h2 class="faq__question-wrap tw-mt-[33.2px] tw-mb-[33.2px] section-{{ section.id }}--color tw-font-bold tw-text-[24px] tw-not-italic tw-uppercase tw-leading-[36px] tw-tracking-[0] max640:tw-leading-[28px] max640:tw-text-[28px] max640:tw-tracking-[.042px] max640:tw-mb-[23.24px]">
+                  <strong><span class="toggle-icon tw-indent-0">+ </span>{{ block.settings.question }}</strong></h2>
+                <div class="faq__answer-wrap answer tw-hidden section-{{ section.id }}--color tw-font-normal tw-text-[18px] tw-leading-[27px] tw-not-italic tw-normal-case tw-tracking-normal tw-my-[22px]">{{ block.settings.answer }}</div>
+                {% endfor %}
+            </div>
+          </div>
+          {% comment %} FAQ Contact Text Section {% endcomment %}
+          <div class="faq-contact-text tw-p-[17px]">
+            <div class="faq-contact-text-sqs-block-content">
+              <h3 class="section-{{ section.id }}--color tw-font-garamond tw-font-normal tw-text-[24px] tw-leading-[36px] tw-not-italic tw-normal-case tw-tracking-normal tw-text-center max640:tw-text-[24px] max640:tw-tracking-0" style="white-space:pre-wrap;">Didn't find what you were looking for? Contact us below and we’ll be in touch soon. </h3>
+            </div>
+          </div>
+          {% comment %} FAQ Contact US Button Section {% endcomment %}
+          <div class="faq-contact-button tw-p-[17px]">
+            <div class="sqs-block-button-container tw-text-center">
+                <a href="pages/contact" class="section-{{ section.id }}--color tw-bg-transparent tw-border-solid tw-border-[3px] tw-inline-block tw-font-bold tw-h-auto tw-text-[18px] tw-py-[21px] tw-px-[34px] tw-not-italic tw-uppercase tw-tracking-[0] tw-leading-[27px] tw-w-auto hover:tw-underline">
+                  Contact Us
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+    "class": "faq-section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "custom_class",
+        "label": "Custom Class"
+      }, {
+        "type": "text",
+        "id": "container_title",
+        "label": "Title"
+      }, {
+        "type": "color",
+        "id": "title_color",
+        "default": "#4d4c7d",
+        "label": "Text Color"
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#ffffff"
+      }
+  ],
+  "blocks": [
+    {
+      "name": "Question/Answer",
+      "type": "Question",
+      "settings" : [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+<style>
+    .sqs-block-content>*:first-child {
+      margin-top: 0;
+    }
+    .sqs-block-content>*:last-child {
+      margin-bottom: 0;
+    }
+    @media screen and (max-width: 640px) {
+      h3 {
+        hyphens: auto;
+        line-height: 31.2px;
+      }
+    }
+</style>
+
+<script>
+    $('.faq__question-wrap').click(function(){
+        $(this).next('div').slideToggle();
+    });
+
+    $(".faq__question-wrap").click(function() {       
+      $(this).children(".faq__answer-wrap").slideToggle(), $(this).find(".faq__circle--line-1").toggleClass("open")
+      if ($(this).hasClass("active")) {
+          var qName = $(this).find(".faq__question").text();
+          var trimqName = $.trim(qName);
+          $(this).removeClass('active');
+          $(this).find(".faq__circle").attr("aria-label", "Show answer for: " + trimqName);
+          $(this).find(".faq__circle").attr("aria-expanded","false");
+          $(this).find(".faq__answer-wrap a").attr("tabindex","-1");
+          $(this).find(".toggle-icon").text("+ ");
+      }
+      else {
+        var qName = $(this).find(".faq__question").text();
+        var trimqName = $.trim(qName);
+        $(this).addClass('active');
+        $(this).find(".faq__circle").attr("aria-label","Hide answer for: " + trimqName);
+        $(this).find(".faq__circle").attr("aria-expanded","true");
+        $(this).find(".faq__answer-wrap a").attr("tabindex","0");
+        $(this).find(".toggle-icon").text("- ");
+      }
+    });
+</script>

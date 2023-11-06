@@ -1,0 +1,84 @@
+<style>
+    .column-estate ul li:nth-child(2) {
+        flex-basis: 75%;
+    }
+    .column-estate ul li:first-child {
+        flex-basis: 33.33%;
+        text-align: right;
+    }
+    .column-estate ul li:first-child h2 {
+        padding-right: 10px;
+    }
+    .column-estate ul li:nth-child(3) {
+        flex-basis: 50%;
+    }
+    @media (max-width: 767px) {
+        .column-estate ul li:first-child h2 {
+            padding-right: 0;
+        }
+        .column-estate ul li:first-child {
+            text-align: center;
+        }
+    }
+</style>
+<div class="column-estate tw-px-[115px] min1600:tw-pl-[10rem] min1600:tw-pr-[15rem] min1920:tw-pr-[17rem] mobile:tw-px-[1.5rem] ipad:tw-px-[30px] tw-bg-[#1E1E1E]">
+    <ul class="tw-pt-20 tw-pb-10 min1920:tw-pt-28 min1920:tw-pb-20 tw-flex mobile:tw-block tw-text-center">
+      {% for block in section.blocks %}
+        <li class="tw-text-center tw-pb-[40px] mobile:tw-pb-[40px]">
+          {%- if block.settings.image != blank -%}
+            <img
+              class="tw-inline-flex tw-pb-4 tw-h-[45px] tw-w-[130px]"
+              src="{{ block.settings.image | image_url }}"
+              loading="lazy"
+              width=""
+              height=""
+              alt="{{ block.settings.image.alt }}" />
+          {%- endif -%}
+          {%- if block.settings.title != blank -%}
+            <h2 class="tw-text-[#FFFFFF] tw-tracking-[0.28px] tw-leading-[28px] tw-text-[14px] tw-font-neutraface-display-bold !tw-font-normal">
+              {{ block.settings.title | escape }}
+            </h2>
+          {%- endif -%}
+          {%- if block.settings.description != blank -%}
+            <div class="tw-text-[#FFFFFF]  tw-text-[20px] tw-tracking-[0.4px] tw-leading-[28px] tw-font-neutraface-display-light">{{ block.settings.description }}</div>
+          {%- endif -%}
+        </li>
+  
+  
+      {% endfor %}
+    </ul>
+  
+  
+  </div>
+  {% schema %}
+    {
+      "name": "Column Section",
+      "settings": [],
+      "blocks": [
+        {
+          "type": "column",
+          "name": "Block",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "image"
+            }, {
+              "type": "text",
+              "id": "title",
+              "label": "Title"
+            }, {
+              "type": "textarea",
+              "id": "description",
+              "label": "Description"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Column Section"
+        }
+      ]
+    }
+  {% endschema %}

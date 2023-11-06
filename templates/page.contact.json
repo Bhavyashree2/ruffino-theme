@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-contact",
+      "settings": {
+        "heading": "Contact form",
+        "title_color": "#000000",
+        "background_color": "#ffffff",
+        "iframe_url": "https:\/\/www.econsumeraffairs.com\/cbrands\/wine\/contactus.htm?F2=Ruffino&css=\/\/cdn.shopify.com\/s\/files\/1\/0559\/0102\/8502\/files\/contact-us.css?v=1694024942"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,550 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+    .banner {
+      height: {{ section.settings.desktop-height }};
+    }
+    .banner__content {
+      bottom: {{ section.settings.content-scale }}%;
+    }
+    .section-{{ section.id }}--banner-button {
+      color: {{ section.settings.button-color }};
+      border-color: {{ section.settings.button-border-color }};
+      background-color: {{ section.settings.button-bg-color }};
+    }
+    .section-{{ section.id }} .banner__box>h2,.section-{{ section.id }} .banner__box h1 {
+       color: {{ section.settings.heading-color }};
+       {% if section.settings.heading-shadow %} text-shadow: 1px 1px 1px #000 {% endif %}
+    }
+    .banner__box .banner__text {
+      color: {{ section.settings.description-color}};
+    }
+    .desktop_overlay::after {
+      background-color: {{section.settings.overlay_color }};
+      opacity: 0.5;
+    }
+    .playPauseBtn {
+      position: absolute;
+      width: 33px;
+      height: 33px;
+      right: 1%;
+      bottom: 1%;
+      z-index: 9999;
+  }
+  .playPauseBtn img {
+      height: 30px;
+      width: 30px;
+  }
+  a#playBtn:focus,
+  a#pauseBtn:focus {
+      outline: 2px solid #fbf6e6;
+      border: 2px solid #000;
+      outline-offset: unset;
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 1199px) {
+        #shopify-section-{{ section.id }} .banner {
+          height: 50vh;
+        }
+      }
+
+    @media screen and (max-width: 767px) {
+      .banner {
+        height: {{ section.settings.mobile-height }}
+      }
+      .banner__content {
+        bottom: 0;
+        top: 75%;
+      }
+      .wines-banner .banner__content,
+      .poggio_banner .banner__content {
+        top: 90%;
+      }
+      .santedame .banner__content {
+        top: 95%;
+      }
+    }
+
+    /*
+    *
+     writing css with device screens as design need to match
+    and creating conflict with tailwind css
+    *
+    */
+    @media screen and (device-width: 1024px) and (device-height: 768px) {
+      .wines-banner {
+        height: 90vh !important;
+      }
+      .poggio_banner, .santedame {
+        height: 110vh !important;
+      }
+    }
+    @media screen and (device-width: 1366px) and (device-height: 1024px) {
+      .wines-banner {
+        height: 75vh !important;
+      }
+      .poggio_banner, .santedame {
+        height: 65vh !important;
+      }
+    }
+{% endstyle %}
+
+<div
+  id="Banner-{{ section.id }}"
+  class="{% if section.settings.custom-class != blank %}{{ section.settings.custom-class }} {% endif %} banner tw-relative tw-overflow-hidden minmax768:!tw-h-[60vh] {% if section.settings.custom-class == "poggio_banner" or section.settings.custom-class == "santedame" %} minmax768:!tw-h-[62vh] ipadPro:!tw-h-[62vh] {% endif %} mobileLandscape:!tw-h-[100vh] ipadPro:!tw-h-[60vh]"
+>
+  {% if section.settings['background-type'] == 'Image' %}
+    {%- if section.settings['background-image-desktop'] != blank -%}
+      <div class="banner__media  tw-absolute tw-left-0 tw-top-0 tw-h-full tw-w-full after:tw-absolute after:tw-content-[''] after:tw-top-0 after:tw-z-[9] after:tw-w-full after:tw-h-full {% if section.settings.overlay_desktop == true %} desktop_overlay {% endif %} {% if section.settings.overlay_mobile == true %} mobile_overlay {% endif %} min750:tw-h-full  media {% if section.settings.image == blank %} placeholder {% endif %} {% if section.settings.layover %} after:tw-absolute after:tw-content-[''] after:tw-top-0 after:tw-bg-black after:tw-opacity-0 after:tw-z-[9] after:tw-w-full after:tw-h-full {% endif %} max749:!tw-hidden {% if section.settings.custom-class == "wines-banner" or section.settings.custom-class == "poggio_banner" or section.settings.custom-class == "santedame" %} minmax768:!tw-hidden mobileLandscape:!tw-block ipadPro:!tw-hidden {% endif %}">
+        <img
+          class="tw-block tw-max-w-full tw-absolute tw-top-0 tw-left-0 tw-h-full tw-w-full tw-object-cover tw-object-center mobile:tw-object-right"
+          src="{{ section.settings.background-image-desktop | image_url: width: 1500 }}"
+          loading="lazy"
+          alt="{{ section.settings.bg-img-alt-text | escape }}"
+          width="{{ section.settings.background-image-desktop.width }}"
+          height="{{ section.settings.background-image-desktop.width | divided_by: section.settings.background-image-desktop.aspect_ratio }}"
+        >
+      </div>
+    {% endif %}
+    {%- if section.settings['background-image-mobile'] != blank -%}
+      <div class="banner__media  tw-absolute tw-left-0 tw-top-0 tw-h-full tw-w-full after:tw-absolute after:tw-content-[''] after:tw-top-0 after:tw-z-[9] after:tw-w-full after:tw-h-full {% if section.settings.overlay_desktop == true %} desktop_overlay {% endif %} {% if section.settings.overlay_mobile == true %} mobile_overlay {% endif %} min750:tw-h-full  media {% if section.settings.image == blank %} placeholder {% endif %} {% if section.settings.layover %} after:tw-absolute after:tw-content-[''] after:tw-top-0 after:tw-bg-black after:tw-opacity-0 after:tw-z-[9] after:tw-w-full after:tw-h-full {% endif %} min750:!tw-hidden {% if section.settings.custom-class == "wines-banner" or section.settings.custom-class == "poggio_banner" or section.settings.custom-class == "santedame" %} minmax768:!tw-block mobileLandscape:!tw-hidden ipadPro:!tw-block {% endif %}">
+        <img
+          class=" tw-block tw-max-w-full tw-absolute tw-top-0 tw-left-0 tw-h-full tw-w-full tw-object-cover tw-object-center mobile:tw-object-right"
+          src="{{ section.settings.background-image-mobile | image_url: width: 1500 }}"
+          loading="lazy"
+          alt="{{ section.settings.bg-img-alt-text | escape }}"
+          width="{{ section.settings.background-image-mobile.width }}"
+          height="{{ section.settings.background-image-mobile.width | divided_by: section.settings.background-image-mobile.aspect_ratio }}"
+        >
+      </div>
+    {% endif %}
+
+  {% elsif section.settings['background-type'] == 'Video' %}
+    {%- if section.settings['desktop-background-url'] != blank -%}
+      <div class="main tw-relative tw-overflow-hidden after:tw-absolute after:tw-content-[''] after:tw-top-0 after:tw-z-[9] after:tw-w-full after:tw-h-full {% if section.settings.overlay_desktop == true %} desktop_overlay {% endif %} {% if section.settings.overlay_mobile == true %} mobile_overlay {% endif %} min750:tw-h-full  media {% if section.settings.image == blank %} placeholder {% endif %} {% if section.settings.layover %} after:tw-absolute after:tw-content-[''] after:tw-top-0 after:tw-bg-black after:tw-opacity-0 after:tw-z-[9] after:tw-w-full after:tw-h-full {% endif %}">
+        <section class="section-intro">
+          <div class="section__body">
+            {%- if section.settings['desktop-background-url'] != blank -%}
+              <video
+                id="video-section"
+                loading="lazy"
+                class="max749:tw-hidden tw-w-full {% if section.settings.overlay_desktop == true %} desktop_overlay {% endif %}"
+                autoplay
+                playsinline
+                loop
+                muted
+                src="{{ section.settings.desktop-background-url }}"
+                preload="none"
+                type="video/mp4"
+              ></video>
+            {%- endif -%}
+            {%- if section.settings['mobile-background-url'] != blank -%}
+              <video
+                id="video-section-mobile"
+                loading="lazy"
+                class="min750:tw-hidden tw-w-full tw-h-full {% if section.settings.overlay_mobile == true %} mobile_overlay {% endif %}"
+                autoplay
+                playsinline
+                loop
+                muted
+                src="{{ section.settings.mobile-background-url }}"
+                preload="none"
+                type="video/mp4"
+              ></video>
+            {%- endif -%}
+
+            <a
+              href="#"
+              aria-label="Pause Video"
+              role="button"
+              tabindex="0"
+              id="pauseBtn"
+              style="display: block;"
+              class="playPauseBtn pauseBtn"
+            >
+              <img
+                src="https://cdn.shopify.com/s/files/1/0559/0102/8502/files/pause-btn.webp?v=1693293298"
+                alt="Pause the video"
+                title="Pause the video"
+                class="pauseAction"
+                height=""
+                width=""
+                style="display: block;"
+              >
+            </a>
+
+            <a
+              href="#"
+              aria-label="Play Video"
+              role="button"
+              tabindex="0"
+              id="playBtn"
+              class="playPauseBtn playBtn"
+              style="display: none;"
+            >
+              <img
+                src="https://cdn.shopify.com/s/files/1/0559/0102/8502/files/play-btn.webp?v=1693293297"
+                alt="Play the video"
+                title="Play the video"
+                class="playAction"
+                height=""
+                width=""
+                style="display: none;"
+              >
+            </a>
+          </div>
+        </section>
+      </div>
+    {% else %}
+      <div class="banner__media  tw-absolute tw-left-0 tw-top-0 tw-h-full tw-w-full after:tw-absolute after:tw-content-[''] after:tw-top-0 after:tw-z-[9] after:tw-w-full after:tw-h-full {% if section.settings.overlay_desktop == true %} desktop_overlay {% endif %} {% if section.settings.overlay_mobile == true %} mobile_overlay {% endif %} min750:tw-h-full  media {% if section.settings.layover %} after:tw-absolute after:tw-content-[''] after:tw-top-0 after:tw-bg-black after:tw-opacity-0 after:tw-z-[9] after:tw-w-full after:tw-h-full {% endif %}">
+        <img
+          class="max749:tw-hidden tw-block tw-max-w-full tw-absolute tw-top-0 tw-left-0 tw-h-full tw-w-full tw-object-cover tw-object-center mobile:tw-object-right"
+          src="{{ section.settings.video_image | image_url: width: 1500 }}"
+          loading="lazy"
+          alt="Video Poster Image"
+          width="{{ section.settings.video_image.width }}"
+          height="{{ section.settings.video_image.width | divided_by: section.settings.video_image.aspect_ratio }}"
+        >
+        <img
+          class="min750:tw-hidden tw-block tw-max-w-full tw-absolute tw-top-0 tw-left-0 tw-h-full tw-w-full tw-object-cover tw-object-center mobile:tw-object-right"
+          src="{{ section.settings.video_mobile_image | image_url: width: 375 }}"
+          loading="lazy"
+          alt="Video Poster Image"
+          width="{{ section.settings.video_mobile_image.width }}"
+          height="{{ section.settings.video_mobile_image.width | divided_by: section.settings.video_mobile_image.aspect_ratio }}"
+        >
+      </div>
+    {%- endif -%}
+
+  {% elsif section.settings['background-type'] == 'Color' %}
+    {% style %}
+      .banner {
+        background-color: {{section.settings.background-color}};
+      }
+    {% endstyle %}
+  {% endif %}
+
+  <div class="tw-absolute tw-text-center tw-top-1/2 tw-left-1/2 tw-transform -tw-translate-x-1/2 -tw-translate-y-1/2">
+    {% if section.settings.ruffino_logo != blank %}
+      <img
+        src="{{ section.settings.ruffino_logo | image_url: width: 300 }}"
+        alt="{{ section.settings.ruffino_logo.alt | escape }}"
+        loading="lazy"
+        width="{{ section.settings.ruffino_logo.width }}"
+        height="{{ section.settings.ruffino_logo.height }}"
+        class="tw-m-auto tw-w-[300px] ipadPro:tw-w-[200px] ipad:tw-w-[200px]"
+      >
+    {% endif %}
+  </div>
+
+  <div class="banner__content min1920:!tw-bottom-[30%] {% if section.settings.custom-class == 'wines-banner' or section.settings.custom-class == 'poggio_banner' or section.settings.custom-class == "santedame" %} !tw-bottom-[20%] min1366:!tw-bottom-[25%] min1920:!tw-bottom-[30%]  {% endif %} {% if section.settings.custom-class == "santedame" %} !tw-bottom-[30%] min1366:!tw-bottom-[35%] min1920:!tw-bottom-[40%] {% endif %} mobileLandscape:!tw-bottom-[15%] tw-absolute tw-p-0  {% if section.settings.content-position == 'Left' %} tw-w-1/2 {% else %} tw-w-full {% endif %} mobile:tw-w-full tw-items-center  tw-z-10 min750:tw-items-center min750:tw-justify-center {% if section.settings.custom-class == 'poggio_banner' or section.settings.custom-class == "santedame" %} min750:tw-p-0 mobile:tw-h-[90%]  mobileLandscape:!tw-bottom-[25%] {% else %} min750:tw-p-20 {% endif %} {% if section.settings.custom-class == 'santedame' %} mobileLandscape:!tw-bottom-[35%] minmax768:!tw-bottom-[40%] ipadPro:!tw-bottom-[40%] {% endif %} mobile:tw-h-[75%] mobile:tw-my-auto">
+    <div class="banner__box  {% if section.settings.content-position == 'Center' %} tw-text-center {% elsif section.settings.content-position == 'Left' %} tw-text-left {% elsif section.settings.content-position == 'Right' %} tw-text-right {% endif %} min750:tw-bg-transparent  min750:tw-max-w-['89rem'] tw-relative tw-h-fit tw-items-center tw-break-words mobile:tw-w-11/12 mobile:tw-mx-auto mobile:tw-my-0">
+      {% if section.settings.heading != blank %}
+        {% if section.settings['heading-type'] == 'H1' %}
+          <h1 class="banner__heading tw-mb-0 tw-font-made-saonara tw-tracking-normal tw-leading-[50px] tw-text-[135px] tw-font-normal tw-text-[#ffffff] tw-uppercase ipad:tw-text-[100px] ipadPro:tw-text-[100px] {% if section.settings.custom-class == "experience" %} mobile:tw-text-[56px] {% else %} mobile:tw-text-[60px] {% endif %} {% if section.settings.custom-class == 'poggio_banner' or section.settings.custom-class == "santedame" %} min768:tw-max-w-[685px] min768:tw-inline-block min1280:tw-leading-[135px] ipad:tw-leading-[75px] ipad:tw-text-[80px] ipadPro:tw-leading-[107px] mobile:!tw-leading-[45px] mobile:!tw-text-[49px] {%  else %} tw-leading-[50px] {% endif %} {% if section.settings.custom-class == 'santedame' %} min768:tw-max-w-max {% endif %}">
+            <span>{{ section.settings.heading | escape }}</span>
+          </h1>
+        {% else %}
+          <h2 class="banner__heading tw-mb-0 tw-font-made-saonara tw-tracking-normal tw-leading-[50px] tw-text-[135px] tw-font-normal tw-text-[#ffffff] tw-uppercase mobile:tw-text-[60px] {% if section.settings.custom-class == 'poggio_banner' or section.settings.custom-class == "santedame" %} min768:tw-max-w-[685px] min768:tw-inline-block min1280:tw-leading-[135px] ipad:tw-leading-[95px] ipadPro:tw-leading-[107px] mobile:!tw-leading-[45px] mobile:!tw-text-[49px] {% else %} !tw-leading-[50px] {% endif %} {% if section.settings.custom-class == 'santedame' %} min768:tw-max-w-max {% endif %}">
+            <span>{{ section.settings.heading | escape }}</span>
+          </h2>
+        {% endif %}
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class="banner__text tw-mt-4 tw-text-[22px] tw-text-[#ffffff] tw-tracking-[0] tw-leading-[33px] min750:tw-mt-8 mobile:tw-text-[16px] mobile:tw-leading-[24px]">
+          <span>{{ section.settings.description | escape }}</span>
+        </div>
+      {% endif %}
+
+      {% if section.settings['button-label'] != blank %}
+        <div class=" tw-inline-flex tw-flex-wrap tw-gap-4 tw-break-words tw-mt-12 mobile:tw-grid mobile:tw-text-center">
+          <a
+            role="link"
+            aria-disabled="true"
+            href="{{ section.settings.button-link }}"
+            class="section-{{ section.id }}--banner-button tw-uppercase tw-border-4 !tw-text-[22px] !tw-leading-[33px] !tw-tracking-[2px] tw-cursor-pointer tw-border-solid tw-rounded tw-text-lg tw-px-9 tw-py-2 button--primary hover:tw-bg-opacity-80 hover:tw-underline mobile:tw-text-[26px] mobile:tw-leading-[29.9px] mobile:tw-tracking-[4px]"
+          >
+            {{- section.settings['button-label'] | escape -}}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "id": "custom-class",
+      "type": "text",
+      "label": "Custom Class"
+    },
+    {
+      "type": "select",
+      "id": "heading-type",
+      "options": [
+        {
+          "value": "H1",
+          "label": "H1"
+        },
+        {
+          "value": "H2",
+          "label": "H2"
+        }
+      ],
+      "default": "H2",
+      "label": "Heading Type"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading-shadow",
+      "label": "Heading Dropshadow for ADA",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "heading-color",
+      "label": "Heading Color",
+      "default": "#000000"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Desription"
+    },
+    {
+      "type": "color",
+      "id": "description-color",
+      "label": "Description Color",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "button-label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button-link",
+      "label": "Button URL"
+    },
+    {
+      "type": "color",
+      "id": "button-color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button-bg-color",
+      "label": "Button Background Color"
+    },
+    {
+      "type": "color",
+      "id": "button-border-color",
+      "label": "Button Border Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "ruffino_logo",
+      "label": "Logo Image On Banner"
+    },
+    {
+      "type": "select",
+      "id": "content-position",
+      "options": [
+        {
+          "value": "Left",
+          "label": "Left"
+        },
+        {
+          "value": "Center",
+          "label": "Center"
+        },
+        {
+          "value": "Right",
+          "label": "Right"
+        }
+      ],
+      "default": "Left",
+      "label": "Content Alignment"
+    },
+    {
+      "type": "range",
+      "id": "content-scale",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Content bottom scale",
+      "default": 5
+    },
+    {
+      "type": "text",
+      "id": "desktop-height",
+      "label": "Desktop Height",
+      "default": "640px"
+    },
+    {
+      "type": "text",
+      "id": "mobile-height",
+      "label": "Mobile Height",
+      "default": "360px"
+    },
+    {
+      "type": "select",
+      "id": "background-type",
+      "options": [
+        {
+          "value": "Color",
+          "label": "Color"
+        },
+        {
+          "value": "Image",
+          "label": "Image"
+        },
+        {
+          "value": "Video",
+          "label": "Video"
+        }
+      ],
+      "default": "Image",
+      "label": "Background Type",
+      "info": "Select the type of hero banner you want"
+    },
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "Background Color"
+    },
+    {
+      "type": "image_picker",
+      "id": "background-image-desktop",
+      "label": "Background Image For Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "background-image-mobile",
+      "label": "Background Image For Mobile"
+    },
+    {
+      "type": "text",
+      "id": "bg-img-alt-text",
+      "label": "Background Image alt Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "overlay_desktop",
+      "default": false,
+      "label": "Want color overlay on desktop?"
+    },
+    {
+      "type": "checkbox",
+      "id": "overlay_mobile",
+      "default": false,
+      "label": "Want color overlay on mobile?"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "url",
+      "id": "desktop-background-url",
+      "label": "Background Video URL For Desktop"
+    },
+    {
+      "type": "url",
+      "id": "mobile-background-url",
+      "label": "Backgroung Video URL For Mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_image",
+      "label": "video placeholder image"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_mobile_image",
+      "label": "video placeholder image for mobile"
+    },
+    {
+      "type": "text",
+      "id": "video-banner-description",
+      "label": "Video Banner Description"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner"
+    }
+  ]
+}
+{% endschema %}
+<script>
+  $(document).ready(function () {
+    var isPlaying = true;
+    $('.playPauseBtn').keydown(function (event) {
+      if (event.key === ' ' || event.key === 'Enter' || event.key === 'Spacebar') {
+        event.preventDefault();
+        toggleButton(event.target);
+      }
+    });
+    function toggleButton(element) {
+      var videoAction = document.getElementById('video-section');
+      var mobileVideoAction = document.getElementById('video-section-mobile');
+      if (isPlaying) {
+        videoAction.pause();
+        mobileVideoAction.pause();
+        isPlaying = false;
+        $('.pauseAction').css('display', 'none');
+        $('.pauseBtn').css('display', 'none');
+        $('.playBtn').css('display', 'block');
+        $('.playAction').css('display', 'block');
+        $('.playPauseBtn').focus();
+      } else {
+        videoAction.play();
+        mobileVideoAction.play();
+        isPlaying = true;
+        $('.playAction').css('display', 'none');
+        $('.playBtn').css('display', 'none');
+        $('.pauseAction').css('display', 'block');
+        $('.pauseBtn').css('display', 'block');
+        $('.playPauseBtn').focus();
+      }
+    }
+    var videoAction = document.getElementById('video-section');
+    var mobileVideoAction = document.getElementById('video-section-mobile');
+    $('.pauseBtn').click(function (e) {
+      e.preventDefault();
+      videoAction.pause();
+      mobileVideoAction.pause();
+      $('.pauseAction').css('display', 'none');
+      $('.pauseBtn').css('display', 'none');
+      $('.playBtn').css('display', 'block');
+      $('.playAction').css('display', 'block');
+    });
+    $('.playBtn').click(function (e) {
+      e.preventDefault();
+      videoAction.play();
+      mobileVideoAction.play();
+      $('.playAction').css('display', 'none');
+      $('.playBtn').css('display', 'none');
+      $('.pauseAction').css('display', 'block');
+      $('.pauseBtn').css('display', 'block');
+    });
+  });
+</script>

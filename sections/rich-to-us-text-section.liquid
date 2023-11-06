@@ -1,0 +1,136 @@
+{%- style -%}
+  .section-{{ section.id }}--headingcolor1 {
+    color: {{ section.settings.headingcolor }};
+  }
+
+  .section-{{ section.id }}--description1 {
+    color: {{ section.settings.descriptioncolor }};
+  }
+  @media screen and (min-width: 768px) {
+    .reach-on-heading-2:lang(de){
+        width: 340px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .section-{{ section.id }}--description1 p:first-child {
+        width: 80%;
+    }
+  }
+{%- endstyle -%}
+
+
+
+<div id="section-{{ section.id }}" class="reachus-main-section tw-py-[4rem] mobile:tw-py-[5rem]">
+    <div class="js-show-on-scroll tw-m-auto tw-my-[60px] tw-border-b tw-border-solid tw-border-black !tw-block" data-animate-type="tw-animate-line_animation" ></div>
+    <div class="min1366:tw-w-[90%] min1600:tw-w-[85%] min1920:tw-w-[75%] tw-mx-auto md:tw-grid md:tw-grid-cols-2 md:tw-grid-flow-row tw-px-5 md:tw-px-20 lg:tw-px-20">
+    <div class="reach-on-heading-2 tw-w-[273px] mobile:tw-h-[155px]">
+      {% if section.settings.heading-1 != blank %}
+        <h2 class="section-{{ section.id }}--headingcolor1 tw-font-made-saonara tw-text-[55px] tw-tracking-normal !tw-font-normal mobile:tw-text-[45px] min1600:tw-text-[50px]">
+          {{ section.settings.heading-1 }}
+        </h2>
+      {% endif %}
+    </div>
+    <div class="tw-w-full mobile:tw-w-[330px] mobile:tw-ml-0 min1280:tw-pl-[60px]">
+      {% if section.settings.heading-2 != blank %}
+        <div class="section-{{ section.id }}--headingcolor1 tw-w-[248px] tw-font-neutraface-display-bold tw-text-[14px] tw-tracking-[0.28px] tw-leading-[28px] !tw-font-normal">
+          {{ section.settings.heading-2 }}
+        </div>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <div class="section-{{ section.id }}--description1  tw-text-[20px] tw-tracking-[0.4px] tw-font-neutraface-display-light tw-leading-[28px] mobile:tw-w-[300px] min1920:tw-text-[24px] min1920:tw-leading-[32px]">{{ section.settings.description }}</div>
+      {% endif %}
+      <a href="/" id="map-button-{{ section.id }}" class="tw-flex tw-items-center tw-justify-center tw-font-neutraface-display-bold tw-border tw-border-black tw-border-solid tw-text-black tw-text-xs tw-uppercase tw-mt-10 tw-w-[160px] tw-h-[33px] mobile:tw-w-[118px] tw-rounded-[33px] hover:tw-bg-black hover:tw-text-white tw-transition-all tw-duration-200 tw-ease-in mobile:tw-mt-7  focus-visible:tw-bg-black focus-visible:tw-text-white">
+        {{ section.settings.btn-txt }}
+      </a>
+    </div>
+  </div>
+  <div class="animator-border js-show-on-scroll tw-m-auto tw-my-[60px] tw-border-t tw-border-solid tw-border-black !tw-block" data-animate-type="tw-animate-line_animation" ></div>
+</div>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+  var mapButton = document.getElementById("map-button-{{ section.id }}");
+  mapButton.addEventListener("click", function(event) {
+    event.preventDefault(); 
+    var fullText = "{{ section.settings.map-address}}";
+    if(fullText != ""){
+      var googleMapsUrl = "https://www.google.com/maps/search/?q=" + encodeURIComponent(fullText);
+    }
+    else{
+      var mapurl = "{{ section.settings.map-url}}";
+      if(mapurl != ""){
+        var googleMapsUrl = mapurl;
+      }
+    }
+    
+    window.open(googleMapsUrl, "_blank");
+
+  });
+
+});
+
+</script>
+
+{% schema %}
+
+  {
+    "name": "Reach To Us",
+    "class": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "headingcolor",
+        "label": "heading color",
+        "default": "#000"
+
+      },
+      {
+        "type": "text",
+        "id": "heading-1",
+        "default": "HOW TO REACH US",
+        "label": "Heading 1"
+      },
+      {
+        "type": "text",
+        "id": "heading-2",
+        "default": "TENUTA RUFFINO POGGIO CASCIANO",
+        "label": "Heading Line 2"
+      },
+      {
+        "type": "color",
+        "id": "descriptioncolor",
+        "label": "description color",
+        "default": "#4d3c7d"
+      }, {
+        "type": "richtext",
+        "id": "description",
+        "default": "<p>Via Poggio al Mandorlo. 150011 Bagno a. Ripoli [FI] +390556499750 | hospitality@ruffino.it</p>",
+        "label": "Content"
+      }, {
+        "type": "text",
+        "id": "btn-txt",
+        "label": "Button text",
+        "default": "Maps"
+      }, {
+        "type": "textarea",
+        "id": "map-address",
+        "label": "Map Address"
+      },{
+        "type": "textarea",
+        "id": "map-url",
+        "label": "Map URL"
+      }
+    ],
+
+    "presets": [
+
+      {
+        "name": "Reach To Us"
+      }
+
+    ]
+
+  }
+{% endschema %}

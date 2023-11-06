@@ -1,0 +1,49 @@
+{% style %} {% endstyle %}
+{% if section.settings.title_2 != blank %}
+    <div> <h1 class="tw-text-black">{{ section.settings.title_2 }}</h1></div>
+{% endif %}
+ 
+{% assign exampleBlock = section.blocks | where: 'type', 'image' %}
+{% for block in exampleBlock %} 
+<div>
+    <img src='{{ block.settings.image | img_url:"master" }}' />
+</div>
+{% endfor %}
+<script></script>
+{% schema %}
+{
+    "name": "Example",
+    "class": "example",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "title_2",
+        "label": "Title 2"
+      }
+    ],
+    "blocks": [
+       {
+         "name": "Block Example",
+         "limit": 2,
+         "type": "image",
+         "settings": [
+           {
+             "type": "image_picker",
+             "id": "image",
+             "label": "Image"
+           }
+         ]
+       }
+    ],
+    "presets": [
+        {
+          "name": "Example"
+        }
+      ]
+  }
+{% endschema %}

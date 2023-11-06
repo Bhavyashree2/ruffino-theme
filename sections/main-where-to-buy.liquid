@@ -1,0 +1,225 @@
+{% assign iframe_url = section.settings.iframe_url %}
+{% assign iframe_url_spanish = section.settings.iframe_url_spanish %}
+
+{% style %}
+  .section-{{ section.id }}--bgcolor {
+    background-color: {{ section.settings.bg-color }};
+  }
+{% endstyle %}
+
+<div id="section-{{ section.id }}" class="section-{{ section.id }}--bgcolor tw-h-full tw-text-base tw-leading-5 tw-pt-2 tw-pb-[5rem] tw-relative tw-top-0 tw-px-32 max991:!tw-px-0 view-store-locator " style="visibility: visible;">
+  <div class="store-locator-container tw-mb-[80px] tw-relative before:tw-bg-white before:tw-absolute before:tw-top-0 before:tw-left-0 before:tw-w-full before:-tw-z-[1] before:tw-content-[''] before:tw-h-5/6">
+    <div class="light-container tw-text-center max991:tw-mb-[14px] max991:tw-mt-[48px]">
+        <h1 class="heading heading-01 !tw-text-[48px] !tw-leading-[72px] mobile:!tw-text-[34px] !tw-tracking-normal mobile:!tw-leading-[51px]" data-bind="stripHtml: { content: $data.heading, allowedTags: ['span'] }">{{ section.settings.header_text_general }}</h1>
+    </div>
+      <iframe class="store-locator-frame tw-min-h-[700px] max991:tw-min-h-[550px] tw-border-0 tw-overflow-hidden tw-relative tw-w-8/12 max991:tw-w-11/12 tw-m-auto tw-z-0 " scrolling="no" title="Buy Now" allow="geolocation" src=""></iframe>
+  </div>
+  {% if page.handle == "where-to-buy" %}
+    <div class="review-section tw-text-center">
+      <div class="review">
+          <h3>{{ section.settings.review_title }}</h3>
+          <a href="{{ section.settings.review_url }}" aria-label="{{ section.settings.review_ada }}" {% if section.settings.open_tab == true %} target="_blank" {% endif %}>{{ section.settings.review_btn_label }}</a>
+      </div>
+    </div>
+  {% endif %}
+</div>
+<style>
+
+</style>
+
+{% schema %}
+  {
+    "name": "Where To Buy",
+	  "tag":"section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header_text_general",
+        "label": "Header Text for All Countries"
+      },
+      {
+        "type": "text",
+        "id": "content_text",
+        "label": "Content Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "header_background_image",
+        "label": "Header Background Image"
+      },
+      {
+        "type": "color",
+        "id": "bg-color",
+        "label": "Background color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "url",
+        "id": "iframe_url",
+        "label": "'Where to buy' Iframe URL (Include Pid) - English"
+      },
+      {
+        "type": "url",
+        "id": "iframe_url_spanish",
+        "label": "'Where to buy' Iframe URL (Include Pid) - Spanish"
+      },
+      {
+        "type": "checkbox",
+        "id": "activate_preselect",
+        "default": false,
+        "label": "Activate Preselecting Product"
+      },
+      {
+        "type": "text",
+        "id": "review_title",
+        "label": "Review title",
+        "default": "Leave a Review"
+      },
+      {
+        "type": "text",
+        "id": "review_btn_label",
+        "label": "Review button Label"
+      },
+      {
+        "type": "url",
+        "id": "review_url",
+        "label": "Review Link"
+      },
+      {
+            "type": "checkbox",
+            "id":"open_tab",
+            "label":"Open in new tab?",
+            "default": false
+      },  
+      {
+        "type": "text",
+        "id": "review_ada",
+        "label": "ADA text for button"
+      }
+    ],
+    "presets":[
+      {
+        "name":"Where to buy form",
+        "category":"ADVANCED LAYOUT"
+      }
+    ]
+  }
+  {% endschema %}
+
+<script>
+  //Allow Model / UPC Parameter
+  var iframe_url = `{{iframe_url}}`;
+  var iframe_url_spanish = `{{iframe_url_spanish}}`;
+  var activate_preselect = {{section.settings.activate_preselect}};
+  var userLang = navigator.language || navigator.userLanguage;
+
+  if (userLang.includes("es")) {
+    iframe_url = iframe_url_spanish;
+  }
+
+  $(document).ready(function(){
+    setTimeout(function(){
+      var urlparams = window.location.href;
+      var utm_arr = '';
+      var final_iframe_url = '';
+      utm_arr = urlparams.split('?');
+      if(utm_arr[1]){
+          var utm_params = utm_arr[1];
+      }
+        if($.urlParam('modelId'))
+        {
+          var modelId = $.urlParam('modelId');
+          var activate_preselect = true;
+        }
+        else if($.urlParam('model')){
+          var modelId = $.urlParam('model');
+          var activate_preselect = true;
+        }
+        else
+        {
+          var modelId = getCookie("modelId");
+        }
+        if (activate_preselect == false) {
+          final_iframe_url = iframe_url;
+        }
+        else {
+          if (modelId)
+          {
+            final_iframe_url = iframe_url+"&model="+modelId;
+          }
+          else {
+            final_iframe_url = iframe_url;
+          }
+        }
+        if(utm_params){
+          if(final_iframe_url.indexOf("?") != -1){
+            final_iframe_url = final_iframe_url+"&"+utm_params;
+          }
+          else{
+            final_iframe_url = final_iframe_url+"?"+utm_params;
+          }     
+      }
+      $(".store-locator-frame").attr("src", final_iframe_url);
+        if (modelId) {
+          setCookie("modelId", "", 1);
+        }
+    }, 500);
+  });
+
+  $.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+      return null;
+    }
+    else{
+      return results[1] || 0;
+    }
+  }
+
+  // Function to get cookie based on param
+  function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for(var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+          }
+      }
+      return "";
+  }
+
+  function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires="+d.toUTCString();
+      document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/";
+  }
+  /* Adding code for iframe locator -  */    
+  function receiveMessage(event) {
+    var authorized_iframes = ["https://where-to-buy.co","https://staging.where-to-buy.co"];
+    if (authorized_iframes.indexOf(event.origin) > -1 && typeof event.data == "object") {
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push(event.data);
+    }
+    return;
+  }
+  if (window.addEventListener) {
+    window.addEventListener("message", receiveMessage, false);
+  }
+  else {
+    window.attachEvent("onmessage", receiveMessage)
+  }
+</script>
+<script>
+ var screenWidth = window.screen.availWidth;
+ var iframe=document.getElementsByClassName('store-locator-frame')[0];
+    if(screenWidth<=767){
+    {% comment %} iframe.setAttribute("scrolling", "yes"); {% endcomment %}
+    iframe.setAttribute("scrolling", "no");
+    }
+</script>  

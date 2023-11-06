@@ -1,0 +1,126 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "59b57481-854b-4586-a719-9ac57cbddbe3": {
+      "type": "wine-listing",
+      "blocks": {
+        "6c2809d0-cebe-408a-bb3b-edd3ad40db65": {
+          "type": "product",
+          "settings": {
+            "product": "riserva-ducale-oro",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus."
+          }
+        },
+        "d6d1c2bb-aeeb-4932-b547-ba52d1146b46": {
+          "type": "product",
+          "settings": {
+            "product": "riserva-ducale",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus."
+          }
+        },
+        "724e4ef8-6f64-4e60-8c44-79f5ba8a1dcb": {
+          "type": "product",
+          "settings": {
+            "product": "chianti-docg",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus."
+          }
+        },
+        "170956b3-c54d-404f-af27-c777aeedc931": {
+          "type": "separator",
+          "settings": {
+            "alt-text": "Image alt text"
+          }
+        },
+        "3c8ddd24-b297-4ea2-b037-5542b37f6959": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Ruffino_Instant-Connection_33.jpg",
+            "alt-text": "Image alt text"
+          }
+        },
+        "69c44023-c251-45b7-800a-86286698d306": {
+          "type": "product",
+          "settings": {
+            "product": "greppone-mazzi",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus."
+          }
+        },
+        "9459f0cb-0911-4720-9875-2ee5cbf73cb6": {
+          "type": "separator",
+          "settings": {
+            "alt-text": "Image alt text"
+          }
+        },
+        "22cb804f-181c-408a-9719-7717fedc95dc": {
+          "type": "product",
+          "settings": {
+            "product": "alauda",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus."
+          }
+        },
+        "b57062ac-269f-497d-84ac-b947f29ee509": {
+          "type": "product",
+          "settings": {
+            "product": "modus",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus."
+          }
+        },
+        "a0b17d13-d3e2-4bef-9d2b-78e0a0f91748": {
+          "type": "separator",
+          "settings": {
+            "alt-text": "Image alt text"
+          }
+        },
+        "a4cf7ebd-d5c5-4618-9d61-0f2668f8c756": {
+          "type": "product",
+          "settings": {
+            "product": "prosecco-rose",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus."
+          }
+        },
+        "a5bfdeec-a1f6-49c7-8fa5-1b1c2e60177d": {
+          "type": "product",
+          "settings": {
+            "product": "il-ducale-pinot-grigio",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus."
+          }
+        },
+        "07c74ebd-dfa1-4ba9-b15e-2c3ef4ca1430": {
+          "type": "product",
+          "settings": {
+            "product": "moscato-dasti",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus."
+          }
+        }
+      },
+      "block_order": [
+        "6c2809d0-cebe-408a-bb3b-edd3ad40db65",
+        "d6d1c2bb-aeeb-4932-b547-ba52d1146b46",
+        "724e4ef8-6f64-4e60-8c44-79f5ba8a1dcb",
+        "170956b3-c54d-404f-af27-c777aeedc931",
+        "3c8ddd24-b297-4ea2-b037-5542b37f6959",
+        "69c44023-c251-45b7-800a-86286698d306",
+        "9459f0cb-0911-4720-9875-2ee5cbf73cb6",
+        "22cb804f-181c-408a-9719-7717fedc95dc",
+        "b57062ac-269f-497d-84ac-b947f29ee509",
+        "a0b17d13-d3e2-4bef-9d2b-78e0a0f91748",
+        "a4cf7ebd-d5c5-4618-9d61-0f2668f8c756",
+        "a5bfdeec-a1f6-49c7-8fa5-1b1c2e60177d",
+        "07c74ebd-dfa1-4ba9-b15e-2c3ef4ca1430"
+      ],
+      "disabled": true,
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "59b57481-854b-4586-a719-9ac57cbddbe3"
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "c6844db7-412d-4baa-b565-6d3d0003a865": {
+      "type": "Banner",
+      "settings": {
+        "custom-class": "estates-banner",
+        "heading-type": "H1",
+        "heading": "Estates",
+        "heading-shadow": false,
+        "heading-color": "#ffffff",
+        "description": "",
+        "description-color": "#000000",
+        "button-label": "",
+        "button-link": "",
+        "button-color": "#ffffff",
+        "button-bg-color": "",
+        "button-border-color": "#ffffff",
+        "content-position": "Center",
+        "content-scale": 25,
+        "desktop-height": "85vh",
+        "mobile-height": "360px",
+        "background-type": "Image",
+        "background-color": "",
+        "background-image-desktop": "shopify:\/\/shop_images\/vineyard.png",
+        "background-image-mobile": "shopify:\/\/shop_images\/vineyard_mobile.png",
+        "bg-img-alt-text": "",
+        "overlay_desktop": false,
+        "overlay_mobile": false,
+        "overlay_color": "#000000",
+        "desktop-background-url": "",
+        "mobile-background-url": "",
+        "video-banner-description": ""
+      }
+    },
+    "2d004cd2-8698-4686-9ffc-7a1478e63c94": {
+      "type": "heading-with-rightside-text",
+      "settings": {
+        "custom-class": "estates",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "headingcolor": "#000000",
+        "heading-1": "A SPOT IN ALL THE RIGHT PLACES.",
+        "heading-2": "",
+        "heading-3": "",
+        "heading-4": "",
+        "mobile-heading": "A SPOT IN ALL THE RIGHT PLACES.",
+        "heading_size": "h1",
+        "descriptioncolor": "#000000",
+        "description": "<p>From the renowned Chianti Classico to the exquisite Brunello, each of <strong>Ruffino<\/strong>'s six prestigious estates is strategically placed in the heart of the most celebrated winemaking areas of Tuscany. The legacy of Ruffino honors the diverse terroirs, crafting wines that epitomize the combination of tradition and innovation and showcasing the true essence of Tuscan wine in every bottle.<br\/><\/p>",
+        "content-position": "Right"
+      }
+    },
+    "8ed455fd-966b-418c-a003-7d36093cae7a": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16085841051798__8ed455fd-966b-418c-a003-7d36093cae7a-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "OUR <br>ESTATES <br>IN TUSCANY",
+            "heading_size": "h2"
+          }
+        },
+        "template--16085841051798__8ed455fd-966b-418c-a003-7d36093cae7a-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Unlock the secrets.<br\/>The passion and bravura of our winemakers, combined with a deep respect for the land, create wines that reflect the very soul of Tuscany.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16085841051798__8ed455fd-966b-418c-a003-7d36093cae7a-button-1": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16085841051798__8ed455fd-966b-418c-a003-7d36093cae7a-heading-1",
+        "template--16085841051798__8ed455fd-966b-418c-a003-7d36093cae7a-text-1",
+        "template--16085841051798__8ed455fd-966b-418c-a003-7d36093cae7a-button-1"
+      ],
+      "settings": {
+        "class_name": "",
+        "background_type": "image",
+        "background_color": "#078aff",
+        "headingcolor": "#000000",
+        "descriptioncolor": "#4d3c7d",
+        "button_color": "#3c4328",
+        "button_text_color": "#eae4d6",
+        "border_color": "#eae4d6",
+        "image": "shopify:\/\/shop_images\/Tuscany-Map-Printfile-70x100.png",
+        "mobile_image": "shopify:\/\/shop_images\/Tuscany-Map-Printfile-70x100.png",
+        "margin-options": "center",
+        "height": "adapt",
+        "layout": "text_first",
+        "desktop_content_alignment": "left",
+        "desktop_content_bg": "Color",
+        "content-bg-color": "#ffffff",
+        "color_on_top_of_bg_image": false,
+        "max-width": "600",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_left": 36,
+        "padding_right": 0
+      }
+    },
+    "4be08e52-1732-4089-a1fc-4c1404380938": {
+      "type": "home-horizontal-scroll",
+      "blocks": {
+        "1411f423-a35e-421c-b04a-47e54a6c99ce": {
+          "type": "slide",
+          "settings": {
+            "title": "POGGIO CASCIANO",
+            "img": "shopify:\/\/shop_images\/3_6b64bf42-9183-4f9f-8f1b-475a41a2e4ba.jpg",
+            "text": "At the very heart of winemaking and fine Tuscan blends",
+            "btn-txt": "More",
+            "url": "shopify:\/\/pages\/poggio-casciano"
+          }
+        },
+        "be7ed4da-dfe6-481f-8cdd-50d56e336cb2": {
+          "type": "slide",
+          "settings": {
+            "title": "MONTEMASSO",
+            "img": "shopify:\/\/shop_images\/Senza_nome.jpg",
+            "text": "A magnificent castle overlooking the Tuscan landscape",
+            "btn-txt": "More",
+            "url": "shopify:\/\/pages\/montemasso"
+          }
+        },
+        "56148778-f1ee-4ebd-a8ac-0d1103438fe4": {
+          "type": "slide",
+          "settings": {
+            "title": "SANTEDAME",
+            "img": "shopify:\/\/shop_images\/2.jpg",
+            "text": "Winemaking mastery meets divine heritage",
+            "btn-txt": "More",
+            "url": "shopify:\/\/pages\/santedame-new"
+          }
+        },
+        "07eafddc-cf37-41ff-ab2b-9c43d863a44a": {
+          "type": "slide",
+          "settings": {
+            "title": "GRETOLE",
+            "img": "shopify:\/\/shop_images\/919d578d67ade6fda0d1ae68e1c8cfe7.jpg",
+            "text": "Timeless elegance redefining the very essence of Chianti Classico",
+            "btn-txt": "More",
+            "url": "shopify:\/\/pages\/gretole"
+          }
+        },
+        "0874792b-28d0-4ecc-bbd7-5f50c9cf73c9": {
+          "type": "slide",
+          "settings": {
+            "title": "GREPPONE MAZZI",
+            "img": "shopify:\/\/shop_images\/4.jpg",
+            "text": "A bold jewel within Montalcino's vibrant pulse",
+            "btn-txt": "More",
+            "url": "shopify:\/\/pages\/greppone-mazzi-new"
+          }
+        },
+        "581dcbbc-2237-4f89-b8fb-4954b82f786b": {
+          "type": "slide",
+          "settings": {
+            "title": "LA SOLATìA",
+            "img": "shopify:\/\/shop_images\/vineyard_a6610b3f-eacf-4806-b658-b81027798985.jpg",
+            "text": "A sun-soaked sanctuary",
+            "btn-txt": "More",
+            "url": "shopify:\/\/pages\/la-solatia"
+          }
+        }
+      },
+      "block_order": [
+        "1411f423-a35e-421c-b04a-47e54a6c99ce",
+        "be7ed4da-dfe6-481f-8cdd-50d56e336cb2",
+        "56148778-f1ee-4ebd-a8ac-0d1103438fe4",
+        "07eafddc-cf37-41ff-ab2b-9c43d863a44a",
+        "0874792b-28d0-4ecc-bbd7-5f50c9cf73c9",
+        "581dcbbc-2237-4f89-b8fb-4954b82f786b"
+      ],
+      "settings": {
+        "title": ""
+      }
+    },
+    "b1dcfedb-72e7-4489-b317-70733060c4dd": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16085841051798__b1dcfedb-72e7-4489-b317-70733060c4dd-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "ICONIC WINES, THE TUSCAN WAY",
+            "heading_size": "h2"
+          }
+        },
+        "template--16085841051798__b1dcfedb-72e7-4489-b317-70733060c4dd-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover <strong>Ruffino<\/strong>'s extensive selection, where every bottle represents a unique facet of our rich legacy. From remarkable reds, shaped by storied terroirs, to timeless whites that pay homage to the heritage of Tuscan winemaking. Explore the quintessence of our terroir, where tradition harmoniously coexists with innovation. Revel in the effervescence that encapsulates Italian sophistication and savor our spirits, grappa, and olive oils—a triumphant celebration of flavors that transcend the boundaries of wine, encapsulating the very essence of our heritage.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16085841051798__b1dcfedb-72e7-4489-b317-70733060c4dd-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "OUR WINES",
+            "button_link": "shopify:\/\/collections\/our-wines"
+          }
+        }
+      },
+      "block_order": [
+        "template--16085841051798__b1dcfedb-72e7-4489-b317-70733060c4dd-heading-1",
+        "template--16085841051798__b1dcfedb-72e7-4489-b317-70733060c4dd-text-1",
+        "template--16085841051798__b1dcfedb-72e7-4489-b317-70733060c4dd-button-1"
+      ],
+      "settings": {
+        "class_name": "our-estates-section-2",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "headingcolor": "#000000",
+        "descriptioncolor": "#000000",
+        "button_color": "#ffffff",
+        "button_text_color": "#000000",
+        "border_color": "#ffffff",
+        "image": "shopify:\/\/shop_images\/Ruffino_Other_Shots_Divano_Ocra_01.png",
+        "mobile_image": "shopify:\/\/shop_images\/Ruffino_Other_Shots_Divano_Ocra_Mobile.png",
+        "margin-options": "center",
+        "height": "adapt",
+        "layout": "image_first",
+        "desktop_content_alignment": "left",
+        "desktop_content_bg": "Color",
+        "content-bg-color": "#ffffff",
+        "color_on_top_of_bg_image": false,
+        "max-width": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_left": 24,
+        "padding_right": 24
+      }
+    }
+  },
+  "order": [
+    "main",
+    "c6844db7-412d-4baa-b565-6d3d0003a865",
+    "2d004cd2-8698-4686-9ffc-7a1478e63c94",
+    "8ed455fd-966b-418c-a003-7d36093cae7a",
+    "4be08e52-1732-4089-a1fc-4c1404380938",
+    "b1dcfedb-72e7-4489-b317-70733060c4dd"
+  ]
+}

@@ -1,0 +1,83 @@
+<style>
+    @media screen and (max-width: 767px) {
+        .mobile-language-toggle{
+            left:86%;
+        }
+        .mobile-language-toggle svg{
+            right: 70px !important;
+        }
+        .mobile-language-toggle #FooterLanguageList{
+            min-height:2.2rem;
+        }
+        .mobile-language-toggle .localization-form .disclosure__list-wrapper{
+            bottom: auto !important;
+            top: 0 !important;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width:1023px){
+        .mobile-language-toggle{
+            left:93%;
+        }
+        .mobile-language-toggle svg{
+            right: 70px !important;
+        }
+        .mobile-language-toggle #FooterLanguageList{
+            min-height:2.2rem;
+        }
+        .mobile-language-toggle .localization-form .disclosure__list-wrapper{
+            bottom: auto !important;
+            top: 0 !important;
+        }
+    }
+</style>
+{% comment %} Language {% endcomment %}
+<div class="mobile-language-toggle tw-fixed tw-right-0 tw-bottom-0 min990:tw-hidden tw-bg-black" style="z-index:9">
+    {%- if localization.available_languages.size > 1 -%}
+      <noscript>
+        {%- form 'localization', id: 'FooterLanguageFormNoScript', class: 'localization-form' -%}
+          <div class="localization-form__select">
+            <h2 class="visually-hidden" id="FooterLanguageLabelNoScript">{{ 'localization.language_label' | t }}</h2>
+            <select class="localization-selector link" name="locale_code" aria-labelledby="FooterLanguageLabelNoScript">
+              {%- for language in localization.available_languages -%}
+                <option value="{{ language.iso_code }}" lang="{{ language.iso_code }}" {%- if language.iso_code == localization.language.iso_code %} selected{% endif %}>
+                  {{ language.endonym_name | capitalize }}
+                </option>
+              {%- endfor -%}
+            </select>
+            {% render 'icon-caret' %}
+          </div>
+          <button class="button button--tertiary">{{ 'localization.update_language' | t }}</button>
+        {%- endform -%}
+      </noscript>
+
+      <localization-form>
+        {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
+          <div class="no-js-hidden">
+            {% comment %} <h2 class="caption-large text-body" id="FooterLanguageLabel">{{ 'localization.language_label' | t }}</h2> {% endcomment %}
+            <div class="disclosure">
+              <button type="button" class="disclosure__button localization-form__select localization-selector link link--text caption-large !tw-font-neutraface-display-bold {% if request.page_type == 'index' %} tw-text-white {% else %} tw-text-black  {% endif %} !tw-text-[12px] tw-tracking-[0.6px] tw-leading-normal tw-uppercase hover:!tw-underline" aria-expanded="false" aria-controls="FooterLanguageList" aria-describedby="FooterLanguageLabel" aria-label="language switcher" style="padding: 10px;height: auto;">
+                {{ localization.language.iso_code | capitalize }}
+                {% render 'icon-caret' %}
+              </button>
+              <div class="disclosure__list-wrapper tw-bg-black tw-min-h-5" style="transform: translateY(-100%);z-index:-1;margin-left:0" hidden>
+                <ul id="FooterLanguageList" role="list" class="disclosure__list list-unstyled">
+                  {%- for language in localization.available_languages -%}
+                    {%- if language.iso_code != localization.language.iso_code %}
+                      <li class="disclosure__item" tabindex="-1">
+                        <a class="link link--text disclosure__link caption-large{% if language.iso_code == localization.language.iso_code %} disclosure__link--active{% endif %} focus-inset !tw-font-neutraface-display-bold !tw-text-white !tw-text-[12px] tw-tracking-[0.6px] tw-leading-normal tw-uppercase" href="#" hreflang="{{ language.iso_code }}" lang="{{ language.iso_code }}"{% if language.iso_code == localization.language.iso_code %} aria-current="true"{% endif %} data-value="{{ language.iso_code }}" style="padding-left: 10px;">
+                          {{ language.iso_code | capitalize }}
+                        </a>
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                  
+                </ul>
+              </div>
+            </div>
+            <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
+          </div>
+        {%- endform -%}
+      </localization-form>
+    {%- endif -%}
+</div>

@@ -1,0 +1,240 @@
+{
+  "sections": {
+    "d94e86a3-26e3-46f1-a698-3944506f6565": {
+      "type": "Banner",
+      "settings": {
+        "custom-class": "",
+        "heading-type": "H1",
+        "heading": "",
+        "heading-shadow": false,
+        "heading-color": "#ffffff",
+        "description": "",
+        "description-color": "#ffffff",
+        "button-label": "",
+        "button-link": "",
+        "button-color": "rgba(0,0,0,0)",
+        "button-bg-color": "#ffffff",
+        "button-border-color": "#ffffff",
+        "ruffino_logo": "shopify:\/\/shop_images\/Ruffino_Logo_Banner.png",
+        "content-position": "Left",
+        "content-scale": 5,
+        "desktop-height": "auto",
+        "mobile-height": "auto",
+        "background-type": "Video",
+        "background-color": "#ffffff",
+        "bg-img-alt-text": "",
+        "overlay_desktop": false,
+        "overlay_mobile": false,
+        "overlay_color": "#ffffff",
+        "desktop-background-url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/97254891d6224d828638372b079b0f37.mp4",
+        "mobile-background-url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/3057a618d96845cfa05becda8599381c.mp4",
+        "video_image": "shopify:\/\/shop_images\/Video_poster_img.png",
+        "video_mobile_image": "shopify:\/\/shop_images\/Gruppo_di_maschere_10.png",
+        "video-banner-description": ""
+      }
+    },
+    "dcdb2c25-8d60-462d-b419-6a5592eb413e": {
+      "type": "home-horizontal-scroll",
+      "blocks": {
+        "c8916092-ab8e-49d1-82ed-5fd650a006cf": {
+          "type": "slide",
+          "settings": {
+            "title": "OUR ESTATES",
+            "img": "shopify:\/\/shop_images\/vineyard.jpg",
+            "text": "Centuries of history, culture, and style converge in Ruffino's six enchanting Tuscan estates.",
+            "btn-txt": "More",
+            "url": "shopify:\/\/pages\/our-estates"
+          }
+        },
+        "a2b52173-5f40-4baa-9438-16a899c09f04": {
+          "type": "slide",
+          "settings": {
+            "title": "OUR WINES",
+            "img": "shopify:\/\/shop_images\/Ruffino_Other_Shots_Divano_Ocra_01.jpg",
+            "text": "Our diverse collection of wines showcases the rich heritage and innovative spirit of Ruffino, with a special emphasis on the artistry of our exceptional red wines.",
+            "btn-txt": "More",
+            "url": "shopify:\/\/collections\/wines"
+          }
+        },
+        "f2c1ab5d-a6f1-4755-a25d-993c0461392d": {
+          "type": "slide",
+          "settings": {
+            "title": "Experience",
+            "img": "shopify:\/\/shop_images\/3.jpg",
+            "text": "Indulge in an eclectic experience at Tenuta Ruffino Poggio Casciano. \nUnforgettable wine tastings, sublime fine dining, and extraordinary amenities await.",
+            "btn-txt": "More",
+            "url": "shopify:\/\/pages\/ruffino-experience"
+          }
+        },
+        "37747bd3-0e64-47ee-b3a0-db192825c4aa": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "title": "Ruffino Presents",
+            "img": "shopify:\/\/shop_images\/Snapinsta.app_343873454_758667432334289_1662028642955079831_n_1080.jpg",
+            "text": "We celebrate multifaceted collaborations with other brands, creators, and designers, honoring a shared passion for excellence.",
+            "btn-txt": "More",
+            "url": "\/"
+          }
+        },
+        "d930c33e-c96e-41d1-8214-4e5a1c5e13e2": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "title": "Title",
+            "img": "shopify:\/\/shop_images\/2828f99.jpg",
+            "text": "Description text",
+            "btn-txt": "More",
+            "url": ""
+          }
+        },
+        "d51c988f-3386-4812-a351-3fabdb324f2f": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "title": "Title",
+            "img": "shopify:\/\/shop_images\/aeed23f.jpg",
+            "text": "Description text",
+            "btn-txt": "More",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "c8916092-ab8e-49d1-82ed-5fd650a006cf",
+        "a2b52173-5f40-4baa-9438-16a899c09f04",
+        "f2c1ab5d-a6f1-4755-a25d-993c0461392d",
+        "37747bd3-0e64-47ee-b3a0-db192825c4aa",
+        "d930c33e-c96e-41d1-8214-4e5a1c5e13e2",
+        "d51c988f-3386-4812-a351-3fabdb324f2f"
+      ],
+      "settings": {
+      }
+    },
+    "68e4bd04-421e-4a45-ad1a-dbe1f00b4fd4": {
+      "type": "heading-section",
+      "settings": {
+        "heading_line_1": "A CONTEMPORARY VISION",
+        "heading_line_2": "THAT ELEVATES TRADITION",
+        "animated": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "17e5dd4e-f29f-4650-ab17-b505eadc8e1b": {
+      "type": "home-grid",
+      "disabled": true,
+      "settings": {
+        "margin_top": 80,
+        "margin_bottom": 36,
+        "btn-txt": "More",
+        "blog": "news-blog"
+      }
+    },
+    "93ecadcb-3bf0-4fc4-a1e7-47e8bfd5f689": {
+      "type": "home-mobile-grid-with-image",
+      "disabled": true,
+      "settings": {
+        "margin_top": 36,
+        "margin_bottom": 36,
+        "btn-txt": "More",
+        "blog": "news-blog"
+      }
+    },
+    "a1d421c0-1cce-4567-accc-e16a1e370b75": {
+      "type": "home-mobile-grid",
+      "disabled": true,
+      "settings": {
+        "margin_top": 36,
+        "margin_bottom": 36,
+        "btn-txt": "More",
+        "blog": "news-blog"
+      }
+    },
+    "401fcd36-4c0b-4aa2-8863-378a2ec24e98": {
+      "type": "home-grid-latest",
+      "settings": {
+        "margin_top": 80,
+        "margin_bottom": 60,
+        "btn-txt": "More",
+        "blog": "news-blog"
+      }
+    },
+    "533ed32a-7736-46bc-b026-cc33b4d635d1": {
+      "type": "home-mobile-grid-latest",
+      "settings": {
+        "margin_top": 60,
+        "margin_bottom": 36,
+        "btn-txt": "More",
+        "blog": "news-blog"
+      }
+    },
+    "f267e660-71f3-401c-8f11-80da7c556c39": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16074093428886__f267e660-71f3-401c-8f11-80da7c556c39-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "THE TRUE ESSENCE OF A TUSCAN WELCOME",
+            "heading_size": "h2"
+          }
+        },
+        "template--16074093428886__f267e660-71f3-401c-8f11-80da7c556c39-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Experience the essence of Ruffino like never before. Unlock a world of timeless elegance and immerse yourself in a journey of refined taste. Discover the secrets behind each bottle, savoring the artistry of our wines crafted with passion and precision. <\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16074093428886__f267e660-71f3-401c-8f11-80da7c556c39-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "JOIN RUFFINO EXPERIENCE",
+            "button_link": "shopify:\/\/pages\/ruffino-experience"
+          }
+        }
+      },
+      "block_order": [
+        "template--16074093428886__f267e660-71f3-401c-8f11-80da7c556c39-heading-1",
+        "template--16074093428886__f267e660-71f3-401c-8f11-80da7c556c39-text-1",
+        "template--16074093428886__f267e660-71f3-401c-8f11-80da7c556c39-button-1"
+      ],
+      "settings": {
+        "class_name": "",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "headingcolor": "#000000",
+        "descriptioncolor": "#000000",
+        "button_color": "#ffffff",
+        "button_text_color": "#000000",
+        "border_color": "#ffffff",
+        "image": "shopify:\/\/shop_images\/image_with_text.png",
+        "mobile_image": "shopify:\/\/shop_images\/image-with-text-mobile.png",
+        "margin-options": "center",
+        "height": "adapt",
+        "layout": "image_first",
+        "desktop_content_alignment": "left",
+        "desktop_content_bg": "Color",
+        "content-bg-color": "#ffffff",
+        "color_on_top_of_bg_image": false,
+        "max-width": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_left": 24,
+        "padding_right": 24
+      }
+    }
+  },
+  "order": [
+    "d94e86a3-26e3-46f1-a698-3944506f6565",
+    "dcdb2c25-8d60-462d-b419-6a5592eb413e",
+    "68e4bd04-421e-4a45-ad1a-dbe1f00b4fd4",
+    "17e5dd4e-f29f-4650-ab17-b505eadc8e1b",
+    "93ecadcb-3bf0-4fc4-a1e7-47e8bfd5f689",
+    "a1d421c0-1cce-4567-accc-e16a1e370b75",
+    "401fcd36-4c0b-4aa2-8863-378a2ec24e98",
+    "533ed32a-7736-46bc-b026-cc33b4d635d1",
+    "f267e660-71f3-401c-8f11-80da7c556c39"
+  ]
+}

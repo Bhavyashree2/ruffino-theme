@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "terms-and-conditions",
+      "settings": {
+        "custom_class": "",
+        "container_title": "terms and conditions",
+        "title_color": "#4d4c7d",
+        "background_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

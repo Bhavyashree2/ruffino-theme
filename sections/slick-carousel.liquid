@@ -1,0 +1,525 @@
+{% comment %} <link rel="stylesheet" href="{{ 'component-multiple-slide.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'component-single-slide.css' | asset_url }}">
+{% if section.settings.main_title != blank or section.settings.sub_title != blank %}
+  <div class="ribbon carousel">
+     <h2 class="title"> {{ section.settings.main_title }}<span class="line">{{ section.settings.sub_title }}</span></h2>
+  </div>
+{% endif %}
+
+{% if section.blocks.size > 0 %}
+<div class="{{ section.settings.class_name }} slider_wrap_new"  role="none" id="{{section.id}}_slick"
+   data-slick='{"autoplay": {{ section.settings.carousel_autoplay }},
+   "autoplaySpeed": {{ section.settings.autoplay_speed }},
+   "dots": {{section.settings.carousel_dots}},
+   "arrows": {{section.settings.carousel_arrows}},
+   "slidesToShow" :{{section.settings.images_per_page}},
+   "slidesToScroll" :1,
+   "infinite":{{section.settings.infinite}},
+   "fade":{{section.settings.fadeeffect}},
+   "responsive": [{
+   "breakpoint": 1025,
+   "settings": {
+   "slidesToShow": {{section.settings.images_per_page_resposive}},
+   "slidesToScroll": {{section.settings.images_per_page_resposive}}
+   }
+   }
+   ]
+   }'>
+   {% for block in section.blocks %}  
+     {% if  section.settings.images_per_page > 1 %}  
+       {% render 'multiple-slide', block : block, images_per_page: images_per_page %}
+     {% else %}
+       {% render 'single-slide' , id: section.id, block : block, images_per_page: images_per_page %}
+     {% endif %}
+   {% endfor %}
+   </div>
+   {% if section.settings.play_pause_check %}
+   <div class="pause_button">
+    <button id="pause" aria-label="Pause" role="button"><img src="https://cdn.shopify.com/s/files/1/0589/1067/1057/files/Pause_icon.svg?v=1631786220" alt="pause button image" class="fa fa-pause" tabindex="-1"></button>
+    <button id="play" style="display:none;"  aria-label="Play" role="button"><img src="https://cdn.shopify.com/s/files/1/0589/1067/1057/files/Play_Button.svg?v=1631786220" alt="play button image" class="fa fa-play" tabindex="-1"></button>
+   </div>
+   {% endif %}
+
+
+{% endif %}
+<script>
+  $(document).ready(function(){
+    //$("ul.slick-dots li").attr("role","tablist");
+  });
+  async function load() {
+  let url = '/browsing_context_suggestions.json';
+  let obj = await (await fetch(url)).json();
+  if(obj.detected_values.country.handle == "NZ" || obj.detected_values.country.handle == "AU" )
+  {
+      $(".us_country").remove();
+  }
+  else
+  {
+      $(".nz_country").remove();
+  }
+
+  $('.slider_wrap_new').slick({ 
+  speed:500
+});  
+
+}
+  load();
+
+ 
+</script>
+
+
+<style>
+.ribbon.carousel {
+  padding-top: 126px !important;
+}  
+@media only screen and (max-width: 600px) {
+  .line {
+    font-size: 18.75px;
+    padding-top: 10px !important;
+    line-height: 28px !important;
+  }
+  .ribbon.carousel {
+      padding-top: 205px !important;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .ribbon.carousel .title {
+    font-size: 15vw !important;
+    font-weight: 200;
+  }
+  .line {
+    font-size: 5vw !important;
+    padding-top: 19px !important;
+    line-height: 51.5px;
+    letter-spacing: 0.4px !important;
+  }
+}  
+
+@media only screen and (max-width: 780px) and (min-width:650px) {
+  .ribbon.carousel {
+      padding-top: 131px !important;
+      margin-top: 0px !important;
+  }
+}
+
+#{{section.id}}_single-slide .content_wrap .slider_title {
+  color: {{ section.settings.carousel_heading_color }};
+}
+
+#{{section.id}}_single-slide .content_wrap .slider_text {
+  color: {{ section.settings.carousel_text_color }};
+}
+
+@media only screen and (device-width: 1280px) and (device-height: 720px) { 
+  .heroslider .content_wrap {margin-top:25px;}
+}
+</style>
+
+
+{% schema %}
+{
+"name": "Banner Carousel",
+"max_blocks": 8,
+"settings": [
+  {
+    "type":"header",
+    "content":"Carousel option"
+  },{
+          "type": "text",
+          "id": "class_name",
+          "label": "CSS class for slider"
+        },
+  
+  {
+          "type": "text",
+          "id": "main_title",
+          "label": "Main Title"
+        },
+        {
+            "type": "text",
+            "id": "sub_title",
+            "label": "Main Sub Title"
+        },
+  {
+    "type": "checkbox",
+    "id": "carousel_autoplay",
+    "label": "Enable autoplay",
+    "default": true
+  },
+  {
+    "type": "checkbox",
+    "id": "play_pause_check",
+    "label": "Play/Pause button",
+    "default": false
+  },
+  {
+    "type": "checkbox",
+    "id": "carousel_dots",
+    "label": "Enable dots",
+    "default": true
+  },
+  {
+    "type": "checkbox",
+    "id": "carousel_arrows",
+    "label": "Enable arrows",
+    "default": true
+  },
+  {
+    "type": "checkbox",
+    "id": "infinite",
+    "label": "Infinite Scroll",
+    "default": true
+  },
+  {
+    "type": "checkbox",
+    "id": "fadeeffect",
+    "label": "Fade Effect",
+    "default": true
+  },
+  {
+    "type": "select",
+    "id": "autoplay_speed",
+    "label": "Change slides every",
+      "options": [
+      { "value": "1000", "label": "1 seconds" },
+      { "value": "2000", "label": "2 seconds" },
+      { "value": "3000", "label": "3 seconds" },
+      { "value": "4000", "label": "4 seconds" },
+      { "value": "5000", "label": "5 seconds" },
+      { "value": "6000", "label": "6 seconds" },
+      { "value": "7000", "label": "7 seconds" },
+      { "value": "8000", "label": "8 seconds" },
+      { "value": "9000", "label": "9 seconds" },
+      { "value": "10000", "label": "10 seconds" }
+    ],
+    "default": "7000"
+  },
+  {
+    "type": "range",
+    "id": "images_per_page",
+    "min": 1,
+    "max": 10,
+    "step": 1,
+    "default": 4,
+    "label": "Images per page"
+  },
+  {
+    "type": "range",
+    "id": "images_per_page_resposive",
+    "min": 1,
+    "max": 10,
+    "step": 1,
+    "default": 4,
+    "label": "Images per page (Reponsive)"
+  },
+  {
+    "type": "color",
+    "id": "carousel_heading_color",
+    "label": "Carousel slide's heading color",
+    "default": "#ffffff"
+  },
+  {
+    "type": "color",
+    "id": "carousel_text_color",
+    "label": "Carousel slide's text color",
+    "default": "#ffffff"
+  }
+],
+"blocks": [
+  {
+  "type": "slide",
+  "name": "Slide",
+  "settings": [
+        { 
+      "type": "checkbox",
+      "id": "nz_check",
+      "label": "NZ and AU",
+      "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "us_check",
+          "label": "US and all other contries",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "carousel_heading",
+          "label": "Carousel heading"
+        },
+        {
+          "type": "color",
+          "id": "carousel_heading_color",
+          "label": "Carousel heading color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "text",
+          "id": "carousel_text",
+          "label": "Carousel text"
+        },
+        {
+          "type": "color",
+          "id": "carousel_text_color",
+          "label": "Carousel text color",
+          "default": "#ffffff"
+        },
+        {
+            "type": "checkbox",
+            "id": "tm",
+            "label": "Show Trade Mark",
+            "default": false
+        },
+        {
+          "type": "text",
+          "id": "slide_title_1",
+          "label": "Slider link text 1"
+        },
+        {
+          "type": "url",
+          "id": "slide_link_1",
+          "label": "Slide link 1"
+        }, 
+        {
+          "type": "text",
+          "id": "slide_title_2",
+          "label": "Slider link text 2"
+        },       
+        {
+          "type": "url",
+          "id": "slide_link_2",
+          "label": "Slide link 2"
+        },          
+        {
+          "type": "image_picker",
+          "id": "slide_img",
+          "label": "Add slide image"
+        },
+        {
+          "type": "image_picker",
+          "id": "slide_img_mobile",
+          "label": "Add slide mobile image",
+          "info": "Add Mobile image only if required else desktop image will be used for mobile."
+        },
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Slide background color",
+            "default": "#000000"
+         },
+         {
+            "type": "color",
+            "id": "button_color",
+            "label": "Link text color",
+            "default": "#000000"
+         },
+         {
+          "type": "checkbox",
+          "id": "should_apply_custom_css_mobile",
+          "label": "Apply custom css for mobile screens",
+          "default": false
+   
+        },
+        {
+          "type": "text",
+          "id": "modelId",
+          "label": "Product Model ID(If any)"
+        },
+        {
+         "type": "checkbox",
+         "id": "should_apply_custom_css_ipad",
+         "label": "Apply custom css for iPad screens",
+         "default": false
+  
+       }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Banner Carousel",
+    "category": "ADVANCED LAYOUT"  
+ }]
+}
+{% endschema %}
+
+<script>
+  $('.slick-prev:first').on('keypress', function(e) {
+      if (e.key === 'Tab' || e.keyCode === 9) {
+        if (document.activeElement === ($('.slick-prev:first')[0])) {
+          $('.slick-next:first')[0].focus();
+        }
+      }
+    });
+
+    $('.slick-next:first').on('keypress', function(e) {
+      if (e.key === 'Tab' || e.keyCode === 9) {
+        if (e.shiftKey) {
+          if (document.activeElement === ($('.slick-next:first')[0])) {
+            $('.slick-prev:first')[0].focus();
+          }
+        }
+      }
+    });
+
+  $(document).ready(function(){
+    setInterval(function(){
+      $(".slick-dots li").each(function(){
+        if($(this).hasClass("slick-active"))
+        {
+          $(this).find("button").attr("tabindex","0");
+        }
+        else
+        {
+          $(this).find("button").attr("tabindex","-1");
+        }
+      });
+
+      //set focus only on the visible slides of the slider
+      $(".slider_item.multiple").each(function(){
+        if($(this).hasClass("slick-active")) {
+          $(this).find("a").attr("tabindex","0");
+        } else {
+          $(this).find("a").attr("tabindex","-1");
+        }
+      });
+    },500);
+  });
+
+  window.addEventListener('load', (event) => {
+    $(".slider_wrap_new .slick-slide").each(function(){
+        $(this).find(".banner-link").attr("tabindex","-1");
+    });
+
+    document.getElementsByClassName("pause_button")[0].children[0].onkeydown = focusCarouselElement;
+    document.getElementsByClassName("slick-prev")[0].onkeydown = focusNextArrowElement;
+    document.getElementsByClassName("slick-next")[0].onkeydown = focusPreviousArrowElement;
+
+    $("#shopify-section-{{section.id}} .slider_wrap_new .slick-next").click(function(e){
+    
+        setTimeout(function(){
+        $("#shopify-section-{{section.id}} .slider_wrap_new .slick-active:last").find(".link-left").focus();
+        },500);
+      
+    });
+
+    var bullets = $(".slick-dots li button");
+    bulletLabelList = [];
+    $(".slider_item.single_item.slider_img_wrap_mobile").each(function(temp){
+      bulletLabelList.push($(this).find(".slider_title.line-one:first").first().text() + " " + $(this).find(".slider_text.title_1:first").first().text());
+    });
+
+    for (let i = 0; i < bullets.length; i++) {
+      bullets[i].setAttribute("role", "tab");
+      bullets[i].onkeyup = checkKeys;
+      bullets[i].setAttribute("title", "Slide "+bulletLabelList[i]);
+    }
+
+    var buttonLinks = $(".banner-link");
+    for (let j = 0; j < buttonLinks.length; j++) {
+      buttonLinks[j].onkeydown = exitCarouselNavigation;
+    }
+
+    var listIdArray = [];
+    $(".slick-dotted .slick-dots li").each(function(){
+      listIdArray.push($(this).find("button").attr("id"));
+    });
+    $(".slick-dotted .slick-dots").attr("aria-owns",listIdArray.join(" "));
+
+    //focus the active bullet and set tabindex as 0for active slide button
+    function checkKeys(e) {
+      if ((e.keyCode == '37') || (e.keyCode == '39')) {
+        $("li.slick-active button").focus();
+        $("li.slick-active button").attr("aria-selected", "true");
+      }
+    }
+  });
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const sectionId = '{{ section.id }}';
+    const selector = `#${sectionId}_slick .slick-track`;
+    $(selector).attr("role","list");
+  });
+ $(document).ready(function(){
+  $('.pause_button #pause').on('click', function() {
+    
+    $('.heroslider.slider_wrap_new').slick('slickPause');
+    $(this).css("display","none");
+    $(".pause_button #play").css("display","inline-block");
+    $(".pause_button #play").focus();
+  
+  });
+  $('.pause_button #play').on('click', function() {
+  
+  $('.heroslider.slider_wrap_new').slick('slickPlay');
+  $(this).css("display","none");
+    $(".pause_button #pause").css("display","inline-block");
+    $(".pause_button #pause").focus();
+
+  });
+});
+  
+function focusCarouselElement(e) {
+  if (e.key === 'Tab' || e.keyCode === 9) {
+    if (document.activeElement === ($('.pause_button #pause')[0])) {
+      var btn1 = document.getElementsByClassName("banner-link");
+      var index = document.getElementsByClassName("single_item slider_img_wrap_mobile slick-slide slick-active")[0].getAttribute("data-slick-index");
+      if ((e.keyCode == '9') && !(e.shiftKey)) {
+        for (let b = 0; b < (btn1.length/2); b++) {
+          if (b == document.getElementsByClassName("single_item slider_img_wrap_mobile slick-slide slick-active")[0].getAttribute("data-slick-index")) {
+            btn1[parseInt(b)*2].setAttribute("tabIndex", "0");
+            btn1[parseInt(b)*2].focus();
+            focusedElementIndex = parseInt(b)*2
+            return false;
+          } else {
+            if (b <= btn1.length) {
+              btn1[parseInt(b)*2].removeAttribute("tabIndex");
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+function exitCarouselNavigation(e){
+  setTimeout(() => {
+    document.getElementsByClassName('slick-prev')[1].focus();
+  }, 0);
+}
+
+function focusNextArrowElement(e) {
+  if (e.key === 'Tab' || e.keyCode === 9) {
+    if (!e.shiftKey) {
+      if (document.activeElement === (document.getElementsByClassName('slick-prev')[0])) {
+        setTimeout(() => {
+          document.getElementsByClassName('slick-next')[0].focus();
+        }, 0);
+      }
+    }
+  }
+}
+
+function focusPreviousArrowElement(e) {
+  if (e.key === 'Tab' || e.keyCode === 9) {
+    if (e.shiftKey) {
+      if (document.activeElement === (document.getElementsByClassName('slick-next')[0])) {
+        setTimeout(() => {
+          document.getElementsByClassName('slick-prev')[0].focus();
+        }, 0);
+      }
+    } 
+  }
+}
+
+</script> 
+<style>
+.pause_button button:focus
+{
+  border:2px solid !important;
+}
+
+</style>
+
+
+ {% endcomment %}

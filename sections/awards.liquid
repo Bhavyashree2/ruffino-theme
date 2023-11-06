@@ -1,0 +1,101 @@
+{%- style -%}
+     #section-{{ section.id }} .awardyear {
+    color: #FFFFFF !important;
+  }
+
+  @media (min-width: 320px) and (max-width: 350px) and (max-height: 300px) {
+    .award-ul {
+      display: block;
+    }
+  }
+  @media (min-width: 600px) and (max-width: 700px) and (max-height: 320px) {
+    .award-ul {
+      display: block;
+    }
+  }
+{%- endstyle -%}
+
+<div class="tw-px-[17px] mobile:tw-px-[1.5rem] tw-bg-[#1E1E1E]">
+  <div class="tw-max-w-page-width page-width-desktop">
+    {%- unless section.settings.title == blank -%}
+      <div class="!tw-pt-[80px] mobile:!tw-pt-[40px]">
+        <h2 class="section-{{ section.id }}--textcolor !tw-tracking-normal tw-leading-[54px] tw-text-[45px] mobile:tw-text-[35px] mobile:tw-leading-[40px] tw-font-made-saonara !tw-font-normal">
+          {{ section.settings.title | escape }}
+        </h2>
+      </div>
+    {%- endunless -%}
+    <div class="js-show-on-scroll tw-m-auto tw-border-2 tw-border-b tw-border-solid tw-border-white !tw-block" data-animate-type="tw-animate-line_animation"></div>
+
+    <div class="mobile:tw-overflow-x-auto">
+      <ul class="award-ul tw-pt-[45px] min768:tw-pb-[60px] tw-grid tw-grid-cols-5 min1280:tw-gap-[50px] mobile:!tw-overflow-x-auto mobile:!tw-gap-[33vw] mobile:tw-pb-[45px]">
+      {% for block in section.blocks %}
+        <li class="tw-text-center mobile:!tw-w-[35vw]">
+          {%- if block.settings.awardyear != blank -%}
+            <h3 class="section-{{ section.id }}--textcolor !tw-text-[18px] tw-tracking-normal tw-leading-[26px] tw-font-neutraface-display-light !tw-h-[1px]">{{ block.settings.awardyear | escape }}</h3>
+          {%- endif -%}
+          <div class="!tw-h-[155px]">
+            {%- if block.settings.noaward != blank -%}
+            <div class="section-{{ section.id }}--textcolor !tw-h-[110px] tw-text-[100px] tw-tracking-normal tw-leading-[140px] tw-font-neutraface-display-light">{{ block.settings.noaward }}</div>
+          {%- endif -%}
+          {%- if block.settings.awarddesp != blank -%}
+            <div class="section-{{ section.id }}--textcolor tw-h-[20px] tw-text-[24px] ipad:tw-text-[21px] tw-tracking-normal tw-leading-[28px] tw-mx-auto tw-font-neutraface-display-bold {% if block.settings.noaward == blank %}!tw-pt-[60px]{% else %}tw-pt-[5px]{% endif %}">{{ block.settings.awarddesp }}</div>
+          {%- endif -%}
+          </div>
+          {%- if block.settings.awardname != blank -%}
+            <div class="section-{{ section.id }}--textcolor tw-text-[17px] mobile:tw-text-[14px] tw-tracking-normal tw-leading-[20px] tw-font-neutraface-display-light">{{ block.settings.awardname }}</div>
+          {%- endif -%}
+        </li>
+      {% endfor %}
+    </ul>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Award Section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "headingcolor",
+        "label": "Heading color",
+        "default": "#FFFFFF"
+      }, {
+        "type": "text",
+        "id": "title",
+        "default": "AWARDS",
+        "label": "Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "column",
+        "name": "Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "awardyear",
+            "label": "Award Year"
+          }, {
+            "type": "richtext",
+            "id": "noaward",
+            "label": "Number of Award"
+          }, {
+            "type": "richtext",
+            "id": "awarddesp",
+            "label": "Description"
+          }, {
+            "type": "richtext",
+            "id": "awardname",
+            "label": "Award Name"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Award Section"
+      }
+    ]
+  }
+{% endschema %}

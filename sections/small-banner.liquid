@@ -1,0 +1,148 @@
+<style>   
+    .small-banner-{{ section.id }} {
+        margin-top: {{ section.settings.padding_top }}px;
+        margin-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    @media(max-width: 767px) {
+        .small-banner-{{ section.id }} {
+            margin-top: 0;
+            margin-bottom: {{ section.settings.padding_bottom_mobile }}px;   
+        } 
+    }
+   
+</style>
+
+<div class="tw-w-full tw-relative tw-h-full small-banner-{{ section.id }}">
+     <div class="!tw-block tw-absolute tw-h-full tw-top-0  tw-w-full tw-bg-[#1E1E1E]" style="opacity: {{ section.settings.opacity }}%"> </div>
+     <picture>                    
+        <source media="(max-width: 768px)" srcset="{{ section.settings.background-image-mobile | img_url: 'x400' }}">
+        <source media="(min-width: 769px)" srcset="{{ section.settings.background-image-desktop | img_url: 'x400' }}">                   
+        <img src="{{ section.settings.background-image-desktop | img_url: 'x400' }}" alt="{{ section.settings.promotion-title }}" class="tw-w-full tw-max-h-[400px] tw-object-center tw-object-cover" loading='lazy'>
+    </picture>  
+    <div class="tw-absolute tw-h-full tw-w-full tw-top-0 tw-flex tw-flex-col tw-items-center tw-justify-center tw-font-made-saonara tw-tracking-normal tw-leading-[65px] tw-text-[55px] tw-text-white tw-text-center mobile:tw-text-[35px] mobile:tw-leading-[45px]">
+        {{ section.settings.text }}
+
+    {% if section.settings.url != blank and section.settings.url != '#' %}
+        <div class="more-btn-container tw-block">
+            <a href="{{ section.settings.url }}" aria-label="{{ section.settings.btn-txt-aria-label }}"
+                class="more-btn tw-flex tw-justify-between tw-items-center tw-pl-3 tw-font-neutraface-display-bold tw-text-white tw-text-xs tw-uppercase tw-mt-5 tw-w-[100px] tw-h-[33px] tw-rounded-[33px] hover:tw-bg-white hover:tw-text-black tw-transition-all tw-duration-200 tw-ease-in mobile:tw-mt-4 focus-visible:tw-bg-black focus-visible:tw-text-white" tabindex="0">
+                    {{ section.settings.btn-txt }}
+                    <?xml version="1.0" encoding="UTF-8"?>
+                        <svg enable-background="new 0 0 221 221" version="1.1" viewBox="0 0 221 221" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="tw-w-[33px] tw-h-[33px]">
+                        <style type="text/css"> 
+                            .more-btn-container a:hover svg path,
+                            .more-btn-container a:hover svg line,
+                            .more-btn-container a:focus-visible svg path,
+                            .more-btn-container a:focus-visible svg line { stroke: black;}                            
+                            .st-1{fill:none;stroke:#fff;stroke-width:6;stroke-miterlimit:10;}
+                        </style>
+                        <image transform="matrix(3.3321 0 0 3.3321 -66.456 -56.132)" width="117" height="94" display="none" overflow="visible" xlink:href="6959470A.jpg">
+                        </image>
+                        <line class="st-1" x1="70.4" x2="150.6" y1="110.5" y2="110.5"/>
+                        <path class="st-1" d="m110.8 83.9s21.7 26.6 39.5 26.6"/>
+                        <path class="st-1" d="m110.2 137.1s22-26.6 40.1-26.6"/>
+                        <circle class="st-1" cx="110.5" cy="110.5" r="107.5"/>
+                        </svg>
+                </a>
+        </div>
+    {% endif %}
+    </div>
+ 
+</div>
+
+{% schema %} 
+{
+   "name":"Small banner",
+   "class":"small-banner",
+   "settings":[      
+        {
+            "type": "image_picker",
+            "id": "background-image-desktop",
+            "label": "Background Image For Desktop"
+        },
+        {
+            "type": "image_picker",
+            "id": "background-image-mobile",
+            "label": "Background Image For mobile"
+        },
+        {
+            "type": "range",
+            "id": "opacity",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "%",
+            "label": "Overlay percentage",
+            "default": 50
+        },
+        {
+            "type": "html",
+            "id": "text",
+            "label": "Text"
+        },
+        {
+            "type": "url",
+            "id": "url",
+            "label": "Button URL"
+        },
+        {
+            "type": "text",
+            "id": "btn-txt",
+            "label": "Button text",
+            "default": "More"
+        },
+        {
+            "type": "text",
+            "id": "btn-txt-aria-label",
+            "label": "Button text aria label"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Top padding",
+            "default": 36
+          },
+          {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Bottom padding",
+            "default": 36
+          },
+          {
+            "type": "range",
+            "id": "padding_top_mobile",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Top padding mobile",
+            "default": 36
+          },
+          {
+            "type": "range",
+            "id": "padding_bottom_mobile",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Bottom padding mobile",
+            "default": 36
+          }
+   ],   
+   "presets":[
+      {
+         "name":"Small banner",
+         "category":"Banner"
+      }
+   ]
+} 
+{% endschema %}

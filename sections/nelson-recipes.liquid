@@ -1,0 +1,519 @@
+
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ {% style %}
+body.recipes-main, .recipe-detail {
+    background: #eae4d6;
+}
+.BlogItem-pagination-link-icon {   
+    stroke: #373d3f;
+    stroke-width: 2;
+}
+ .Share-buttons-item[data-service='facebook'] {
+    fill: #3b5998;
+}
+.Share-buttons-item-icon {
+    display: inline-block;
+    vertical-align: top;
+    width: 22px;
+    height: 22px;
+}
+.recipe-link:focus p{
+    text-decoration:underline;
+}
+@media screen (max-width:1366px){
+.tennesse_whiskey_margin{
+    padding-bottom:15px;
+}
+}
+ @media only screen and (min-device-width: 1366px) and (max-device-height: 1024px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: landscape)  {
+    .title-left-link{
+    width:100%;
+    }
+}
+@media screen (max-width:767px){
+    .recipes-main .contentbox{
+        padding-bottom:80px;
+        padding-top:80px;
+    }
+}
+{% endstyle %}
+  
+     {% if article.template_suffix contains 'cocktail-recipe' or article.template_suffix contains 'food-recipe' %}
+       
+        
+            {% if article.metafields.custom.enable_related_recipes == true %}
+
+            
+            <div class="row tw-flex tw-w-full recipe-detail">
+                <div class="tw-w-[7%] max767:tw-hidden   {% if article.template_suffix contains 'food-recipe' %} tw-hidden {% endif %}"></div>
+                <div class="tw-w-[86%] max767:tw-w-full  {% if article.template_suffix contains 'food-recipe' %} !tw-w-full {% endif %}" >  
+                    {% render 'slider-card' %}
+                </div>
+                <div class="tw-w-[7%] max767:tw-hidden {% if article.template_suffix contains 'food-recipe' %} tw-hidden {% endif %}"></div>
+            </div>
+            {% endif %}
+    {% else %}
+            {% render 'slider-card' %}
+    {% endif %}
+
+    {% if article.template_suffix contains 'cocktail-recipe' or article.template_suffix contains 'food-recipe' %}
+
+        {% render 'social-share' %}
+        <div class="previous_next_buttons tw-bg-[#eae4d6] tw-flex tw-justify-between tw-px-[120px] tw-pb-[80px] tw-pt-[8px] max640:tw-pb-[60px] max640:tw-pt-0 max1024:tw-px-16 max960:tw-px-8  max640:tw-px-[20px] max767:tw-flex-wrap">
+        
+        <div class="tw-w-1/2 tw-flex tw-justify-start max767:tw-w-full">
+        {% if blog.next_article  %}
+            <div class=" tw-text-left  ">
+                <a href="{{ blog.next_article }}" aria-label="{{ blog.next_article.title }} Previous recipe" title="Previous recipe" class="btn tw-inline-block hover:tw-underline focus:tw-underline">
+                    <span class="tw-flex">
+                        <svg class="BlogItem-pagination-link-icon tw-inline-block tw-w-[23px] tw-h-[48px] tw-ml-5 tw-mr-5 max767:tw-ml-0" viewBox="0 0 23 48">
+                            <g class="svg-icon">
+                                <polyline fill="none" stroke-miterlimit="10" points="21.5,1.3 2.6,23.4 21.5,45.7 "></polyline>
+                            </g>
+                        </svg> 
+                        <span class="tw-flex tw-flex-col">
+                            <p class=" tw-uppercase tw-text-xs tw-text-[#222222] tw-font-din tw-tracking-[0.21em] tw-leading-[1.6em] tw-pb-[6px]">previous</p>
+                            <p class="tw-text-[#131516] tw-text-lg tw-tracking-[0] tw-leading-[1.4em] tw-font-garamond">{{ blog.next_article.title }}</p>
+                        </span>
+                    </span> 
+                </a>
+            </div>
+        {% endif %}
+        </div>
+        <div class="tw-w-1/2 tw-flex tw-justify-end max767:tw-w-full"> 
+        {% if blog.previous_article %}	
+            <div class="tw-text-right  ">
+                
+                <a href="{{ blog.previous_article }}" aria-label="{{ blog.previous_article.title }} Next recipe" title="Next recipe " class="btn hover:tw-underline focus:tw-underline">
+                    <span class="tw-flex">
+                        
+                        <span class="tw-flex tw-flex-col">
+                            <p class=" tw-uppercase tw-text-xs tw-text-[#222222] tw-font-din tw-tracking-[0.21em] tw-leading-[1.6em] tw-pb-[6px]">next</p>
+                            <p class="tw-text-[#131516] tw-text-lg tw-tracking-[0] tw-leading-[1.4em] tw-font-garamond">{{ blog.previous_article.title }}</p>
+                        </span>
+                        <svg class="BlogItem-pagination-link-icon tw-inline-block tw-w-[23px] tw-h-[48px] tw-ml-5" viewBox="0 0 23 48">
+                            <g class="svg-icon">
+                                <polyline fill="none" stroke-miterlimit="10" points="1.5,45.7 20.4,23.5 1.5,1.3 "></polyline>
+                            </g>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        {% endif %}
+        </div>
+        </div>
+    {% endif %}
+
+    <style>
+        .slick-disabled{
+            cursor: default; 
+            opacity: .4;
+        }
+        @media (max-width:767px){
+            .slick-slide.extra-slide{
+                display: none !important;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+       
+        //Code to hide empty slides from mobile responsive
+        var breakpointMobile = 767,
+            isChanging = false,
+            isFiltered = false;
+        
+        $('.{{ section.settings.slider_class }}').on('init breakpoint', function(event, slick){ 
+        if ( ! isChanging ) {                                         
+        
+            isChanging = true;
+            if ( slick.activeBreakpoint && slick.activeBreakpoint <= breakpointMobile) {
+            if ( ! isFiltered ) {
+                slick.slickFilter(':not(.hide-on-mobile)');      
+                isFiltered = true;
+            }
+            } else {
+            if ( isFiltered ) {
+                slick.slickUnfilter();
+                isFiltered = false;
+            }
+            }
+            isChanging = false;
+        } 
+        }).slick({
+         prevArrow:"<button type='button' class='slick-prev pull-left tw-absolute tw-top-0 tw-right-[60px] focus-visible:tw-outline-hidden focus-visible:tw-border-2 focus-visible:tw-border-black focus-visible:tw-outline-0 focus-visible:tw-shadow-none max767:tw-right-[38px] {% if section.settings.images_per_page == 4 %} tw-right-[35px] {% endif %} {% if section.settings.images_per_page == 5 %} tw-right-[38px]  {% endif %} ' aria-label='Previous'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
+         nextArrow:"<button type='button' class='slick-next pull-right tw-absolute tw-top-0 tw-right-[24px] focus-visible:tw-outline-hidden focus-visible:tw-border-2 focus-visible:tw-border-black focus-visible:tw-outline-0 focus-visible:tw-shadow-none  max767:tw-right-[8px]   {% if section.settings.images_per_page == 4 %} tw-right-[8px]  {% endif %} {% if section.settings.images_per_page == 5 %} tw-right-[8px]  {% endif %}' aria-label='Next'><i class='fa fa-angle-right' aria-hidden='true'></i></button>",
+            focusOnSelect: false,
+        responsive: [    
+            { breakpoint: 767 }
+        ]
+        }); 
+    </script>  
+        {%- comment -%} {% render 'slider-item-card', card_collection: blogs.recipes.articles %} {%- endcomment -%}
+    <script type="text/javascript">
+    $(document).ready(function(){
+        image_area_calc();
+        $( window ).resize(function() {
+            image_area_calc();
+        })
+        function image_area_calc(){ 
+            var image_area=0;
+            var image_height = 0;
+            var req_height = 0;
+            $( "body .slider-{{section.id}} .slide" ).each(function( index ) {
+                var image_area = $(this).find('.image-box').outerHeight();
+                var image_height = $(this).find('.image-box img').outerHeight();
+                var image_area_width = $(this).find('.image-box').outerWidth();
+                var image_width = $(this).find('.image-box img').outerWidth();
+                var req_height = image_height - image_area;
+                $(this).find('.image-box img').css('height','auto');
+                $(this).find('.image-box img').css('top','0');
+                if(image_height < image_area || image_width > image_area_width){
+                    $(this).find('.image-box img').css('top',0+'px');
+                     $(this).find('.image-box img').css('height',image_area+'px');
+                     $(this).find('.image-box img').css('max-width','initial');
+                    $(this).find('.image-box img').css('width','auto');
+                }else{
+                    $(this).find('.image-box img').css('top',-req_height+'px');   
+                }
+            })
+           
+        }
+    $(".slide").attr("tabindex", "-1");
+    })
+    </script>
+
+        </div>
+    </div>
+    </div>
+{% schema %} 
+{ 
+  "name": "Nelson Recipe Slider", 
+  "tag": "section",
+  "settings": [ 
+        {
+            "type": "text",
+            "id": "section_class",
+            "label": "Section class"
+        },
+        {
+            "type": "text",
+            "id": "slider_class",
+            "label": "Class to initiate Slider"
+        },
+        {
+            "type": "select",
+            "id": "image_orientation",
+            "options": [
+                {
+                "value": "portrait",
+                "label": "Portrait"
+                },
+                {
+                "value": "landscape",
+                "label": "Landscape"
+                }
+            ],
+            "default": "landscape",
+            "label": "Slider Image Orientation"
+        },
+        {
+            "type": "select",
+            "id": "section_margin",
+            "options": [
+                {
+                "value": "section_center",
+                "label": "Section in Center"
+                },
+                {
+                "value": "section_left",
+                "label": "Section in Left"
+                }
+            ],
+            "default": "section_center",
+            "label": "Section Margin Side Spacing"
+        },
+        {
+            "type": "select",
+            "id": "section_top_margin",
+            "options": [
+                {
+                "value": "margin_30p",
+                "label": "Margin top 30px "
+                },
+                {
+                "value": "margin_50p",
+                "label": "Margin top 50px "
+                },
+                {
+                "value": "margin_80p",
+                "label": "Margin top 80px "
+                },
+                {
+                "value": "margin_100p",
+                "label": "Margin top 100px"
+                },
+                {
+                "value": "no_margin",
+                "label": "No Margin top"
+                }
+            ],
+            "default": "no_margin",
+            "label": "Section Margin From Top"
+        },
+        {
+            "type": "select",
+            "id": "section_bottom_margin",
+            "options": [
+                {
+                "value": "margin_bottom_100p",
+                "label": "Margin Bottom 100px "
+                },
+                {
+                "value": "margin_bottom_80p",
+                "label": "Margin Bottom 80px "
+                },
+                {
+                "value": "margin_bottom_50p",
+                "label": "Margin Bottom 50px "
+                },
+                
+                {
+                "value": "no_bottom_margin",
+                "label": "No Margin"
+                }
+            ],
+            "default": "no_bottom_margin",
+            "label": "Section Margin From Bottom"
+        },
+        {
+            "type": "text",
+            "id": "main_title",
+            "label": "Main title"
+        },
+        {
+            "type": "url",
+            "id": "main_title_link",
+            "label": "Main title link"
+        },
+        {
+            "type": "select",
+            "id": "title_tag",
+            "options": [
+                {
+                "value": "h1",
+                "label": "H1"
+                },
+                {
+                "value": "h2",
+                "label": "H2"
+                }
+            ],
+            "default": "h2",
+            "label": "Main Title Tag"
+        },
+        {
+            "type": "select",
+            "id": "title_align",
+            "options": [
+                {
+                "value": "title_left_link",
+                "label": "Title on left with Link"
+                },
+                {
+                "value": "title_left",
+                "label": "Title on left"
+                },
+                {
+                "value": "title_center",
+                "label": "Title in center"
+                }
+            ],
+            "default": "title_center",
+            "label": "Main title alignment"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Main description"
+        }, 
+        
+        {
+            "type": "blog",
+            "id": "blog_select",
+            "label": "Blog name",
+            "info": "Select the blog collection from which need to show articles."
+        },
+         {
+            "type": "text",
+            "id": "tag_slug",
+            "label": "Tag name",
+            "info": "Add the Tag name assigned to the recipes to show"
+        },
+        {
+        "type": "header",
+        "content": "Carousel option"
+        },
+        {
+        "type": "select",
+        "id": "container_width",
+        "options": [
+            {
+            "value": "full_width",
+            "label": "Full width"
+            },
+            {
+            "value": "container_padding",
+            "label": "Container with padding"
+            }
+        ],
+            "default": "full_width",
+            "label": "Container width of the slider"
+        },
+        {
+            "type": "text",
+            "id": "sub_title",
+            "label": "Sub-title",
+            "info": "Small description text above carousel"
+        },
+        {
+            "type": "text", 
+            "id": "btn_label",
+            "label": "Button label"
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_new_tab",
+            "label": "Open link in new tab",
+            "default":false
+        },
+        {
+            "type": "checkbox",
+            "id": "carousel_autoplay",
+            "label": "Enable autoplay",
+            "default": true
+        }, 
+        {
+            "type": "checkbox",
+            "id": "carousel_dots",
+            "label": "Enable dots",
+            "default": true
+        }, 
+        {
+            "type": "checkbox",
+            "id": "carousel_arrows",
+            "label": "Enable arrows",
+            "default": true
+        }, 
+        {
+            "type": "checkbox",
+            "id": "infinite",
+            "label": "Infinite Scroll",
+            "default": true
+        }, 
+        {
+            "type": "select",
+            "id": "autoplay_speed",
+            "label": "Change slides every",
+            "options": [
+            {
+                "value": "1000",
+                "label": "1 seconds"
+            },
+            {
+                "value": "2000",
+                "label": "2 seconds"
+            },
+            {
+                "value": "3000",
+                "label": "3 seconds"
+            },
+            {
+                "value": "4000",
+                "label": "4 seconds"
+            }, 
+            {
+                "value": "5000",
+                "label": "5 seconds"
+            }, 
+            {
+                "value": "6000",
+                "label": "6 seconds"
+            }, 
+            {
+                "value": "7000",
+                "label": "7 seconds"
+            }, 
+            {
+                "value": "8000",
+                "label": "8 seconds"
+            }, 
+            {
+                "value": "9000",
+                "label": "9 seconds"
+            }, 
+            {
+                "value": "10000",
+                "label": "10 seconds"
+            }
+            ],
+            "default": "7000"
+        }, 
+        {
+            "type": "range",
+            "id": "images_per_page",
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "default": 4,
+            "label": "Article per row"
+        }, 
+        {
+            "type": "range",
+            "id": "images_per_page_ipad",
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "default": 4,
+            "label": "Article per row (Ipad)"
+        }, 
+        {
+            "type": "range",
+            "id": "images_per_page_mobile",
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "default": 4,
+            "label": "Article per row (mobile)"
+        },
+        {
+            "type": "range",
+            "id": "empty_slides",
+            "min": 0,
+            "max": 5,
+            "step": 1,
+            "default": 0,
+            "label": "Empty slides to display",
+            "info": "Select number to display empty slides on desktop resolution"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_tags",
+            "label": "Show tags below article card",
+            "default": false
+        }
+    ],
+    "presets": [
+        {
+            "name": "Nelson Recipe Slider",
+            "blocks": [
+            ]
+        }
+    ]
+}
+{% endschema %}

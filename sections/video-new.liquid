@@ -1,0 +1,31 @@
+<div class="video-module tw-relative tw-w-full tw-h-0 tw-pb-56.25%"> <!-- 16:9 aspect ratio -->
+    <div class="video-wrapper tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full">
+        <video class="block w-full h-full object-cover" controls>
+            <source src="{{ section.settings.video_url | video_tag }}" type="video/mp4">
+        </video>
+        <button class="play-button tw-absolute tw-top-1/2 tw-left-1/2 tw-transform -tw-translate-x-1/2 -tw-translate-y-1/2 tw-w-20 tw-h-20 tw-rounded-full tw-border-none tw-bg-black tw-bg-opacity-50 tw-text-white tw-text-4xl tw-leading-20 tw-text-center tw-cursor-pointer"></button>
+    </div>
+</div>
+{% schema %}
+{
+  "name": "Hosted Video",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Video section heading",
+      "default": "Title"
+    },
+    {
+        "type": "video",
+        "id": "video_url",
+        "label": "A Shopify-hosted video"
+      }
+  ],
+  "presets": [
+    {
+      "name": "Hosted Video"
+    }
+  ]
+}
+{% endschema %}

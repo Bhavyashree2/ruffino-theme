@@ -1,0 +1,253 @@
+
+<style> 
+ 
+    .image-home-slider {
+        max-width: 100vw;
+        width: 100%;
+        overflow: hidden !important;
+        justify-content: center;
+    }
+    #image-home-slider-{{ section.id }} .slick-track.single-page {
+        max-width: 100%;
+        justify-content: center;
+        transform: none !important;
+        display: flex;
+    }
+    @media screen and (min-width: 1920px) {
+        #image-home-slider-{{ section.id }} .slick-track {
+            max-width: 100%;
+            justify-content: center;
+            transform: none !important;
+            display: flex;
+        }
+    }
+  
+    @media screen and (max-width:767px) {
+        #image-progress-{{ section.id }} {       
+            padding-top: 0px;
+        }
+        #image-progress-{{ section.id }} .slick-dots {       
+            margin-top: 35px;
+        }
+    }
+    
+</style>
+<div class="tw-py-[100px] mobile:tw-pt-[50px] mobile:tw-pb-0 ">
+   
+    <h2 class="tw-text-center tw-mx-auto tw-font-made-saonara tw-tracking-normal tw-leading-[65px] tw-text-[55px] tw-font-normal tw-text-[#231f20] tw-uppercase mobile:tw-leading-[50px] mobile:tw-text-[45px] mobile:tw-max-w-[75%]">{{ section.settings.title }}</h2>   
+    
+    <div class="tw-w-full tw-max-w-[700px] tw-block tw-mx-auto tw-font-neutraface-display-light tw-text-center tw-text-black tw-text-[20px] tw-leading-[28px] tw-tracking-[0.4px] tw-mt-3 tw-mb-7 tw-px-[22px] group-focus-visible:tw-text-white group-hover:tw-text-white mobile:tw-mb-3">{{ section.settings.subtitle }}</div>
+  
+    <div class="image-home-slider tw-flex tw-relative" id="image-home-slider-{{ section.id }}">          
+        <div class="mobile-thumb tw-hidden tw-justify-center tw-w-[70px] tw-h-[33px] tw-bg-black/75 tw-absolute tw-rounded-[33px] tw-z-[1] tw-right-[30px] tw-top-1/2 mobile:tw-flex">
+            
+            <?xml version="1.0" encoding="UTF-8"?>
+                <svg enable-background="new 0 0 221 221" version="1.1" viewBox="0 0 221 221" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="tw-scale-[-1] tw-w-[33px] tw-h-[33px]">     
+                <style type="text/css">                                   
+                    .st2{fill:none;stroke:white;stroke-width:6;stroke-miterlimit:10;}
+                </style>           
+                <image transform="matrix(3.3321 0 0 3.3321 -66.456 -56.132)" width="117" height="94" display="none" overflow="visible" xlink:href="6959470A.jpg">
+                </image>
+                <line class="st2" x1="70.4" x2="150.6" y1="110.5" y2="110.5"/>
+                <path class="st2" d="m110.8 83.9s21.7 26.6 39.5 26.6"/>
+                <path class="st2" d="m110.2 137.1s22-26.6 40.1-26.6"/>            
+            </svg>
+
+            <?xml version="1.0" encoding="UTF-8"?>
+                <svg enable-background="new 0 0 221 221" version="1.1" viewBox="0 0 221 221" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="tw-w-[33px] tw-h-[33px] tw-ml-[-14px]">
+                <style type="text/css">                                   
+                    .st2{fill:none;stroke:white;stroke-width:6;stroke-miterlimit:10;}
+                </style>
+                <image transform="matrix(3.3321 0 0 3.3321 -66.456 -56.132)" width="117" height="94" display="none" overflow="visible" xlink:href="6959470A.jpg">
+                </image>
+                <line class="st2" x1="70.4" x2="150.6" y1="110.5" y2="110.5"/>
+                <path class="st2" d="m110.8 83.9s21.7 26.6 39.5 26.6"/>
+                <path class="st2" d="m110.2 137.1s22-26.6 40.1-26.6"/>            
+                </svg>
+
+        </div>
+
+            {% for block in section.blocks %}
+                {% assign product = all_products[block.settings.product] %}
+                    
+                    <div class="image-home-slide grid-image-mobile-animation-col tw-relative">
+                        <div class="product-data-div tw-w-[342px] min1920:tw-w-[385px] tw-mr-[15px] min1500:tw-mr-[15px] min1920:tw-mr-[25px] extraSmall:tw-w-[100vw]">
+                            <a href="{{ product.url }}" aria-label="{{ product.title }}" class="tw-block tw-my-[10px] tw-py-7 tw-px-4 tw-group focus-visible:tw-bg-eerieblack hover:tw-bg-eerieblack tw-transition-all tw-duration-200 tw-ease-in mobile:tw-py-10">
+                                <h2 class="tw-font-neutraface-display-bold tw-font-normal tw-text-center tw-text-black tw-text-[14px] tw-tracking-[0.28px] tw-uppercase group-focus-visible:tw-text-white group-hover:tw-text-white"> 
+                                    {{ product.title }}
+                                </h2>
+                                <h2 class="tw-font-neutraface-display-light tw-font-normal tw-text-center tw-text-black tw-text-[14px] tw-tracking-[0.28px] tw-uppercase group-focus-visible:tw-text-white group-hover:tw-text-white"> 
+                                {{ product.type }}
+                                </h2>      
+
+                                <img src="{{ product.featured_image | img_url: 'x440' }}" alt="{{ product.title }}" loading="lazy" class="tw-mx-auto">
+                              
+                                <p class="tw-w-full tw-font-neutraface-display-light tw-text-center tw-text-black tw-text-[20px] tw-leading-[22px] tw-tracking-[0.4px] group-focus-visible:tw-text-white group-hover:tw-text-white tw-overflow-hidden tw-text-ellipsis tw-line-clamp-3" style=" -webkit-box-orient: vertical;">{{ product.metafields.custom.abstract_data }}</p>
+                            </a>
+                        </div>
+                    </div>
+            
+            {% endfor %}
+  
+    </div>
+
+    <div class="progress-{{ section.id }} tw-block tw-relative tw-f-full tw-h-[1px] tw-bg-black tw-mb-7 tw-mt-5 tw-ml-[118px] mobile:tw-ml-[18px]">   
+         <div class="progress-bar !tw-block tw-absolute tw-transition-all tw-duration-200 tw-ease-in tw-bg-black tw-h-[3px] tw-top-[-1px]" aria-label="progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>    
+    </div>  
+
+    <div id="image-progress-{{ section.id }}" class="tw-pt-[30px] tw-ml-[118px] mobile:tw-ml-[18px] !tw-hidden">
+    </div>
+
+</div>
+
+<script>
+  
+    $(document).ready(function() {
+        var $slider = $('#image-home-slider-{{ section.id }}');
+        
+        $slider.on('setPosition', function(event, slick, currentSlide){
+           var numItems = $('#image-progress-{{ section.id }} li[role=presentation]').length;
+           var activeDot = $('#image-progress-{{ section.id }} li[role=presentation].slick-active').text();
+           var percentBar = (activeDot / numItems) * 100;
+           $('.progress-{{ section.id }} .progress-bar').css('width',percentBar + '%')
+           //alert(activeDot + '/' + numItems + ':' + percentBar);
+       });
+  
+      $('#image-home-slider-{{ section.id }}').slick({    
+          infinite: false,
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          dots: true,
+          centerMode: false,
+          variableWidth: true,
+          arrows: false,
+          accessibility: true,        
+          slide: '.image-home-slide', 
+          appendDots: $('#image-progress-{{ section.id }}'),   
+          responsive: [                 
+              {
+                  breakpoint: 1800,
+                  settings: {                 
+                      slidesToShow: 4,
+                      slidesToScroll: 1
+                  }       
+              },    
+              {
+                  breakpoint: 1520,
+                  settings: {                 
+                      slidesToShow: 3,
+                      slidesToScroll: 1
+                  }       
+              },     
+              {
+                  breakpoint: 1100,
+                  settings: {                 
+                      slidesToShow: 2,
+                      slidesToScroll: 1
+                  }       
+              },       
+              {
+                  breakpoint: 600,
+                  settings: {                 
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                  }       
+              }
+          ]         
+      }); 
+  
+      
+      $('#image-home-slider-{{ section.id }}').on('setPosition', function(event, slick, currentSlide){     
+          
+          $('.image-home-slide').removeAttr('tabindex');
+          var noDots = $("#image-progress-{{ section.id }} ul.slick-dots li").length           
+          if (noDots <= 1) {
+              $(".progress-{{ section.id }}").hide();      
+              $("#image-home-slider-{{ section.id }} .slick-track").addClass('single-page');   
+          } else {
+              $(".progress-{{ section.id }}").show();    
+              $("#image-home-slider-{{ section.id }} .slick-track").removeClass('single-page');  
+          }        
+      });
+      
+      $(window).on( "resize", function() {
+          $('.image-home-slide').removeAttr('tabindex');
+          var noDots = $("#image-progress-{{ section.id }} ul.slick-dots li").length           
+          if (noDots <= 1) {
+              $(".progress-{{ section.id }}").hide();      
+              $("#image-home-slider-{{ section.id }} .slick-track").addClass('single-page');   
+          } else {
+              $(".progress-{{ section.id }}").show();   
+              $("#image-home-slider-{{ section.id }} .slick-track").removeClass('single-page');  
+          }      
+      });
+  
+      var maxHeight = -1;
+  
+      $('#image-home-slider-{{ section.id }} h3').each(function() {
+        maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
+      });
+   
+      $('#image-home-slider-{{ section.id }} h3').each(function() {
+        $(this).height(maxHeight);
+      });
+  
+      var thumbPos = $('#image-home-slider-{{ section.id }} h3').height() + ($('#image-home-slider-{{ section.id }} img').height() / 2) - ($('#image-home-slider-{{ section.id }} .image-mobile-thumb').height() / 3);
+  
+      $('#image-home-slider-{{ section.id }} .image-mobile-thumb').css('top',thumbPos)
+  
+    });
+  
+
+  var headingdiv = document.getElementById("test-div");
+  
+  if ($(window).width() <= 767) {
+    headingdiv.dataset.animateType = "tw-animate-stripmarqueemobile";
+  } else {
+    headingdiv.dataset.animateType = "";
+    }
+  </script>
+
+{% schema %}
+{
+  "name": "Product scroll",
+  "class": "product-scroll",
+  "settings": [
+        {
+            "type" : "text",
+            "id" : "custom_class",
+            "label" : "Custom Class"
+        },
+        {
+            "type" : "text",
+            "id" : "title",
+            "label" : "Title",
+            "default": "Estate Wines"
+        },
+        {
+            "type" : "richtext",
+            "id" : "subtitle",
+            "label" : "Subtitle",
+            "default": "<p>Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p>"
+        }
+    ],  
+    "blocks": [
+         {
+         "name": "Product",
+         "type": "product",
+         "settings": [
+         {
+             "type": "product",
+             "id": "product",
+             "label" : "Product"
+         }         
+       ]
+     }  
+  ],    
+    "presets": [
+        {
+        "name": "Product scroll"
+        }
+    ]
+}
+{% endschema %}

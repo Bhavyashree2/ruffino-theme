@@ -1,0 +1,92 @@
+
+<div class="main-section tw-relative">
+    <div class="description-section tw-flex tw-pb-[60x] tw-pt-[80px] tw-px-[70px] max1024:tw-px-[34px] mobile:tw-px-[36px] mobile:tw-px-[20px] mobile:tw-pt-[60px] mobile:tw-flex-col tw-pb-[100px] mobile:tw-pb-[50px]" style="border-bottom: 1px solid grey;">
+        <div class="block-image tw-w-[60%] tw-float-left tw-relative mobile:tw-w-full mobile:tw-mb-[29px] mobile:tw-mr-[34px]">
+                <!-- <img src="{{ product.selected_or_first_available_variant.featured_media.preview_image | img_url: 'master' }}" -->
+            <img src="{{ product.featured_image | img_url: 'master' }}"
+            class="tw-max-w-[97%] mobile:tw-max-w-full" style="border: 1px solid #e1e1e1;"/>
+        </div>
+        <div class="block-image tw-w-[40%] tw-float-right tw-relative tw-ml-20 mobile:tw-w-full mobile:tw-mb-[29px] 
+        mobile:tw-my-[20px] mobile:tw-mx-[0px]">
+            <div style="border-bottom:1px solid #e1e1e1; ">
+                <h1 class=" tw-font-bold tw-font-non-italic tw-text-[48px]
+                tw-tracking-[0] tw-leading-[58px] tw-mb-[20px]">{{product.title}}</h1>
+                <div class="price__regular tw-block tw-mb-4">
+                    <span class="price-item price-item--regular tw-mt-[1rem] tw-font-bold tw-font-non-italic tw-text-[24px]
+                    tw-tracking-[0] tw-leading-[36px]">
+                      {{product.price | money_with_currency }}
+                    </span>
+                </div> 
+            </div> 
+            <div class="tw-relative mobile:tw-flex mobile:tw-flex-col">
+                <div class="block-content tw-float-left tw-font-normal tw-tracking-normal tw-text-[14px] tw-pl-[96px] max1024:tw-pl-[70px] tw-absolute tw-w-full tw-contents max960:tw-pl-[48px]
+                mobile:tw-pl-[36px] mobile:tw-w-full mobile:tw-p-0">
+                    <div class="product_description tw-pt-[22px] tw-mb-[22px] mobile:tw-pr-0 !tw-text-[18px] !tw-leading-[31.5px] !tw-tracking-[0]">
+                        {{ product.description }}
+                    </div>
+                    <input type="submit" value="Buy product" aria-label="Buy Product" class="section-btn btn section-button tw-uppercase mobile:tw-w-11/12 tw-appearance-none tw-border-4 tw-rounded tw-border-[#4d4c7d] tw-cursor-pointer tw-inline-flex tw-items-center tw-justify-center !tw-text-[18px] !tw-mt-[20px] tw-py-[1rem] tw-px-[2rem] !tw-text-[#fff] !tw-bg-[#4D4C7D] tw-no-underline !tw-tracking-normal !tw-leading-[27px] hover:tw-bg-black hover:tw-bg-opacity-80 hover:tw-underline" style="background-color:grey;"/>
+                    <div class="product_details tw-inline-block tw-w-full tw-capitalize tw-pt-[20px] tw-mt-[30px]" style="border-top: 1px solid #e5e5e5;">
+                        <!-- <span class="tw-block tw-w-full tw-text-[#868686] tw-mb-[10px]">SKU: <p class="tw-text-black tw-contents">D2300</p></span>
+                        <span class="tw-block tw-w-full tw-text-[#868686] tw-mb-[10px]">Categories: <p class="tw-text-black tw-contents">White Wines</p></span>
+                        <span class="tw-block tw-w-full tw-text-[#868686] tw-mb-[10px]">Tags: <p class="tw-text-black tw-contents">Hot, Trend</p></span> -->
+                        <span class="tw-flex tw-w-full tw-text-[#4d3c7d] tw-text-[18px] tw-leading-[27px] tw-tracking-[0] tw-mb-[10px]">Share: 
+                            {% render 'social-share',
+                            custom_class: section.settings.custom_class %}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tw-w-5/6 tw-mx-auto mobile:tw-w-full tw-px-[70px] tw-pt-[20px] tw-mb-10 mobile:tw-px-[15px] tw-px-[50px] mobile:tw-mb-6">
+        <h3 class="tw-font-bold tw-text-center !tw-text-[42px] !tw-tracking-[0] !tw-leading-[63px] tw-my-4">{{ section.settings.description_title }}</h3>
+        <p class="!tw-leading-[31.5px] tw-font-normal !tw-tracking-normal !tw-text-[18px]">
+            {{product.metafields.custom.additional_text}}
+        </p>
+    </div>
+</div>
+
+<style>
+    .main-section {
+        background-color: {{section.settings.background_color}};        
+    }
+    .button-section a {
+        transition: background-color 170ms ease-out;
+    }
+    .product_description p{
+        font-size: 18px;
+        line-height: 31.5px;
+        letter-spacing: 0;
+        margin-bottom: 22px;
+    }
+</style>
+
+{% schema %}
+{
+  "name": "Product Details Section",
+  "class": "product-details-section",
+  "settings": [
+    {
+        "type" : "text",
+        "id" : "custom_class",
+        "label" : "Custom Class"
+    },
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background Color"
+        },
+        {
+            "type" : "text",
+            "id" : "description_title",
+            "label" : "Description Title"
+        }
+
+    ],
+    "presets": [
+        {
+        "name": "Product Details Section"
+        }
+    ]
+}
+{% endschema %}

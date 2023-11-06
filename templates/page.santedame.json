@@ -1,0 +1,332 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "7b2b908b-3e4e-4376-ba56-a0654a06ed84": {
+      "type": "Banner",
+      "settings": {
+        "custom-class": "santedame",
+        "heading-type": "H1",
+        "heading": "SANTEDAME",
+        "heading-shadow": true,
+        "heading-color": "#ffffff",
+        "description": "",
+        "description-color": "#000000",
+        "button-label": "",
+        "button-link": "",
+        "button-color": "#ffffff",
+        "button-bg-color": "",
+        "button-border-color": "#ffffff",
+        "content-position": "Center",
+        "content-scale": 5,
+        "desktop-height": "85vh",
+        "mobile-height": "40vh",
+        "background-type": "Image",
+        "background-color": "",
+        "background-image-desktop": "shopify:\/\/shop_images\/c6dc8aedb90c7d5ea5ed247df99bf245_2x_3fe49e6d-3761-4078-9572-763588d7815b.png",
+        "background-image-mobile": "shopify:\/\/shop_images\/c6dc8aedb90c7d5ea5ed247df99bf245_2x_34cc1fb0-6300-4d4f-835a-2297a010ad7a.png",
+        "bg-img-alt-text": "SANTEDAME",
+        "overlay_desktop": false,
+        "overlay_mobile": false,
+        "overlay_color": "#000000",
+        "desktop-background-url": "",
+        "mobile-background-url": "",
+        "video-banner-description": ""
+      }
+    },
+    "bc58e2d5-19a1-4d46-9588-626926ad86cf": {
+      "type": "heading-with-rightside-text",
+      "settings": {
+        "custom-class": "heading-poggio",
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "headingcolor": "#000000",
+        "heading-1": "Winemaking",
+        "heading-2": "mastery meets",
+        "heading-3": "divine heritage",
+        "heading-4": "",
+        "mobile-heading": "Winemaking mastery meets divine heritage",
+        "heading_size": "h1",
+        "descriptioncolor": "#000000",
+        "description": "<p><strong>Santedame<\/strong> in Castellina in Chianti is home to stunning wines. The blessed land yields pure liquid gold. Thriving on south-facing slopes of the Conca d'Oro, our vines produce top-caliber grapes. Quality prevails in our 70 hectares of vines, enriched with galestro for stellar minerality and finesse. Temperature fluctuations work their magic: cool nights, hot days – a recipe for top-notch wines. The estate's history dates back to the fifteenth century, named after the <strong>Santedame <\/strong>Chapel. A holy lady is depicted in the restored fresco that graces our labels. Our excellence extends to heavenly Chianti Classico DOP extra-virgin olive oil from the finest olive groves.<\/p>",
+        "content-position": "Right"
+      }
+    },
+    "91ff762c-1b19-4425-b4b1-b639c70ae942": {
+      "type": "3-columns-on-estate-details",
+      "blocks": {
+        "48138d7b-0684-4ca5-ae2b-d2693c5147e3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/land-size-icon.svg",
+            "title": "TOTAL HECTARES",
+            "description": "250,70 under vines"
+          }
+        },
+        "b3f57483-ca68-459f-a6a6-2180a1379824": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/grapes-icon.svg",
+            "title": "GRAPE VARIETIES",
+            "description": "Colorino, Merlot, Sangiovese"
+          }
+        },
+        "7d8fa308-e73e-4136-815f-97fd7eee61ba": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/leaf-icon.svg",
+            "title": "VINEYARD FEATURES",
+            "description": "Galestro soil on the surface, dry and windswept. Steep hills. Swings in temperature from day to night in the highest part of the vineyard."
+          }
+        }
+      },
+      "block_order": [
+        "48138d7b-0684-4ca5-ae2b-d2693c5147e3",
+        "b3f57483-ca68-459f-a6a6-2180a1379824",
+        "7d8fa308-e73e-4136-815f-97fd7eee61ba"
+      ],
+      "settings": {
+      }
+    },
+    "10e89d10-4921-46d5-820a-4267d0337203": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16189229301910__10e89d10-4921-46d5-820a-4267d0337203-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "OUR<br>ESTATES<br>IN TUSCANY",
+            "heading_size": "h1"
+          }
+        },
+        "template--16189229301910__10e89d10-4921-46d5-820a-4267d0337203-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Unlock the secrets.<br\/>The passion and bravura of our winemakers, combined with a deep respect for the land, create wines that reflect the very soul of Tuscany.<\/p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "template--16189229301910__10e89d10-4921-46d5-820a-4267d0337203-heading-1",
+        "template--16189229301910__10e89d10-4921-46d5-820a-4267d0337203-text-1"
+      ],
+      "settings": {
+        "class_name": "our-estates poggio",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "headingcolor": "#000000",
+        "descriptioncolor": "#000000",
+        "button_color": "#3c4328",
+        "button_text_color": "#eae4d6",
+        "border_color": "#eae4d6",
+        "image": "shopify:\/\/shop_images\/Raggruppa_7018.svg",
+        "mobile_image": "shopify:\/\/shop_images\/poggio_map_mobile_2x_6052fc8c-7709-45f6-9862-ab70878dc900.jpg",
+        "margin-options": "center",
+        "height": "adapt",
+        "layout": "text_first",
+        "desktop_content_alignment": "left",
+        "desktop_content_bg": "Color",
+        "content-bg-color": "#ffffff",
+        "color_on_top_of_bg_image": false,
+        "max-width": "600",
+        "mobile_content_alignment": "left",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_left": 36,
+        "padding_right": 0
+      }
+    },
+    "23d02801-2134-4d2b-8e69-1ff116ad8b4a": {
+      "type": "wine-scroll",
+      "blocks": {
+        "b18b58eb-f246-4daa-baf0-e9d8e398fec5": {
+          "type": "product",
+          "settings": {
+            "product": "santedame"
+          }
+        },
+        "51fbe664-6e28-4185-befd-ba8451c8713e": {
+          "type": "product",
+          "disabled": true,
+          "settings": {
+            "product": ""
+          }
+        },
+        "6c480207-6a99-4673-90d6-530d5f56729f": {
+          "type": "product",
+          "disabled": true,
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "b18b58eb-f246-4daa-baf0-e9d8e398fec5",
+        "51fbe664-6e28-4185-befd-ba8451c8713e",
+        "6c480207-6a99-4673-90d6-530d5f56729f"
+      ],
+      "settings": {
+        "custom_class": "",
+        "title": "Estate Wines",
+        "subtitle": "<p>Our diverse collection of wines showcases the rich heritage and innovative spirit of Ruffino, with a special emphasis on the artistry of our exceptional red wines.<\/p>"
+      }
+    },
+    "9dbc4be8-b617-403d-9bba-543b90d1a9ba": {
+      "type": "home-horizontal-scroll",
+      "blocks": {
+        "66692722-56ea-48a1-bbf8-51eb856800f6": {
+          "type": "slide",
+          "settings": {
+            "title": "CANTINA RUFFINO",
+            "img": "shopify:\/\/shop_images\/AA.jpg",
+            "text": "An unforgettable fusion of Tuscan history, art, aromas and flavors. \nEmbark on immersive tours and tastings that go beyond the ordinary",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        },
+        "950e4894-82ce-41f6-a642-02bf4d2fd2bc": {
+          "type": "slide",
+          "settings": {
+            "title": "ENOTECA RUFFINO",
+            "img": "shopify:\/\/shop_images\/DSC02345-Edit.jpg",
+            "text": "Sip, savor, and surround yourself with Tuscan splendor",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        },
+        "25fb6248-0e1b-4d0b-b768-b890005ab12e": {
+          "type": "slide",
+          "settings": {
+            "title": "TRE RANE",
+            "img": "shopify:\/\/shop_images\/DSC02838.jpg",
+            "text": "Where Tuscan fine dining becomes an art form",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        },
+        "cd156950-438b-4a15-9098-f37838da1381": {
+          "type": "slide",
+          "settings": {
+            "title": "CASA RUFFINO",
+            "img": "shopify:\/\/shop_images\/a8ff7b6a18ac8742c893d2b7a7d73549.jpg",
+            "text": "A sophisticated villa amidst the vines",
+            "btn-txt": "More",
+            "url": ""
+          }
+        },
+        "2c85c90e-d0ff-4fd8-944d-fe5a94021be8": {
+          "type": "slide",
+          "settings": {
+            "title": "EVENTS",
+            "img": "shopify:\/\/shop_images\/DSC02672-Edit.jpg",
+            "text": "Gather in a magical setting",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "66692722-56ea-48a1-bbf8-51eb856800f6",
+        "950e4894-82ce-41f6-a642-02bf4d2fd2bc",
+        "25fb6248-0e1b-4d0b-b768-b890005ab12e",
+        "cd156950-438b-4a15-9098-f37838da1381",
+        "2c85c90e-d0ff-4fd8-944d-fe5a94021be8"
+      ],
+      "custom_css": [
+        "h3 {font-size: 35px;}"
+      ],
+      "settings": {
+        "title": "EXPERIENCE"
+      }
+    },
+    "dbedf73e-40fb-4718-ae2a-fb3eac792f38": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16189229301910__dbedf73e-40fb-4718-ae2a-fb3eac792f38-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "ICONIC WINES, THE TUSCAN WAY",
+            "heading_size": "h1"
+          }
+        },
+        "template--16189229301910__dbedf73e-40fb-4718-ae2a-fb3eac792f38-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover Ruffino's extensive selection, where every bottle represents a unique facet of our rich legacy.<br\/>From remarkable reds, shaped by storied terroirs, to timeless whites that pay homage to the heritage of Tuscan winemaking. Explore the quintessence of our terroir, where tradition harmoniously coexists with innovation. Revel in the effervescence that encapsulates Italian sophistication and savor our spirits, grappa, and olive oils—a triumphant celebration of flavors that transcend the boundaries of wine, encapsulating the very essence of our heritage.<br\/><\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16189229301910__dbedf73e-40fb-4718-ae2a-fb3eac792f38-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "BUY NOW",
+            "button_link": "shopify:\/\/collections\/our-wines"
+          }
+        }
+      },
+      "block_order": [
+        "template--16189229301910__dbedf73e-40fb-4718-ae2a-fb3eac792f38-heading-1",
+        "template--16189229301910__dbedf73e-40fb-4718-ae2a-fb3eac792f38-text-1",
+        "template--16189229301910__dbedf73e-40fb-4718-ae2a-fb3eac792f38-button-1"
+      ],
+      "settings": {
+        "class_name": "our-estates-section-2 poggio-img-text-2",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "headingcolor": "#000000",
+        "descriptioncolor": "#000000",
+        "button_color": "#ffffff",
+        "button_text_color": "#000000",
+        "border_color": "#ffffff",
+        "image": "shopify:\/\/shop_images\/Ruffino_Beautyshots_15_2x_c04cb706-dcaf-4e18-bd3b-e3eb1645dc19.png",
+        "mobile_image": "shopify:\/\/shop_images\/Ruffino_Beautyshot_7_bottles_01_2x_0d8c8f6b-ad03-4b6e-893e-41363e3ae08f.png",
+        "margin-options": "center",
+        "height": "adapt",
+        "layout": "image_first",
+        "desktop_content_alignment": "left",
+        "desktop_content_bg": "Color",
+        "content-bg-color": "#ffffff",
+        "color_on_top_of_bg_image": false,
+        "max-width": "600",
+        "mobile_content_alignment": "left",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_left": 24,
+        "padding_right": 24
+      }
+    },
+    "803b4b93-de28-47aa-b26b-6fe976a7b5e1": {
+      "type": "small-banner",
+      "settings": {
+        "background-image-desktop": "shopify:\/\/shop_images\/Ruffino_GrepponeMazzi_8411062.jpg",
+        "background-image-mobile": "shopify:\/\/shop_images\/Ruffino_GrepponeMazzi_8411062_b78f6615-7c02-4633-b3df-71a9654efcf4.jpg",
+        "opacity": 50,
+        "text": "DISCOVER<br> OUR ESTATES",
+        "url": "shopify:\/\/pages\/our-estates",
+        "btn-txt": "More",
+        "btn-txt-aria-label": "Discover Our Estate More",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "7b2b908b-3e4e-4376-ba56-a0654a06ed84",
+    "bc58e2d5-19a1-4d46-9588-626926ad86cf",
+    "91ff762c-1b19-4425-b4b1-b639c70ae942",
+    "10e89d10-4921-46d5-820a-4267d0337203",
+    "23d02801-2134-4d2b-8e69-1ff116ad8b4a",
+    "9dbc4be8-b617-403d-9bba-543b90d1a9ba",
+    "dbedf73e-40fb-4718-ae2a-fb3eac792f38",
+    "803b4b93-de28-47aa-b26b-6fe976a7b5e1"
+  ]
+}

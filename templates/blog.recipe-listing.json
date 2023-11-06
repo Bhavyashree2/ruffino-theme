@@ -1,0 +1,68 @@
+{
+  "sections": {
+    "af806f1a-fb18-4e01-be21-744ab3cffe81": {
+      "type": "Banner",
+      "settings": {
+        "custom-class": "recipe-listing",
+        "heading-type": "H1",
+        "heading": "Recipes",
+        "heading-color": "#ffffff",
+        "description": "",
+        "description-color": "#000000",
+        "button-label": "",
+        "button-link": "",
+        "button-color": "#000000",
+        "button-bg-color": "",
+        "button-border-color": "",
+        "content-position": "Center",
+        "content-scale": 5,
+        "desktop-height": "400px",
+        "mobile-height": "400px",
+        "background-type": "Image",
+        "background-color": "",
+        "background-image": "shopify:\/\/shop_images\/recipe-banner.webp",
+        "bg-img-alt-text": "",
+        "overlay_desktop": true,
+        "overlay_mobile": true,
+        "overlay_color": "#000000",
+        "background-url": "",
+        "video-banner-description": ""
+      }
+    },
+    "main": {
+      "type": "blog-listing",
+      "settings": {
+        "custom_class": "",
+        "heading": "",
+        "text-color": "#4d4c7d",
+        "padding_top": 80,
+        "padding_bottom": 20,
+        "paginate_limit": 16,
+        "post_per_row": 4
+      }
+    },
+    "604a050b-2fde-47ee-b94b-50f03459c898": {
+      "type": "newsletter",
+      "settings": {
+        "newsletter_enable": true,
+        "check_background_image": false,
+        "klaviyo_list_id": "RvEbDF",
+        "newsletter_heading": "Email Sign Up",
+        "newsletter_subheading": "Get news and marketing",
+        "newsletter_consent_text": "I have read and agree to Next Door Cocktails’s <a href=\".\/pages\/privacy\">privacy policy<\/a> and <a href=\".\/pages\/terms\">terms and conditions<\/a> and consent to Next Door Cocktails’s use of my personal information for marketing and analytics purposes, including receiving marketing and promotional communications.",
+        "newsletter_button_text": "Subscribe",
+        "newsletter_bg_color": "#d6e4e5",
+        "newsletter_heading_color": "#4d4c7d",
+        "newsletter_color_input": "#4d4c7d",
+        "newsletter_color_terms": "#4d4c7d",
+        "newsletter_button_bg_color": "#4d4c7d",
+        "newsletter_button_text_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "af806f1a-fb18-4e01-be21-744ab3cffe81",
+    "main",
+    "604a050b-2fde-47ee-b94b-50f03459c898"
+  ]
+}

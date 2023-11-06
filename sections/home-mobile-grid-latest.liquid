@@ -1,0 +1,158 @@
+<style>
+    #shopify-section-{{ section.id }} {
+        margin-top: {{ section.settings.margin_top }}px;
+        margin-bottom: {{ section.settings.margin_bottom }}px;
+      }
+
+      @media screen and (min-width: 767px) {
+        #shopify-section-{{ section.id }} {
+          display: none;
+        }
+      }
+</style>
+<div class="grid-container">
+    {% for article in section.settings.blog.articles %}
+        <div class="mobile-grid-box no-left-border{% if forloop.index == 4 %} no-right-border{% endif %}">
+            <div class="box-content">
+                <p class="home-grid-date tw-text-left tw-w-[342px] tw-font-neutraface-display-light tw-text-black tw-text-xl tw-mt-7 mobile:tw-w-[300px]">{{ article.published_at | date: "%m %d %Y" }}</p>
+                <h3 class="tw-w-[342px] tw-text-[#231f20] tw-font-made-saonara tw-uppercase tw-font-normal tw-text-[35px] tw-leading-[42px] mobile:tw-text-[30px] mobile:tw-leading-[35px] mobile:tw-w-[300px] tw-mt-3">{{ article.title }}</h3>
+                {% if article.image == blank %}
+                    <svg enable-background="new 0 0 221 221" version="1.1" viewBox="0 0 221 221" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="hover-arrow tw-hidden tw-relative tw-left-full -tw-mt-[100px] tw-w-[33px] tw-h-[33px]">
+                      <style type="text/css">     
+                          .box-content:hover svg path,
+                          .box-content:hover svg line,
+                          .box-content:focus-visible svg path,
+                          .box-content:focus-visible svg line { stroke: white;}                       
+                          .st01{fill:none;stroke:#ffffff;stroke-width:6;stroke-miterlimit:10;}
+                      </style>
+                      <image transform="matrix(3.3321 0 0 3.3321 -66.456 -56.132)" width="117" height="94" display="none" overflow="visible" xlink:href="6959470A.jpg">
+                      </image>
+                      <line class="st01" x1="70.4" x2="150.6" y1="110.5" y2="110.5"/>
+                      <path class="st01" d="m110.8 83.9s21.7 26.6 39.5 26.6"/>
+                      <path class="st01" d="m110.2 137.1s22-26.6 40.1-26.6"/>
+                      <circle class="st01" cx="110.5" cy="110.5" r="107.5"/>
+                      </svg>
+                    {% endif %}
+                    <p class="tw-text-left tw-w-[342px] tw-font-neutraface-display-light tw-text-black tw-text-xl tw-mt-7 mobile:tw-w-[300px]">{{ article.excerpt }}</p>
+          
+                    {% if article.url %}
+                        <a href="{{ article.url }}" aria-label="{{ article.title }} More"
+                            class="more-btn tw-flex tw-justify-between tw-items-center tw-pl-3 tw-font-neutraface-display-bold tw-text-black tw-text-xs tw-uppercase tw-mt-10 tw-w-[100px] tw-h-[33px] tw-rounded-[33px] hover:tw-bg-black hover:tw-text-white tw-transition-all tw-duration-200 tw-ease-in mobile:tw-mt-7 slide-{{ forloop.index }}   focus-visible:tw-bg-black focus-visible:tw-text-white" tabindex="0">
+                            {{ section.settings.btn-txt }}
+                             <?xml version="1.0" encoding="UTF-8"?>
+                                <svg enable-background="new 0 0 221 221" version="1.1" viewBox="0 0 221 221" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="tw-w-[33px] tw-h-[33px]">
+                                    <style type="text/css"> 
+                                    .slide-{{ forloop.index }}:hover svg path,
+                                    .slide-{{ forloop.index }}:hover svg line,
+                                    .slide-{{ forloop.index }}:focus-visible svg path,
+                                    .slide-{{ forloop.index }}:focus-visible svg line { stroke: white;}                            
+                                    .home-slide.grid-animation-col .st0{fill:none;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+                                </style>
+                                <image transform="matrix(3.3321 0 0 3.3321 -66.456 -56.132)" width="117" height="94" display="none" overflow="visible" xlink:href="6959470A.jpg">
+                                </image>
+                                <line class="st0" x1="70.4" x2="150.6" y1="110.5" y2="110.5"/>
+                                <path class="st0" d="m110.8 83.9s21.7 26.6 39.5 26.6"/>
+                                <path class="st0" d="m110.2 137.1s22-26.6 40.1-26.6"/>
+                                <circle class="st0" cx="110.5" cy="110.5" r="107.5"/>
+                                </svg> 
+                        </a>
+          
+                    {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<div class="tw-relative">&nbsp;</div>
+<style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
+    }
+    .mobile-grid-box {
+        padding:60px 20px 50px 20px;
+        border: 1px solid black;
+    }
+    .no-left-border {
+        border-left: none; /* remove the left border of the first and third grid boxes */
+    }
+    .no-right-border {
+        border-right: none;
+    }
+    .box-content {
+        align-items: center;
+        justify-content: center;
+        display: grid;
+    }
+    {% comment %} .grid-box:hover {
+        background-color:black;
+        z-index: 11;
+    }
+    .grid-box:hover p, .grid-box:hover h3 {
+        color:white;
+      }
+      .grid-box:hover .hover-arrow {
+        display: block;
+      } {% endcomment %}
+      /* Add the following CSS for mobile devices only */
+      @media (max-width: 767px) {
+        .grid-container {
+            display: flex;
+            overflow-x: scroll;
+            grid-template-columns: repeat(4, 1fr);
+            scrollbar-width: none; /* hide scrollbar for Firefox */
+            -ms-overflow-style: none; /* hide scrollbar for IE and Edge */
+        }
+        .grid-container::-webkit-scrollbar {
+            display: none; /* hide scrollbar for Chrome, Safari, and Opera */
+        }
+        .mobile-grid-box {
+            flex: 0 0 auto;
+        }
+    }
+</style>
+{% schema %}
+{
+  "name": "Grid Mobile List",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.footer.settings.margin_top.label",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.header.settings.margin_bottom.label",
+      "default": 36
+    },
+    {
+      "type": "text",
+      "id": "btn-txt",
+      "label": "Button text",
+      "default": "More"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Select Blog"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grid Mobile List"
+    }
+  ]
+}
+{% endschema %}

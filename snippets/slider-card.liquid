@@ -1,0 +1,94 @@
+<div class="recipe slider-{{section.id}} {% if article.template_suffix contains 'cocktail-recipe' or article.template_suffix contains 'food-recipe' %} max1024:!tw-px-[57px] max640:!tw-px-[1.15rem] ipad:!tw-px-[46px] {% endif %} {{ section.settings.section_class }} tw-relative tw-px-[120px]  tw-bg-[#eae4d6] max1024:tw-px-[64px] max768:tw-px-9 max640:tw-px-5 {% if section.settings.title_align == "title_left_link" %} max640:tw-px-5   max768:tw-px-[36px] {% endif %} {% if section.settings.title_align == "title_left" %} max1024:tw-px-[17px]  {%- endif -%} {% if section.settings.section_top_margin == "margin_80p" %} tw-pt-20 max767:tw-pt-[50px] {% elsif section.settings.section_top_margin == "margin_100p" %}  tw-pt-[130px] max767:tw-pt-[54px] {% elsif section.settings.section_top_margin == "margin_80p" %} tw-pt-[80px] {% elsif section.settings.section_top_margin == "margin_50p" %} tw-pt-[40px] max1366:tw-pt-[31px] {% elsif section.settings.section_top_margin == "margin_30p" %} tw-pt-[40px] {% else %} tw-pt-0 {% endif %}  {% if section.settings.section_bottom_margin == "margin_bottom_100p" %} tw-pb-24 {% elsif section.settings.section_bottom_margin == "margin_bottom_80p" %} tw-pb-[60px] {% elsif section.settings.section_bottom_margin == "margin_bottom_50p" %} tw-pb-[50px] max1680:tw-pb-[35px] max1366:tw-pb-[6px] max1280:tw-pb-[35px] max767:tw-pb-[33px] {% else %} tw-pb-0  {% endif %}">
+    <div class="{% if section.settings.section_margin == 'section_left' %} tw-flex {%- endif -%}">
+        <div class="{% if section.settings.section_margin == 'section_left' %} tw-w-[8%] max767:tw-w-0 {%- endif -%}"><p></p></div> 
+        <div class="{% if section.settings.section_margin == 'section_left' %} tw-w-[92%] max767:tw-w-full {%- endif -%}">
+        {%- if section.settings.main_title != blank -%}  
+            {% if section.settings.title_align == "title_center" %} 
+                <div class="tw-text-center tw-mb-5">
+                    <h2 class="tw-font-bigshoulders tw-text-[#292929] tw-uppercase tw-text-[40px] tw-tracking-letter06 max640:tw-text-[28px] max640:tw-tracking-letter042">{{ section.settings.main_title }}</h2>
+                </div> 
+            {% elsif section.settings.title_align == "title_left_link" %} 
+                <div class=" tw-mb-5 tw-flex max767:tw-flex-wrap">
+                    <div class="heading tw-text-left tw-w-[41.6667%] max767:tw-w-full">
+                        <h2 class="tw-font-bigshoulders tw-font-bold tw-text-[70px] tw-not-italic tw-uppercase tw-leading-[1em] tw-tracking-[2.8px] max640:tw-text-[32px] max640:tw-tracking-[.01828571px] max767:tw-w-full max1366:tw-w-[55%] ipadPro:tw-w-[63%] ipad:tw-w-[87%] ipadProLandscape:tw-w-full title-left-link"><a href="{{ main_title_link }}" aria-label="{{ section.settings.main_title }}" class="headingColor headingColor-link tw-text-[#3c4428] tw-no-underline tw-border-solid tw-border-b tw-pb-px tw-bg-transparent tw-border-b-[rgba(60,68,40,.3)] tw-transition-opacity tw-transition-colors tw-delay-100 hover:tw-opacity-60 ">{{ section.settings.main_title }}</a></h2>
+                    </div>
+                    {%- if section.settings.description != blank -%}
+                        <div class="title-discription tw-w-[58.3333%] max767:tw-w-full tw-pl-[17px] max767:tw-pl-0">
+                            <div class="tw-text-[#290000] tw-font-garamond tw-font-normal tw-text-[29px] tw-leading-[37.7px] tw-not-italic tw-normal-case tw-tracking-normal max640:tw-text-2xl tw-w-[40%] max767:tw-w-full max767:tw-mt-7">
+                                {{ section.settings.description }}
+                            </div>
+                            {%- if section.settings.btn_label != blank -%}
+                            <div class="tw-py-4 tw-pr-4 tw-pl-0 tw-w-[40%]   max767:tw-w-full max767:tw-text-left max767:tw-mt-3 tw-mt-4 ">
+                                <a {% if section.settings.button_link == blank %} aria-disabled="true" {% else %} href="{{ section.settings.button_link }}" {% endif %} {% if section.settings.enable_new_tab == true %} target="_blank" {% endif %} class=" focus:tw-underline tw-bg-[#3c4428] tw-border-[#3c4428] tw-text-[#fdfaf7] tw-font-garamond tw-rounded-three tw-border-0 tw-cursor-pointer tw-inline-block tw-font-semibold tw-h-auto tw-text-xl tw-py-5 tw-px-8 tw-not-italic tw-uppercase tw-no-underline tw-tracking-wider tw-w-auto hover:tw-opacity-80 hover:tw-underline tw-transition-opacity tw-delay-100 tw-text-center">{{ section.settings.btn_label }}
+                                </a> 
+                            </div>
+                            {%- endif -%}
+                        </div>
+                    
+                    {%- endif -%}
+                </div>
+            {% else %}
+                {% if section.settings.title_tag == 'h1' %}
+                <div class="tw-mb-5">
+                    <h1 class="tw-font-bigshoulders tw-font-bold tw-text-[70px] tw-not-italic tw-uppercase tw-leading-[1em] tw-tracking-[2.8px] max640:tw-text-[32px] max640:tw-tracking-[.01828571px] tw-text-[#3c4428] tw-ml-3 max767:tw-ml-1 max1366:tw-pb-[10px] max1366:tw-ml-[9px]">{{ section.settings.main_title }}</h1>
+                </div>
+                {% else %}
+                <div class="tw-mb-5">
+                    <h2 class="tw-font-bigshoulders tw-font-bold tw-text-[70px] tw-not-italic tw-uppercase tw-leading-[1em] tw-tracking-[2.8px] max640:tw-text-[32px] max640:tw-tracking-[.01828571px] tw-text-[#3c4428] tw-ml-3 max767:tw-ml-1 max1366:tw-pb-[10px] max1366:tw-ml-[9px]">{{ section.settings.main_title }}</h2>
+                </div>
+                {% endif %}
+            {% endif %}
+        
+        {%- endif -%}
+        
+        {%- if section.settings.sub_title != blank -%}  
+            <p class=" tw-text-sm tw-mb-4 tw-pl-3 tw-absolute tw-text-[#2d1300] tw-font-garamond tw-capitalize tw-tracking-normal">{{ section.settings.sub_title }}</p> 
+        {%- endif -%} 
+        
+        <div class="{% if section.settings.section_margin == 'section_left' %} tw-flex {%- endif -%}"></div>
+        <div class="{% if section.settings.section_margin == 'section_left' %} tw-w-[81.8182%] max767:tw-w-full  {%- endif -%}">
+            <div class="multiple-items tw-pt-[36px] {{ section.settings.slider_class }} tw-relative  {% if section.settings.container_width == 'full_width' %} tw-w-full {% elsif section.settings.container_width == 'container_padding' %} tw-w-[85%] tw-block tw-mx-auto tw-my-0 max767:tw-w-full {% endif %} " data-slick='{"autoplay": {{ section.settings.carousel_autoplay }}, "autoplaySpeed": {{ section.settings.autoplay_speed }},"dots": {{section.settings.carousel_dots}},  "arrows": {{section.settings.carousel_arrows}}, "slidesToShow" :{{section.settings.images_per_page}}, "slidesToScroll" :{{section.settings.images_per_page}}, "infinite":{{section.settings.infinite}}, "responsive": [ { "breakpoint": 670, "settings": { "slidesToShow": {{section.settings.images_per_page_ipad}},"slidesToScroll": {{section.settings.images_per_page_ipad}} }},{ "breakpoint": 480, "settings": { "slidesToShow": {{ section.settings.images_per_page_mobile}},"slidesToScroll": {{ section.settings.images_per_page_mobile}} }}] }'>
+                {% assign count = 0 %}
+                {%- assign selectBlog =  blogs[section.settings.blog_select] -%} 
+                 {% paginate selectBlog.articles by 999 %}
+                {% for item in selectBlog.articles %}
+                    {% if item.tags contains section.settings.tag_slug %}
+                    <div class="slide tw-mr-3 tw-ml-3 max768:tw-mx-2  focus-visible:tw-outline-hidden focus-visible:tw-border-2 focus-visible:tw-border-black focus-visible:tw-outline-0 focus-visible:tw-shadow-none {% if section.settings.images_per_page == 5 %} max1440:tw-ml-2 max1440:tw-mr-2  {% endif %} {% if section.settings.images_per_page == 4 %} max768:tw-mx-1 {% endif %} {% if section.settings.title_align == "title_left" %} max767:tw-mx-1 {% endif %}" aria-label="Recipe {{ item.title | escape}} ">
+                        <div class="tw-relative tw-block " >
+                        <a href="{{ item.url }}" aria-label="{{ item.title | escape}}" class="recipe-link tw-block  focus-visible:tw-outline-hidden focus-visible:tw-border-2 focus-visible:tw-border-black focus-visible:tw-outline-0 focus-visible:tw-shadow-none">
+                        {% if section.settings.image_orientation == 'landscape' %}
+                            <div class="image-box  tw-overflow-hidden  {% if section.settings.container_width == 'full_width' %}tw-pb-[65%]{% elsif section.settings.container_width == 'container_padding' %} tw-pb-[90%]{% endif %} tw-w-full tw-h-0 tw-block tw-cursor-pointer">
+                                
+                                <img src="{{ item.metafields.custom.listing_image | img_url: 'original' }}" class="lazyload tw-border-0 tw-relative tw-left-0 tw-w-full -tw-top-[60px] tw-cursor-pointer" alt="{{ item.image.alt }}" width="" height="" loading="lazy" role="link" data-pin-no-hover="true" />   
+                            </div> 
+                        {% else %}
+                            <div class=" background-image tw-cursor-pointer {% if section.settings.images_per_page >= 5 %} max1920:tw-h-[230px] max2560:tw-h-[318px] max1600:tw-h-[186px] max1680:tw-h-[197px] max1536:tw-h-[177px] max1440:tw-h-[164px] max1366:tw-h-[154px] max1280:tw-h-[142px] max1024:tw-h-[122px] max991:tw-h-[94px] max767:tw-h-[183px] max640:tw-h-[164px] screen736:tw-h-[183px] screen667:tw-h-[164px] max400:tw-h-[171px] extraSmall:tw-h-[190px] iphone11:tw-h-[183px] max375:tw-h-[164px] tw-overflow-hidden {% endif %} {% if section.settings.images_per_page == 4 %} max1280:tw-h-[202px] max1366:tw-h-[219px] max1440:tw-h-[234px] max1536:tw-h-[252px] max1600:tw-h-[265px] max1680:tw-h-[280px] max1920:tw-h-[327px] max2560:tw-h-[453px] ipadPro:tw-h-[174px] ipad:tw-h-[135px] max767:tw-h-[164px]   {% endif %} "  > 
+                                <img src="{{ item.metafields.custom.listing_image | img_url: 'original' }}" alt="{{ item.image.alt }}" width="" height="" loading="lazy" role="link" class="tw-w-full tw-h-full tw-object-cover tw-cursor-pointer" data-pin-no-hover="true"> 
+                            </div>  
+                        {% endif %} 
+                            <p class=" tw-mt-3 tw-text-[20px] tw-tracking-normal tw-text-[#2D1300] tw-font-garamond hover:tw-underline  focus:tw-underline tw-leading-tight tw-cursor-pointer">{{ item.title | escape}} </p>  
+                            {% if section.settings.show_tags == true %}
+                               <p class="tw-text-[13px] tw-opacity-70 tw-leading-[1.4em] tw-pt-[10px] tw-text-[#2d1300] tw-font-garamond tw-tracking-normal"> {{ item.published_at | time_tag: '%b %d, %Y' }} </p>  
+                            {% endif %}  
+                        </a>          
+                        </div>
+                    </div>
+                    {% assign count = count | plus: 1 %}
+                    {% endif %}
+                
+                {% endfor %} 
+                {% endpaginate %}
+                {%- comment -%} To display empty slides in dsktop version to match design as in production {%- endcomment -%}
+                {% assign result = section.settings.empty_slides %}
+                {%- if result > 0 -%}
+                    {% for i in (1..result) %}
+                        <div class="slide hide-on-mobile tw-mr-3 tw-ml-3 max768:tw-mx-2 tw-overflow-hidden" tabindex="-1"><div class=" tw-mb-4" tabindex="-1"></div></div>
+                    {% endfor %}
+                {%- endif -%}
+                
+            </div>
+        </div>
+        <div class="{% if section.settings.section_margin == 'section_left' %} tw-w-[18.1818%] max767:tw-w-0 {%- endif -%}"><p></p></div>
+        </div>
+    </div>
+</div>

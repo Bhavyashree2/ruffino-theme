@@ -1,0 +1,137 @@
+<style>
+    #shopify-section-{{ section.id }} {
+        margin-top: {{ section.settings.margin_top }}px;
+        margin-bottom: {{ section.settings.margin_bottom }}px;
+      }
+
+      @media screen and (max-width: 767px) {
+        #shopify-section-{{ section.id }} {
+          display: none;
+        }
+      }
+</style>
+<div class="grid-container">
+    {% for article in section.settings.blog.articles %}
+        <div class="grid-box{% if forloop.index == 1 or forloop.index == 3 %} no-left-border{% endif %}{% if forloop.index == 2 or forloop.index == 4 %} no-left-right-border{% endif %}{% if forloop.index == 3 or forloop.index == 4 %} no-top-border{% endif %}" tabindex="0" role="link" aria-label="{{ article.title }}">
+            <div class="box-content">
+                <p class="home-grid-date tw-text-left tw-w-[342px] tw-font-neutraface-display-light tw-text-black tw-text-xl tw-mt-7 mobile:tw-w-[300px]">{{ article.published_at | date: "%m %d %Y" }}</p>
+                <h3 class="tw-w-[342px] tw-text-[#231f20] tw-font-made-saonara tw-uppercase tw-font-normal tw-text-[35px] tw-leading-[42px] mobile:tw-text-[30px] mobile:tw-leading-[35px] mobile:tw-w-[300px] tw-mt-3">{{ article.title }}</h3>
+                {% if article.image == blank %}
+                    <a href="{{ article.url }}" aria-label="{{ article.title }}" class="hover-arrow tw-hidden tw-relative tw-left-full minmax768:tw-left-[90%] -tw-mt-[70px] minmax768:-tw-mt-[40px] tw-w-[33px] minmax768:tw-w-[27px] tw-h-[33px] minmax768:tw-h-[27px]">
+                      <svg enable-background="new 0 0 221 221" version="1.1" viewBox="0 0 221 221" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <style type="text/css">     
+                            .box-content:hover svg path,
+                            .box-content:hover svg line,
+                            .box-content:focus-visible svg path,
+                            .box-content:focus-visible svg line { stroke: white;}                       
+                            .st01{fill:none;stroke:#ffffff;stroke-width:6;stroke-miterlimit:10;}
+                        </style>
+                        <image transform="matrix(3.3321 0 0 3.3321 -66.456 -56.132)" width="117" height="94" display="none" overflow="visible" xlink:href="6959470A.jpg">
+                        </image>
+                        <line class="st01" x1="70.4" x2="150.6" y1="110.5" y2="110.5"/>
+                        <path class="st01" d="m110.8 83.9s21.7 26.6 39.5 26.6"/>
+                        <path class="st01" d="m110.2 137.1s22-26.6 40.1-26.6"/>
+                        <circle class="st01" cx="110.5" cy="110.5" r="107.5"/>
+                        </svg>
+                    </a>
+                    {% endif %}
+                    <p class="tw-text-left tw-w-[342px] tw-font-neutraface-display-light tw-text-black tw-text-xl tw-mt-7 mobile:tw-w-[300px]">{{ article.excerpt }}</p>
+          
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
+    }
+    .grid-box {
+        padding:60px 20px 50px 20px;
+        border: 1px solid black;
+    }
+    .no-left-border {
+        border-left: none;
+    }
+    .no-left-right-border {
+        border-right: none; 
+        border-left: none;
+    }
+    .no-top-border{
+        border-top: none;
+    }
+    .box-content {
+        align-items: center;
+        justify-content: center;
+        display: grid;
+    }
+    .grid-box:hover, .grid-box:focus, .grid-box:focus-visible {
+        background-color:black;
+        z-index: 11;
+    }
+    .grid-box:hover p, .grid-box:hover h3, .grid-box:focus p, .grid-box:focus h3, .grid-box:focus-visible p, .grid-box:focus-visible h3 {
+        color:white;
+    }
+    .grid-box:hover .hover-arrow, .grid-box:focus .hover-arrow, .grid-box:focus-visible .hover-arrow {
+      display: block;
+    }
+</style>
+{% schema %}
+{
+  "name": "Grid Blog",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.footer.settings.margin_top.label",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.header.settings.margin_bottom.label",
+      "default": 36
+    },
+    {
+      "type": "text",
+      "id": "btn-txt",
+      "label": "Button text",
+      "default": "More"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Select Blog"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grid Blog"
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+  const gridBoxes = document.querySelectorAll('.grid-box');
+  gridBoxes.forEach((box) => {
+    const anchorLink = box.querySelector('a');
+    box.addEventListener('keydown', (event) => {
+      if (event.keyCode === 13 || event.keyCode === 32) {
+        anchorLink.click();
+      }
+    });
+  }); 
+</script>

@@ -1,0 +1,217 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "3b4decbd-6878-4da9-af78-20658a01d4c6": {
+      "type": "Banner",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "custom-class": "experience",
+        "heading-type": "H1",
+        "heading": "EXPERIENCE",
+        "heading-shadow": true,
+        "heading-color": "#000000",
+        "description": "",
+        "description-color": "#000000",
+        "button-label": "",
+        "button-link": "",
+        "button-color": "#ffffff",
+        "button-bg-color": "",
+        "button-border-color": "#ffffff",
+        "content-position": "Center",
+        "content-scale": 25,
+        "desktop-height": "85vh",
+        "mobile-height": "360px",
+        "background-type": "Image",
+        "background-color": "",
+        "background-image-desktop": "shopify:\/\/shop_images\/DSC02319-Edit.jpg",
+        "background-image-mobile": "shopify:\/\/shop_images\/DSC02319-Edit_d09f136d-0edc-4800-9557-2017b11819aa.jpg",
+        "bg-img-alt-text": "",
+        "overlay_desktop": false,
+        "overlay_mobile": false,
+        "overlay_color": "#000000",
+        "desktop-background-url": "",
+        "mobile-background-url": "",
+        "video-banner-description": ""
+      }
+    },
+    "e74bbd31-224f-4e5d-81ba-617670286477": {
+      "type": "heading-with-rightside-text",
+      "settings": {
+        "custom-class": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "headingcolor": "#000000",
+        "heading-1": "REDEFINING YOUR STAY:",
+        "heading-2": "EMBRACE THE TRUE ESSENCE",
+        "heading-3": "OF A TUSCAN WELCOME",
+        "heading-4": "",
+        "mobile-heading": "REDEFINING YOUR STAY: EMBRACE THE TRUE ESSENCE OF A TUSCAN WELCOME",
+        "heading_size": "h1",
+        "descriptioncolor": "#4d3c7d",
+        "description": "<p>Elevate Your <strong>Ruffino Experience<\/strong>. We transcend boundaries and invite you to discover a world where every moment is a gateway to new insights, boundless thrills, top-notch vino, and warm Tuscan welcomes. <br\/>Forge instant connections and accompany us on a journey to enlighten your senses, with an emphasis on design, beauty, and the rich tapestry of Renaissance history.<br\/><\/p>",
+        "content-position": "Right"
+      }
+    },
+    "0322e14e-fb13-4dc0-8504-467052083217": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083217-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "POGGIO CASCIANO",
+            "heading_size": "h2"
+          }
+        },
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083217-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Embark on a unique Tuscan journey at <strong>Tenuta Poggio Casciano<\/strong>, the enchanting heart of <strong>Ruffino<\/strong>. Bask in the beauty and ultimate tranquility of nature. Indulge in wine tastings, fine dining at <strong>Tre Rane<\/strong>, and a memorable stay at <strong>Casa Ruffino <\/strong>with a splendid pool, stunning views, and sumptuous breakfasts.<br\/><\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083217-button-1": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "btn-txt-aria-label": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083217-heading-1",
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083217-text-1",
+        "template--16103223853206__0322e14e-fb13-4dc0-8504-467052083217-button-1"
+      ],
+      "custom_css": [
+        ".experience-img-w-text h2 {max-width: 500px;}",
+        "@media (max-width: 767px) {.experience-img-w-text h2 {max-width: 350px; }}"
+      ],
+      "settings": {
+        "class_name": "experience-img-w-text",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "headingcolor": "#000000",
+        "descriptioncolor": "#000000",
+        "button_color": "#ffffff",
+        "button_text_color": "#000000",
+        "border_color": "#000000",
+        "image": "shopify:\/\/shop_images\/DSC02645-Edit.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/DSC02645-Edit_04e4c80c-f32e-48b9-95ad-41df62d8a597.jpg",
+        "margin-options": "center",
+        "height": "adapt",
+        "layout": "image_first",
+        "desktop_content_alignment": "left",
+        "desktop_content_bg": "Color",
+        "content-bg-color": "#ffffff",
+        "color_on_top_of_bg_image": false,
+        "max-width": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_left": 24,
+        "padding_right": 24
+      }
+    },
+    "b502c0ad-902c-459e-9ba8-8658d45ca871": {
+      "type": "home-horizontal-scroll",
+      "blocks": {
+        "e634f971-1fee-4858-b861-b4f9c716bbdf": {
+          "type": "slide",
+          "settings": {
+            "title": "CANTINA RUFFINO",
+            "img": "shopify:\/\/shop_images\/AA.jpg",
+            "text": "a sophisticated villa amidst the vines",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        },
+        "af892e06-562d-4a0d-a63e-67e803af2fb5": {
+          "type": "slide",
+          "settings": {
+            "title": "ENOTECA RUFFINO",
+            "img": "shopify:\/\/shop_images\/DSC02345-Edit.jpg",
+            "text": "sip, savor, and surround yourself with Tuscan splendor",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        },
+        "7ebab408-ac70-4204-9b75-e0a374a2bcf7": {
+          "type": "slide",
+          "settings": {
+            "title": "TRE RANE",
+            "img": "shopify:\/\/shop_images\/DSC02838.jpg",
+            "text": "where Tuscan fine dining becomes an art form",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        },
+        "8df3afe2-c606-4612-b6d7-b3e403a5dd66": {
+          "type": "slide",
+          "settings": {
+            "title": "CASA RUFFINO",
+            "img": "shopify:\/\/shop_images\/a8ff7b6a18ac8742c893d2b7a7d73549.jpg",
+            "text": "a sophisticated villa amidst the vines",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        },
+        "b8916854-bfa9-49a6-b2ac-7c8a61ea56a1": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "title": "EVENTS",
+            "img": "shopify:\/\/shop_images\/DSC02672-Edit.jpg",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec sapien purus. Pellentesque sed mauris a metus maximus.",
+            "btn-txt": "More",
+            "url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "e634f971-1fee-4858-b861-b4f9c716bbdf",
+        "af892e06-562d-4a0d-a63e-67e803af2fb5",
+        "7ebab408-ac70-4204-9b75-e0a374a2bcf7",
+        "8df3afe2-c606-4612-b6d7-b3e403a5dd66",
+        "b8916854-bfa9-49a6-b2ac-7c8a61ea56a1"
+      ],
+      "custom_css": [
+        "h3 {font-size: 35px;}"
+      ],
+      "settings": {
+        "title": "EXPERIENCE"
+      }
+    },
+    "f4b4e959-1774-4837-9237-fc51b76bc273": {
+      "type": "rich-to-us-text-section",
+      "settings": {
+        "headingcolor": "#000000",
+        "heading-1": "HOW TO REACH US",
+        "heading-2": "TENUTA RUFFINO POGGIO CASCIANO",
+        "descriptioncolor": "#000000",
+        "description": "<p>Via Poggio al Mandorlo, 1 50011 Bagno a Ripoli [FI]<\/p><p>+39 055 64 99 750 | hospitality@ruffino.it<\/p>",
+        "btn-txt": "Maps",
+        "map-address": "Poggio al Mandorlo, 1, 50011 Bagno a Ripoli FI, Italy",
+        "map-url": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "3b4decbd-6878-4da9-af78-20658a01d4c6",
+    "e74bbd31-224f-4e5d-81ba-617670286477",
+    "0322e14e-fb13-4dc0-8504-467052083217",
+    "b502c0ad-902c-459e-9ba8-8658d45ca871",
+    "f4b4e959-1774-4837-9237-fc51b76bc273"
+  ]
+}

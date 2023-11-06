@@ -1,0 +1,85 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "17e8cb13-eca1-412b-aed5-bb051e90b9c6": {
+      "type": "Banner",
+      "settings": {
+        "custom-class": "",
+        "heading-type": "H2",
+        "heading": "",
+        "heading-color": "#000000",
+        "description": "",
+        "description-color": "#000000",
+        "button-label": "",
+        "button-link": "",
+        "button-color": "#000000",
+        "button-bg-color": "",
+        "button-border-color": "",
+        "content-position": "Left",
+        "content-scale": 5,
+        "desktop-height": "400px",
+        "mobile-height": "400px",
+        "background-type": "Image",
+        "background-color": "",
+        "background-image": "shopify:\/\/shop_images\/recipe-banner.webp",
+        "bg-img-alt-text": "",
+        "overlay_desktop": true,
+        "overlay_mobile": true,
+        "overlay_color": "#000000",
+        "background-url": "",
+        "video-banner-description": ""
+      }
+    },
+    "29b4e582-2efe-426a-a682-3f6ab726ea4d": {
+      "type": "recipes-slider",
+      "settings": {
+        "title": "Recipes",
+        "title_link": "",
+        "text-color": "#4d4c7d",
+        "heading-position": "Left",
+        "blog": "recipes",
+        "blog_tag": "",
+        "recipes_to_show": 5,
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "color_scheme": "#ffffff",
+        "image_ratio": "square",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 80,
+        "padding_bottom": 20
+      }
+    },
+    "805bff8a-41e3-4ab7-a4c5-a7e3a352a089": {
+      "type": "newsletter",
+      "settings": {
+        "newsletter_enable": true,
+        "check_background_image": false,
+        "klaviyo_list_id": "RvEbDF",
+        "newsletter_heading": "Email Sign Up",
+        "newsletter_subheading": "Get news and marketing",
+        "newsletter_consent_text": "I have read and agree to Next Door Cocktails’s <a href=\".\/pages\/privacy\">privacy policy<\/a> and <a href=\".\/pages\/terms\">terms and conditions<\/a> and consent to Next Door Cocktails’s use of my personal information for marketing and analytics purposes, including receiving marketing and promotional communications.",
+        "newsletter_button_text": "Subscribe",
+        "newsletter_bg_color": "#d6e4e5",
+        "newsletter_heading_color": "#4d4c7d",
+        "newsletter_color_input": "#4d4c7d",
+        "newsletter_color_terms": "#4d4c7d",
+        "newsletter_button_bg_color": "#4d4c7d",
+        "newsletter_button_text_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17e8cb13-eca1-412b-aed5-bb051e90b9c6",
+    "29b4e582-2efe-426a-a682-3f6ab726ea4d",
+    "805bff8a-41e3-4ab7-a4c5-a7e3a352a089"
+  ]
+}
